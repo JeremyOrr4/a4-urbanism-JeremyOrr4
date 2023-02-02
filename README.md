@@ -65,6 +65,6 @@ When you develop features and enrich the product, remember that you have first t
 
 | Id | Feature title | Who? | Start | End | Status |
 |:--:|---------------|------|-------|-----|--------|
-|    |               |      |       |     |        |
+| F01  |   Draw Segments between vertices            |      |       |     |        |
 
 
