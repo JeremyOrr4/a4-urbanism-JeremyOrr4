@@ -8,6 +8,7 @@ import java.awt.Graphics2D;
 import java.awt.Stroke;
 import java.awt.BasicStroke;
 import java.awt.Color;
+import java.awt.color.ColorSpace;
 import java.awt.geom.Ellipse2D;
 import java.util.Collections;
 import java.util.List;
@@ -21,7 +22,11 @@ public class GraphicRenderer {
         canvas.setColor(Color.BLACK);
         Stroke stroke = new BasicStroke(0.5f);
         canvas.setStroke(stroke);
-        //for (Vertex v: aMesh.getVerticesList()) 
+        //for (Vertex v: aMesh.getVerticesList())
+        int center_x = 0;
+        int center_y = 0;
+        int centerx_next = 20;
+        int centery_next = 0;
         
         for(int i=0; i<aMesh.getVerticesCount();i++){
 
@@ -36,14 +41,22 @@ public class GraphicRenderer {
             Color old = canvas.getColor();
             canvas.setColor(extractColor(v.getPropertiesList()));
             Ellipse2D point = new Ellipse2D.Double(centre_x, centre_y, THICKNESS, THICKNESS);
-            
-            
+
+
             canvas.fill(point);
-            canvas.setColor(old);
+            canvas.setColor(extractColor(v.getPropertiesList()));
 
-           // Vertex next = aMesh.getVertices(aMesh.getVerticesList().indexOf(v)+1); 
-
-            canvas.drawLine( (int)point.getCenterX(), (int)point.getCenterY(), (int)next.getX(), (int)next.getY());
+           // Vertex next = aMesh.getVertices(aMesh.getVerticesList().indexOf(v)+1);
+            canvas.drawLine( center_x, center_y, centerx_next, centery_next);
+            canvas.drawLine( center_x, center_y, center_x, (center_y+20));
+             center_x +=20;
+             centerx_next +=20;
+             if (i%26==0){
+                 center_x =0;
+                 centerx_next =20;
+                 center_y+=20;
+                 centery_next+=20;
+             }
 
             
            
