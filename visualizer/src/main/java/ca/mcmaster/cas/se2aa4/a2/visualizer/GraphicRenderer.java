@@ -29,9 +29,6 @@ public class GraphicRenderer {
         int centery_next = 0;
         
         for(int i=0; i<aMesh.getVerticesCount();i++){
-
-            
-            
             Vertex v = aMesh.getVertices(i); 
             System.out.println(v.getX() +", " +v.getY() );
             Vertex next =  (i+1<aMesh.getVerticesCount()) ? aMesh.getVertices(i+1) : aMesh.getVertices(0); 
@@ -57,9 +54,6 @@ public class GraphicRenderer {
                  center_y+=20;
                  centery_next+=20;
              }
-
-            
-           
         }
     }
 
