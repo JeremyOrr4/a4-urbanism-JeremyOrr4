@@ -29,21 +29,7 @@ public class GraphicRenderer {
         int centerx_next = 20;
         int centery_next = 0;
         
-        for(int i=0; i<aMesh.getVerticesCount();i++){
 
-            
-            
-            Vertex v = aMesh.getVertices(i); 
-            System.out.println(v.getX() +", " +v.getY() );
-            Vertex next =  (i+1<aMesh.getVerticesCount()) ? aMesh.getVertices(i+1) : aMesh.getVertices(0);
-
-            double centre_x = v.getX() - (THICKNESS/2.0d);
-            double centre_y = v.getY() - (THICKNESS/2.0d);
-            Color old = canvas.getColor();
-            canvas.setColor(extractColor(v.getPropertiesList()));
-            Ellipse2D point = new Ellipse2D.Double(centre_x, centre_y, THICKNESS, THICKNESS);
-            canvas.fill(point);
-        }
         for (int i=0;i< aMesh.getSegmentsCount();i++){
             Segment s = aMesh.getSegments(i);
             Vertex v = aMesh.getVertices(i);
@@ -67,6 +53,23 @@ public class GraphicRenderer {
             
            
         }
+
+        for(int i=0; i<aMesh.getVerticesCount();i++){
+
+            
+            
+            Vertex v = aMesh.getVertices(i); 
+            System.out.println(v.getX() +", " +v.getY() );
+            Vertex next =  (i+1<aMesh.getVerticesCount()) ? aMesh.getVertices(i+1) : aMesh.getVertices(0);
+
+            double centre_x = v.getX() - (THICKNESS/2.0d);
+            double centre_y = v.getY() - (THICKNESS/2.0d);
+            Color old = canvas.getColor();
+            canvas.setColor(extractColor(v.getPropertiesList()));
+            Ellipse2D point = new Ellipse2D.Double(centre_x, centre_y, THICKNESS, THICKNESS);
+            canvas.fill(point);
+        }
+    
     }
 
     private Color extractColor(List<Property> properties) {
