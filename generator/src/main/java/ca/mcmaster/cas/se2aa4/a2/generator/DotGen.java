@@ -30,8 +30,8 @@ public class DotGen {
             for(int y = 0; y < height; y += square_size) {
                  vertices.add(Vertex.newBuilder().setX((double) x).setY((double) y).build());
                  //add segments between vertices, skip edge segments (first segment after exceeding row )
-                 if(vertices.size() < 624 && (vertices.size()%rowSize !=rowSize-1) ) segments.add(Segment.newBuilder().setV1Idx(vertices.size()).setV2Idx(vertices.size()+1).build());  
-                 if(vertices.size() < 600 && (vertices.size()%rowSize !=rowSize-1) ) segments.add(Segment.newBuilder().setV1Idx(vertices.size()).setV2Idx(vertices.size()+rowSize).build());    
+                 if(vertices.size() < (rowSize*rowSize-1) && (vertices.size()%rowSize !=rowSize-1) ) segments.add(Segment.newBuilder().setV1Idx(vertices.size()).setV2Idx(vertices.size()+1).build());  
+                 if(vertices.size() < (rowSize*rowSize-rowSize) && (vertices.size()%rowSize !=rowSize-1) ) segments.add(Segment.newBuilder().setV1Idx(vertices.size()).setV2Idx(vertices.size()+rowSize).build());    
             }
           
         }
@@ -56,17 +56,15 @@ public class DotGen {
 
         ArrayList<Segment> segmentsWithColors = new ArrayList<>(); 
         for(Segment s: segments){           
+            
+            //Assign segment color based on average of associated vertices
             Property color = averageColor( verticesWithColors.get(s.getV1Idx()), verticesWithColors.get(s.getV2Idx())); 
-            //Property color = Property.newBuilder().setKey("rgb_color").setValue("0,0,0").build();
-
             Segment colored = Segment.newBuilder(s).addProperties(color).build(); 
             segmentsWithColors.add(colored); 
            
            
             
         }
-
-        System.out.println("Num verts: "+ verticesWithColors.size());
         return Mesh.newBuilder().addAllVertices(verticesWithColors).addAllSegments(segmentsWithColors).build();
     }
 
@@ -74,7 +72,7 @@ public class DotGen {
 
 
     /**
-     * 
+     * Used to determine the average color between two vertices in a mesh 
      * @param v1 a colored Vertex
      * @param v2 a colored Vertex
      * @return the average color between the two vertices
