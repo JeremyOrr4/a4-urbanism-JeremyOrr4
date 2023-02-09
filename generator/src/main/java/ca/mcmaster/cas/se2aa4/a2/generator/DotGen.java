@@ -16,32 +16,28 @@ public class DotGen {
     private final int height = 500;
     private final int square_size = 20;
 
+    private final int rowSize = width/square_size; 
+
 
 
     public Mesh generate() {
         Collection<Vertex> vertices = new ArrayList<>();
         Collection<Segment> segments = new ArrayList<>();
-        int seg=0;
+
+       
         // Create all the vertices
         for(int x = 0; x < width; x += square_size) {
             for(int y = 0; y < height; y += square_size) {
-                vertices.add(Vertex.newBuilder().setX((double) x).setY((double) y).build());
-                vertices.add(Vertex.newBuilder().setX((double) x+square_size).setY((double) y).build());
-
-                segments.add(Segment.newBuilder().setV1Idx(seg).setV2Idx(seg+1).build()); //segment between first two vertices
-
-                vertices.add(Vertex.newBuilder().setX((double) x).setY((double) y+square_size).build());
-
-                segments.add(Segment.newBuilder().setV1Idx(seg).setV2Idx(seg+2).build());//segment between first and third
-
-                vertices.add(Vertex.newBuilder().setX((double) x+square_size).setY((double) y+square_size).build());
-
-                segments.add(Segment.newBuilder().setV1Idx(seg+1).setV2Idx(seg+3).build());//segment between second and fourth
-
-                segments.add(Segment.newBuilder().setV1Idx(seg+2).setV2Idx(seg+3).build()); //segment between third and fourth
-                seg+=4;
+                 vertices.add(Vertex.newBuilder().setX((double) x).setY((double) y).build());
+                 //add segments between vertices, skip edge segments (first segment after exceeding row )
+                 if(vertices.size() < 624 && (vertices.size()%rowSize !=rowSize-1) ) segments.add(Segment.newBuilder().setV1Idx(vertices.size()).setV2Idx(vertices.size()+1).build());  
+                 if(vertices.size() < 600 && (vertices.size()%rowSize !=rowSize-1) ) segments.add(Segment.newBuilder().setV1Idx(vertices.size()).setV2Idx(vertices.size()+rowSize).build());    
             }
+          
         }
+
+     
+
         // Distribute colors randomly. Vertices are immutable, need to enrich them
         ArrayList<Vertex> verticesWithColors = new ArrayList<>();
         Random bag = new Random();
@@ -55,7 +51,58 @@ public class DotGen {
             verticesWithColors.add(colored);
         }
 
-        return Mesh.newBuilder().addAllVertices(verticesWithColors).addAllSegments(segments).build();
+       
+
+
+        ArrayList<Segment> segmentsWithColors = new ArrayList<>(); 
+        for(Segment s: segments){           
+            Property color = averageColor( verticesWithColors.get(s.getV1Idx()), verticesWithColors.get(s.getV2Idx())); 
+            //Property color = Property.newBuilder().setKey("rgb_color").setValue("0,0,0").build();
+
+            Segment colored = Segment.newBuilder(s).addProperties(color).build(); 
+            segmentsWithColors.add(colored); 
+           
+           
+            
+        }
+
+        System.out.println("Num verts: "+ verticesWithColors.size());
+        return Mesh.newBuilder().addAllVertices(verticesWithColors).addAllSegments(segmentsWithColors).build();
     }
+
+
+
+
+    /**
+     * 
+     * @param v1 a colored Vertex
+     * @param v2 a colored Vertex
+     * @return the average color between the two vertices
+     */
+    private Property averageColor(Vertex v1, Vertex v2){
+
+        //Initialize default color to black. Attempt to find color in vertex properties
+        String val1="0,0,0"; 
+        for(Property p : v1.getPropertiesList()){
+            if (p.getKey().equals("rgb_color"))  val1 = p.getValue(); 
+        }
+
+        String val2="0,0,0"; 
+        for(Property p : v2.getPropertiesList()){
+            if (p.getKey().equals("rgb_color")) val2 = p.getValue(); 
+        }
+
+       //parse numeric data from color string, compute average values
+       String[] s1 = val1.split(",", 3); 
+       String[] s2 = val2.split(",", 3); 
+       int rgb[] = new int[3]; 
+       for(int i=0;i<3;i++) rgb[i] = (Integer.parseInt(s1[i]) + Integer.parseInt(s2[i]))/2; 
+        
+        //rebuild string with new average
+        String colorCode = rgb[0]+","+rgb[1]+","+rgb[2]; 
+                
+        return Property.newBuilder().setKey("rgb_color").setValue(colorCode).build();
+    }
+    
 
 }

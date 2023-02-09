@@ -32,23 +32,23 @@ public class GraphicRenderer {
 
         for (int i=0;i< aMesh.getSegmentsCount();i++){
             Segment s = aMesh.getSegments(i);
-            Vertex v = aMesh.getVertices(i);
-            canvas.setColor(extractColor(v.getPropertiesList()));
+          //  Vertex v = aMesh.getVertices(i);
+            canvas.setColor(extractColor(s.getPropertiesList()));
             int[] point1 = {(int)aMesh.getVertices(s.getV1Idx()).getX(),(int)aMesh.getVertices(s.getV1Idx()).getY()};
             int[] point2 = {(int)aMesh.getVertices(s.getV2Idx()).getX(),(int)aMesh.getVertices(s.getV2Idx()).getY()};
             canvas.drawLine(point1[0],point1[1],point2[0],point2[1]);
 
-           // Vertex next = aMesh.getVertices(aMesh.getVerticesList().indexOf(v)+1);
-            canvas.drawLine( center_x, center_y, centerx_next, centery_next);
-            canvas.drawLine( center_x, center_y, center_x, (center_y+20));
-             center_x +=20;
-             centerx_next +=20;
-             if (i%26==0){
-                 center_x =0;
-                 centerx_next =20;
-                 center_y+=20;
-                 centery_next+=20;
-             }
+          // Vertex next = aMesh.getVertices(aMesh.getVerticesList().indexOf(v)+1);
+            //canvas.drawLine( center_x, center_y, centerx_next, centery_next);
+           // canvas.drawLine( center_x, center_y, center_x, (center_y+20));
+            //  center_x +=20;
+            //  centerx_next +=20;
+            //  if (i%26==0){
+            //     center_x =0;
+            //      centerx_next =20;
+            //      center_y+=20;
+            //      centery_next+=20;
+            //  }
 
             
            
@@ -72,6 +72,7 @@ public class GraphicRenderer {
     
     }
 
+   
     private Color extractColor(List<Property> properties) {
         String val = null;
         for(Property p: properties) {
