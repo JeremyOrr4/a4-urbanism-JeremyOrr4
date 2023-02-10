@@ -48,8 +48,8 @@ public class GraphicRenderer {
             Segment s = aMesh.getSegments(i);
             Vertex v = aMesh.getVertices(i);
             canvas.setColor(extractColor(v.getPropertiesList()));
-            int[] point1 = {(int)aMesh.getVertices(s.getV1Idx()).getX(),(int)aMesh.getVertices(s.getV1Idx()).getY()};
-            int[] point2 = {(int)aMesh.getVertices(s.getV2Idx()).getX(),(int)aMesh.getVertices(s.getV2Idx()).getY()};
+            int[] point1 = {(int)aMesh.getVertices(s.getV1Idx()).getX(),(int)aMesh.getVertices(s.getV1Idx()).getY()}; //get coordinates of segment start point
+            int[] point2 = {(int)aMesh.getVertices(s.getV2Idx()).getX(),(int)aMesh.getVertices(s.getV2Idx()).getY()}; //get coordinates of segment end point
             canvas.drawLine(point1[0],point1[1],point2[0],point2[1]);
 
             // Vertex next = aMesh.getVertices(aMesh.getVerticesList().indexOf(v)+1);
