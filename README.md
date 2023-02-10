@@ -1,8 +1,8 @@
 # Assignment A2: Mesh Generator
 
   - Author #1 [orrj4@mcmaster.ca]
-  - Author #2 [email@mcmaster.ca]
-  - Author #3 [email@mcmaster.ca]
+  - Author #2 [goodyera@mcmaster.ca]
+  - Author #3 [perryn1@mcmaster.ca]
 
 ## How to run the product
 
@@ -66,10 +66,13 @@ When you develop features and enrich the product, remember that you have first t
 | Id | Feature title | Who? | Start | End | Status |
 |:--:|---------------|------|-------|-----|--------|
 |  F01 |draw	segments	between	vertices	to	visualize	the	squares|  Nathan    | Feb 2, 2023      |   Feb 6,2022  | Completed  |
-|  F02 |Creating	a mesh	ADT|  Unknown    | Feb 7, 2023      |    | Ongoing  |
-|  F03 |Producing	full meshes|  Unknown   | Feb 7, 2023      |    | Ongoing  |
-|  F04 |Playing	with	rendering|  Unknown    | Feb 7, 2023      |    | Ongoing  |
-|  F05 |Visualization mode|  Unknown    | Feb 7, 2023      |  | Ongoing  |
+|  F02 |Creating	a mesh	ADT|  Perry    | Feb 7, 2023      | Feb 8   | completed  |
+|  F03 |Producing	full meshes|  Perry and Jeremy   | Feb 7, 2023      |  Feb 8  | Completed  |
+|  F04 |Playing	with	rendering|  All    | Feb 7, 2023      |    | Ongoing  |
+|  F05 |Visualization mode|  All    | Feb 7, 2023      |  | Ongoing  |
+|  F06 |Averaged colours |  Aidan    | Feb 8, 2023      |  | Ongoing  |
+|  F07 |Visualization mode|  All    | Feb 7, 2023      |  | Ongoing  |
+|  F08 |Visualization mode|  All    | Feb 7, 2023      |  | Ongoing  |
 
 
 
