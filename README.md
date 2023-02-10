@@ -65,6 +65,11 @@ When you develop features and enrich the product, remember that you have first t
 
 | Id | Feature title | Who? | Start | End | Status |
 |:--:|---------------|------|-------|-----|--------|
-|  F01 |draw	segments	between	vertices	to	visualize	the	squares|  Up to decide still     | Feb 2, 2023      |     | ongoing  |
+|  F01 |draw	segments	between	vertices	to	visualize	the	squares|  Nathan    | Feb 2, 2023      |   Feb 6,2022  | Completed  |
+|  F02 |Creating	a mesh	ADT|  Unknown    | Feb 7, 2023      |    | Ongoing  |
+|  F03 |Producing	full meshes|  Unknown   | Feb 7, 2023      |    | Ongoing  |
+|  F04 |Playing	with	rendering|  Unknown    | Feb 7, 2023      |    | Ongoing  |
+|  F05 |Visualization mode|  Unknown    | Feb 7, 2023      |  | Ongoing  |
+
 
 
