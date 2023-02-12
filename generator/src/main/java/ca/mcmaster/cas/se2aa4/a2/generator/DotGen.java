@@ -8,6 +8,7 @@ import ca.mcmaster.cas.se2aa4.a2.io.Structs.Segment;
 import ca.mcmaster.cas.se2aa4.a2.io.Structs.Polygon;
 import ca.mcmaster.cas.se2aa4.a2.io.Structs.Property;
 import ca.mcmaster.cas.se2aa4.a2.io.Structs.Mesh;
+import java.util.ArrayList;
 
 
 
@@ -22,18 +23,50 @@ public class DotGen {
 
 
     public Mesh generate() {
-        Collection<Vertex> vertices = new ArrayList<>();
-        Collection<Segment> segments = new ArrayList<>();
+        ArrayList<Vertex> vertices = new ArrayList<>();
+        ArrayList<Segment> segments = new ArrayList<>();
+        ArrayList<Polygon> polygons = new ArrayList<>();
+        ArrayList<Integer> segmentID = new ArrayList<>();
         // Create all the vertices
         for(int x = 0; x < width; x += square_size) {
             for(int y = 0; y < height; y += square_size) {
                  vertices.add(Vertex.newBuilder().setX((double) x).setY((double) y).build());
                  //add segments between vertices, skip edge segments (first segment after exceeding row )
-                 if(vertices.size() < (rowSize*rowSize-1) && (vertices.size()%rowSize !=rowSize-1) ) segments.add(Segment.newBuilder().setV1Idx(vertices.size()).setV2Idx(vertices.size()+1).build());  
-                 if(vertices.size() < (rowSize*rowSize-rowSize) && (vertices.size()%rowSize !=rowSize-1) ) segments.add(Segment.newBuilder().setV1Idx(vertices.size()).setV2Idx(vertices.size()+rowSize).build());    
+                 if(vertices.size() < (rowSize*rowSize-1) && (vertices.size()%rowSize !=rowSize-1) ) segments.add(Segment.newBuilder().setV1Idx(vertices.size()).setV2Idx(vertices.size()+1).build());
+                 if(vertices.size() < (rowSize*rowSize-rowSize) && (vertices.size()%rowSize !=rowSize-1) ) segments.add(Segment.newBuilder().setV1Idx(vertices.size()).setV2Idx(vertices.size()+rowSize).build());
+
             }
-          
+
         }
+        //for (int k = 0; k<segments.size()-27;k++){
+        //    segmentID.add(k);
+        //    segmentID.add(k+3);
+        //    if (segments.size()-k < 51){
+        //        segmentID.add(k+26);
+        //    }else{
+        //        segmentID.add(k+50);
+        //    }
+        //    segmentID.add(k+1);
+        //    polygons.add(Polygon.newBuilder().addAllSegmentIdxs(segmentID).build());
+        //    segmentID.removeAll(segmentID);
+        //    k+=1;
+        //}
+        int size=segments.size();
+        for (int k = 0; k<size;k++){
+            segmentID.add(k);
+            segments.add(Segment.newBuilder().setV1Idx(segments.get(k).getV2Idx()).setV2Idx(segments.get(k+1).getV2Idx()).build());
+            segmentID.add(k+size);
+            segmentID.add(k+1);
+            //if (segments.size()-k < 51){
+            //    segmentID.add(k+26);
+            //}else{
+            //    segmentID.add(k+50);
+            //}
+            polygons.add(Polygon.newBuilder().addAllSegmentIdxs(segmentID).build());
+            segmentID.removeAll(segmentID);
+            k+=1;
+        }
+
 
      
 
@@ -64,7 +97,7 @@ public class DotGen {
            
             
         }
-        return Mesh.newBuilder().addAllVertices(verticesWithColors).addAllSegments(segmentsWithColors).build();
+        return Mesh.newBuilder().addAllVertices(verticesWithColors).addAllSegments(segmentsWithColors).addAllPolygons(polygons).build();
     }
 
 

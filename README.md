@@ -68,7 +68,12 @@ When you develop features and enrich the product, remember that you have first t
 |  F01 |draw	segments	between	vertices	to	visualize	the	squares|  Nathan    | Feb 2, 2023      |   Feb 6,2022  | Completed  |
 |  F02 |Creating	a mesh	ADT|  Perry    | Feb 7, 2023      | Feb 8   | completed  |
 |  F03 |Producing	full meshes|  Perry and Jeremy   | Feb 7, 2023      |  Feb 8  | Completed  |
-|  F04 |Playing	with	rendering|  All    | Feb 7, 2023      |    | Ongoing  |
+|  F03A| Squares represented as polygons | Perry | Feb 11, 2023| Feb 12, 2023| Completed|
+|  F03B| Polygons reference immediate neighbours| All | Feb 12, 2023| | Ongoing|
+|  F03C| Polygons reference centroid vertex| All | Feb 12, 2023| | Ongoing |
+|  F04 |Playing	with rendering|  All    | Feb 7, 2023      |    | Ongoing  |
+|  F04A| Vertices segments and polygons have colours + transparency| All | Feb 12 2023 | | Ongoing|
+|  F04B| Vertices segments and polygons have thickness info | All | Feb 12 2023 | | Ongoing|
 |  F05 |Visualization mode|  All    | Feb 7, 2023      |  | Ongoing  |
 |  F06 |Averaged colours |  Aidan    | Feb 8, 2023      |  | Ongoing  |
 |  F07 |Visualization mode|  All    | Feb 7, 2023      |  | Ongoing  |
