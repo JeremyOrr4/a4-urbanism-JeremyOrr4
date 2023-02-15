@@ -54,7 +54,7 @@ public class DotGen {
         int size=segments.size();
         for (int k = 0; k<size;k++){
             segmentID.add(k);
-            segments.add(Segment.newBuilder().setV1Idx(segments.get(k).getV2Idx()).setV2Idx(segments.get(k+1).getV2Idx()).build());
+           // segments.add(Segment.newBuilder().setV1Idx(segments.get(k).getV2Idx()).setV2Idx(segments.get(k+1).getV2Idx()).build());
             segmentID.add(k+size);
             segmentID.add(k+1);
             //if (segments.size()-k < 51){
@@ -62,7 +62,16 @@ public class DotGen {
             //}else{
             //    segmentID.add(k+50);
             //}
-            polygons.add(Polygon.newBuilder().addAllSegmentIdxs(segmentID).build());
+
+            String colorCode = "150,150,150,100";
+            
+            Property color = Property.newBuilder().setKey("rgb_color").setValue(colorCode).build();
+            Polygon p = Polygon.newBuilder().addAllSegmentIdxs(segmentID).build();
+            Polygon colored = Polygon.newBuilder(p).addProperties(color).build(); 
+
+            polygons.add(colored);
+            
+
             segmentID.removeAll(segmentID);
             k+=1;
         }
@@ -78,8 +87,13 @@ public class DotGen {
             int green = bag.nextInt(255);
             int blue = bag.nextInt(255);
             String colorCode = red + "," + green + "," + blue;
+
+            String thicknessString = "3";
             Property color = Property.newBuilder().setKey("rgb_color").setValue(colorCode).build();
-            Vertex colored = Vertex.newBuilder(v).addProperties(color).build();
+            Property thickness = Property.newBuilder().setKey("thickness").setValue(thicknessString).build();
+
+            Vertex thickened = Vertex.newBuilder(v).addProperties(thickness).build();
+            Vertex colored = Vertex.newBuilder(thickened).addProperties(color).build();
             verticesWithColors.add(colored);
         }
 
@@ -91,7 +105,12 @@ public class DotGen {
             
             //Assign segment color based on average of associated vertices
             Property color = averageColor( verticesWithColors.get(s.getV1Idx()), verticesWithColors.get(s.getV2Idx())); 
-            Segment colored = Segment.newBuilder(s).addProperties(color).build(); 
+
+            String thicknessString="3" ; 
+            Property thickness = Property.newBuilder().setKey("thickness").setValue(thicknessString).build();
+
+            Segment thickened =  Segment.newBuilder(s).addProperties(thickness).build(); 
+            Segment colored = Segment.newBuilder(thickened).addProperties(color).build(); 
             segmentsWithColors.add(colored); 
            
            
