@@ -123,13 +123,16 @@ public class DotGen {
         }
 
        //parse numeric data from color string, compute average values
-       String[] s1 = val1.split(",", 3); 
-       String[] s2 = val2.split(",", 3); 
-       int rgb[] = new int[3]; 
-       for(int i=0;i<3;i++) rgb[i] = (Integer.parseInt(s1[i]) + Integer.parseInt(s2[i]))/2; 
+       String[] s1 = val1.split(","); 
+       String[] s2 = val2.split(","); 
+       int rgba[] = new int[4]; 
+       for(int i=0;i<3;i++) rgba[i] = (Integer.parseInt(s1[i]) + Integer.parseInt(s2[i]))/2;
+       
+       //identifies if the both color strings have an alpha value. If absent, specify default of 255 (No transparency)
+       rgba[3] = ((s1.length==4 ? Integer.parseInt(s1[4]) : 255 ) + (s2.length==4 ? Integer.parseInt(s2[4]) : 255 ))/2 ; 
         
         //rebuild string with new average
-        String colorCode = rgb[0]+","+rgb[1]+","+rgb[2]; 
+        String colorCode = rgba[0]+","+rgba[1]+","+rgba[2] + "," + rgba[3]; 
                 
         return Property.newBuilder().setKey("rgb_color").setValue(colorCode).build();
     }

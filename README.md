@@ -78,6 +78,7 @@ When you develop features and enrich the product, remember that you have first t
 |  F06 |Averaged colours |  Aidan    | Feb 8, 2023      |  | Ongoing  |
 |  F07 |Visualization mode|  All    | Feb 7, 2023      |  | Ongoing  |
 |  F08 |Visualization mode|  All    | Feb 7, 2023      |  | Ongoing  |
+|  F09 | Alpha channel transparency |   Aidan  | Feb 15, 2023    |   Completed   |
 
 
 
