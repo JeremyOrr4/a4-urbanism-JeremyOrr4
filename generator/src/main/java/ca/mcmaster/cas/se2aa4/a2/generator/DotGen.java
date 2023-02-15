@@ -38,46 +38,8 @@ public class DotGen {
             }
 
         }
-        //for (int k = 0; k<segments.size()-27;k++){
-        //    segmentID.add(k);
-        //    segmentID.add(k+3);
-        //    if (segments.size()-k < 51){
-        //        segmentID.add(k+26);
-        //    }else{
-        //        segmentID.add(k+50);
-        //    }
-        //    segmentID.add(k+1);
-        //    polygons.add(Polygon.newBuilder().addAllSegmentIdxs(segmentID).build());
-        //    segmentID.removeAll(segmentID);
-        //    k+=1;
-        //}
-        int size=segments.size();
-        for (int k = 0; k<size;k++){
-            segmentID.add(k);
-           // segments.add(Segment.newBuilder().setV1Idx(segments.get(k).getV2Idx()).setV2Idx(segments.get(k+1).getV2Idx()).build());
-            segmentID.add(k+size);
-            segmentID.add(k+1);
-            //if (segments.size()-k < 51){
-            //    segmentID.add(k+26);
-            //}else{
-            //    segmentID.add(k+50);
-            //}
 
-            String colorCode = "150,150,150,100";
-            
-            Property color = Property.newBuilder().setKey("rgb_color").setValue(colorCode).build();
-            Polygon p = Polygon.newBuilder().addAllSegmentIdxs(segmentID).build();
-            Polygon colored = Polygon.newBuilder(p).addProperties(color).build(); 
-
-            polygons.add(colored);
-            
-
-            segmentID.removeAll(segmentID);
-            k+=1;
-        }
-
-
-     
+        
 
         // Distribute colors randomly. Vertices are immutable, need to enrich them
         ArrayList<Vertex> verticesWithColors = new ArrayList<>();
@@ -88,7 +50,7 @@ public class DotGen {
             int blue = bag.nextInt(255);
             String colorCode = red + "," + green + "," + blue;
 
-            String thicknessString = "3";
+            String thicknessString = "6";
             Property color = Property.newBuilder().setKey("rgb_color").setValue(colorCode).build();
             Property thickness = Property.newBuilder().setKey("thickness").setValue(thicknessString).build();
 
@@ -106,7 +68,7 @@ public class DotGen {
             //Assign segment color based on average of associated vertices
             Property color = averageColor( verticesWithColors.get(s.getV1Idx()), verticesWithColors.get(s.getV2Idx())); 
 
-            String thicknessString="3" ; 
+            String thicknessString="2" ; 
             Property thickness = Property.newBuilder().setKey("thickness").setValue(thicknessString).build();
 
             Segment thickened =  Segment.newBuilder(s).addProperties(thickness).build(); 
@@ -116,6 +78,46 @@ public class DotGen {
            
             
         }
+
+
+
+
+     
+        int size=segments.size();
+        for (int k = 0; k<size-50;k+=2){
+            segmentID.add(k);
+            segmentID.add(k+1);
+            segmentID.add(k+50);
+            segmentID.add(k+3);
+       
+
+           
+           
+            
+
+            List<Segment> colorSegments = new ArrayList<Segment>(); 
+
+            for(int id: segmentID){
+                colorSegments.add(segmentsWithColors.get(id)); 
+            }
+
+            System.out.println("color segments" + colorSegments.size());
+            
+            Property averageColor = averageColor(colorSegments); 
+
+            Property color = Property.newBuilder().setKey("rgb_color").setValue("0,0,0,0").build();
+            Polygon p = Polygon.newBuilder().addAllSegmentIdxs(segmentID).build();
+            Polygon colored = Polygon.newBuilder(p).addProperties(averageColor).build(); 
+
+            polygons.add(colored);
+            
+
+            segmentID.removeAll(segmentID);
+            //k+=1;
+        }
+
+
+     
         return Mesh.newBuilder().addAllVertices(verticesWithColors).addAllSegments(segmentsWithColors).addAllPolygons(polygons).build();
     }
 
@@ -148,13 +150,58 @@ public class DotGen {
        for(int i=0;i<3;i++) rgba[i] = (Integer.parseInt(s1[i]) + Integer.parseInt(s2[i]))/2;
        
        //identifies if the both color strings have an alpha value. If absent, specify default of 255 (No transparency)
-       rgba[3] = ((s1.length==4 ? Integer.parseInt(s1[4]) : 255 ) + (s2.length==4 ? Integer.parseInt(s2[4]) : 255 ))/2 ; 
+       rgba[3] = ((s1.length==4 ? Integer.parseInt(s1[3]) : 255 ) + (s2.length==4 ? Integer.parseInt(s2[3]) : 255 ))/2 ; 
         
         //rebuild string with new average
         String colorCode = rgba[0]+","+rgba[1]+","+rgba[2] + "," + rgba[3]; 
                 
         return Property.newBuilder().setKey("rgb_color").setValue(colorCode).build();
     }
+
+
+
+
+    private Property averageColor(List<Segment> segments ){
+
+   
+      
+        int rgba[] = new int[4]; 
+
+        for(Segment s : segments){
+            String val = "0,0,0,0"; 
+            for(Property p : s.getPropertiesList()){
+                
+                if (p.getKey().equals("rgb_color"))  val = p.getValue(); 
+              
+            }
+        
+            String[] sColor=val.split(",");
+            for(int i=0;i<3;i++) rgba[i] += Integer.parseInt(sColor[i]); 
+             rgba[3] += (sColor.length==4 ? Integer.parseInt(sColor[3]) : 255 ); 
+
+           
+
+        }
+
+        for(int i=0; i<4;i++){
+            rgba[i] = rgba[i]/segments.size(); 
+
+            
+
+        }
+
+        rgba[3]  = rgba[3]/2;         
+       
+        //rebuild string with new average
+        String colorCode = rgba[0]+","+rgba[1]+","+rgba[2] +","+rgba[3] ;
+
+             
+        return Property.newBuilder().setKey("rgb_color").setValue(colorCode).build();
+    }
     
+
+
+
+
 
 }
