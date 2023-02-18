@@ -28,13 +28,18 @@ public class DotGen {
         ArrayList<Polygon> polygons = new ArrayList<>();
         ArrayList<Integer> segmentID = new ArrayList<>();
         // Create all the vertices
+
+        double offset = 0.5;
+        Random random = new Random();
+
         for(int x = 0; x < width; x += square_size) {
             for(int y = 0; y < height; y += square_size) {
-                 vertices.add(Vertex.newBuilder().setX((double) x).setY((double) y).build());
+                 vertices.add(Vertex.newBuilder().setX((double) x + offset * (random.nextDouble(15)- random
+                         .nextDouble(15))).setY((double) y + offset * (random.nextDouble(15) - random
+                                 .nextDouble(15)) ).build());
                  //add segments between vertices, skip edge segments (first segment after exceeding row )
                  if(vertices.size() < (rowSize*rowSize-1) && (vertices.size()%rowSize !=rowSize-1) ) segments.add(Segment.newBuilder().setV1Idx(vertices.size()).setV2Idx(vertices.size()+1).build());
                  if(vertices.size() < (rowSize*rowSize-rowSize) && (vertices.size()%rowSize !=rowSize-1) ) segments.add(Segment.newBuilder().setV1Idx(vertices.size()).setV2Idx(vertices.size()+rowSize).build());
-
             }
 
         }
