@@ -29,7 +29,7 @@ public class DotGen {
         ArrayList<Integer> segmentID = new ArrayList<>();
         // Create all the vertices
 
-        double offset = 0.5;
+        double offset = 0.7;
         Random random = new Random();
 
         for(int x = 0; x < width; x += square_size) {
@@ -38,8 +38,8 @@ public class DotGen {
                          .nextDouble(15))).setY((double) y + offset * (random.nextDouble(15) - random
                                  .nextDouble(15)) ).build());
                  //add segments between vertices, skip edge segments (first segment after exceeding row )
-                 if(vertices.size() < (rowSize*rowSize-1) && (vertices.size()%rowSize !=rowSize-1) ) segments.add(Segment.newBuilder().setV1Idx(vertices.size()).setV2Idx(vertices.size()+1).build());
-                 if(vertices.size() < (rowSize*rowSize-rowSize) && (vertices.size()%rowSize !=rowSize-1) ) segments.add(Segment.newBuilder().setV1Idx(vertices.size()).setV2Idx(vertices.size()+rowSize).build());
+                if(vertices.size() < (rowSize*rowSize) && (vertices.size()%rowSize !=0) ) segments.add(Segment.newBuilder().setV1Idx(vertices.size()-1).setV2Idx(vertices.size()).build());
+                 if(vertices.size() < (rowSize*rowSize-rowSize+1)  ) segments.add(Segment.newBuilder().setV1Idx(vertices.size()+rowSize-1).setV2Idx(vertices.size()-1).build());
             }
 
         }
@@ -89,11 +89,17 @@ public class DotGen {
 
      
         int size=segments.size();
-        for (int k = 0; k<size-50;k+=2){
+        for (int k = 0; k<size-51;k+=1){
             segmentID.add(k);
+            
             segmentID.add(k+1);
-            segmentID.add(k+50);
+            
+          
             segmentID.add(k+3);
+
+            segmentID.add(k+51);
+
+            
        
 
            
