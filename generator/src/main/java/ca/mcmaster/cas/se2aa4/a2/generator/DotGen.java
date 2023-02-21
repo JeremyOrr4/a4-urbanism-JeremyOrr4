@@ -11,7 +11,6 @@ import ca.mcmaster.cas.se2aa4.a2.io.Structs.Mesh;
 import java.util.ArrayList;
 
 
-
 public class DotGen {
 
     private final int width = 520;
@@ -23,23 +22,18 @@ public class DotGen {
 
 
     public Mesh generate() {
-        ArrayList<Vertex> vertices = new ArrayList<>();
-        ArrayList<Segment> segments = new ArrayList<>();
-        ArrayList<Polygon> polygons = new ArrayList<>();
-        ArrayList<Integer> segmentID = new ArrayList<>();
-        // Create all the vertices
+
+        MeshData GridMesh = new MeshData();
 
         double offset = 0.7;
         Random random = new Random();
 
         for(int x = 0; x < width; x += square_size) {
             for(int y = 0; y < height; y += square_size) {
-                    vertices.add(Vertex.newBuilder().setX((double) x + offset * (random.nextDouble(15)- random
-                            .nextDouble(15))).setY((double) y + offset * (random.nextDouble(15) - random
-                            .nextDouble(15)) ).build());
+                GridMesh.vertexCreate(x,y,offset,random);
                     //add segments between vertices, skip edge segments (first segment after exceeding row )
-                    if(vertices.size() < (rowSize*rowSize) && (vertices.size()%rowSize !=0)) segments.add(Segment.newBuilder().setV1Idx(vertices.size()-1).setV2Idx(vertices.size()).build());
-                    if(vertices.size() < (rowSize*rowSize-rowSize+1)) segments.add(Segment.newBuilder().setV1Idx(vertices.size()-1).setV2Idx(vertices.size()+rowSize-1).build());
+                if(GridMesh.vertexData.size() < (rowSize*rowSize) && (GridMesh.vertexData.size()%rowSize !=0)) GridMesh.segmentData.add(GridMesh.segmentCreate(GridMesh.vertexData.size()-1,GridMesh.vertexData.size()));
+                if(GridMesh.vertexData.size() < (rowSize*rowSize-rowSize+1)) GridMesh.segmentData.add(GridMesh.segmentCreate(GridMesh.vertexData.size()-1,GridMesh.vertexData.size()+rowSize-1));
 
             }
 
@@ -48,97 +42,51 @@ public class DotGen {
 
 
         // Distribute colors randomly. Vertices are immutable, need to enrich them
-        ArrayList<Vertex> verticesWithColors = new ArrayList<>();
-        Random bag = new Random();
-        for(Vertex v: vertices){
-            int red = bag.nextInt(255);
-            int green = bag.nextInt(255);
-            int blue = bag.nextInt(255);
-            String colorCode = red + "," + green + "," + blue;
-
-            String thicknessString = "6";
-            Property color = Property.newBuilder().setKey("rgb_color").setValue(colorCode).build();
-            Property thickness = Property.newBuilder().setKey("thickness").setValue(thicknessString).build();
-
-            Vertex thickened = Vertex.newBuilder(v).addProperties(thickness).build();
-            Vertex colored = Vertex.newBuilder(thickened).addProperties(color).build();
-            verticesWithColors.add(colored);
+        int vertexPointer=0;
+        for(Vertex v: GridMesh.vertexData){
+            GridMesh.vertexData.set(vertexPointer,GridMesh.AddVertexProperties(v,"6"));
+            vertexPointer+=1;
         }
 
-
-
-
-        ArrayList<Segment> segmentsWithColors = new ArrayList<>();
-        for(Segment s: segments){
-
+        int segmentPointer=0;
+        for(Segment s: GridMesh.segmentData){
             //Assign segment color based on average of associated vertices
-            Property color = averageColor( verticesWithColors.get(s.getV1Idx()), verticesWithColors.get(s.getV2Idx()));
-
-            String thicknessString="2" ;
-            Property thickness = Property.newBuilder().setKey("thickness").setValue(thicknessString).build();
-
-            Segment thickened =  Segment.newBuilder(s).addProperties(thickness).build();
-            Segment colored = Segment.newBuilder(thickened).addProperties(color).build();
-            segmentsWithColors.add(colored);
-
-
-
+            GridMesh.segmentData.set(segmentPointer,GridMesh.AddSegmentProperties(s,"2"));
+            segmentPointer+=1;
         }
 
 
 
 
 
-        int size=segments.size();
+        int size=GridMesh.segmentData.size();
         int last_row=0;
         for (int k = 0; k<size-28;k+=1){
-            if (k>size-74)k+=1;
-            segmentID.add(k);
 
-            segmentID.add(k+1);
-
-            segmentID.add(k+3);
-            if (k>size-76){
-                segmentID.add(k+50-last_row);
-                if (k%2==0){
-                    last_row+=1;
-                }
-            }else{
-                segmentID.add(k+51);
+            GridMesh.polygonData.add(GridMesh.polygonCreate(k,size,last_row));
+            if (k>size-76 && k%2==0){
+                last_row+=1;
             }
-
-
-
-
-
-
-
-
-
 
             List<Segment> colorSegments = new ArrayList<Segment>();
 
-            for(int id: segmentID){
-                colorSegments.add(segmentsWithColors.get(id));
+            for(int id: GridMesh.polygonData.get(k).getSegmentIdxsList()){
+                colorSegments.add(GridMesh.segmentData.get(id));
             }
 
-            System.out.println("color segments" + colorSegments.size());
+            //System.out.println("color segments" + colorSegments.size());
 
             Property averageColor = averageColor(colorSegments);
 
             Property color = Property.newBuilder().setKey("rgb_color").setValue("0,0,0,0").build();
-            Polygon p = Polygon.newBuilder().addAllSegmentIdxs(segmentID).build();
-            Polygon colored = Polygon.newBuilder(p).addProperties(averageColor).build();
+            Polygon colored = Polygon.newBuilder(GridMesh.polygonData.get(k)).addProperties(averageColor).build();
 
-            polygons.add(colored);
-
-
-            segmentID.removeAll(segmentID);
+            GridMesh.polygonData.set(k,colored);
         }
 
 
 
-        return Mesh.newBuilder().addAllVertices(verticesWithColors).addAllSegments(segmentsWithColors).addAllPolygons(polygons).build();
+        return Mesh.newBuilder().addAllVertices(GridMesh.vertexData).addAllSegments(GridMesh.segmentData).addAllPolygons(GridMesh.polygonData).build();
     }
 
 
@@ -150,7 +98,7 @@ public class DotGen {
      * @param v2 a colored Vertex
      * @return the average color between the two vertices
      */
-    private Property averageColor(Vertex v1, Vertex v2){
+    public static Property averageColor(Vertex v1, Vertex v2){
 
         //Initialize default color to black. Attempt to find color in vertex properties
         String val1="0,0,0";
@@ -181,7 +129,7 @@ public class DotGen {
 
 
 
-    private Property averageColor(List<Segment> segments ){
+    public static Property averageColor(List<Segment> segments ){
 
 
 
