@@ -14,8 +14,8 @@ import java.util.ArrayList;
 
 public class DotGen {
 
-    private final int width = 520;
-    private final int height = 520;
+    private final int width = 500;
+    private final int height = 500;
     private final int square_size = 20;
 
     private final int rowSize = width/square_size; 
@@ -23,23 +23,37 @@ public class DotGen {
 
 
     public Mesh generate() {
+        ArrayList<Vertex> rand_points = new ArrayList<>();
         ArrayList<Vertex> vertices = new ArrayList<>();
         ArrayList<Segment> segments = new ArrayList<>();
         ArrayList<Polygon> polygons = new ArrayList<>();
         ArrayList<Integer> segmentID = new ArrayList<>();
+        Random points = new Random();
+
         // Create all the vertices
-        for(int x = 0; x < width; x += square_size) {
-            for(int y = 0; y < height; y += square_size) {
-                 vertices.add(Vertex.newBuilder().setX((double) x).setY((double) y).build());
-                 //add segments between vertices, skip edge segments (first segment after exceeding row )
-                 if(vertices.size() < (rowSize*rowSize-1) && (vertices.size()%rowSize !=rowSize-1) ) segments.add(Segment.newBuilder().setV1Idx(vertices.size()).setV2Idx(vertices.size()+1).build());
-                 if(vertices.size() < (rowSize*rowSize-rowSize) && (vertices.size()%rowSize !=rowSize-1) ) segments.add(Segment.newBuilder().setV1Idx(vertices.size()).setV2Idx(vertices.size()+rowSize).build());
+        //for(int x = 0; x < width; x += square_size) {
+        //    for(int y = 0; y < height; y += square_size) {
+        //         vertices.add(Vertex.newBuilder().setX((double) x).setY((double) y).build());
+        //         //add segments between vertices, skip edge segments (first segment after exceeding row )
+        //         if(vertices.size() < (rowSize*rowSize-1) && (vertices.size()%rowSize !=rowSize-1) ) segments.add(Segment.newBuilder().setV1Idx(vertices.size()).setV2Idx(vertices.size()+1).build());
+        //         if(vertices.size() < (rowSize*rowSize-rowSize) && (vertices.size()%rowSize !=rowSize-1) ) segments.add(Segment.newBuilder().setV1Idx(vertices.size()).setV2Idx(vertices.size()+rowSize).build());
+        //
+        //    }
+        //
+        //}
+        //TESTING FOR PART 3
+        for (int i=0;i<10;i++){
+            int Xcord = points.nextInt(500);
+            int Ycord = points.nextInt(500);
+            rand_points.add(Vertex.newBuilder().setX((double) Xcord).setY((double) Ycord).build());
+        }
+        for (int i=0;i<10;i++){
+            for (int j=(i+1);j<10;j++){
+                vertices.add(Vertex.newBuilder().setX((double) (rand_points.get(i).getX()+rand_points.get(j).getX())/2).setY((double) (rand_points.get(i).getY()+rand_points.get(j).getY())/2).build());
 
             }
-
         }
-
-        
+        //TESTING FOR PART 3
 
         // Distribute colors randomly. Vertices are immutable, need to enrich them
         ArrayList<Vertex> verticesWithColors = new ArrayList<>();
@@ -83,42 +97,47 @@ public class DotGen {
 
 
      
-        int size=segments.size();
-        for (int k = 0; k<size-50;k+=2){
-            segmentID.add(k);
-            segmentID.add(k+1);
-            segmentID.add(k+50);
-            segmentID.add(k+3);
+        //int size=segments.size();
+        //for (int k = 0; k<size-50;k+=2){
+        //    segmentID.add(k);
+        //    segmentID.add(k+1);
+        //    segmentID.add(k+50);
+        //    segmentID.add(k+3);
        
+        //    List<Segment> colorSegments = new ArrayList<Segment>();
 
-           
-           
+        //    for(int id: segmentID){
+        //        colorSegments.add(segmentsWithColors.get(id));
+        //    }
+
+        //    System.out.println("color segments" + colorSegments.size());
+            
+        //    Property averageColor = averageColor(colorSegments);
+
+        //    Property color = Property.newBuilder().setKey("rgb_color").setValue("0,0,0,0").build();
+        //    Polygon p = Polygon.newBuilder().addAllSegmentIdxs(segmentID).build();
+        //    Polygon colored = Polygon.newBuilder(p).addProperties(averageColor).build();
+
+        //    polygons.add(colored);
             
 
-            List<Segment> colorSegments = new ArrayList<Segment>(); 
-
-            for(int id: segmentID){
-                colorSegments.add(segmentsWithColors.get(id)); 
-            }
-
-            System.out.println("color segments" + colorSegments.size());
-            
-            Property averageColor = averageColor(colorSegments); 
-
-            Property color = Property.newBuilder().setKey("rgb_color").setValue("0,0,0,0").build();
-            Polygon p = Polygon.newBuilder().addAllSegmentIdxs(segmentID).build();
-            Polygon colored = Polygon.newBuilder(p).addProperties(averageColor).build(); 
-
-            polygons.add(colored);
-            
-
-            segmentID.removeAll(segmentID);
+        //    segmentID.removeAll(segmentID);
             //k+=1;
+        //}
+        // TESTING FOR PART 3
+        ArrayList<Vertex> points_color = new ArrayList<>();
+        for (Vertex v: rand_points){
+            String c = "155,155,0";
+            Property color = Property.newBuilder().setKey("rgb_color").setValue(c).build();
+            String thicknessString = "6";
+            Property thickness = Property.newBuilder().setKey("thickness").setValue(thicknessString).build();
+            Vertex x =Vertex.newBuilder(v).addProperties(color).addProperties(thickness).build();
+            points_color.add(x);
         }
-
+        //TESTING FOR PART 3
 
      
-        return Mesh.newBuilder().addAllVertices(verticesWithColors).addAllSegments(segmentsWithColors).addAllPolygons(polygons).build();
+        return Mesh.newBuilder().addAllVertices(vertices).addAllVertices(points_color).addAllSegments(segmentsWithColors).addAllPolygons(polygons).build();
     }
 
 
