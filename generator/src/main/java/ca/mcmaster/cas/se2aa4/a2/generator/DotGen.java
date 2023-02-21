@@ -31,26 +31,18 @@ public class DotGen {
         Random points = new Random();
 
         // Create all the vertices
-        //for(int x = 0; x < width; x += square_size) {
-        //    for(int y = 0; y < height; y += square_size) {
-        //         vertices.add(Vertex.newBuilder().setX((double) x).setY((double) y).build());
-        //         //add segments between vertices, skip edge segments (first segment after exceeding row )
-        //         if(vertices.size() < (rowSize*rowSize-1) && (vertices.size()%rowSize !=rowSize-1) ) segments.add(Segment.newBuilder().setV1Idx(vertices.size()).setV2Idx(vertices.size()+1).build());
-        //         if(vertices.size() < (rowSize*rowSize-rowSize) && (vertices.size()%rowSize !=rowSize-1) ) segments.add(Segment.newBuilder().setV1Idx(vertices.size()).setV2Idx(vertices.size()+rowSize).build());
-        //
-        //    }
-        //
-        //}
-        //TESTING FOR PART 3
-        for (int i=0;i<10;i++){
-            int Xcord = points.nextInt(500);
-            int Ycord = points.nextInt(500);
-            rand_points.add(Vertex.newBuilder().setX((double) Xcord).setY((double) Ycord).build());
-        }
-        for (int i=0;i<10;i++){
-            for (int j=(i+1);j<10;j++){
-                vertices.add(Vertex.newBuilder().setX((double) (rand_points.get(i).getX()+rand_points.get(j).getX())/2).setY((double) (rand_points.get(i).getY()+rand_points.get(j).getY())/2).build());
 
+        double offset = 0.7;
+        Random random = new Random();
+
+        for(int x = 0; x < width; x += square_size) {
+            for(int y = 0; y < height; y += square_size) {
+                 vertices.add(Vertex.newBuilder().setX((double) x + offset * (random.nextDouble(15)- random
+                         .nextDouble(15))).setY((double) y + offset * (random.nextDouble(15) - random
+                                 .nextDouble(15)) ).build());
+                 //add segments between vertices, skip edge segments (first segment after exceeding row )
+                if(vertices.size() < (rowSize*rowSize) && (vertices.size()%rowSize !=0) ) segments.add(Segment.newBuilder().setV1Idx(vertices.size()-1).setV2Idx(vertices.size()).build());
+                 if(vertices.size() < (rowSize*rowSize-rowSize+1)  ) segments.add(Segment.newBuilder().setV1Idx(vertices.size()+rowSize-1).setV2Idx(vertices.size()-1).build());
             }
         }
         //TESTING FOR PART 3
@@ -97,12 +89,18 @@ public class DotGen {
 
 
      
-        //int size=segments.size();
-        //for (int k = 0; k<size-50;k+=2){
-        //    segmentID.add(k);
-        //    segmentID.add(k+1);
-        //    segmentID.add(k+50);
-        //    segmentID.add(k+3);
+
+        int size=segments.size();
+        for (int k = 0; k<size-51;k+=1){
+            segmentID.add(k);
+            
+            segmentID.add(k+1);
+            
+          
+            segmentID.add(k+3);
+
+            segmentID.add(k+51);
+            
        
         //    List<Segment> colorSegments = new ArrayList<Segment>();
 

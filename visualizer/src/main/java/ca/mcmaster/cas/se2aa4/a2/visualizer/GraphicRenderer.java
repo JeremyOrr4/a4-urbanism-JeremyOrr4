@@ -13,6 +13,7 @@ import java.awt.Color;
 import java.awt.color.ColorSpace;
 import java.awt.geom.Ellipse2D;
 import java.awt.geom.*;
+
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
@@ -33,18 +34,33 @@ public class GraphicRenderer {
         for (Segment s:aMesh.getSegmentsList()){
             segmentswithcolour.add(s);
         }
+
+
+        int test=0; 
         for (Polygon p : aMesh.getPolygonsList()){
        
-            //Segment s = segmentswithcolour.get((p.getSegmentIdxs(0)));
-
-           
+          
+ 
             canvas.setColor(extractColor(p.getPropertiesList()));
            
-            Segment seg = segmentswithcolour.get(p.getSegmentIdxs(0)); 
-            Rectangle2D poly = new Rectangle2D.Double(aMesh.getVertices(seg.getV1Idx()).getX(),aMesh.getVertices(seg.getV1Idx()).getY(),20,20);
+        int[] vertX = new int[4]; 
+        int[] vertY = new int[4]; 
 
-            canvas.fill(poly);
-           
+
+        vertX[0]= (int)aMesh.getVertices(segmentswithcolour.get(p.getSegmentIdxs(0)).getV1Idx()).getX();
+        vertX[1]= (int)aMesh.getVertices(segmentswithcolour.get(p.getSegmentIdxs(0)).getV2Idx()).getX();
+        vertX[3]= (int)aMesh.getVertices(segmentswithcolour.get(p.getSegmentIdxs(p.getSegmentIdxsCount()-1)).getV1Idx()).getX();
+        vertX[2]= (int)aMesh.getVertices(segmentswithcolour.get(p.getSegmentIdxs(p.getSegmentIdxsCount()-1)).getV2Idx()).getX();
+
+
+        vertY[0]= (int)aMesh.getVertices(segmentswithcolour.get(p.getSegmentIdxs(0)).getV1Idx()).getY();
+        vertY[1]= (int)aMesh.getVertices(segmentswithcolour.get(p.getSegmentIdxs(0)).getV2Idx()).getY();
+        vertY[3]= (int)aMesh.getVertices(segmentswithcolour.get(p.getSegmentIdxs(p.getSegmentIdxsCount()-1)).getV1Idx()).getY();
+        vertY[2]= (int)aMesh.getVertices(segmentswithcolour.get(p.getSegmentIdxs(p.getSegmentIdxsCount()-1)).getV2Idx()).getY();
+
+          
+            canvas.fillPolygon(vertX, vertY, vertX.length);
+                
             
            for(int id_s : p.getSegmentIdxsList()){
             
@@ -58,25 +74,22 @@ public class GraphicRenderer {
            }
         
 
-            System.out.println("{");
-            for (int k : p.getSegmentIdxsList()) {
-                System.out.println(k);         
-            }   
-            System.out.println("}");
+          
             
           
-
+        
+        
         }
 
-        // for (Segment s : aMesh.getSegmentsList() ){
+        for (Segment s : aMesh.getSegmentsList() ){
 
-        //     // render segment on canvas
-        //      canvas.setColor(extractColor(s.getPropertiesList()));
-        //      int[] point1 = {(int)aMesh.getVertices(s.getV1Idx()).getX(),(int)aMesh.getVertices(s.getV1Idx()).getY()};
-        //      int[] point2 = {(int)aMesh.getVertices(s.getV2Idx()).getX(),(int)aMesh.getVertices(s.getV2Idx()).getY()};
-        //      canvas.setStroke(new BasicStroke(extractThickness(s.getPropertiesList())));
-        //      canvas.drawLine(point1[0],point1[1],point2[0],point2[1]);
-        //  }
+            // render segment on canvas
+             canvas.setColor(extractColor(s.getPropertiesList()));
+             int[] point1 = {(int)aMesh.getVertices(s.getV1Idx()).getX(),(int)aMesh.getVertices(s.getV1Idx()).getY()};
+             int[] point2 = {(int)aMesh.getVertices(s.getV2Idx()).getX(),(int)aMesh.getVertices(s.getV2Idx()).getY()};
+             canvas.setStroke(new BasicStroke(extractThickness(s.getPropertiesList())));
+             canvas.drawLine(point1[0],point1[1],point2[0],point2[1]);
+         }
 
         for(Vertex v : aMesh.getVerticesList()){ 
 
@@ -136,6 +149,7 @@ public class GraphicRenderer {
     }
 
 
+    
     
 
 
