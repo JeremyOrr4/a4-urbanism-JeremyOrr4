@@ -79,7 +79,7 @@ public class DotGen {
 
             Property averageColor = averageColor(colorSegments);
 
-         
+            
             Polygon colored = Polygon.newBuilder(GridMesh.polygonData.get(k)).addProperties(averageColor).build();
 
             GridMesh.polygonData.set(k,colored);
