@@ -7,14 +7,15 @@ import ca.mcmaster.cas.se2aa4.a2.io.Structs.Vertex;
 import ca.mcmaster.cas.se2aa4.a2.io.Structs.Segment;
 import ca.mcmaster.cas.se2aa4.a2.io.Structs.Polygon;
 import ca.mcmaster.cas.se2aa4.a2.io.Structs.Property;
+import ca.mcmaster.GenTest;
 import ca.mcmaster.cas.se2aa4.a2.io.Structs.Mesh;
 import java.util.ArrayList;
 
 
 public class DotGen {
 
-    private final int width = 520;
-    private final int height = 520;
+    private final int width = 500;
+    private final int height = 500;
     private final int square_size = 20;
 
     private final int rowSize = width/square_size;
@@ -78,7 +79,7 @@ public class DotGen {
 
             Property averageColor = averageColor(colorSegments);
 
-            Property color = Property.newBuilder().setKey("rgb_color").setValue("0,0,0,0").build();
+         
             Polygon colored = Polygon.newBuilder(GridMesh.polygonData.get(k)).addProperties(averageColor).build();
 
             GridMesh.polygonData.set(k,colored);
@@ -86,7 +87,15 @@ public class DotGen {
 
 
 
-        return Mesh.newBuilder().addAllVertices(GridMesh.vertexData).addAllSegments(GridMesh.segmentData).addAllPolygons(GridMesh.polygonData).build();
+       // return Mesh.newBuilder().addAllVertices(GridMesh.vertexData).addAllSegments(GridMesh.segmentData).addAllPolygons(GridMesh.polygonData).build();
+        
+       //Aidan Test 
+
+        GenTest g = new GenTest(); 
+        
+
+        return g.generate(); 
+    
     }
 
 
@@ -130,39 +139,24 @@ public class DotGen {
 
 
     public static Property averageColor(List<Segment> segments ){
-
-
-
         int rgba[] = new int[4];
 
         for(Segment s : segments){
             String val = "0,0,0,0";
             for(Property p : s.getPropertiesList()){
-
                 if (p.getKey().equals("rgb_color"))  val = p.getValue();
-
             }
 
             String[] sColor=val.split(",");
             for(int i=0;i<3;i++) rgba[i] += Integer.parseInt(sColor[i]);
             rgba[3] += (sColor.length==4 ? Integer.parseInt(sColor[3]) : 255 );
-
-
-
         }
-
         for(int i=0; i<4;i++){
             rgba[i] = rgba[i]/segments.size();
-
-
-
         }
-
         rgba[3]  = rgba[3]/2;
-
         //rebuild string with new average
         String colorCode = rgba[0]+","+rgba[1]+","+rgba[2] +","+rgba[3] ;
-
 
         return Property.newBuilder().setKey("rgb_color").setValue(colorCode).build();
     }

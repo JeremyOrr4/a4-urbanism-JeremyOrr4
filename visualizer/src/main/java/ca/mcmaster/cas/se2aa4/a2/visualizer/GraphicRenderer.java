@@ -22,7 +22,7 @@ import java.util.List;
 public class GraphicRenderer {
 
    
-    private static final int THICKNESS = 3;
+    
     public void render(Mesh aMesh, Graphics2D canvas) {
        
         canvas.setColor(Color.BLACK);
@@ -36,10 +36,9 @@ public class GraphicRenderer {
         }
 
 
-        int test=0; 
+      
         for (Polygon p : aMesh.getPolygonsList()){
        
-          
  
             canvas.setColor(extractColor(p.getPropertiesList()));
            
@@ -83,6 +82,7 @@ public class GraphicRenderer {
 
         for (Segment s : aMesh.getSegmentsList() ){
 
+            
             // render segment on canvas
              canvas.setColor(extractColor(s.getPropertiesList()));
              int[] point1 = {(int)aMesh.getVertices(s.getV1Idx()).getX(),(int)aMesh.getVertices(s.getV1Idx()).getY()};
