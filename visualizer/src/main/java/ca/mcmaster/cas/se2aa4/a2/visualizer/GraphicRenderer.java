@@ -13,6 +13,9 @@ import java.awt.Color;
 import java.awt.color.ColorSpace;
 import java.awt.geom.Ellipse2D;
 import java.awt.geom.*;
+
+import java.util.*; 
+
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
@@ -21,30 +24,32 @@ import java.util.List;
 public class GraphicRenderer {
 
    
-    private static final int THICKNESS = 3;
+    
     public void render(Mesh aMesh, Graphics2D canvas) {
        
         canvas.setColor(Color.BLACK);
         Stroke stroke = new BasicStroke(0.5f);
         canvas.setStroke(stroke);
+        //CLIPS EXCESS - vertices still exist
+       // canvas.setClip(0, 0, 500, 500);
 
     
         ArrayList<Segment> segmentswithcolour = new ArrayList<>();
         for (Segment s:aMesh.getSegmentsList()){
             segmentswithcolour.add(s);
         }
+
+
+        
         for (Polygon p : aMesh.getPolygonsList()){
-       
-            //Segment s = segmentswithcolour.get((p.getSegmentIdxs(0)));
-
+            
+            
+            int[][] coords = getPolygonCoords(p, aMesh); 
+            
            
-            canvas.setColor(extractColor(p.getPropertiesList()));
-           
-            Segment seg = segmentswithcolour.get(p.getSegmentIdxs(0)); 
-            Rectangle2D poly = new Rectangle2D.Double(aMesh.getVertices(seg.getV1Idx()).getX(),aMesh.getVertices(seg.getV1Idx()).getY(),20,20);
-
-            canvas.fill(poly);
-           
+           canvas.setColor(extractColor(aMesh.getVerticesList().get(p.getCentroidIdx()).getPropertiesList()));
+            canvas.fillPolygon(coords[0], coords[1], coords[0].length);
+                
             
            for(int id_s : p.getSegmentIdxsList()){
             
@@ -55,21 +60,20 @@ public class GraphicRenderer {
             int[] point2 = {(int)aMesh.getVertices(s.getV2Idx()).getX(),(int)aMesh.getVertices(s.getV2Idx()).getY()};
             canvas.setStroke(new BasicStroke(extractThickness(s.getPropertiesList())));
             canvas.drawLine(point1[0],point1[1],point2[0],point2[1]);
+
+           
            }
         
 
-            System.out.println("{");
-            for (int k : p.getSegmentIdxsList()) {
-                System.out.println(k);         
-            }   
-            System.out.println("}");
-            
           
-
+            
+       
+        
         }
 
         // for (Segment s : aMesh.getSegmentsList() ){
 
+            
         //     // render segment on canvas
         //      canvas.setColor(extractColor(s.getPropertiesList()));
         //      int[] point1 = {(int)aMesh.getVertices(s.getV1Idx()).getX(),(int)aMesh.getVertices(s.getV1Idx()).getY()};
@@ -77,6 +81,8 @@ public class GraphicRenderer {
         //      canvas.setStroke(new BasicStroke(extractThickness(s.getPropertiesList())));
         //      canvas.drawLine(point1[0],point1[1],point2[0],point2[1]);
         //  }
+
+
 
         for(Vertex v : aMesh.getVerticesList()){ 
 
@@ -87,7 +93,7 @@ public class GraphicRenderer {
             canvas.setColor(extractColor(v.getPropertiesList()));
 
             
-          
+            canvas.setColor(new Color(0,0,0));
             Ellipse2D point = new Ellipse2D.Double(centre_x, centre_y, thickness, thickness);
             canvas.fill(point);
         }
@@ -95,6 +101,39 @@ public class GraphicRenderer {
     }
 
  
+
+    private int[][] getPolygonCoords(Polygon p, Mesh m){
+
+        List<Integer> segmentList = p.getSegmentIdxsList(); 
+
+
+        int[][] loc = new int[2][2*p.getSegmentIdxsCount()]; 
+        
+
+        for (int i=0; i<p.getSegmentIdxsCount(); i++){
+
+            Segment s = m.getSegments(p.getSegmentIdxs(i)); 
+
+            Vertex v1 = m.getVertices(s.getV1Idx()); 
+            Vertex v2 = m.getVertices(s.getV2Idx()); 
+
+           
+            loc[0][i]= (int)v1.getX(); 
+            loc[0][i+1] = (int)v2.getX(); 
+
+            loc[1][i]= (int)v1.getY(); 
+            loc[1][i+1] = (int)v2.getY(); 
+            
+
+
+        }
+
+        return loc; 
+
+      
+
+      
+    }
 
     private Color extractColor(List<Property> properties) {
         String val = null;
@@ -136,6 +175,7 @@ public class GraphicRenderer {
     }
 
 
+    
     
 
 

@@ -22,7 +22,18 @@
       <artifactId>2aa4.mesh.io</artifactId>
       <version>1.0</version>
     </dependency>
+
+     <dependency>
+    <groupId>org.locationtech.jts</groupId>
+    <artifactId>jts-core</artifactId>
+    <version>${jts.version}</version>
+  </dependency>
   </dependencies>
+
+  <properties>
+    <jts.version>1.16.1</jts.version>
+  </properties>
+ 
 
   <build>
     <plugins>
