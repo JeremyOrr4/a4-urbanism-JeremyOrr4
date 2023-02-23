@@ -79,6 +79,7 @@ public class GenTest {
         //OPTIONAL: Filters all polygons whose centers are outside canvas area
         //filterPolygons(polygons,vertices );
 
+       //trimVertexPosition();
         //create final mesh
         return Mesh.newBuilder().addAllVertices(vertices).addAllSegments(segments).addAllPolygons(polygons).build();
     }
@@ -143,6 +144,8 @@ public class GenTest {
         int green = bag.nextInt(255);
         int blue = bag.nextInt(255);
         int alpha = 255; 
+
+        
         
         String colorCode = String.format("%d,%d,%d,%d",red,green,blue,alpha); 
         return Property.newBuilder().setKey("rgb_color").setValue(colorCode).build();
@@ -186,7 +189,7 @@ public class GenTest {
     }
 
 
-    public  void filterPolygons(List<Polygon> polygons, List<Vertex>verices ){
+    public  void filterPolygons(List<Polygon> polygons ){
         //iterate over all polygons backwards
         for (int i = polygons.size()-1; i >=0 ; i--) {
           
@@ -196,6 +199,29 @@ public class GenTest {
             if(centroid.getX()>width || centroid.getX()<0 || centroid.getY()>height || centroid.getY()<0 ){
                 polygons.remove(i);  //filter polygons outside of canvas dimensions
             } 
+        }
+    }
+
+
+    /**
+     * Move all off-canvas vertices to canvas edge
+     */
+    public void trimVertexPosition(){
+
+        for(int i=0; i<vertices.size();i++){
+            Vertex v = vertices.get(i); 
+
+            List<Property> properties = v.getPropertiesList(); 
+
+            if (v.getX() > width || v.getY() > height){
+
+                  //compute new x,y values 
+                double x = (v.getX() > width) ? width : v.getX();
+                double y = (v.getY() > height) ? height : v.getY(); 
+
+                //replace current vertex with new one on canvas edge
+                vertices.set(i, Vertex.newBuilder().setX(x).setY(y).addAllProperties(properties).build()); 
+            }
         }
     }
 

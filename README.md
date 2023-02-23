@@ -80,6 +80,7 @@ When you develop features and enrich the product, remember that you have first t
 |  F08 |Visualization mode|  All    | Feb 7, 2023      |  | Ongoing  |
 |  F09 | Alpha channel transparency |   Aidan  | Feb 15, 2023    |   Completed   |
 |  F08 |Randomized points |Jeremy   | Feb 17, 2023      | Feb 17 | COmpelted  |
+| F10 | Irregular voronoi mesh | Aidan | Feb 22, 2023 | Feb 22 | Completed | 
 
 
 

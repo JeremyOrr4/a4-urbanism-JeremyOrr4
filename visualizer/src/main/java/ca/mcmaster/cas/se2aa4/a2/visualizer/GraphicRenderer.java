@@ -30,6 +30,8 @@ public class GraphicRenderer {
         canvas.setColor(Color.BLACK);
         Stroke stroke = new BasicStroke(0.5f);
         canvas.setStroke(stroke);
+        //CLIPS EXCESS - vertices still exist
+        canvas.setClip(0, 0, 500, 500);
 
     
         ArrayList<Segment> segmentswithcolour = new ArrayList<>();
@@ -58,6 +60,8 @@ public class GraphicRenderer {
             int[] point2 = {(int)aMesh.getVertices(s.getV2Idx()).getX(),(int)aMesh.getVertices(s.getV2Idx()).getY()};
             canvas.setStroke(new BasicStroke(extractThickness(s.getPropertiesList())));
             canvas.drawLine(point1[0],point1[1],point2[0],point2[1]);
+
+           
            }
         
 
