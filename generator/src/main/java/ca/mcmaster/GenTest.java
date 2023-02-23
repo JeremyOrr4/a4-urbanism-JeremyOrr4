@@ -27,54 +27,13 @@ public class GenTest {
 
     public Mesh generate() {
 
-        VoronoiDiagramBuilder voronoi = new VoronoiDiagramBuilder(); 
+    
         
         
         List<Coordinate> coords = populatePoints(width, height, square_size, offset); //generate grid points with a random x,y offset
-        voronoi.setSites(coords); //perform voronoi calculations for generated points
-        
-        GeometryFactory factory = new GeometryFactory(); 
-       Geometry rawVoronoiGeometry = voronoi.getDiagram(factory); //convert voronoi diagram into Geometry object 
 
-        List<Geometry> voronoiCells = new ArrayList<Geometry>(); //store individual voronoi cells
-
-        //iterate over each voronoi cell contained within parent geometry
-        for(int i=0; i<rawVoronoiGeometry.getNumGeometries();  i++){
-            voronoiCells.add(rawVoronoiGeometry.getGeometryN(i)); 
-        }
-        
-
-        //convert voronoi geometry into Polygons 
-        for(Geometry cell : voronoiCells){
-            
-            //store number of vertices,segments to make index operations simple and relative to current polygon 
-            int vertexOffset=vertices.size(); 
-            int segmentOffset=segments.size(); 
-
-            List<Integer> segId = new ArrayList<Integer>(); 
-            Coordinate[] cellCoords = cell.getCoordinates(); //get coordinate x,y pairs 
-            
-            for(int i=0; i<cellCoords.length;i++){
-                vertices.add(createVertex(cellCoords[i])); //create vertex from x,y data
-                
-                //prevent OOB error by skipping the last vertex 
-                if(i!= cellCoords.length-1){ 
-                    segId.add(i+segmentOffset);  
-                    segments.add(Segment.newBuilder().setV1Idx(i+vertexOffset).setV2Idx(i+1+vertexOffset).build()); 
-                }
-            }
-            
-
-            //get polygon centroid location and create vertex with randomized color
-            Vertex centroid = randomized(createVertex(cell.getCentroid().getCoordinate())); 
-            vertices.add(centroid); 
-
-            //create polgon with segment data extracted from cell
-            Polygon p = Polygon.newBuilder().addAllSegmentIdxs(segId).setCentroidIdx(vertices.size()-1).build();  
-            polygons.add(p); 
-
-
-        }
+       voronoi(coords);
+       lloyd(4);
 
         //OPTIONAL: Filters all polygons whose centers are outside canvas area
         //filterPolygons(polygons,vertices );
@@ -224,6 +183,97 @@ public class GenTest {
             }
         }
     }
+
+
+
+    public List<Coordinate> getCentroids(List<Polygon>polygons){
+
+        List<Coordinate> centroids = new ArrayList<Coordinate>(); 
+
+
+        for(Polygon p: polygons){
+
+            Vertex v = vertices.get(p.getCentroidIdx()); 
+            Coordinate c = new Coordinate(v.getX(), v.getY()); 
+            centroids.add(c); 
+        }
+
+        return centroids; 
+    }
+
+
+
+    public void voronoi(List<Coordinate> coords){
+
+        vertices.clear();
+        segments.clear(); 
+        polygons.clear();
+
+
+        VoronoiDiagramBuilder voronoi = new VoronoiDiagramBuilder(); 
+        voronoi.setSites(coords); //perform voronoi calculations for generated points
+        
+        GeometryFactory factory = new GeometryFactory(); 
+       Geometry rawVoronoiGeometry = voronoi.getDiagram(factory); //convert voronoi diagram into Geometry object 
+
+        List<Geometry> voronoiCells = new ArrayList<Geometry>(); //store individual voronoi cells
+
+        //iterate over each voronoi cell contained within parent geometry
+        for(int i=0; i<rawVoronoiGeometry.getNumGeometries();  i++){
+            voronoiCells.add(rawVoronoiGeometry.getGeometryN(i)); 
+        }
+        
+
+        //convert voronoi geometry into Polygons 
+        for(Geometry cell : voronoiCells){
+            
+            //store number of vertices,segments to make index operations simple and relative to current polygon 
+            int vertexOffset=vertices.size(); 
+            int segmentOffset=segments.size(); 
+
+            List<Integer> segId = new ArrayList<Integer>(); 
+            Coordinate[] cellCoords = cell.getCoordinates(); //get coordinate x,y pairs 
+            
+            for(int i=0; i<cellCoords.length;i++){
+                vertices.add(createVertex(cellCoords[i])); //create vertex from x,y data
+                
+                //prevent OOB error by skipping the last vertex 
+                if(i!= cellCoords.length-1){ 
+                    segId.add(i+segmentOffset);  
+                    segments.add(Segment.newBuilder().setV1Idx(i+vertexOffset).setV2Idx(i+1+vertexOffset).build()); 
+                }
+            }
+            
+
+            //get polygon centroid location and create vertex with randomized color
+            Vertex centroid = randomized(createVertex(cell.getCentroid().getCoordinate())); 
+            vertices.add(centroid); 
+
+            //create polgon with segment data extracted from cell
+            Polygon p = Polygon.newBuilder().addAllSegmentIdxs(segId).setCentroidIdx(vertices.size()-1).build();  
+            polygons.add(p); 
+
+
+        }
+
+
+    }
+
+
+    public void lloyd( int iterations){
+
+
+        for (int i = 0; i < iterations; i++) {
+            
+            List<Coordinate> coords = getCentroids(polygons); 
+
+            voronoi(coords);
+
+
+        }
+
+    }
+
 
 
 

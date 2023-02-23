@@ -31,7 +31,7 @@ public class GraphicRenderer {
         Stroke stroke = new BasicStroke(0.5f);
         canvas.setStroke(stroke);
         //CLIPS EXCESS - vertices still exist
-        canvas.setClip(0, 0, 500, 500);
+       // canvas.setClip(0, 0, 500, 500);
 
     
         ArrayList<Segment> segmentswithcolour = new ArrayList<>();
