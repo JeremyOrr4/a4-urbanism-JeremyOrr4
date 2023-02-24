@@ -21,31 +21,32 @@ public class GenTest {
     private final int square_size = 40;
     private final int offset = 15;
 
-    public List<Vertex> vertices = new ArrayList<Vertex>();
-    public List<Segment> segments = new ArrayList<Segment>();
-    public List<Polygon> polygons = new ArrayList<Polygon>();  
+    //public List<Vertex> vertices = new ArrayList<Vertex>();
+    //public List<Segment> segments = new ArrayList<Segment>();
+    //public List<Polygon> polygons = new ArrayList<Polygon>();
+    MeshDataTest TestMesh = new MeshDataTest();
 
     public Mesh generate() {
 
-    
-        
-        
+
+
+
         List<Coordinate> coords = populatePoints(width, height, square_size, offset); //generate grid points with a random x,y offset
 
-       voronoi(coords);
-       lloyd(4);
+        voronoi(coords);
+        lloyd(4);
 
         //OPTIONAL: Filters all polygons whose centers are outside canvas area
         //filterPolygons(polygons,vertices );
 
-       //trimVertexPosition();
+        trimVertexPosition();
         //create final mesh
-        return Mesh.newBuilder().addAllVertices(vertices).addAllSegments(segments).addAllPolygons(polygons).build();
+        return Mesh.newBuilder().addAllVertices(TestMesh.vertexData).addAllSegments(TestMesh.segmentData).addAllPolygons(TestMesh.polygonData).build();
     }
 
 
     /**
-     * 
+     *
      * @param width  width of point generation area
      * @param height  height of point generation area
      * @param square_size frequency of grid points
@@ -57,29 +58,29 @@ public class GenTest {
         List<Coordinate> coordinates = new ArrayList<Coordinate>();
 
         //create a grid bound by width,height, and divided by square_size
-       for (int x = 0; x < width; x += square_size) {
-           for (int y = 0; y < height; y += square_size) {
+        for (int x = 0; x < width; x += square_size) {
+            for (int y = 0; y < height; y += square_size) {
 
-                    //offset grid points by += offset value 
-                   double xPos = offset*(Math.random()*2-1) + x; 
-                   double yPos = offset*(Math.random()*2-1) + y; 
+                //offset grid points by += offset value
+                double xPos = offset*(Math.random()*2-1) + x;
+                double yPos = offset*(Math.random()*2-1) + y;
 
-                   //add point to coordinate list
-                   coordinates.add(new Coordinate(xPos,yPos)); 
-           }
-       }
-       return coordinates; 
+                //add point to coordinate list
+                coordinates.add(new Coordinate(xPos,yPos));
+            }
+        }
+        return coordinates;
 
-   }
+    }
 
 
-   /**
-    * Creates vertex object from coordinate
-    * @param c source coordinate
-    * @return Vertex with coordinate x,y data
-    */
+    /**
+     * Creates vertex object from coordinate
+     * @param c source coordinate
+     * @return Vertex with coordinate x,y data
+     */
     public static Vertex createVertex(Coordinate c){
-        return Vertex.newBuilder().setX(c.x).setY(c.y).build(); 
+        return Vertex.newBuilder().setX(c.x).setY(c.y).build();
     }
 
     /**
@@ -88,8 +89,8 @@ public class GenTest {
      * @return randomly colored vertex
      */
     public static Vertex randomized(Vertex v){
-        Vertex modified = Vertex.newBuilder(v).addProperties(randomColor()).build(); 
-        return modified; 
+        Vertex modified = Vertex.newBuilder(v).addProperties(randomColor()).build();
+        return modified;
     }
 
 
@@ -102,18 +103,18 @@ public class GenTest {
         int red = bag.nextInt(255);
         int green = bag.nextInt(255);
         int blue = bag.nextInt(255);
-        int alpha = 255; 
+        int alpha = 255;
 
-        
-        
-        String colorCode = String.format("%d,%d,%d,%d",red,green,blue,alpha); 
+
+
+        String colorCode = String.format("%d,%d,%d,%d",red,green,blue,alpha);
         return Property.newBuilder().setKey("rgb_color").setValue(colorCode).build();
 
     }
 
 
 
-        /**
+    /**
      * Used to determine the average color between two vertices in a mesh
      * @param v1 a colored Vertex
      * @param v2 a colored Vertex
@@ -151,13 +152,13 @@ public class GenTest {
     public  void filterPolygons(List<Polygon> polygons ){
         //iterate over all polygons backwards
         for (int i = polygons.size()-1; i >=0 ; i--) {
-          
-            Polygon p = polygons.get(i); 
-            Vertex centroid = vertices.get(p.getCentroidIdx()); //get the centroid vertex from each polygon 
-            
+
+            Polygon p = polygons.get(i);
+            Vertex centroid = TestMesh.vertexData.get(p.getCentroidIdx()); //get the centroid vertex from each polygon
+
             if(centroid.getX()>width || centroid.getX()<0 || centroid.getY()>height || centroid.getY()<0 ){
                 polygons.remove(i);  //filter polygons outside of canvas dimensions
-            } 
+            }
         }
     }
 
@@ -167,19 +168,19 @@ public class GenTest {
      */
     public void trimVertexPosition(){
 
-        for(int i=0; i<vertices.size();i++){
-            Vertex v = vertices.get(i); 
+        for(int i=0; i<TestMesh.vertexData.size();i++){
+            Vertex v = TestMesh.vertexData.get(i);
 
-            List<Property> properties = v.getPropertiesList(); 
+            List<Property> properties = v.getPropertiesList();
 
             if (v.getX() > width || v.getY() > height){
 
-                  //compute new x,y values 
+                //compute new x,y values
                 double x = (v.getX() > width) ? width : v.getX();
-                double y = (v.getY() > height) ? height : v.getY(); 
+                double y = (v.getY() > height) ? height : v.getY();
 
                 //replace current vertex with new one on canvas edge
-                vertices.set(i, Vertex.newBuilder().setX(x).setY(y).addAllProperties(properties).build()); 
+                TestMesh.vertexData.set(i, Vertex.newBuilder().setX(x).setY(y).addAllProperties(properties).build());
             }
         }
     }
@@ -188,70 +189,69 @@ public class GenTest {
 
     public List<Coordinate> getCentroids(List<Polygon>polygons){
 
-        List<Coordinate> centroids = new ArrayList<Coordinate>(); 
+        List<Coordinate> centroids = new ArrayList<Coordinate>();
 
 
         for(Polygon p: polygons){
 
-            Vertex v = vertices.get(p.getCentroidIdx()); 
-            Coordinate c = new Coordinate(v.getX(), v.getY()); 
-            centroids.add(c); 
+            Vertex v = TestMesh.vertexData.get(p.getCentroidIdx());
+            Coordinate c = new Coordinate(v.getX(), v.getY());
+            centroids.add(c);
         }
 
-        return centroids; 
+        return centroids;
     }
 
 
 
     public void voronoi(List<Coordinate> coords){
 
-        vertices.clear();
-        segments.clear(); 
-        polygons.clear();
+        TestMesh.vertexData.clear();
+        TestMesh.segmentData.clear();
+        TestMesh.polygonData.clear();
 
 
-        VoronoiDiagramBuilder voronoi = new VoronoiDiagramBuilder(); 
+        VoronoiDiagramBuilder voronoi = new VoronoiDiagramBuilder();
         voronoi.setSites(coords); //perform voronoi calculations for generated points
-        
-        GeometryFactory factory = new GeometryFactory(); 
-       Geometry rawVoronoiGeometry = voronoi.getDiagram(factory); //convert voronoi diagram into Geometry object 
+
+        GeometryFactory factory = new GeometryFactory();
+        Geometry rawVoronoiGeometry = voronoi.getDiagram(factory); //convert voronoi diagram into Geometry object
 
         List<Geometry> voronoiCells = new ArrayList<Geometry>(); //store individual voronoi cells
 
         //iterate over each voronoi cell contained within parent geometry
         for(int i=0; i<rawVoronoiGeometry.getNumGeometries();  i++){
-            voronoiCells.add(rawVoronoiGeometry.getGeometryN(i)); 
+            voronoiCells.add(rawVoronoiGeometry.getGeometryN(i));
         }
-        
 
-        //convert voronoi geometry into Polygons 
+
+        //convert voronoi geometry into Polygons
         for(Geometry cell : voronoiCells){
-            
-            //store number of vertices,segments to make index operations simple and relative to current polygon 
-            int vertexOffset=vertices.size(); 
-            int segmentOffset=segments.size(); 
 
-            List<Integer> segId = new ArrayList<Integer>(); 
-            Coordinate[] cellCoords = cell.getCoordinates(); //get coordinate x,y pairs 
-            
+            //store number of vertices,segments to make index operations simple and relative to current polygon
+            int vertexOffset=TestMesh.vertexData.size();
+            int segmentOffset=TestMesh.segmentData.size();
+
+            List<Integer> segId = new ArrayList<Integer>();
+            Coordinate[] cellCoords = cell.getCoordinates(); //get coordinate x,y pairs
+
             for(int i=0; i<cellCoords.length;i++){
-                vertices.add(createVertex(cellCoords[i])); //create vertex from x,y data
-                
-                //prevent OOB error by skipping the last vertex 
-                if(i!= cellCoords.length-1){ 
-                    segId.add(i+segmentOffset);  
-                    segments.add(Segment.newBuilder().setV1Idx(i+vertexOffset).setV2Idx(i+1+vertexOffset).build()); 
+                TestMesh.vertexData.add(TestMesh.createVertex(cellCoords[i])); //create vertex from x,y data
+
+                //prevent OOB error by skipping the last vertex
+                if(i!= cellCoords.length-1){
+                    segId.add(i+segmentOffset);
+                    TestMesh.segmentData.add(TestMesh.createSegment(i+vertexOffset,i+1+vertexOffset));
                 }
             }
-            
+
 
             //get polygon centroid location and create vertex with randomized color
-            Vertex centroid = randomized(createVertex(cell.getCentroid().getCoordinate())); 
-            vertices.add(centroid); 
+            TestMesh.vertexData.add(TestMesh.randomized(TestMesh.createVertex(cell.getCentroid().getCoordinate())));
+
 
             //create polgon with segment data extracted from cell
-            Polygon p = Polygon.newBuilder().addAllSegmentIdxs(segId).setCentroidIdx(vertices.size()-1).build();  
-            polygons.add(p); 
+            TestMesh.polygonData.add(TestMesh.createPolygon(segId,TestMesh.vertexData.size()-1));
 
 
         }
@@ -264,8 +264,8 @@ public class GenTest {
 
 
         for (int i = 0; i < iterations; i++) {
-            
-            List<Coordinate> coords = getCentroids(polygons); 
+
+            List<Coordinate> coords = getCentroids(TestMesh.polygonData);
 
             voronoi(coords);
 

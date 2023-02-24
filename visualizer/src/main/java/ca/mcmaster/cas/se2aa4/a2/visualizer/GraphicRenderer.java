@@ -48,7 +48,7 @@ public class GraphicRenderer {
             
            
            canvas.setColor(extractColor(aMesh.getVerticesList().get(p.getCentroidIdx()).getPropertiesList()));
-            canvas.fillPolygon(coords[0], coords[1], coords[0].length);
+           canvas.fillPolygon(coords[0], coords[1], coords[0].length);
                 
             
            for(int id_s : p.getSegmentIdxsList()){
@@ -83,7 +83,7 @@ public class GraphicRenderer {
         //  }
 
 
-
+        int vertex_point=0;
         for(Vertex v : aMesh.getVerticesList()){ 
 
             int thickness = extractThickness(v.getPropertiesList()); 
@@ -91,11 +91,10 @@ public class GraphicRenderer {
             double centre_x = v.getX() - (thickness/2.0d);
             double centre_y = v.getY() - (thickness/2.0d);
             canvas.setColor(extractColor(v.getPropertiesList()));
-
-            
             canvas.setColor(new Color(0,0,0));
-            Ellipse2D point = new Ellipse2D.Double(centre_x, centre_y, thickness, thickness);
+            Ellipse2D point = new Ellipse2D.Double(centre_x, centre_y,thickness,thickness);
             canvas.fill(point);
+            vertex_point+=1;
         }
 
     }

@@ -10,9 +10,9 @@ import ca.mcmaster.cas.se2aa4.a2.io.Structs.Mesh;
 import java.util.ArrayList;
 
 public class MeshData {
-    public ArrayList<Vertex> vertexData= new ArrayList<>();
-    public ArrayList<Segment> segmentData=new ArrayList<>();
-    public ArrayList<Polygon> polygonData=new ArrayList<>();
+    public List<Vertex> vertexData= new ArrayList<>();
+    public List<Segment> segmentData=new ArrayList<>();
+    public List<Polygon> polygonData=new ArrayList<>();
 
     public void vertexCreate(int x,int y, double offset, Random random){
         Vertex v = (Vertex.newBuilder().setX((double) x + offset * (random.nextDouble(15)- random
