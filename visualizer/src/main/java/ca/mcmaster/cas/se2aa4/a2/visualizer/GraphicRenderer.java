@@ -39,15 +39,11 @@ public class GraphicRenderer {
             segmentswithcolour.add(s);
         }
 
-
-        
         for (Polygon p : aMesh.getPolygonsList()){
             
             
-            int[][] coords = getPolygonCoords(p, aMesh); 
-            
-           
-           canvas.setColor(extractColor(aMesh.getVerticesList().get(p.getCentroidIdx()).getPropertiesList()));
+            int[][] coords = getPolygonCoords(p, aMesh);
+            canvas.setColor(extractColor(aMesh.getVerticesList().get(p.getCentroidIdx()).getPropertiesList()));
            canvas.fillPolygon(coords[0], coords[1], coords[0].length);
                 
             
@@ -63,12 +59,9 @@ public class GraphicRenderer {
 
            
            }
-        
-
-          
             
        
-        
+
         }
 
         // for (Segment s : aMesh.getSegmentsList() ){
@@ -170,7 +163,7 @@ public class GraphicRenderer {
         if (val == null)
             return 3;
 
-            return Integer.parseInt(val); 
+        else return Integer.parseInt(val);
     }
 
 

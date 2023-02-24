@@ -31,10 +31,10 @@ public class DotGen {
 
         for(int x = 0; x < width; x += square_size) {
             for(int y = 0; y < height; y += square_size) {
-                GridMesh.vertexCreate(x,y,offset,random);
+                GridMesh.createVertex(x,y,offset,random);
                     //add segments between vertices, skip edge segments (first segment after exceeding row )
-                if(GridMesh.vertexData.size() < (rowSize*rowSize) && (GridMesh.vertexData.size()%rowSize !=0)) GridMesh.segmentData.add(GridMesh.segmentCreate(GridMesh.vertexData.size()-1,GridMesh.vertexData.size()));
-                if(GridMesh.vertexData.size() < (rowSize*rowSize-rowSize+1)) GridMesh.segmentData.add(GridMesh.segmentCreate(GridMesh.vertexData.size()-1,GridMesh.vertexData.size()+rowSize-1));
+                if(GridMesh.vertexData.size() < (rowSize*rowSize) && (GridMesh.vertexData.size()%rowSize !=0)) GridMesh.segmentData.add(GridMesh.createSegment(GridMesh.vertexData.size()-1,GridMesh.vertexData.size()));
+                if(GridMesh.vertexData.size() < (rowSize*rowSize-rowSize+1)) GridMesh.segmentData.add(GridMesh.createSegment(GridMesh.vertexData.size()-1,GridMesh.vertexData.size()+rowSize-1));
 
             }
 
@@ -64,7 +64,7 @@ public class DotGen {
         int last_row=0;
         for (int k = 0; k<size-28;k+=1){
 
-            GridMesh.polygonData.add(GridMesh.polygonCreate(k,size,last_row));
+            GridMesh.polygonData.add(GridMesh.createPolygon(k,size,last_row));
             if (k>size-76 && k%2==0){
                 last_row+=1;
             }

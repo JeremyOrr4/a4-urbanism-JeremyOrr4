@@ -1,6 +1,8 @@
 package ca.mcmaster;
 
 import java.util.*;
+
+import ca.mcmaster.cas.se2aa4.a2.generator.MeshData;
 import ca.mcmaster.cas.se2aa4.a2.io.Structs.Mesh;
 import ca.mcmaster.cas.se2aa4.a2.io.Structs.Polygon;
 import ca.mcmaster.cas.se2aa4.a2.io.Structs.Property;
@@ -13,6 +15,7 @@ import org.locationtech.jts.geom.GeometryFactory;
 import org.locationtech.jts.geom.Coordinate;
 import org.locationtech.jts.geom.Geometry;
 import org.locationtech.jts.triangulate.VoronoiDiagramBuilder;
+import org.locationtech.jts.triangulate.DelaunayTriangulationBuilder;
 
 public class GenTest {
 
@@ -21,11 +24,7 @@ public class GenTest {
     private final int square_size = 40;
     private final int offset = 15;
 
-    //public List<Vertex> vertices = new ArrayList<Vertex>();
-    //public List<Segment> segments = new ArrayList<Segment>();
-    //public List<Polygon> polygons = new ArrayList<Polygon>();
-    MeshDataTest TestMesh = new MeshDataTest();
-
+    MeshData TestMesh = new MeshData();
     public Mesh generate() {
 
 
@@ -215,8 +214,7 @@ public class GenTest {
         voronoi.setSites(coords); //perform voronoi calculations for generated points
 
         GeometryFactory factory = new GeometryFactory();
-        Geometry rawVoronoiGeometry = voronoi.getDiagram(factory); //convert voronoi diagram into Geometry object
-
+        Geometry rawVoronoiGeometry = voronoi.getDiagram(factory);//convert voronoi diagram into Geometry object
         List<Geometry> voronoiCells = new ArrayList<Geometry>(); //store individual voronoi cells
 
         //iterate over each voronoi cell contained within parent geometry
@@ -227,7 +225,12 @@ public class GenTest {
 
         //convert voronoi geometry into Polygons
         for(Geometry cell : voronoiCells){
-
+            List<Integer> neighbour = new ArrayList<>();
+            for (int i=0;i<voronoiCells.size();i++){
+                if (cell.touches(voronoiCells.get(i))){
+                    neighbour.add(i);
+                }
+            }
             //store number of vertices,segments to make index operations simple and relative to current polygon
             int vertexOffset=TestMesh.vertexData.size();
             int segmentOffset=TestMesh.segmentData.size();
@@ -252,15 +255,13 @@ public class GenTest {
 
             //create polgon with segment data extracted from cell
             TestMesh.polygonData.add(TestMesh.createPolygon(segId,TestMesh.vertexData.size()-1));
-
-
         }
 
 
     }
 
 
-    public void lloyd( int iterations){
+    public void lloyd( int iterations) {
 
 
         for (int i = 0; i < iterations; i++) {
