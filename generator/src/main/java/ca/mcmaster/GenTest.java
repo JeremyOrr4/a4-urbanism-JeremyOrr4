@@ -15,6 +15,7 @@ import org.locationtech.jts.geom.GeometryFactory;
 import org.locationtech.jts.geom.Coordinate;
 import org.locationtech.jts.geom.Geometry;
 import org.locationtech.jts.triangulate.VoronoiDiagramBuilder;
+import org.locationtech.jts.triangulate.quadedge.QuadEdgeSubdivision;
 import org.locationtech.jts.triangulate.DelaunayTriangulationBuilder;
 
 public class GenTest {
@@ -27,13 +28,11 @@ public class GenTest {
     MeshData TestMesh = new MeshData();
     public Mesh generate() {
 
-
-
-
         List<Coordinate> coords = populatePoints(width, height, square_size, offset); //generate grid points with a random x,y offset
 
         voronoi(coords);
         lloyd(4);
+        // Delaunay(coords); JEREMY
 
         //OPTIONAL: Filters all polygons whose centers are outside canvas area
         //filterPolygons(polygons,vertices );
@@ -275,6 +274,14 @@ public class GenTest {
 
     }
 
+    // // Getting Neighbours of polygon JEREMY
+    // public QuadEdgeSubdivision Delaunay(List<Coordinate> coords) {
+
+    //     DelaunayTriangulationBuilder builder = new DelaunayTriangulationBuilder();
+    //     builder.setSites(coords);
+    //     QuadEdgeSubdivision subDiv = builder.getSubdivision();
+    //     return subDiv;
+    // }
 
 
 
