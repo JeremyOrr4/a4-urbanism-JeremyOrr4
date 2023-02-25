@@ -72,7 +72,7 @@ public class MeshData {
 
     public Segment createSegment(int V1, int V2){return (Segment.newBuilder().setV1Idx(V1).setV2Idx(V2).build()); }
 
-    public Polygon createPolygon(List<Integer> segId,int CentroidID){return Polygon.newBuilder().addAllSegmentIdxs(segId).setCentroidIdx(CentroidID).build();}
+    public Polygon createPolygon(List<Integer> segId,int CentroidID,List<Integer> neighbours){return Polygon.newBuilder().addAllSegmentIdxs(segId).setCentroidIdx(CentroidID).addAllNeighborIdxs(neighbours).build();}
 
     public static Property randomColor(){
 

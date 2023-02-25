@@ -38,12 +38,21 @@ public class GraphicRenderer {
         for (Segment s:aMesh.getSegmentsList()){
             segmentswithcolour.add(s);
         }
-
+        int polyCount=0;
         for (Polygon p : aMesh.getPolygonsList()){
-            
-            
+
+
             int[][] coords = getPolygonCoords(p, aMesh);
             canvas.setColor(extractColor(aMesh.getVerticesList().get(p.getCentroidIdx()).getPropertiesList()));
+
+            //THIS PART IS FOR TESTING IF THE NEIGHBOUR IDS ARE CORRECT, DOES NOT ACTUALLY DO ANYTHING RELEVANT
+            //List<Integer> neighbour = aMesh.getPolygonsList().get(55).getNeighborIdxsList();
+            //if(polyCount==55) {
+            //    canvas.setColor(Color.BLACK);
+            //}
+            //for (int n:neighbour){
+            //    if (polyCount==n) canvas.setColor(Color.RED);
+            //}
            canvas.fillPolygon(coords[0], coords[1], coords[0].length);
                 
             
@@ -61,7 +70,7 @@ public class GraphicRenderer {
            }
             
        
-
+            polyCount+=1;
         }
 
         // for (Segment s : aMesh.getSegmentsList() ){

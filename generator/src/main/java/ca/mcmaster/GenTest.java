@@ -225,6 +225,7 @@ public class GenTest {
 
         //convert voronoi geometry into Polygons
         for(Geometry cell : voronoiCells){
+            //store cell id's of all cells that the current cell touches
             List<Integer> neighbour = new ArrayList<>();
             for (int i=0;i<voronoiCells.size();i++){
                 if (cell.touches(voronoiCells.get(i))){
@@ -254,7 +255,8 @@ public class GenTest {
 
 
             //create polgon with segment data extracted from cell
-            TestMesh.polygonData.add(TestMesh.createPolygon(segId,TestMesh.vertexData.size()-1));
+            TestMesh.polygonData.add(TestMesh.createPolygon(segId,TestMesh.vertexData.size()-1,neighbour));
+            neighbour.clear();
         }
 
 
@@ -275,6 +277,19 @@ public class GenTest {
 
     }
 
+    public void delauney(){
+        Collection<Vertex> centroids = new ArrayList<>();
+        for (Polygon p: TestMesh.polygonData){
+            centroids.add(TestMesh.vertexData.get(p.getCentroidIdx()));
+        }
+
+        DelaunayTriangulationBuilder del = new DelaunayTriangulationBuilder();
+        del.setSites(centroids);
+
+        GeometryFactory factory = new GeometryFactory();
+        Geometry delGeom = del.getTriangles(factory);
+
+    }
 
 
 
