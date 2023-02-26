@@ -18,7 +18,7 @@ import org.locationtech.jts.triangulate.VoronoiDiagramBuilder;
 import org.locationtech.jts.triangulate.quadedge.QuadEdgeSubdivision;
 import org.locationtech.jts.triangulate.DelaunayTriangulationBuilder;
 
-public class GenTest {
+public class MeshGenerator {
 
     private final int width = 500;
     private final int height = 500;
