@@ -16,7 +16,7 @@ public class WavefrontGenerator {
     List<Vertex> Vertices = new ArrayList<Vertex>();
 
     public WavefrontGenerator(Mesh myMesh) throws IOException {
-        FileWriter fw = new FileWriter("Wavefront.obj", true); // Creating the file to write to.
+        FileWriter fw = new FileWriter("Wavefront.obj", false); // Creating the file to write to.
         BufferedWriter writer = new BufferedWriter(fw);
 
         Vertices = myMesh.getVerticesList();// Getting each vertex
