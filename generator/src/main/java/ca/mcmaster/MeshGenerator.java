@@ -9,7 +9,7 @@ import ca.mcmaster.cas.se2aa4.a2.io.Structs.Polygon;
 import ca.mcmaster.cas.se2aa4.a2.io.Structs.Property;
 import ca.mcmaster.cas.se2aa4.a2.io.Structs.Segment;
 import ca.mcmaster.cas.se2aa4.a2.io.Structs.Vertex;
-
+import ca.mcmaster.cas.se2aa4.a2.generator.PropertyAdd;
 
 
 import org.locationtech.jts.geom.GeometryFactory;
@@ -162,23 +162,22 @@ public class MeshGenerator {
     /**
      * Move all off-canvas vertices to canvas edge
      */
+
     public void trimVertexPosition(){
+            for (int i = 0; i < TestMesh.vertexData.size(); i++) {
+                Vertex v = TestMesh.vertexData.get(i);
 
-        for(int i=0; i<TestMesh.vertexData.size();i++){
-            Vertex v = TestMesh.vertexData.get(i);
+                List<Property> properties = v.getPropertiesList();
 
-            List<Property> properties = v.getPropertiesList();
+                if (v.getX() > width || v.getY() > height) {
+                    //compute new x,y values
+                    double x = (v.getX() > width) ? width : v.getX();
+                    double y = (v.getY() > height) ? height : v.getY();
 
-            if (v.getX() > width || v.getY() > height){
-
-                //compute new x,y values
-                double x = (v.getX() > width) ? width : v.getX();
-                double y = (v.getY() > height) ? height : v.getY();
-
-                //replace current vertex with new one on canvas edge
-                TestMesh.vertexData.set(i, Vertex.newBuilder().setX(x).setY(y).addAllProperties(properties).build());
+                    //replace current vertex with new one on canvas edge
+                    TestMesh.vertexData.set(i, Vertex.newBuilder().setX(x).setY(y).addAllProperties(properties).build());
+                }
             }
-        }
     }
 
 
@@ -238,7 +237,7 @@ public class MeshGenerator {
 
             for(int i=0; i<cellCoords.length;i++){
                 if (CommArgs.debug){
-                    TestMesh.vertexData.add(TestMesh.debugRed(TestMesh.createVertex(cellCoords[i]))); //create vertex from x,y data
+                    TestMesh.vertexData.add(PropertyAdd.debugRed(TestMesh.createVertex(cellCoords[i]))); //create vertex from x,y data
                 }else{
                     TestMesh.vertexData.add(TestMesh.createVertex(cellCoords[i]));
                 }
@@ -247,9 +246,9 @@ public class MeshGenerator {
                 if(i!= cellCoords.length-1){
                     segId.add(i+segmentOffset);
                     if (!CommArgs.debug){
-                        TestMesh.segmentData.add(TestMesh.AddSegmentProperties(TestMesh.createSegment(i+vertexOffset,i+1+vertexOffset)));
+                        TestMesh.segmentData.add(PropertyAdd.AddSegmentProperties(TestMesh.createSegment(i+vertexOffset,i+1+vertexOffset)));
                     }else{
-                        TestMesh.segmentData.add(TestMesh.debugRed(TestMesh.createSegment(i+vertexOffset,i+1+vertexOffset)));
+                        TestMesh.segmentData.add(PropertyAdd.debugRed(TestMesh.createSegment(i+vertexOffset,i+1+vertexOffset)));
                     }
                 }
             }
@@ -257,11 +256,11 @@ public class MeshGenerator {
             Property current_color = randomColor();
             //get polygon centroid location and create vertex with randomized color
             if (!CommArgs.debug){
-                TestMesh.vertexData.add(TestMesh.setToPolygon(TestMesh.createVertex(cell.getCentroid().getCoordinate()),current_color));
-                TestMesh.polygonData.add(TestMesh.polyColor(TestMesh.createPolygon(segId,TestMesh.vertexData.size()-1,neighbour),current_color));
+                TestMesh.vertexData.add(PropertyAdd.setToPolygon(TestMesh.createVertex(cell.getCentroid().getCoordinate()),current_color));
+                TestMesh.polygonData.add(PropertyAdd.polyColor(TestMesh.createPolygon(segId,TestMesh.vertexData.size()-1,neighbour),current_color));
             }else{
-                TestMesh.vertexData.add(TestMesh.debugRed(TestMesh.createVertex(cell.getCentroid().getCoordinate())));
-                TestMesh.polygonData.add(TestMesh.debugBlack(TestMesh.createPolygon(segId,TestMesh.vertexData.size()-1,neighbour)));
+                TestMesh.vertexData.add(PropertyAdd.debugRed(TestMesh.createVertex(cell.getCentroid().getCoordinate())));
+                TestMesh.polygonData.add(PropertyAdd.debugBlack(TestMesh.createPolygon(segId,TestMesh.vertexData.size()-1,neighbour)));
             }
 
             //create polgon with segment data extracted from cell
@@ -270,9 +269,9 @@ public class MeshGenerator {
         for (Polygon p: TestMesh.polygonData){
             for (int n: p.getNeighborIdxsList()){
                 if (!CommArgs.debug){
-                    TestMesh.segmentData.add(TestMesh.setTransparent(TestMesh.createSegment(p.getCentroidIdx(),TestMesh.polygonData.get(n).getCentroidIdx())));
+                    TestMesh.segmentData.add(PropertyAdd.setTransparent(TestMesh.createSegment(p.getCentroidIdx(),TestMesh.polygonData.get(n).getCentroidIdx())));
                 }else{
-                    TestMesh.segmentData.add(TestMesh.debugGrey(TestMesh.createSegment(p.getCentroidIdx(),TestMesh.polygonData.get(n).getCentroidIdx())));
+                    TestMesh.segmentData.add(PropertyAdd.debugGrey(TestMesh.createSegment(p.getCentroidIdx(),TestMesh.polygonData.get(n).getCentroidIdx())));
                 }
             }
         }

@@ -24,7 +24,7 @@ public class Main {
         options.addOption("square_size", true, "specify frequency of grid points"); 
         options.addOption("lloyd", true, "number of lloyd relaxation steps"); 
         options.addOption("offset", true, "control randomness of gridpoints");
-        options.addOption("grid", false, "set a grid based mesh type");
+        options.addOption("irregular", false, "set a grid based mesh type");
         options.addOption("debug", false, "Debug Mode?");
 
 
@@ -46,8 +46,8 @@ public class Main {
              height = Integer.parseInt(cmd.getOptionValue("height", "520"));
              square_size = Integer.parseInt(cmd.getOptionValue("square_size", "40"));
              lloyd = Integer.parseInt(cmd.getOptionValue("lloyd", "3")); 
-             offset = Integer.parseInt(cmd.getOptionValue("offset", "0"));
-             irregular = !cmd.hasOption("grid");
+             offset = Integer.parseInt(cmd.getOptionValue("offset", "10"));
+             irregular = cmd.hasOption("irregular");
              debug = cmd.hasOption("debug");
 
 
