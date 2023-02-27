@@ -28,16 +28,16 @@ public class DotGen {
 //        MeshData GridMesh = new MeshData();
 //        Random random = new Random();
 //
-//        for(int x = 0; x < width; x += square_size) {
-//            for(int y = 0; y < height; y += square_size) {
-//                GridMesh.createVertex(x,y,0,random);
-//                //add segments between vertices, skip edge segments (first segment after exceeding row )
-//                if(GridMesh.vertexData.size() < (rowSize*rowSize) && (GridMesh.vertexData.size()%rowSize !=0)) GridMesh.segmentData.add(GridMesh.createSegment(GridMesh.vertexData.size()-1,GridMesh.vertexData.size()));
-//                if(GridMesh.vertexData.size() < (rowSize*rowSize-rowSize+1)) GridMesh.segmentData.add(GridMesh.createSegment(GridMesh.vertexData.size()-1,GridMesh.vertexData.size()+rowSize-1));
-//
-//            }
-//
-//        }
+    //    for(int x = 0; x < width; x += square_size) {
+    //        for(int y = 0; y < height; y += square_size) {
+    //            GridMesh.createVertex(x,y,0,random);
+    //            //add segments between vertices, skip edge segments (first segment after exceeding row )
+    //            if(GridMesh.vertexData.size() < (rowSize*rowSize) && (GridMesh.vertexData.size()%rowSize !=0)) GridMesh.segmentData.add(GridMesh.createSegment(GridMesh.vertexData.size()-1,GridMesh.vertexData.size()));
+    //            if(GridMesh.vertexData.size() < (rowSize*rowSize-rowSize+1)) GridMesh.segmentData.add(GridMesh.createSegment(GridMesh.vertexData.size()-1,GridMesh.vertexData.size()+rowSize-1));
+
+    //        }
+
+    //    }
 //
 //
 //
