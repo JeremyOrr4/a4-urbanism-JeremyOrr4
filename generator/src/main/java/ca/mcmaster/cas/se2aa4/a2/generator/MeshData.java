@@ -9,6 +9,7 @@ import ca.mcmaster.cas.se2aa4.a2.io.Structs.Polygon;
 import ca.mcmaster.cas.se2aa4.a2.io.Structs.Property;
 import ca.mcmaster.cas.se2aa4.a2.io.Structs.Mesh;
 import org.locationtech.jts.geom.Coordinate;
+import java.awt.Color;
 
 import java.util.ArrayList;
 
@@ -55,25 +56,50 @@ public class MeshData {
         return colored;
     }
 
-    public Segment AddSegmentProperties(Segment s, String thicknessString){
+    public Segment AddSegmentProperties(Segment s){
         //Assign segment color based on average of associated vertices
-        Property color = DotGen.averageColor(vertexData.get(s.getV1Idx()),vertexData.get(s.getV2Idx()));
-        Property thickness = Property.newBuilder().setKey("thickness").setValue(thicknessString).build();
-
-        Segment thickened =  Segment.newBuilder(s).addProperties(thickness).build();
-        Segment colored = Segment.newBuilder(thickened).addProperties(color).build();
+        Property color = Property.newBuilder().setKey("rgb_color").setValue("0,0,0").build();;
+        Segment colored = Segment.newBuilder(s).addProperties(color).build();
         return colored;
 
     }
 
     public Vertex createVertex(Coordinate c){return (Vertex.newBuilder().setX(c.x).setY(c.y).build());}
 
-    public Vertex randomized(Vertex v){return Vertex.newBuilder(v).addProperties(MeshGenerator.randomColor()).build();}
+    public Vertex setToPolygon(Vertex v,Property p){return Vertex.newBuilder(v).addProperties(p).build();}
+    public Vertex debugRed(Vertex v){
+        Property color = Property.newBuilder().setKey("rgb_color").setValue("255,0,0").build();
+        return Vertex.newBuilder(v).addProperties(color).build();
+    }
+    public Polygon debugBlack(Polygon p){
+        Property color = Property.newBuilder().setKey("rgb_color").setValue("0,0,0").build();
+        return Polygon.newBuilder(p).addProperties(color).build();
+    }
+
+    public Segment debugGrey(Segment s){
+        Property color = Property.newBuilder().setKey("rgb_color").setValue("211,211,211").build();
+        return Segment.newBuilder(s).addProperties(color).build();
+    }
+    public Segment debugRed(Segment s){
+        Property color = Property.newBuilder().setKey("rgb_color").setValue("255,0,0").build();
+        return Segment.newBuilder(s).addProperties(color).build();
+    }
+    public Vertex debugGrey(Vertex v){
+        Property color = Property.newBuilder().setKey("rgb_color").setValue("211,211,211").build();
+        return Vertex.newBuilder(v).addProperties(color).build();
+    }
+    public Segment setTransparent(Segment s){
+        Property color = Property.newBuilder().setKey("rgb_color").setValue("0,0,0,0").build();
+        return Segment.newBuilder(s).addProperties(color).build();
+    }
 
     public Segment createSegment(int V1, int V2){return (Segment.newBuilder().setV1Idx(V1).setV2Idx(V2).build()); }
 
     public Polygon createPolygon(List<Integer> segId,int CentroidID,List<Integer> neighbours){return Polygon.newBuilder().addAllSegmentIdxs(segId).setCentroidIdx(CentroidID).addAllNeighborIdxs(neighbours).build();}
 
+    public Polygon polyColor(Polygon p,Property color){
+        return Polygon.newBuilder(p).addProperties(color).build();
+    }
     public static Property randomColor(){
 
         Random bag = new Random();

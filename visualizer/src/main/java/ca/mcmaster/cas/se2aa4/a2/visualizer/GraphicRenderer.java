@@ -43,7 +43,7 @@ public class GraphicRenderer {
 
 
             int[][] coords = getPolygonCoords(p, aMesh);
-            canvas.setColor(extractColor(aMesh.getVerticesList().get(p.getCentroidIdx()).getPropertiesList()));
+            canvas.setColor(extractColor(aMesh.getPolygonsList().get(polyCount).getPropertiesList()));
 
             //THIS PART IS FOR TESTING IF THE NEIGHBOUR IDS ARE CORRECT, DOES NOT ACTUALLY DO ANYTHING RELEVANT
             //List<Integer> neighbour = aMesh.getPolygonsList().get(55).getNeighborIdxsList();
@@ -73,16 +73,16 @@ public class GraphicRenderer {
             polyCount+=1;
         }
 
-        // for (Segment s : aMesh.getSegmentsList() ){
+         for (Segment s : aMesh.getSegmentsList() ){
 
 
-        //     // render segment on canvas
-        //      canvas.setColor(extractColor(s.getPropertiesList()));
-        //      int[] point1 = {(int)aMesh.getVertices(s.getV1Idx()).getX(),(int)aMesh.getVertices(s.getV1Idx()).getY()};
-        //      int[] point2 = {(int)aMesh.getVertices(s.getV2Idx()).getX(),(int)aMesh.getVertices(s.getV2Idx()).getY()};
-        //      canvas.setStroke(new BasicStroke(extractThickness(s.getPropertiesList())));
-        //      canvas.drawLine(point1[0],point1[1],point2[0],point2[1]);
-        //  }
+             // render segment on canvas
+              canvas.setColor(extractColor(s.getPropertiesList()));
+              int[] point1 = {(int)aMesh.getVertices(s.getV1Idx()).getX(),(int)aMesh.getVertices(s.getV1Idx()).getY()};
+              int[] point2 = {(int)aMesh.getVertices(s.getV2Idx()).getX(),(int)aMesh.getVertices(s.getV2Idx()).getY()};
+              canvas.setStroke(new BasicStroke(extractThickness(s.getPropertiesList())));
+              canvas.drawLine(point1[0],point1[1],point2[0],point2[1]);
+          }
 
 
         int vertex_point=0;
@@ -93,7 +93,7 @@ public class GraphicRenderer {
             double centre_x = v.getX() - (thickness/2.0d);
             double centre_y = v.getY() - (thickness/2.0d);
             canvas.setColor(extractColor(v.getPropertiesList()));
-            canvas.setColor(new Color(0,0,0));
+            //canvas.setColor(new Color(0,0,0));
             Ellipse2D point = new Ellipse2D.Double(centre_x, centre_y,thickness,thickness);
             canvas.fill(point);
             vertex_point+=1;
