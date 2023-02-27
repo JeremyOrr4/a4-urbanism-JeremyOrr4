@@ -33,7 +33,7 @@ public class MeshGenerator {
 
         voronoi(coords);
         lloyd(4);
-        // Delaunay(coords); JEREMY
+        // Delaunay(coords); 
 
         //OPTIONAL: Filters all polygons whose centers are outside canvas area
         //filterPolygons(polygons,vertices );
