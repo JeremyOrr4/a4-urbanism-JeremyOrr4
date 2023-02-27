@@ -25,6 +25,7 @@ public class Main {
         options.addOption("lloyd", true, "number of lloyd relaxation steps"); 
         options.addOption("offset", true, "control randomness of gridpoints");
         options.addOption("grid", false, "set a grid based mesh type");
+        options.addOption("debug", false, "Debug Mode?");
 
 
         int width =500;
@@ -33,6 +34,7 @@ public class Main {
         int lloyd = 3; 
         int offset = 10;
         boolean irregular = false;
+        boolean debug = false;
 
 
         CommandLineParser parser = new DefaultParser(); 
@@ -45,14 +47,15 @@ public class Main {
              square_size = Integer.parseInt(cmd.getOptionValue("square_size", "40"));
              lloyd = Integer.parseInt(cmd.getOptionValue("lloyd", "3")); 
              offset = Integer.parseInt(cmd.getOptionValue("offset", "0"));
-            irregular = !cmd.hasOption("grid"); 
+             irregular = !cmd.hasOption("grid");
+             debug = cmd.hasOption("debug");
 
 
 
 
-            
 
-            
+
+
         }catch(Exception e){
             System.out.println("Parsing error: " + e);
         }
@@ -62,6 +65,7 @@ public class Main {
         CommArgs.lloyd=lloyd;
         CommArgs.irregular=irregular;
         CommArgs.offset = offset;
+        CommArgs.debug = debug;
 
 
 

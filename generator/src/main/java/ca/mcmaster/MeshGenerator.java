@@ -78,9 +78,6 @@ public class MeshGenerator {
      * @param c source coordinate
      * @return Vertex with coordinate x,y data
      */
-    public static Vertex createVertex(Coordinate c){
-        return Vertex.newBuilder().setX(c.x).setY(c.y).build();
-    }
 
     /**
      * Add random color to a vertex
@@ -240,23 +237,44 @@ public class MeshGenerator {
             Coordinate[] cellCoords = cell.getCoordinates(); //get coordinate x,y pairs
 
             for(int i=0; i<cellCoords.length;i++){
-                TestMesh.vertexData.add(TestMesh.createVertex(cellCoords[i])); //create vertex from x,y data
+                if (CommArgs.debug){
+                    TestMesh.vertexData.add(TestMesh.debugRed(TestMesh.createVertex(cellCoords[i]))); //create vertex from x,y data
+                }else{
+                    TestMesh.vertexData.add(TestMesh.createVertex(cellCoords[i]));
+                }
 
                 //prevent OOB error by skipping the last vertex
                 if(i!= cellCoords.length-1){
                     segId.add(i+segmentOffset);
-                    TestMesh.segmentData.add(TestMesh.createSegment(i+vertexOffset,i+1+vertexOffset));
+                    if (!CommArgs.debug){
+                        TestMesh.segmentData.add(TestMesh.AddSegmentProperties(TestMesh.createSegment(i+vertexOffset,i+1+vertexOffset)));
+                    }else{
+                        TestMesh.segmentData.add(TestMesh.debugRed(TestMesh.createSegment(i+vertexOffset,i+1+vertexOffset)));
+                    }
                 }
             }
 
-
+            Property current_color = randomColor();
             //get polygon centroid location and create vertex with randomized color
-            TestMesh.vertexData.add(TestMesh.randomized(TestMesh.createVertex(cell.getCentroid().getCoordinate())));
-
+            if (!CommArgs.debug){
+                TestMesh.vertexData.add(TestMesh.setToPolygon(TestMesh.createVertex(cell.getCentroid().getCoordinate()),current_color));
+                TestMesh.polygonData.add(TestMesh.polyColor(TestMesh.createPolygon(segId,TestMesh.vertexData.size()-1,neighbour),current_color));
+            }else{
+                TestMesh.vertexData.add(TestMesh.debugRed(TestMesh.createVertex(cell.getCentroid().getCoordinate())));
+                TestMesh.polygonData.add(TestMesh.debugBlack(TestMesh.createPolygon(segId,TestMesh.vertexData.size()-1,neighbour)));
+            }
 
             //create polgon with segment data extracted from cell
-            TestMesh.polygonData.add(TestMesh.createPolygon(segId,TestMesh.vertexData.size()-1,neighbour));
             neighbour.clear();
+        }
+        for (Polygon p: TestMesh.polygonData){
+            for (int n: p.getNeighborIdxsList()){
+                if (!CommArgs.debug){
+                    TestMesh.segmentData.add(TestMesh.setTransparent(TestMesh.createSegment(p.getCentroidIdx(),TestMesh.polygonData.get(n).getCentroidIdx())));
+                }else{
+                    TestMesh.segmentData.add(TestMesh.debugGrey(TestMesh.createSegment(p.getCentroidIdx(),TestMesh.polygonData.get(n).getCentroidIdx())));
+                }
+            }
         }
 
 
