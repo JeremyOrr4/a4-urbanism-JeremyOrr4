@@ -2,6 +2,7 @@ package ca.mcmaster;
 
 import java.util.*;
 
+import ca.mcmaster.cas.se2aa4.a2.generator.CommArgs;
 import ca.mcmaster.cas.se2aa4.a2.generator.MeshData;
 import ca.mcmaster.cas.se2aa4.a2.io.Structs.Mesh;
 import ca.mcmaster.cas.se2aa4.a2.io.Structs.Polygon;
@@ -20,10 +21,10 @@ import org.locationtech.jts.triangulate.DelaunayTriangulationBuilder;
 
 public class MeshGenerator {
 
-    private final int width = 500;
-    private final int height = 500;
-    private final int square_size = 40;
-    private final int offset = 15;
+    private final int width = CommArgs.width;
+    private final int height = CommArgs.height;
+    private final int square_size = CommArgs.square_size;
+    private final int offset = CommArgs.offset;
 
     MeshData TestMesh = new MeshData();
     public Mesh generate() {

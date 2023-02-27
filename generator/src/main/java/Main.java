@@ -25,9 +25,9 @@ public class Main {
         options.addOption("grid", false, "set a grid based mesh type");
 
 
-        int width =520;
-        int height = 520;
-        int square_size = 20;
+        int width =500;
+        int height = 500;
+        int square_size = 40;
         int lloyd = 3; 
         int offset = 10;
         boolean irregular = false;
@@ -40,9 +40,9 @@ public class Main {
 
              width = Integer.parseInt(cmd.getOptionValue("width", "520"));
              height = Integer.parseInt(cmd.getOptionValue("height", "520"));
-             square_size = Integer.parseInt(cmd.getOptionValue("square_size", "20"));
+             square_size = Integer.parseInt(cmd.getOptionValue("square_size", "40"));
              lloyd = Integer.parseInt(cmd.getOptionValue("lloyd", "3")); 
-             offset = Integer.parseInt(cmd.getOptionValue("offset", "15")); 
+             offset = Integer.parseInt(cmd.getOptionValue("offset", "0"));
             irregular = !cmd.hasOption("grid"); 
 
 
