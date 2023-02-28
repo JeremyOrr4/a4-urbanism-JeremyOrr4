@@ -30,7 +30,7 @@ public class GridMesh {
 
     public Mesh generate(){
 
-        List<Coordinate> coords = DotGenNew.populatePoints(width,height,square_size, 0); 
+        List<Coordinate> coords = DotGen.populatePoints(width,height,square_size, 0); 
         
         vertices = GeometryConverter.vertex(coords); 
 
