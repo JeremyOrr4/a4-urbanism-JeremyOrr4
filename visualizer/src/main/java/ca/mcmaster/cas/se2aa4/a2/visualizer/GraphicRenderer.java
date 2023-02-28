@@ -69,6 +69,16 @@ public class GraphicRenderer {
             polyCount+=1;
         }
 
+        for (Segment s : aMesh.getSegmentsList() ){
+
+
+            // render segment on canvas
+            canvas.setColor(extractColor(s.getPropertiesList()));
+            int[] point1 = {(int)aMesh.getVertices(s.getV1Idx()).getX(),(int)aMesh.getVertices(s.getV1Idx()).getY()};
+            int[] point2 = {(int)aMesh.getVertices(s.getV2Idx()).getX(),(int)aMesh.getVertices(s.getV2Idx()).getY()};
+            canvas.setStroke(new BasicStroke(extractThickness(s.getPropertiesList())));
+            canvas.drawLine(point1[0],point1[1],point2[0],point2[1]);
+        }
 
         int vertex_point=0;
         for(Vertex v : aMesh.getVerticesList()){
