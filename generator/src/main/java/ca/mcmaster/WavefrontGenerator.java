@@ -52,7 +52,7 @@ public class WavefrontGenerator {
         int test = 0; 
         for(Polygon p : polygons){
             
-            if(test%9==0){
+            
             writer.write("f ");
             for(int s : p.getSegmentIdxsList()){
 
@@ -66,7 +66,7 @@ public class WavefrontGenerator {
             }
 
             writer.newLine();
-        }
+        
             test++; 
         }
 

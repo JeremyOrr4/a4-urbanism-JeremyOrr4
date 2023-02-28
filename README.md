@@ -78,5 +78,5 @@ When you develop features and enrich the product, remember that you have first t
 |  F08 |Randomized points |  Jeremy   | Feb 10, 2023  | Feb 10, 2023   | completed  |
 |  F09 |Lloyd Relazation and centroids |  Aidan   | Feb 21, 2023  | Feb 24, 2023   | completed  |
 |  F10 | Neighbourhood Relations with Delaunay |  Jeremy and Nathan   | Feb 24, 2023  | Feb 26, 2023   | completed  |
-|  F11 | Wavefront OBJ file creation |  Jeremy   | Feb 27, 2023  | Feb 27, 2023   | completed  |
+|  F11 | Wavefront OBJ file creation |  Jeremy and Aidan   | Feb 27, 2023  | Feb 27, 2023   | completed  |
 

@@ -27,7 +27,7 @@ import org.locationtech.jts.geom.Coordinate;
 
         public Mesh generate() {
             //Based on command line, generate grid mesh or enter irregular mesh generation
-            if (CommArgs.irregular){
+            if (!CommArgs.grid){
                 MeshGenerator IrregularMesh = new MeshGenerator();
                 return IrregularMesh.generate();
             }else{
