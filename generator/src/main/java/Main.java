@@ -24,8 +24,10 @@ public class Main {
         options.addOption("square_size", true, "specify frequency of grid points"); 
         options.addOption("lloyd", true, "number of lloyd relaxation steps"); 
         options.addOption("offset", true, "control randomness of gridpoints");
-        options.addOption("irregular", false, "set a grid based mesh type");
+        options.addOption("grid", false, "set a grid mesh type");
         options.addOption("debug", false, "Debug Mode?");
+
+        options.addOption("help", false, "display a list of options"); 
 
 
         int width =500;
@@ -33,7 +35,7 @@ public class Main {
         int square_size = 40;
         int lloyd = 3; 
         int offset = 10;
-        boolean irregular = false;
+        boolean grid = false;
         boolean debug = false;
 
 
@@ -47,10 +49,20 @@ public class Main {
              square_size = Integer.parseInt(cmd.getOptionValue("square_size", "40"));
              lloyd = Integer.parseInt(cmd.getOptionValue("lloyd", "3")); 
              offset = Integer.parseInt(cmd.getOptionValue("offset", "10"));
-             irregular = cmd.hasOption("irregular");
+             grid = cmd.hasOption("irregular");
              debug = cmd.hasOption("debug");
+            
+             if(cmd.hasOption("help")){
+                System.out.println("Options: ");
+                System.out.println("-width : specify output width");
+                System.out.println("-height : specify output height");
+                System.out.println("-square_size : specify frequency of grid points");
+                System.out.println("-lloyd : number of lloyd relaxation steps");
+                System.out.println("-offset :  control randomness of gridpoints");
+                System.out.println("-grid : set an irregular mesh type");
+                System.out.println("-debug : debug mode, highlight neighbors and make centroids red");
 
-
+             }
 
 
 
@@ -64,7 +76,7 @@ public class Main {
         CommArgs.height=height;
         CommArgs.square_size=square_size;
         CommArgs.lloyd=lloyd;
-        CommArgs.irregular=irregular;
+        CommArgs.grid=grid;
         CommArgs.offset = offset;
         CommArgs.debug = debug;
 
