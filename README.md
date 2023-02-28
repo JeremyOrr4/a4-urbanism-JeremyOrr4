@@ -59,28 +59,21 @@ When you develop features and enrich the product, remember that you have first t
 
 ### Definition of Done
 
--- Insert here your definition of done for your features --
+-- A feature is done when the software has been tested and it serves its purpose. There cannot be any errors or undocumented code when pushed--
 
 ### Product Backlog
 
 | Id | Feature title | Who? | Start | End | Status |
 |:--:|---------------|------|-------|-----|--------|
 |  F01 |draw	segments	between	vertices	to	visualize	the	squares|  Nathan    | Feb 2, 2023      |   Feb 6,2022  | Completed  |
-|  F02 |Creating	a mesh	ADT|  Perry    | Feb 7, 2023      | Feb 8   | completed  |
-|  F03 |Producing	full meshes|  Perry and Jeremy   | Feb 7, 2023      |  Feb 8  | Completed  |
-|  F03A| Squares represented as polygons | Perry | Feb 11, 2023| Feb 12, 2023| Completed|
-|  F03B| Polygons reference immediate neighbours| All | Feb 12, 2023| | Ongoing|
-|  F03C| Polygons reference centroid vertex| All | Feb 12, 2023| | Ongoing |
-|  F04 |Playing	with rendering|  All    | Feb 7, 2023      |    | Ongoing  |
-|  F04A| Vertices segments and polygons have colours + transparency| All | Feb 12 2023 | | Ongoing|
-|  F04B| Vertices segments and polygons have thickness info | All | Feb 12 2023 | | Ongoing|
-|  F05 |Visualization mode|  All    | Feb 7, 2023      |  | Ongoing  |
-|  F06 |Averaged colours |  Aidan    | Feb 8, 2023      |  | Ongoing  |
-|  F07 |Visualization mode|  All    | Feb 7, 2023      |  | Ongoing  |
-|  F08 |Visualization mode|  All    | Feb 7, 2023      |  | Ongoing  |
-|  F09 | Alpha channel transparency |   Aidan  | Feb 15, 2023    |   Completed   |
-|  F08 |Randomized points |Jeremy   | Feb 17, 2023      | Feb 17 | COmpelted  |
-| F10 | Irregular voronoi mesh | Aidan | Feb 22, 2023 | Feb 22 | Completed | 
-
-
+|  F02 |Create bash script to run the program|  JEremy    | Feb 5, 2023      | Feb 5, 2023   | completed  |
+|  F03 |Creating	a mesh	ADT|  Nathan    | Feb 7, 2023      | Feb 8   | completed  |
+|  F04 |Create Polygons and implement them onto mesh |  Nathan    | Feb 7, 2023      | Feb 8, 2023   | completed  |
+|  F05 |Create colours for mesh |  Aidan and Jeremy    | Feb 9, 2023      | Feb 9, 2023   | completed  |
+|  F06 |Change Thickness of mesh |  Aidan   | Feb 9, 2023  | Feb 9, 2023   | completed  |
+|  F07 |Create Debug Mode |  Nathan   | Feb 26, 2023  | Feb 27, 2023   | completed  |
+|  F08 |Randomized points |  Jeremy   | Feb 10, 2023  | Feb 10, 2023   | completed  |
+|  F09 |Lloyd Relazation and centroids |  Aidan   | Feb 21, 2023  | Feb 24, 2023   | completed  |
+|  F10 | Neighbourhood Relations with Delaunay |  Jeremy and Nathan   | Feb 24, 2023  | Feb 26, 2023   | completed  |
+|  F11 | Wavefront OBJ file creation |  Jeremy   | Feb 27, 2023  | Feb 27, 2023   | completed  |
 
