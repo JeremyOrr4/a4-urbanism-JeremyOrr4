@@ -2,7 +2,7 @@
 
 mvn install
 cd generator
-java -jar generator.jar sample.mesh 
+java -jar generator.jar sample.mesh  -debug
 ls -lh sample.mesh
 
 cd ..

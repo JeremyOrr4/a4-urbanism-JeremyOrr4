@@ -49,7 +49,7 @@ public class Main {
              square_size = Integer.parseInt(cmd.getOptionValue("square_size", "40"));
              lloyd = Integer.parseInt(cmd.getOptionValue("lloyd", "3")); 
              offset = Integer.parseInt(cmd.getOptionValue("offset", "10"));
-             grid = cmd.hasOption("irregular");
+             grid = cmd.hasOption("grid");
              debug = cmd.hasOption("debug");
             
              if(cmd.hasOption("help")){

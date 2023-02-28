@@ -77,7 +77,7 @@ public class PropertyAdd {
     }
     public static Polygon debugBlack(Polygon p){
         //set polygon color to black for debugging purposes
-        Property color = Property.newBuilder().setKey("rgb_color").setValue("0,0,0").build();
+        Property color = Property.newBuilder().setKey("rgb_color").setValue("0,0,0,100").build();
         return Polygon.newBuilder(p).addProperties(color).build();
     }
 

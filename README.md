@@ -9,7 +9,7 @@
 Once the mvn install and mvn package commands are completed and the mesh is ready to be generated, follow the instructions below to generate the mesh.
 When doing the 'java -jar generator.jar sample.mesh' command, one can add command flags at the end. The flags are as follow: -width "int" specifies the width of
 the canvas, -height "int" specifies the height, -square_size "int" specifies the size of the squares in a regular mesh and the frequency of points in an irregular,
--debug switches to debug mode and the program stays in normal mode if no flag is given, -irregular generates a voronoi mesh whereas no flag will produce a grid mesh.
+-debug switches to debug mode and the program stays in normal mode if no flag is given, -grid generates a grid mesh whereas no flag will produce a voronoi mesh.
 
 ### Installation instructions
 
