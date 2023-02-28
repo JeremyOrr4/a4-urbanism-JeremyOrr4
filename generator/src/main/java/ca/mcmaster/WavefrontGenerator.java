@@ -3,7 +3,7 @@ package ca.mcmaster;
 import java.util.*;
 import java.util.ArrayList;
 
-import org.locationtech.jts.geom.Coordinate;
+
 
 import ca.mcmaster.cas.se2aa4.a2.io.Structs.Mesh;
 import ca.mcmaster.cas.se2aa4.a2.io.Structs.Polygon;
@@ -49,7 +49,7 @@ public class WavefrontGenerator {
         writer.write("# Next Section \n");
 
 
-        int test = 0; 
+
         for(Polygon p : polygons){
             
             
@@ -67,7 +67,7 @@ public class WavefrontGenerator {
 
             writer.newLine();
         
-            test++; 
+         
         }
 
         writer.write("# Next Section \n");

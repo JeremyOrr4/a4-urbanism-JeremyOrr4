@@ -7,7 +7,7 @@ import ca.mcmaster.cas.se2aa4.a2.generator.MeshData;
 import ca.mcmaster.cas.se2aa4.a2.io.Structs.Mesh;
 import ca.mcmaster.cas.se2aa4.a2.io.Structs.Polygon;
 import ca.mcmaster.cas.se2aa4.a2.io.Structs.Property;
-import ca.mcmaster.cas.se2aa4.a2.io.Structs.Segment;
+
 import ca.mcmaster.cas.se2aa4.a2.io.Structs.Vertex;
 import ca.mcmaster.cas.se2aa4.a2.generator.PropertyAdd;
 
@@ -16,8 +16,6 @@ import org.locationtech.jts.geom.GeometryFactory;
 import org.locationtech.jts.geom.Coordinate;
 import org.locationtech.jts.geom.Geometry;
 import org.locationtech.jts.triangulate.VoronoiDiagramBuilder;
-import org.locationtech.jts.triangulate.quadedge.QuadEdgeSubdivision;
-import org.locationtech.jts.triangulate.DelaunayTriangulationBuilder;
 
 public class MeshGenerator {
     //mesh properties dependent on command line inputs

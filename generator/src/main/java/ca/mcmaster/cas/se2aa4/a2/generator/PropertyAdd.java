@@ -4,16 +4,12 @@ import java.util.Random;
 
 import java.util.*;
 
-import ca.mcmaster.MeshGenerator;
+
 import ca.mcmaster.cas.se2aa4.a2.io.Structs.Vertex;
 import ca.mcmaster.cas.se2aa4.a2.io.Structs.Segment;
 import ca.mcmaster.cas.se2aa4.a2.io.Structs.Polygon;
 import ca.mcmaster.cas.se2aa4.a2.io.Structs.Property;
-import ca.mcmaster.cas.se2aa4.a2.io.Structs.Mesh;
-import org.locationtech.jts.geom.Coordinate;
-import java.awt.Color;
 
-import java.util.ArrayList;
 
 public class PropertyAdd {
     public static Vertex AddVertexProperties(Vertex v, String thicknessString){
@@ -77,7 +73,7 @@ public class PropertyAdd {
     }
     public static Polygon debugBlack(Polygon p){
         //set polygon color to black for debugging purposes
-        Property color = Property.newBuilder().setKey("rgb_color").setValue("0,0,0,100").build();
+        Property color = Property.newBuilder().setKey("rgb_color").setValue("0,0,0").build();
         return Polygon.newBuilder(p).addProperties(color).build();
     }
 

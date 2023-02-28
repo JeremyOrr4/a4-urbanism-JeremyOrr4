@@ -1,6 +1,6 @@
 package ca.mcmaster.cas.se2aa4.a2.generator;
 
-import java.io.IOException;
+
 import java.util.*;
 
 import ca.mcmaster.MeshGenerator;
@@ -10,8 +10,7 @@ import ca.mcmaster.cas.se2aa4.a2.io.Structs.Polygon;
 import ca.mcmaster.cas.se2aa4.a2.io.Structs.Property;
 import ca.mcmaster.cas.se2aa4.a2.io.Structs.Mesh;
 import java.util.ArrayList;
-import ca.mcmaster.cas.se2aa4.a2.generator.PropertyAdd;
-import ca.mcmaster.cas.se2aa4.a2.generator.CommArgs;
+
 import org.locationtech.jts.geom.Coordinate;
 
 
@@ -21,7 +20,7 @@ import org.locationtech.jts.geom.Coordinate;
         private final int height = CommArgs.height;
         private final int square_size = CommArgs.square_size;
 
-        private final int rowSize = width/square_size;
+        
 
 
 
