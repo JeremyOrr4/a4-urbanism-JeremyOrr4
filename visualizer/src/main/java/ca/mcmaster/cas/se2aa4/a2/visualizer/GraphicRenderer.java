@@ -30,40 +30,36 @@ public class GraphicRenderer {
         canvas.setColor(Color.BLACK);
         Stroke stroke = new BasicStroke(0.5f);
         canvas.setStroke(stroke);
-        //CLIPS EXCESS - vertices still exist
-        // canvas.setClip(0, 0, 500, 500);
 
 
         ArrayList<Segment> segmentswithcolour = new ArrayList<>();
+
+
         for (Segment s:aMesh.getSegmentsList()){
             segmentswithcolour.add(s);
         }
+
         int polyCount=0;
         for (Polygon p : aMesh.getPolygonsList()){
 
-
+            //get coords of polygon vertices
             int[][] coords = getPolygonCoords(p, aMesh);
+            //extract polygon color and set it to canvas color
             canvas.setColor(extractColor(aMesh.getPolygonsList().get(polyCount).getPropertiesList()));
-
-            //THIS PART IS FOR TESTING IF THE NEIGHBOUR IDS ARE CORRECT, DOES NOT ACTUALLY DO ANYTHING RELEVANT
-            //List<Integer> neighbour = aMesh.getPolygonsList().get(55).getNeighborIdxsList();
-            //if(polyCount==55) {
-            //    canvas.setColor(Color.BLACK);
-            //}
-            //for (int n:neighbour){
-            //    if (polyCount==n) canvas.setColor(Color.RED);
-            //}
+            //fill polygon
             canvas.fillPolygon(coords[0], coords[1], coords[0].length);
 
 
             for(int id_s : p.getSegmentIdxsList()){
 
                 Segment s = aMesh.getSegments(id_s);
-
+                //extract color of segment and set canvas to it
                 canvas.setColor(extractColor(s.getPropertiesList()));
+                //create a point which represents each vertex
                 int[] point1 = {(int)aMesh.getVertices(s.getV1Idx()).getX(),(int)aMesh.getVertices(s.getV1Idx()).getY()};
                 int[] point2 = {(int)aMesh.getVertices(s.getV2Idx()).getX(),(int)aMesh.getVertices(s.getV2Idx()).getY()};
                 canvas.setStroke(new BasicStroke(extractThickness(s.getPropertiesList())));
+                //drawline from one vertex to the other
                 canvas.drawLine(point1[0],point1[1],point2[0],point2[1]);
 
 
@@ -73,21 +69,10 @@ public class GraphicRenderer {
             polyCount+=1;
         }
 
-         for (Segment s : aMesh.getSegmentsList() ){
-
-
-             // render segment on canvas
-              canvas.setColor(extractColor(s.getPropertiesList()));
-              int[] point1 = {(int)aMesh.getVertices(s.getV1Idx()).getX(),(int)aMesh.getVertices(s.getV1Idx()).getY()};
-              int[] point2 = {(int)aMesh.getVertices(s.getV2Idx()).getX(),(int)aMesh.getVertices(s.getV2Idx()).getY()};
-              canvas.setStroke(new BasicStroke(extractThickness(s.getPropertiesList())));
-              canvas.drawLine(point1[0],point1[1],point2[0],point2[1]);
-          }
-
 
         int vertex_point=0;
         for(Vertex v : aMesh.getVerticesList()){
-
+            //extract thickness from properties
             int thickness = extractThickness(v.getPropertiesList());
             //render vertex on canvas
             double centre_x = v.getX() - (thickness/2.0d);
@@ -114,11 +99,11 @@ public class GraphicRenderer {
         for (int i=0; i<p.getSegmentIdxsCount(); i++){
 
             Segment s = m.getSegments(p.getSegmentIdxs(i));
-
+            //get each vertex ID for each segment in polygon
             Vertex v1 = m.getVertices(s.getV1Idx());
             Vertex v2 = m.getVertices(s.getV2Idx());
 
-
+            //create array of x coordinates and y coordinates being added consecutively
             loc[0][i]= (int)v1.getX();
             loc[0][i+1] = (int)v2.getX();
 

@@ -20,7 +20,7 @@ import org.locationtech.jts.triangulate.quadedge.QuadEdgeSubdivision;
 import org.locationtech.jts.triangulate.DelaunayTriangulationBuilder;
 
 public class MeshGenerator {
-
+    //mesh properties dependent on command line inputs
     private final int width = CommArgs.width;
     private final int height = CommArgs.height;
     private final int square_size = CommArgs.square_size;
@@ -28,16 +28,12 @@ public class MeshGenerator {
 
     MeshData TestMesh = new MeshData();
     public Mesh generate() {
-
+        //generate randomly placed points, amount of which depends on grid size and square size
         List<Coordinate> coords = populatePoints(width, height, square_size, offset); //generate grid points with a random x,y offset
-
+        //apply voronoi diagram creation and lloyd relaxation
         voronoi(coords);
         lloyd(4);
-        // Delaunay(coords); 
-
-        //OPTIONAL: Filters all polygons whose centers are outside canvas area
-        //filterPolygons(polygons,vertices );
-
+        //trim canvas so that all polygons are inside bounds
         trimVertexPosition();
         //create final mesh
         return Mesh.newBuilder().addAllVertices(TestMesh.vertexData).addAllSegments(TestMesh.segmentData).addAllPolygons(TestMesh.polygonData).build();
@@ -84,29 +80,12 @@ public class MeshGenerator {
      * @param v source vertex
      * @return randomly colored vertex
      */
-    public static Vertex randomized(Vertex v){
-        Vertex modified = Vertex.newBuilder(v).addProperties(randomColor()).build();
-        return modified;
-    }
 
 
     /**
      * @return random color property
      */
-    public static Property randomColor(){
 
-        Random bag = new Random();
-        int red = bag.nextInt(255);
-        int green = bag.nextInt(255);
-        int blue = bag.nextInt(255);
-        int alpha = 255;
-
-
-
-        String colorCode = String.format("%d,%d,%d,%d",red,green,blue,alpha);
-        return Property.newBuilder().setKey("rgb_color").setValue(colorCode).build();
-
-    }
 
 
 
@@ -116,48 +95,6 @@ public class MeshGenerator {
      * @param v2 a colored Vertex
      * @return the average color between the two vertices
      */
-    public static Property averageColor(Vertex v1, Vertex v2){
-
-        //Initialize default color to black. Attempt to find color in vertex properties
-        String val1="0,0,0";
-        for(Property p : v1.getPropertiesList()){
-            if (p.getKey().equals("rgb_color"))  val1 = p.getValue();
-        }
-
-        String val2="0,0,0";
-        for(Property p : v2.getPropertiesList()){
-            if (p.getKey().equals("rgb_color")) val2 = p.getValue();
-        }
-
-        //parse numeric data from color string, compute average values
-        String[] s1 = val1.split(",");
-        String[] s2 = val2.split(",");
-        int rgba[] = new int[4];
-        for(int i=0;i<3;i++) rgba[i] = (Integer.parseInt(s1[i]) + Integer.parseInt(s2[i]))/2;
-
-        //identifies if the both color strings have an alpha value. If absent, specify default of 255 (No transparency)
-        rgba[3] = ((s1.length==4 ? Integer.parseInt(s1[3]) : 255 ) + (s2.length==4 ? Integer.parseInt(s2[3]) : 255 ))/2 ;
-
-        //rebuild string with new average
-        String colorCode = rgba[0]+","+rgba[1]+","+rgba[2] + "," + rgba[3];
-
-        return Property.newBuilder().setKey("rgb_color").setValue(colorCode).build();
-    }
-
-
-    public  void filterPolygons(List<Polygon> polygons ){
-        //iterate over all polygons backwards
-        for (int i = polygons.size()-1; i >=0 ; i--) {
-
-            Polygon p = polygons.get(i);
-            Vertex centroid = TestMesh.vertexData.get(p.getCentroidIdx()); //get the centroid vertex from each polygon
-
-            if(centroid.getX()>width || centroid.getX()<0 || centroid.getY()>height || centroid.getY()<0 ){
-                polygons.remove(i);  //filter polygons outside of canvas dimensions
-            }
-        }
-    }
-
 
     /**
      * Move all off-canvas vertices to canvas edge
@@ -168,9 +105,10 @@ public class MeshGenerator {
                 Vertex v = TestMesh.vertexData.get(i);
 
                 List<Property> properties = v.getPropertiesList();
-
+                //check if each vertex exceeds grid bounds
                 if (v.getX() > width || v.getY() > height) {
                     //compute new x,y values
+                    //if coordinate is greater than bound, set it equal to bound
                     double x = (v.getX() > width) ? width : v.getX();
                     double y = (v.getY() > height) ? height : v.getY();
 
@@ -188,7 +126,7 @@ public class MeshGenerator {
 
 
         for(Polygon p: polygons){
-
+            //get the centroid index of each polygon and access its coordinates to return centroids as coordinate values
             Vertex v = TestMesh.vertexData.get(p.getCentroidIdx());
             Coordinate c = new Coordinate(v.getX(), v.getY());
             centroids.add(c);
@@ -200,12 +138,12 @@ public class MeshGenerator {
 
 
     public void voronoi(List<Coordinate> coords){
-
+        //clear all data
         TestMesh.vertexData.clear();
         TestMesh.segmentData.clear();
         TestMesh.polygonData.clear();
 
-
+        //create new voronoi builder based on previously generated coordinates
         VoronoiDiagramBuilder voronoi = new VoronoiDiagramBuilder();
         voronoi.setSites(coords); //perform voronoi calculations for generated points
 
@@ -236,6 +174,7 @@ public class MeshGenerator {
             Coordinate[] cellCoords = cell.getCoordinates(); //get coordinate x,y pairs
 
             for(int i=0; i<cellCoords.length;i++){
+                //if in debug mode add red color property to vertices,otherwise create it normally with default color
                 if (CommArgs.debug){
                     TestMesh.vertexData.add(PropertyAdd.debugRed(TestMesh.createVertex(cellCoords[i]))); //create vertex from x,y data
                 }else{
@@ -245,6 +184,7 @@ public class MeshGenerator {
                 //prevent OOB error by skipping the last vertex
                 if(i!= cellCoords.length-1){
                     segId.add(i+segmentOffset);
+                    //add red color to segments if in debug otherwise set to black
                     if (!CommArgs.debug){
                         TestMesh.segmentData.add(PropertyAdd.AddSegmentProperties(TestMesh.createSegment(i+vertexOffset,i+1+vertexOffset)));
                     }else{
@@ -253,8 +193,10 @@ public class MeshGenerator {
                 }
             }
 
-            Property current_color = randomColor();
+            Property current_color = PropertyAdd.randomColor();
             //get polygon centroid location and create vertex with randomized color
+            //if in debug mode, set vertex color to red and polygon color to black
+            //if not set centroid and polygon to same random color
             if (!CommArgs.debug){
                 TestMesh.vertexData.add(PropertyAdd.setToPolygon(TestMesh.createVertex(cell.getCentroid().getCoordinate()),current_color));
                 TestMesh.polygonData.add(PropertyAdd.polyColor(TestMesh.createPolygon(segId,TestMesh.vertexData.size()-1,neighbour),current_color));
@@ -263,10 +205,11 @@ public class MeshGenerator {
                 TestMesh.polygonData.add(PropertyAdd.debugBlack(TestMesh.createPolygon(segId,TestMesh.vertexData.size()-1,neighbour)));
             }
 
-            //create polgon with segment data extracted from cell
+            //create polygon with segment data extracted from cell and neighbour ID values^^
             neighbour.clear();
         }
         for (Polygon p: TestMesh.polygonData){
+            //draw segments for each neighbour relation, set to transparent if not in debug and light gray if in debug
             for (int n: p.getNeighborIdxsList()){
                 if (!CommArgs.debug){
                     TestMesh.segmentData.add(PropertyAdd.setTransparent(TestMesh.createSegment(p.getCentroidIdx(),TestMesh.polygonData.get(n).getCentroidIdx())));
@@ -293,16 +236,6 @@ public class MeshGenerator {
         }
 
     }
-
-
-    // // Getting Neighbours of polygon JEREMY
-    // public QuadEdgeSubdivision Delaunay(List<Coordinate> coords) {
-
-    //     DelaunayTriangulationBuilder builder = new DelaunayTriangulationBuilder();
-    //     builder.setSites(coords);
-    //     QuadEdgeSubdivision subDiv = builder.getSubdivision();
-    //     return subDiv;
-    // }
 
 
 

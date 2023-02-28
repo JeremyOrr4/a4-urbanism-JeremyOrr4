@@ -18,7 +18,7 @@ public class Main {
 
 
         
-        Options options = new Options(); 
+        Options options = new Options();  //define options for command line flags with default values
         options.addOption("width", true,  "specify output width"); 
         options.addOption("height", true,  "specify output height"); 
         options.addOption("square_size", true, "specify frequency of grid points"); 
@@ -41,7 +41,7 @@ public class Main {
 
         try{
             CommandLine cmd = parser.parse(options, args); 
-
+            //setting flag indicator and default value
              width = Integer.parseInt(cmd.getOptionValue("width", "520"));
              height = Integer.parseInt(cmd.getOptionValue("height", "520"));
              square_size = Integer.parseInt(cmd.getOptionValue("square_size", "40"));
@@ -59,6 +59,7 @@ public class Main {
         }catch(Exception e){
             System.out.println("Parsing error: " + e);
         }
+        //send given values to command args class so other classes can access it
         CommArgs.width = width;
         CommArgs.height=height;
         CommArgs.square_size=square_size;
@@ -70,7 +71,7 @@ public class Main {
 
 
 
-
+        //generate mesh
         DotGen generator = new DotGen();
         Mesh myMesh = generator.generate();
         MeshFactory factory = new MeshFactory();
