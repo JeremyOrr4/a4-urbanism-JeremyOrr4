@@ -1,0 +1,10 @@
+Main.class
+ca\mcmaster\cas\se2aa4\a2\visualizer\renderer\DebugRenderer.class
+ca\mcmaster\cas\se2aa4\a2\visualizer\renderer\properties\PropertyAccess.class
+ca\mcmaster\cas\se2aa4\a2\visualizer\configuration\Configuration.class
+ca\mcmaster\cas\se2aa4\a2\visualizer\renderer\GraphicRenderer.class
+ca\mcmaster\cas\se2aa4\a2\visualizer\renderer\properties\ColorProperty.class
+ca\mcmaster\cas\se2aa4\a2\visualizer\renderer\properties\Reader.class
+ca\mcmaster\cas\se2aa4\a2\visualizer\renderer\Renderer.class
+ca\mcmaster\cas\se2aa4\a2\visualizer\renderer\Hull.class
+ca\mcmaster\cas\se2aa4\a2\visualizer\SVGCanvasProvider.class
