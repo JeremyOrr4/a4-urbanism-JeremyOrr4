@@ -4,4 +4,5 @@ import java.util.ArrayList;
 
 public interface shape {
     public ArrayList<Structs.Polygon> shapeFunction(ArrayList<Structs.Polygon> polys,ArrayList<Structs.Vertex> vertices);
+    public Structs.Polygon checkBeach(Structs.Polygon p,ArrayList<Structs.Polygon> polys);
 }
