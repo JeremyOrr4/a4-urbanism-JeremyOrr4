@@ -11,48 +11,48 @@ import ca.mcmaster.cas.se2aa4.a3.island.Tiles.TileType;
 
 public class BeachGenerator {
 
+Mesh original; 
+List<Polygon> originalPolygons; 
+List<Polygon> newPolygons; 
 
-public static Mesh beachMesh(Mesh aMesh){
+public BeachGenerator(Mesh aMesh){
+
+    this.original = aMesh; 
+    originalPolygons = aMesh.getPolygonsList();
+    newPolygons = new ArrayList<Polygon>();
+}
 
 
-    List<Polygon> newPolygons = new ArrayList<Polygon>();
-
-    List<Polygon> originalPolygons = aMesh.getPolygonsList();
+public  Mesh beachMesh(){
     
     for(Polygon p : originalPolygons){
 
-
         Polygon newTile = p; 
-
-        if(Tiles.getTileType(p).equals("Land")){
-
-            
-           for(int i=0; i< p.getNeighborIdxsCount(); i++){
-            
-            Polygon neighbor = originalPolygons.get(p.getNeighborIdxs(i)); 
-            
-                if(Tiles.getTileType(neighbor).equals("Water")){
-                    System.out.println("Edge");
-                    newTile = Tiles.setType(p, TileType.BEACH);  
-                  
-                }
-
-           }
-         
-
-        }
-        
+        if(isBeachTile(p)) newTile = Tiles.setType(p, TileType.BEACH);          
         newPolygons.add(newTile); 
-
-       
-
-
     }
     
 
-    return Mesh.newBuilder().addAllVertices(aMesh.getVerticesList()).addAllSegments(aMesh.getSegmentsList()).addAllPolygons(newPolygons).build(); 
+    return Mesh.newBuilder().addAllVertices(original.getVerticesList()).addAllSegments(original.getSegmentsList()).addAllPolygons(newPolygons).build(); 
 }
 
+
+
+/**
+ *  
+ * @param p A polygon who's beach status is to be tested
+ * @return true if the polygon should be a beach (neigbors water)
+ */
+public  boolean isBeachTile(Polygon p){
+
+    if(!Tiles.getTileType(p).equals("Land")) return false; 
+    for (int i: p.getNeighborIdxsList()){
+        if (Tiles.getTileType(originalPolygons.get(i)).equals("Water")){
+            return true; 
+        }
+    }
+    return false; 
+}
 
     
 }

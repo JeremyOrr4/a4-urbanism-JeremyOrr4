@@ -36,8 +36,10 @@ public class EntryPoint {
         Circle1 c = new Circle1(500, 500, 400); 
         IslandShaper shaper = new IslandShaper(c);
 
-        Mesh beachMesh = BeachGenerator.beachMesh(shaper.shapedIsland(aMesh)); 
-        return beachMesh; 
+
+        BeachGenerator bg = new BeachGenerator(shaper.shapedIsland(aMesh));
+        
+        return bg.beachMesh(); 
 
        // return shaper.shapedIsland(aMesh);  
 

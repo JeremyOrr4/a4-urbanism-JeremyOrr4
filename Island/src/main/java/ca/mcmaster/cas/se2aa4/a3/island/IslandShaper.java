@@ -11,6 +11,14 @@ import ca.mcmaster.cas.se2aa4.a3.island.Tiles.TileType;
 import java.util.ArrayList;
 import java.util.List;
 
+
+/**
+ * 
+ * Creates an island with a specified shape by converting tiles within a boundary to land tiles
+ * 
+ * 
+ */
+
 public class IslandShaper {
 
     BoundedShape shape; 
@@ -40,8 +48,6 @@ public class IslandShaper {
           
             polygons.add(terrainCell); 
         }
-
-        
 
         return Mesh.newBuilder().addAllVertices(vertices).addAllSegments(segments).addAllPolygons(polygons).build(); 
 
