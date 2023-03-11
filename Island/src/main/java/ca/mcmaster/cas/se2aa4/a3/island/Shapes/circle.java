@@ -19,7 +19,7 @@ public class circle implements shape {
             }
         }
         for (int i=0; i<polys.size()-1;i++){
-            if (Tiles.getType(polys.get(i)).equals("Land")){
+            if (Tiles.getTileType(polys.get(i)).equals("Land")){
                 polys.set(i,checkBeach(polys.get(i),polys));
             }
         }
@@ -28,7 +28,7 @@ public class circle implements shape {
 
     public Structs.Polygon checkBeach(Structs.Polygon p,ArrayList<Structs.Polygon> polys){
         for (int i: p.getNeighborIdxsList()){
-            if (Tiles.getType(polys.get(i)).equals("Water")){
+            if (Tiles.getTileType(polys.get(i)).equals("Water")){
                 return Tiles.setToBeach(p);
             }
         }

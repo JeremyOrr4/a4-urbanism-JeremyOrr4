@@ -14,6 +14,7 @@ public Circle1(double centerX, double centerY, double radius){
        
 public boolean contains(double x, double y){
     return (distance(x,y,centerX,centerY)<this.radius); 
+   
 }
 
 

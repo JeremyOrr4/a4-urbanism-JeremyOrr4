@@ -10,7 +10,7 @@ public class Tiles {
 
         LAND("41,185,81", "Land"),
         WATER("0,0,151", "Water"),
-        BEACH("246,0,210", "Beach"); 
+        BEACH("201,185,151", "Beach"); 
 
 
 
@@ -54,7 +54,7 @@ public class Tiles {
 
     
 
-    public static String getType(Structs.Polygon p){
+    public static String getTileType(Structs.Polygon p){
         List<Structs.Property> Props = p.getPropertiesList();
         for (Structs.Property prop: Props){
             if(prop.getKey().equals("TileType")){
