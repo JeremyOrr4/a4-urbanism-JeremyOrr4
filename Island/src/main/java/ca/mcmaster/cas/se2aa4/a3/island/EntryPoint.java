@@ -1,6 +1,7 @@
 package ca.mcmaster.cas.se2aa4.a3.island;
 import ca.mcmaster.cas.se2aa4.a2.io.Structs;
 import ca.mcmaster.cas.se2aa4.a2.io.Structs.Mesh;
+import ca.mcmaster.cas.se2aa4.a3.island.Shapes.Circle1;
 
 import java.util.ArrayList;
 
@@ -11,7 +12,9 @@ public class EntryPoint {
         ArrayList<Structs.Segment> segments = new ArrayList<>();
         ArrayList<Structs.Polygon> polygons = new ArrayList<>();
 
-        
+       
+
+
         for (Structs.Vertex v: aMesh.getVerticesList()){
             vertices.add(v);
         }
@@ -25,9 +28,15 @@ public class EntryPoint {
      
 
 
-        circle island = new circle();
-        polygons = island.shapeFunction(polygons,vertices);
-        return Mesh.newBuilder().addAllVertices(vertices).addAllSegments(segments).addAllPolygons(polygons).build();
+        // circle island = new circle();
+        // polygons = island.shapeFunction(polygons,vertices);
+        // return Mesh.newBuilder().addAllVertices(vertices).addAllSegments(segments).addAllPolygons(polygons).build();
+
+
+        Circle1 c = new Circle1(500, 500, 400); 
+        IslandShaper shaper = new IslandShaper(c);
+        return shaper.shapedIsland(aMesh);  
+
     }
 
 }
