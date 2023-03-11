@@ -14,7 +14,7 @@
 
   <version>1.0</version>
   <artifactId>2aa4.mesh.island</artifactId>
-  <name>McMaster :: CAS :: 2AA4 :: A2 :: Island</name>
+  <name>McMaster :: CAS :: 2AA4 :: A3 :: island</name>
 
   <dependencies>
     <dependency>
@@ -101,7 +101,7 @@
             </goals>
             <configuration>
               <sourceFile>${project.build.directory}/${project.artifactId}-jar-with-dependencies.jar</sourceFile>
-              <destinationFile>generator.jar</destinationFile>
+              <destinationFile>island.jar</destinationFile>
             </configuration>
           </execution>
         </executions>
