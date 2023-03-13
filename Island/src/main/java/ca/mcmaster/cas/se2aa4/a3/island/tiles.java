@@ -11,7 +11,7 @@ public class Tiles {
         LAND("41,185,81", "Land"),
         WATER("0,0,151", "Water"),
         BEACH("201,185,151", "Beach"),  
-        LAGOON("24,72,158", "Lagoon"); 
+        LAGOON("24,112,188", "Lagoon"); 
 
 
 

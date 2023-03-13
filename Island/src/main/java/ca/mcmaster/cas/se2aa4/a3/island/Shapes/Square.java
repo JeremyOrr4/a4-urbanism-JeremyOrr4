@@ -9,10 +9,10 @@ public class Square implements BoundedShape {
     double w; 
     double h; 
 
-    public Square(double x, double y, double w, double h){
+    public Square(double centerX, double centerY, double w, double h){
 
-        this.topLeftX = x; 
-        this.topLeftY=y; 
+        this.topLeftX = centerX-w/2; 
+        this.topLeftY=centerY-h/2; 
         this.h=h; 
         this.w=w; 
 

@@ -12,12 +12,13 @@ public class LagoonIslandGenerator {
     public static Mesh LagoonMesh(Mesh aMesh){
 
         Circle circle = new Circle(1920/2, 1080/2, 400); 
+      // Square square = new Square(1920/2, 1080/2, 850, 850); 
         IslandShaper shaper = new IslandShaper(circle);
 
 
         Mesh shapedIsland = shaper.generateShape(aMesh); 
 
-        shapedIsland = IslandShaper.fillRegion(shapedIsland, new Circle(1920/2,1080/2, 200), TileType.LAGOON); 
+        shapedIsland = IslandShaper.fillRegion(shapedIsland, new Circle(1920/2,1080/2, 150), TileType.LAGOON); 
 
 
        BeachGenerator bg = new BeachGenerator(shapedIsland);

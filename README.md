@@ -22,7 +22,7 @@ mosser@azrael A2 % java -jar generator/generator.jar -k grid -h 1080 -w 1920 -p 
 mosser@azrael A2 % java -jar generator/generator.jar -k grid -h 1080 -w 1920 -p 1000 -s 20 -o img/irregular.mesh
 ```
 TO RUN THROUGH ISLAND GENERATOR DO THIS
-java -jar Island/island.jar -k grid -h 1080 -w 1920 -p 1000 -s 20 -o img/irregular.mesh
+java -jar Island/island.jar -k irregular -h 1080 -w 1920 -p 1000 -s 20 -o img/irregular.mesh
 
 One can run the generator with `-help` as option to see the different command line arguments that are available
 
