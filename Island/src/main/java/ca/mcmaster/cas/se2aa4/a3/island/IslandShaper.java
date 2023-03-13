@@ -6,6 +6,7 @@ import ca.mcmaster.cas.se2aa4.a2.io.Structs.Property;
 import ca.mcmaster.cas.se2aa4.a2.io.Structs.Segment;
 import ca.mcmaster.cas.se2aa4.a2.io.Structs.Vertex;
 import ca.mcmaster.cas.se2aa4.a3.island.Shapes.BoundedShape;
+import ca.mcmaster.cas.se2aa4.a3.island.Shapes.Circle;
 import ca.mcmaster.cas.se2aa4.a3.island.Tiles.TileType;
 
 import java.util.ArrayList;
@@ -44,7 +45,9 @@ public class IslandShaper {
 
             Polygon terrainCell = (shape.contains(x, y) ? 
             Tiles.setType(p, TileType.LAND): 
-            Tiles.setType(p, TileType.WATER));         
+            Tiles.setType(p, TileType.WATER));        
+            
+        
             polygons.add(terrainCell); 
         }
 
@@ -56,7 +59,7 @@ public class IslandShaper {
 
     
 
-    public static Mesh fillRegion(Mesh mesh, BoundedShape shape, TileType type){
+    public static Mesh fillRegion(Mesh mesh, BoundedShape region, TileType type){
 
         List <Vertex> vertices = mesh.getVerticesList();
         List<Segment> segments = mesh.getSegmentsList(); 
@@ -70,9 +73,8 @@ public class IslandShaper {
             double x = vertices.get(p.getCentroidIdx()).getX(); 
             double y = vertices.get(p.getCentroidIdx()).getY();
 
-            if(shape.contains(x, y)){
-                polygons.add(Tiles.setType(p, type));
-               
+            if(region.contains(x, y)){        
+                polygons.add(Tiles.setType(p, type));               
             }else{
                 polygons.add(oldPolygons.get(i));
             }
@@ -80,10 +82,10 @@ public class IslandShaper {
            
         }
 
+        Mesh theMesh = Mesh.newBuilder().addAllVertices(vertices).addAllSegments(segments).addAllPolygons(polygons).build(); 
+
       
-
-        return Mesh.newBuilder().addAllVertices(vertices).addAllSegments(segments).addAllPolygons(polygons).build(); 
-
+        return theMesh; 
 
     }
 

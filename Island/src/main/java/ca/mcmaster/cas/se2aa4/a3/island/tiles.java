@@ -29,7 +29,7 @@ public class Tiles {
         
         Structs.Property color = Structs.Property.newBuilder().setKey("rgb_color").setValue(type.color).build(); 
         Structs.Property typeString = Structs.Property.newBuilder().setKey("TileType").setValue(type.name).build();
-        return Structs.Polygon.newBuilder(p).addProperties(color).addProperties(typeString).build();
+        return Structs.Polygon.newBuilder(p).clearProperties().addProperties(color).addProperties(typeString).build();
     }
 
     

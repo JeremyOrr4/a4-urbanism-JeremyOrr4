@@ -3,6 +3,7 @@ package ca.mcmaster.cas.se2aa4.a3.island;
 import ca.mcmaster.cas.se2aa4.a2.io.Structs;
 import ca.mcmaster.cas.se2aa4.a2.io.Structs.Mesh;
 import ca.mcmaster.cas.se2aa4.a3.island.Shapes.Circle;
+import ca.mcmaster.cas.se2aa4.a3.island.Shapes.Square;
 import ca.mcmaster.cas.se2aa4.a3.island.Tiles.TileType;
 
 public class LagoonIslandGenerator {
@@ -22,11 +23,14 @@ public class LagoonIslandGenerator {
        BeachGenerator bg = new BeachGenerator(shapedIsland);
        Mesh lagoonIsland = bg.beachMesh(); 
 
+     
         return lagoonIsland; 
 
 
 
     }
+
+
 
     
 }

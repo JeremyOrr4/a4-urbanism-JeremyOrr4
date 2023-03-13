@@ -52,8 +52,7 @@ public  boolean isBeachTile(Polygon p){
         
         String type = Tiles.getTileType(originalPolygons.get(i)); 
 
-       // System.out.println(type);
-        if(type.equals("Lagoon")) System.out.println("jrioejreg");
+    
         if (type.equals("Water")   || type.equals("Lagoon")){
             return true; 
         }

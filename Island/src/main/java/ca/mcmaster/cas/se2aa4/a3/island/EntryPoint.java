@@ -10,6 +10,8 @@ public class EntryPoint {
     public static Mesh meshTest(Mesh aMesh){
      
         Mesh lagoonMesh = LagoonIslandGenerator.LagoonMesh(aMesh);
+
+        
         return   lagoonMesh; 
 
     
