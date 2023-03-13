@@ -31,7 +31,7 @@ public class IslandShaper {
 
 
 
-    public Mesh shapedIsland(Mesh mesh){
+    public Mesh generateShape(Mesh mesh){
 
         List <Vertex> vertices = mesh.getVerticesList();
         List<Segment> segments = mesh.getSegmentsList(); 
@@ -43,9 +43,8 @@ public class IslandShaper {
             double y = vertices.get(p.getCentroidIdx()).getY();
 
             Polygon terrainCell = (shape.contains(x, y) ? 
-            Tiles.setType(p, TileType.LAND) : 
-            Tiles.setType(p, TileType.WATER));          
-          
+            Tiles.setType(p, TileType.LAND): 
+            Tiles.setType(p, TileType.WATER));         
             polygons.add(terrainCell); 
         }
 
@@ -53,6 +52,47 @@ public class IslandShaper {
 
 
     }
+
+
+    
+
+    public static Mesh fillRegion(Mesh mesh, BoundedShape shape, TileType type){
+
+        List <Vertex> vertices = mesh.getVerticesList();
+        List<Segment> segments = mesh.getSegmentsList(); 
+        List<Polygon> oldPolygons = mesh.getPolygonsList(); 
+        List<Polygon> polygons = new ArrayList<Polygon>(); 
+
+        for(int i=0; i<oldPolygons.size(); i++){
+
+           Polygon p=oldPolygons.get(i); 
+            
+            double x = vertices.get(p.getCentroidIdx()).getX(); 
+            double y = vertices.get(p.getCentroidIdx()).getY();
+
+            if(shape.contains(x, y)){
+                polygons.add(Tiles.setType(p, type));
+               
+            }else{
+                polygons.add(oldPolygons.get(i));
+            }
+        
+           
+        }
+
+      
+
+        return Mesh.newBuilder().addAllVertices(vertices).addAllSegments(segments).addAllPolygons(polygons).build(); 
+
+
+    }
+
+
+    
+
+
+
+
 
 
 

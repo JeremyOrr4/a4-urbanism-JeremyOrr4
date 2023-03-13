@@ -45,9 +45,16 @@ public  Mesh beachMesh(){
  */
 public  boolean isBeachTile(Polygon p){
 
-    if(!Tiles.getTileType(p).equals("Land")) return false; 
+    if(Tiles.getTileType(p).equals("Water")) return false; 
+    if(Tiles.getTileType(p).equals("Lagoon")) return false; 
     for (int i: p.getNeighborIdxsList()){
-        if (Tiles.getTileType(originalPolygons.get(i)).equals("Water")){
+
+        
+        String type = Tiles.getTileType(originalPolygons.get(i)); 
+
+       // System.out.println(type);
+        if(type.equals("Lagoon")) System.out.println("jrioejreg");
+        if (type.equals("Water")   || type.equals("Lagoon")){
             return true; 
         }
     }

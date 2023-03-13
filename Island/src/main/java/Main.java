@@ -37,7 +37,7 @@ public class Main {
             exported = new RandomEnricher(0.2f).process(exported);
         }
 
-        System.out.println("got here");
+        
         new MeshFactory().write(exported, config.export(Configuration.FILENAME));
     }
 }
