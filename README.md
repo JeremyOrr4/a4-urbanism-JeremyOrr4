@@ -36,3 +36,61 @@ mosser@azrael A2 % java -jar visualizer/visualizer.jar -i img/irregular.mesh -o 
 ```
 
 Note: PDF versions of the SVG files were created with `rsvg-convert`.
+
+F1 - Generate different tiles to differentiate between land and water. - Week 1 -COMPLETED
+  • Create methods for land and water tiles which pass in a tile and give it the proper attributes
+  • Create classes for different tile types or just for general tile assignment?
+
+F2 – Create a circular island, integrating both types of tiles. - Week 1 -COMPLETED
+  • Produce an algorithm to choose the correct tiles to be made land tiles
+  • Create tile assignment class
+
+F3 – Create a third lagoon tile to represent water within the island. - Week 1 -COMPLETED
+  • Add new properties for water inside an island
+
+F4 – Identify land tiles touching water and give them a different colour (Beach) - Week 1 -COMPLETED
+  • Create new tile type with beach properties
+  • Create algorithm to recognize when land tiles touch water tiles
+
+F5 – Create abstract notion of shape to be extended into different realizations – Week 1 
+  • Create shape superclass with shape subclasses, circle is trivial case
+
+F6 – Implement altimetric profiles. -Week 1
+  • Add property of altitude (integer value), use this to adjust other properties
+  • Create algorithm for assigning altitudes (or randomly)
+
+F7- Implenting Elevation with Polygons
+  • Creating a class and variable to create elevation in the polygon 
+
+F8 – Command line option for number of lakes – Week 2
+  • CLI command line option
+  • Create water bodies within the land mass
+
+F9 – Command line option for number of rivers – Week 2
+  • CLI command option
+  • Give segments river properties
+
+F10 – Implement river behaviour – Week 2
+  • Create algorithm so rivers traverse to lower elevations
+
+F11 – Implement river combination – Week 2
+  • Change thickness based on river intersections
+
+F12 – Implement soil absorption – Week 2
+  • Compute soil absorption based on humidity and proximity to water
+  • Implement soil profile builder (how much is absorbs soil)
+  • Change properties based on absorption
+
+F13 – Implement aquifer and soil command line option – Week 3
+  • CLI command option
+  • Make specific tiles aquifers and adjust moisture levels of neighbours
+
+F14 – Implement biomes using humidity and temperature (elevation) - Week 3
+  • Use humidity and temperature properties of tiles to determine biome
+
+F15 – Implement whittaker diagram command line – Week 3
+  • CLI command line option
+
+F16 – Implement seeds – Week 3
+  • CLI command option
+  • Use given seed to determine properties of the island

@@ -8,6 +8,8 @@ public class Polygon implements Cropable<Polygon>, Iterable<Vertex> {
 
     private final Set<Polygon> neighbors;
 
+    private int elevation;
+
     public Polygon() {
         this(new ArrayList<>());
     }
