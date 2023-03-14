@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 ca\mcmaster\cas\se2aa4\a3\island\Tiles$TileType.class
 ca\mcmaster\cas\se2aa4\a3\island\EntryPoint.class
 ca\mcmaster\cas\se2aa4\a3\island\Shapes\Irregular.class
@@ -13,3 +14,6 @@ ca\mcmaster\cas\se2aa4\a3\island\Shapes\Square.class
 ca\mcmaster\cas\se2aa4\a3\island\Tiles.class
 ca\mcmaster\cas\se2aa4\a3\island\Biomes\SVGParser.class
 ca\mcmaster\cas\se2aa4\a3\island\Shapes\Circle.class
+=======
+ca\mcmaster\cas\se2aa4\a3\island\IslandWater\LakesFactory.class
+>>>>>>> 6d9c51cc71cb58f601680a62567852878d3e77e2

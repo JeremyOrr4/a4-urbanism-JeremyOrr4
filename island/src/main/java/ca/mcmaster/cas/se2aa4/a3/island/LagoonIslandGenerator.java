@@ -2,10 +2,12 @@ package ca.mcmaster.cas.se2aa4.a3.island;
 
 import ca.mcmaster.cas.se2aa4.a2.io.Structs;
 import ca.mcmaster.cas.se2aa4.a2.io.Structs.Mesh;
+import ca.mcmaster.cas.se2aa4.a3.island.IslandWater.LakesFactory;
 import ca.mcmaster.cas.se2aa4.a3.island.Shapes.Circle;
 import ca.mcmaster.cas.se2aa4.a3.island.Shapes.Irregular;
 import ca.mcmaster.cas.se2aa4.a3.island.Shapes.Square;
 import ca.mcmaster.cas.se2aa4.a3.island.Tiles.TileType;
+import ca.mcmaster.cas.se2aa4.a3.island.IslandWater.LakesFactory;
 
 public class LagoonIslandGenerator {
 
@@ -29,10 +31,12 @@ public class LagoonIslandGenerator {
         
 
        BeachGenerator bg = new BeachGenerator(shapedIsland);
-       Mesh lagoonIsland = bg.beachMesh(); 
+       LakesFactory lf = new LakesFactory();
+       Mesh lagoonIsland = bg.beachMesh();
+       lagoonIsland = lf.RandomLakes(10,lagoonIsland);
 
      
-        return lagoonIsland; 
+       return lagoonIsland;
 
 
 
