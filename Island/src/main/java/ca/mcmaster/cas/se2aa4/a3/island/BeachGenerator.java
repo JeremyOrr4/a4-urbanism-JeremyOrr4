@@ -31,6 +31,9 @@ public  Mesh beachMesh(){
         if(isBeachTile(p)) newTile = Tiles.setType(p, TileType.BEACH);          
         newPolygons.add(newTile); 
     }
+
+
+    
     
 
     return Mesh.newBuilder().addAllVertices(original.getVerticesList()).addAllSegments(original.getSegmentsList()).addAllPolygons(newPolygons).build(); 
@@ -58,6 +61,30 @@ public  boolean isBeachTile(Polygon p){
         }
     }
     return false; 
+}
+
+
+
+/**
+ * Checks if a given land polygon is completely surrounded by water
+ * We may want to trim these depending on the deisred output 
+ * Otherwise mini-islands may generate for irregular shapes
+ * 
+ * @param p
+ * @return
+ */
+public boolean isIsolated(Polygon p){
+
+    for(int id : p.getNeighborIdxsList()){
+
+        String type = Tiles.getTileType(originalPolygons.get(id)); 
+        if(!type.equals("Water")) return false; 
+
+    }
+    return true; 
+
+
+
 }
 
     
