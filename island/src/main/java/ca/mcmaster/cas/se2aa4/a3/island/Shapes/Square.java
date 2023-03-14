@@ -23,10 +23,16 @@ public class Square implements BoundedShape {
 
         boolean containsX = (x>topLeftX && x<(topLeftX+w)); 
         boolean containsY = (y>topLeftY && y<(topLeftY+h)); 
-
         return containsX && containsY; 
+        
+    }
 
 
+    public Square scale(double factor){
+
+
+       //This doesn't properly re-center the square. We can fix this later if necessary
+        return new Square(this.topLeftX+w/2, this.topLeftY+w/2, w*factor, h*factor);
 
     }
     

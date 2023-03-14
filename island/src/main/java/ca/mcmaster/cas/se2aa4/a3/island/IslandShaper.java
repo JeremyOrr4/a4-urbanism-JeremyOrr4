@@ -25,9 +25,7 @@ public class IslandShaper {
     BoundedShape shape; 
 
     public IslandShaper(BoundedShape shape){
-
         this.shape = shape; 
-
     }
 
 

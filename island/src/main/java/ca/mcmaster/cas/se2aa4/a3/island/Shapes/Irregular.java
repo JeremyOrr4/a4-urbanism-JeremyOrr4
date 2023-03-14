@@ -21,6 +21,10 @@ public class Irregular implements BoundedShape{
 
     int seed;  
 
+
+    double xOffset = Math.random()*1000; 
+    double yOffset = Math.random()*1000; 
+
     public Irregular(double centerX, double centerY,  double width, double height){
         
         seed = ((int)Math.random()*10000); 
@@ -34,30 +38,31 @@ public class Irregular implements BoundedShape{
     
 
     public JNoise perlin = JNoise.newBuilder().perlin(seed, Interpolation.QUADRATIC, FadeFunction.IMPROVED_PERLIN_NOISE)
-    .scale(0.5)
-    .addModifier(v -> (v + 1) / 2.0)
+    .scale(0.5)//normal 0.5
+    .addModifier(v -> (v + 1.1) / 2.0)  //normal (v+1) /2.0
     .clamp(0.0, 1.0)
     .build();
     
     public boolean contains(double x, double y){
 
      
-       // double testX = (2*x-centerX)/(width/2+centerX) -1  ; 
+      
 
+
+        //sorta normalize the coordinates a bit 
        double testX = (2*(x-centerX))/(width) -1  ; 
        double testY = (2*(y-centerY))/(height) -1 ; 
 
-       // double testY = (2*y-centerY)/(height/2+centerY) -1 ; 
-
-
+       //calculate falloff to reduce frequency of land further from island center
        double dist = Math.min(1, (testX*testX + testY*testY) / Math.sqrt(2)); 
 
-        double noiseValue = perlin.evaluateNoise(x,y); 
+       //the constant denotes the scale of the noise patern. smaller constant = bigger zones
+        double noiseValue = perlin.evaluateNoise(x*0.008+xOffset,y*0.008+yOffset); 
 
-        noiseValue = (noiseValue + (1-dist))/2; 
+       noiseValue = (noiseValue + (1-dist))/2; 
        
 
-       boolean isLand =  (noiseValue)>0.45; 
+       boolean isLand =  (noiseValue)>0.5; 
 
         
         return isLand  ; 

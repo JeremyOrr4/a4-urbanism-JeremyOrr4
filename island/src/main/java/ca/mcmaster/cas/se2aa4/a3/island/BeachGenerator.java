@@ -32,10 +32,6 @@ public  Mesh beachMesh(){
         newPolygons.add(newTile); 
     }
 
-
-    
-    
-
     return Mesh.newBuilder().addAllVertices(original.getVerticesList()).addAllSegments(original.getSegmentsList()).addAllPolygons(newPolygons).build(); 
 }
 
