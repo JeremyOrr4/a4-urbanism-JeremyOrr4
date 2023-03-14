@@ -9,6 +9,8 @@ import ca.mcmaster.cas.se2aa4.a3.island.Shapes.BoundedShape;
 import ca.mcmaster.cas.se2aa4.a3.island.Shapes.Circle;
 import ca.mcmaster.cas.se2aa4.a3.island.Tiles.TileType;
 
+import ca.mcmaster.cas.se2aa4.a3.island.Tiles;
+
 import java.util.ArrayList;
 import java.util.List;
 

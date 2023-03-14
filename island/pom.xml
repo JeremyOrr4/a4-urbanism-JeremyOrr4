@@ -62,6 +62,13 @@
 </dependency>
 
 
+  <dependency>
+        <groupId>org.apache.xmlgraphics</groupId>
+        <artifactId>batik-all</artifactId>
+        <version>1.14</version>
+    </dependency>
+
+
 
   </dependencies>
 
