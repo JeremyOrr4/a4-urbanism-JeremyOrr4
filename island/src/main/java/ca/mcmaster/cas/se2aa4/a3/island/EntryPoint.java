@@ -19,7 +19,8 @@ public class EntryPoint {
         Whittaker w = new Whittaker(); 
 
 
-       w.evaluateBiome(0, 0); 
+        //this thing calculate the biome given a temp and humidity
+      System.out.println(w.evaluateBiome(629, 204)); 
 
 
         Mesh lagoonMesh = LagoonIslandGenerator.LagoonMesh(aMesh);

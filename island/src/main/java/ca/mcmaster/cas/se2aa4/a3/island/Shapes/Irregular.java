@@ -34,7 +34,6 @@ public class Irregular implements BoundedShape{
         this.height = height; 
     }
 
-
     
 
     public JNoise perlin = JNoise.newBuilder().perlin(seed, Interpolation.QUADRATIC, FadeFunction.IMPROVED_PERLIN_NOISE)
