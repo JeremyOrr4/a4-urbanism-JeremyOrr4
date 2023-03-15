@@ -12,23 +12,30 @@ public class Whittaker {
     
 
 
-    public Biome evaluateBiome(double humidity, double temperature){
+    public String evaluateBiome(double humidity, double temperature){
+    
+
+        
+
+        SVGParser p = new SVGParser("biome.svg"); 
 
 
+        for(BiomeData bd : p.getBiomeMap()){
 
-        String svgPathString = "M100 100 L200 100 L150 200 Z";
 
-
-        SVGParser p = new SVGParser("Biomes/biome.svg");
-
-        Path2D path = createPathFromSvgString(svgPathString);
-
+                 
+        Path2D path = createPathFromSvgString(bd.path);
         path.setWindingRule(Path2D.WIND_EVEN_ODD);
 
-        System.out.println(path.contains(130, 130));
+        if(path.contains(humidity,temperature)) return bd.name; 
+
+    
+
+        }
 
 
-        return new Biome();
+
+        return "Invalid biome";
     }
 
 
@@ -42,10 +49,11 @@ public class Whittaker {
         Path2D path = new Path2D.Double();
         path.append(pathProducer.getShape(), true);
         return path;
-
-
-
     }
+
+
+
+
 
 
 }
