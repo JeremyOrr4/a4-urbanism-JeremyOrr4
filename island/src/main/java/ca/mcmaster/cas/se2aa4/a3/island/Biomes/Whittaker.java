@@ -14,28 +14,14 @@ public class Whittaker {
 
     public String evaluateBiome(double humidity, double temperature){
 
-
-    
-
-        
-
         SVGParser p = new SVGParser("biome.svg"); 
 
-
         for(BiomeData bd : p.getBiomeMap()){
-
-
                  
         Path2D path = createPathFromSvgString(bd.path);
         path.setWindingRule(Path2D.WIND_EVEN_ODD);
-
         if(path.contains(humidity,temperature)) return bd.name; 
-
-    
-
         }
-
-
 
         return "Invalid biome"; 
     }
@@ -46,8 +32,6 @@ public class Whittaker {
         AWTPathProducer pathProducer = new AWTPathProducer();
         pathParser.setPathHandler(pathProducer);
         pathParser.parse(svgPathString);
-
-
         Path2D path = new Path2D.Double();
         path.append(pathProducer.getShape(), true);
         return path;     
