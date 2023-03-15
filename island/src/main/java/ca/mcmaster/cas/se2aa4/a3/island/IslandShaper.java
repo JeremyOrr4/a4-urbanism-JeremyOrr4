@@ -2,14 +2,12 @@ package ca.mcmaster.cas.se2aa4.a3.island;
 
 import ca.mcmaster.cas.se2aa4.a2.io.Structs.Mesh;
 import ca.mcmaster.cas.se2aa4.a2.io.Structs.Polygon;
-import ca.mcmaster.cas.se2aa4.a2.io.Structs.Property;
 import ca.mcmaster.cas.se2aa4.a2.io.Structs.Segment;
 import ca.mcmaster.cas.se2aa4.a2.io.Structs.Vertex;
 import ca.mcmaster.cas.se2aa4.a3.island.Shapes.BoundedShape;
-import ca.mcmaster.cas.se2aa4.a3.island.Shapes.Circle;
-import ca.mcmaster.cas.se2aa4.a3.island.Tiles.TileType;
+import ca.mcmaster.cas.se2aa4.a3.island.MeshAttributes.Tiles.TileType;
 
-import ca.mcmaster.cas.se2aa4.a3.island.Tiles;
+import ca.mcmaster.cas.se2aa4.a3.island.MeshAttributes.Tiles;
 
 import java.util.ArrayList;
 import java.util.List;

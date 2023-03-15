@@ -1,13 +1,9 @@
 package ca.mcmaster.cas.se2aa4.a3.island;
 
-import ca.mcmaster.cas.se2aa4.a2.io.Structs;
 import ca.mcmaster.cas.se2aa4.a2.io.Structs.Mesh;
 import ca.mcmaster.cas.se2aa4.a3.island.IslandWater.LakesFactory;
-import ca.mcmaster.cas.se2aa4.a3.island.Shapes.Circle;
 import ca.mcmaster.cas.se2aa4.a3.island.Shapes.Irregular;
-import ca.mcmaster.cas.se2aa4.a3.island.Shapes.Square;
-import ca.mcmaster.cas.se2aa4.a3.island.Tiles.TileType;
-import ca.mcmaster.cas.se2aa4.a3.island.IslandWater.LakesFactory;
+import ca.mcmaster.cas.se2aa4.a3.island.MeshAttributes.Tiles.TileType;
 
 public class LagoonIslandGenerator {
 

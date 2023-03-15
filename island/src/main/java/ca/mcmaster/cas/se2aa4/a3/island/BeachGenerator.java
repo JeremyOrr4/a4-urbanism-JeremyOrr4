@@ -3,10 +3,10 @@ package ca.mcmaster.cas.se2aa4.a3.island;
 import java.util.ArrayList;
 import java.util.List;
 
-import ca.mcmaster.cas.se2aa4.a2.io.Structs;
 import ca.mcmaster.cas.se2aa4.a2.io.Structs.Mesh;
 import ca.mcmaster.cas.se2aa4.a2.io.Structs.Polygon;
-import ca.mcmaster.cas.se2aa4.a3.island.Tiles.TileType;
+import ca.mcmaster.cas.se2aa4.a3.island.MeshAttributes.Tiles;
+import ca.mcmaster.cas.se2aa4.a3.island.MeshAttributes.Tiles.TileType;
 
 
 public class BeachGenerator {
@@ -28,7 +28,7 @@ public  Mesh beachMesh(){
     for(Polygon p : originalPolygons){
 
         Polygon newTile = p; 
-        if(isBeachTile(p)) newTile = Tiles.setType(p, TileType.BEACH);          
+        if(isBeachTile(p)) newTile = Tiles.setType(p, TileType.BEACH);
         newPolygons.add(newTile); 
     }
 

@@ -9,13 +9,13 @@ import java.awt.Graphics2D;
 import java.awt.Stroke;
 import java.awt.BasicStroke;
 import java.awt.Color;
+import java.awt.geom.Ellipse2D;
 import java.awt.geom.Path2D;
 import java.util.Iterator;
 import java.util.Optional;
 
 public class GraphicRenderer implements Renderer {
 
-    private static final int THICKNESS = 3;
     public void render(Mesh aMesh, Graphics2D canvas) {
         canvas.setColor(Color.BLACK);
         Stroke stroke = new BasicStroke(0.2f);

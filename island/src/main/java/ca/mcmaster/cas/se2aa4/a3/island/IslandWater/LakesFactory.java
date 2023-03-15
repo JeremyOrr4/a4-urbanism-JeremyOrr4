@@ -1,6 +1,6 @@
 package ca.mcmaster.cas.se2aa4.a3.island.IslandWater;
-import ca.mcmaster.cas.se2aa4.a3.island.*;
 import ca.mcmaster.cas.se2aa4.a2.io.Structs;
+import ca.mcmaster.cas.se2aa4.a3.island.MeshAttributes.Tiles;
 
 import java.util.Random;
 import java.util.ArrayList;
@@ -18,7 +18,7 @@ public class LakesFactory {
 
         while (lakeNum>0){
             int LakeId = LakeChance.nextInt(LakeCandidates.size()-1);
-            polysNew.set((int)LakeCandidates.get(LakeId),Tiles.setType(polys.get(LakeCandidates.get(LakeId)), Tiles.TileType.LAGOON));
+            polysNew.set((int)LakeCandidates.get(LakeId), Tiles.setType(polys.get(LakeCandidates.get(LakeId)), Tiles.TileType.LAGOON));
             LakeCandidates = getLakeCandidates(polysNew);
             lakeNum-=1;
         }
