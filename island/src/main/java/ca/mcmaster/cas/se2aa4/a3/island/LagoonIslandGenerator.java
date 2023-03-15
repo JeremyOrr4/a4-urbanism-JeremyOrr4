@@ -22,7 +22,7 @@ public class LagoonIslandGenerator {
 
      //  shapedIsland = IslandShaper.fillRegion(shapedIsland, new Circle(1920/2,1080/2, 150), TileType.LAGOON); 
         
-       shapedIsland = IslandShaper.fillRegion(shapedIsland, irr.scale(0.27, 0.3), TileType.LAGOON); 
+       shapedIsland = IslandShaper.fillRegion(shapedIsland, irr.scale(0.4, 0.4), TileType.LAGOON); 
 
         
 

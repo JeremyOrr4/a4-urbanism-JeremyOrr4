@@ -11,14 +11,10 @@ import de.articdive.jnoise.pipeline.JNoise;
 public class Irregular implements BoundedShape{
 
 
-    //public PerlinNoiseGenerator perlinCosine=PerlinNoiseGenerator.newBuilder().setSeed(3301).setInterpolation(Interpolation.COSINE).build();
-
-
     double centerX; 
     double centerY; 
     double width; 
     double height; 
-
     int seed;  
 
 
@@ -43,10 +39,6 @@ public class Irregular implements BoundedShape{
     .build();
     
     public boolean contains(double x, double y){
-
-     
-      
-
 
         //sorta normalize the coordinates a bit 
        double testX = (2*(x-centerX))/(width) -1  ; 
