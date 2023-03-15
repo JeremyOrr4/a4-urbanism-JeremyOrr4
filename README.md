@@ -94,3 +94,6 @@ F15 – Implement whittaker diagram command line – Week 3
 F16 – Implement seeds – Week 3
   • CLI command option
   • Use given seed to determine properties of the island
+
+  F17 – Create JUnit testing
+  • Create the proper classes
