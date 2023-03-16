@@ -26,13 +26,16 @@ public class Main {
 
        
         System.out.println(config.export("k") );
-       
+        int lakes = 1;
+        if (config.export().containsKey(Configuration.LAKES)){
+            lakes = Integer.parseInt(config.export(Configuration.LAKES));
+        }
        
         Buildable specification = SpecificationFactory.create(config);
         Mesh theMesh = specification.build();
 
         Structs.Mesh exported = new Exporter().run(theMesh);
-        exported = EntryPoint.meshTest(exported);
+        exported = EntryPoint.meshTest(exported,lakes);
         if(config.export().containsKey(Configuration.DEMO)) {
             exported = new RandomEnricher(0.2f).process(exported);
         }

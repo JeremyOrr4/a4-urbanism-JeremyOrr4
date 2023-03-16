@@ -28,9 +28,7 @@ public class LagoonIslandGenerator {
         
 
        BeachGenerator bg = new BeachGenerator(shapedIsland);
-       LakesFactory lf = new LakesFactory();
        Mesh lagoonIsland = bg.beachMesh();
-       lagoonIsland = lf.RandomLakes(10,lagoonIsland);
        lagoonIsland = Tiles.MasterPropertyFactory(lagoonIsland);
 
      

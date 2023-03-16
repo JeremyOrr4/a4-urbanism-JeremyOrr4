@@ -17,6 +17,8 @@ public class Configuration {
     public static final String DEMO = "d";
     public static final String HELP = "help";
 
+    public static final String LAKES = "lakes";
+
     private CommandLine cli;
 
     public Configuration(String[] args) {
@@ -68,6 +70,7 @@ public class Configuration {
         options.addOption(new Option(DEMO, false, "activate DEMO mode"));
         // Global help
         options.addOption(new Option(HELP, false, "print help message"));
+        options.addOption(new Option(LAKES, true, "Specify number of lakes"));
         return options;
     }
 
