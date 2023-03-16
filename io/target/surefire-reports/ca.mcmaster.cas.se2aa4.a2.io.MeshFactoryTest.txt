@@ -1,12 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: ca.mcmaster.cas.se2aa4.a2.io.MeshFactoryTest
 -------------------------------------------------------------------------------
-<<<<<<< HEAD
-<<<<<<< HEAD
-Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.204 s - in ca.mcmaster.cas.se2aa4.a2.io.MeshFactoryTest
-=======
-Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.174 s - in ca.mcmaster.cas.se2aa4.a2.io.MeshFactoryTest
->>>>>>> 2c4311d4384b35ff6f3804e77a1014d44192f579
-=======
-Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.156 s - in ca.mcmaster.cas.se2aa4.a2.io.MeshFactoryTest
->>>>>>> a3f1e84a232060f034cb7bd02430dd2a5f3880a8
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.384 s - in ca.mcmaster.cas.se2aa4.a2.io.MeshFactoryTest

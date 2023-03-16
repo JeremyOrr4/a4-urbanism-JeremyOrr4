@@ -1,5 +1,6 @@
 package ca.mcmaster.cas.se2aa4.a3.island.IslandWater;
 import ca.mcmaster.cas.se2aa4.a2.io.Structs;
+import ca.mcmaster.cas.se2aa4.a3.island.MeshAttributes.Humidity;
 import ca.mcmaster.cas.se2aa4.a3.island.MeshAttributes.Tiles;
 
 import java.util.Random;
@@ -22,7 +23,6 @@ public class LakesFactory {
             LakeCandidates = getLakeCandidates(polysNew);
             lakeNum-=1;
         }
-
         return Structs.Mesh.newBuilder().addAllVertices(aMesh.getVerticesList()).addAllSegments(aMesh.getSegmentsList()).addAllPolygons(polysNew).build();
 
     }
