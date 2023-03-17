@@ -19,7 +19,7 @@ public class LakesFactory {
 
         while (lakeNum>0){
             int LakeId = LakeChance.nextInt(LakeCandidates.size()-1);
-            polysNew.set((int)LakeCandidates.get(LakeId), Tiles.setType(polys.get(LakeCandidates.get(LakeId)), Tiles.TileType.LAGOON));
+            polysNew.set((int)LakeCandidates.get(LakeId), Tiles.setType(polys.get(LakeCandidates.get(LakeId)), Tiles.TileType.LAKE));
             LakeCandidates = getLakeCandidates(polysNew);
             lakeNum-=1;
         }

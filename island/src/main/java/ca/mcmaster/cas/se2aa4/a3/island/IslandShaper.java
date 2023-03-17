@@ -42,8 +42,8 @@ public class IslandShaper {
             double y = vertices.get(p.getCentroidIdx()).getY();
 
             Polygon terrainCell = (shape.contains(x, y) ? 
-            Tiles.setType(p, TileType.LAND): 
-            Tiles.setType(p, TileType.WATER));        
+            Tiles.setType(p, TileType.LAND):
+            Tiles.setType(p, TileType.WATER));
             
         
             polygons.add(terrainCell); 

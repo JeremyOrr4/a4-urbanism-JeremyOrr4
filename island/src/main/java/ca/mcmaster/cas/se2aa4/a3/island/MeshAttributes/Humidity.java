@@ -19,7 +19,7 @@ public class Humidity {
                 return "629";
             }
         }
-        return "0";
+        return "300";
     }
 
     public int getPolyHumidity(Structs.Polygon p){

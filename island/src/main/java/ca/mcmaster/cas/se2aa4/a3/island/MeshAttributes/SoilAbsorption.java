@@ -28,7 +28,7 @@ public class SoilAbsorption {
         int distanceFromWater = 0;
         List <Integer> polygonNeighbourList = new ArrayList<Integer>();
 
-        if (Tiles.getTileType(polygon).equals("Lake")){
+        if (Tiles.getTileType(polygon).equals("Lagoon")){
             return distanceFromWater + "";
         }
     
@@ -49,7 +49,7 @@ public class SoilAbsorption {
         List<Structs.Polygon> polys = aMesh.getPolygonsList();
 
         for (int i : polygon.getNeighborIdxsList()) {
-            if (Tiles.getTileType(polys.get(i)).equals("Lake")) {
+            if (Tiles.getTileType(polys.get(i)).equals("Lagoon")) {
                 TileIsLake = true;
             }
         }

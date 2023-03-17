@@ -1,6 +1,6 @@
 package ca.mcmaster.cas.se2aa4.a3.island.MeshAttributes;
 import ca.mcmaster.cas.se2aa4.a2.io.Structs;
-
+import ca.mcmaster.cas.se2aa4.a3.island.Biomes.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -10,8 +10,14 @@ public class Tiles {
 
         LAND("41,185,81", "Land"),
         WATER("0,0,151", "Water"),
+
         BEACH("201,185,151", "Beach"),
-        TROPICAL("205,87,52","Tropical"),
+
+        TROPICALDESERT("205,87,52","Tropical Desert"),
+
+        LAKE("255,112,188", "Lake"),
+
+        TROPICAL("17,59,8","Tropical"),
         LAGOON("24,112,188", "Lagoon"); 
 
 
@@ -55,6 +61,9 @@ public class Tiles {
 
         Humidity Humid = new Humidity();
         aMesh = Humid.MasterHumidity(aMesh);
+
+        BiomeFactory biome = new BiomeFactory();
+        aMesh = biome.BiomeSetter(aMesh);
 
         return aMesh;
     }
