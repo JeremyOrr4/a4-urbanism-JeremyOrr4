@@ -16,7 +16,7 @@ public class TileTest {
     public void TestTypes(){
         String context = setUpTileType();
         Assert.assertEquals(TestTile.name,context);
-        System.out.println("Test Passed! -> Found: Land, Expected: Land");
+        System.out.println("Test Passed! -> Found: "+TestTile.name+" Expected: "+context);
     }
 
     String setUpTileColor(){
@@ -30,7 +30,7 @@ public class TileTest {
     public void TestColor(){
         String context = setUpTileColor();
         Assert.assertEquals(TestTile.color,context);
-        System.out.println("Test Passed! -> Found: 0,0,151, Expected: 0,0,151");
+        System.out.println("Test Passed! -> Found: "+TestTile.color+" Expected: "+context);
     }
 
     public void testSuite(){

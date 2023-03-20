@@ -1,6 +1,8 @@
 package ca.mcmaster.cas.se2aa4.a3.island.MeshAttributes;
 import ca.mcmaster.cas.se2aa4.a2.io.Structs;
 import ca.mcmaster.cas.se2aa4.a3.island.Biomes.*;
+import ca.mcmaster.cas.se2aa4.a3.island.Extractor;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -71,8 +73,8 @@ public class Tiles {
     public static Structs.Polygon setBiome(Structs.Polygon p, TileType type){
         Elevation Elev = new Elevation();
         Humidity Humid = new Humidity();
-        String ElevVal = ""+Elev.getPolyElevation(p);
-        String HumidVal = ""+Humid.getPolyHumidity(p);
+        String ElevVal = ""+ Extractor.getPolyElevation(p);
+        String HumidVal = ""+Extractor.getPolyHumidity(p);
         Structs.Property color = Structs.Property.newBuilder().setKey("rgb_color").setValue(type.color).build();
         Structs.Property typeString = Structs.Property.newBuilder().setKey("TileType").setValue(type.name).build();
         Structs.Property Elevation = Structs.Property.newBuilder().setKey("Elevation").setValue(ElevVal).build();

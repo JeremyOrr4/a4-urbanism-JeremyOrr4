@@ -22,17 +22,6 @@ public class Humidity {
         return "300";
     }
 
-    public int getPolyHumidity(Structs.Polygon p){
-        List<Structs.Property> Props = p.getPropertiesList();
-        for (Structs.Property prop: Props){
-            if(prop.getKey().equals("Humidity")){
-                return Integer.parseInt(prop.getValue());
-            }
-        }
-        return 0;
-
-    }
-
     public Structs.Mesh MasterHumidity(Structs.Mesh aMesh){
         List<Structs.Polygon> polys = aMesh.getPolygonsList();
         List<Structs.Polygon> polysNew = new ArrayList<>();

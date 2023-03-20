@@ -1,3 +1,4 @@
+ca\mcmaster\cas\se2aa4\a3\island\Extractor.class
 ca\mcmaster\cas\se2aa4\a3\island\MeshAttributes\SoilAbsorption.class
 ca\mcmaster\cas\se2aa4\a3\island\MeshAttributes\Tiles.class
 ca\mcmaster\cas\se2aa4\a3\island\EntryPoint.class
@@ -13,6 +14,7 @@ ca\mcmaster\cas\se2aa4\a3\island\LagoonIslandGenerator.class
 Main.class
 ca\mcmaster\cas\se2aa4\a3\island\BeachGenerator.class
 ca\mcmaster\cas\se2aa4\a3\island\Shapes\Square.class
+ca\mcmaster\cas\se2aa4\a3\island\IslandWater\riverFactory.class
 ca\mcmaster\cas\se2aa4\a3\island\MeshAttributes\VertexProperties.class
 ca\mcmaster\cas\se2aa4\a3\island\Biomes\BiomeData.class
 ca\mcmaster\cas\se2aa4\a3\island\Biomes\BiomeFactory.class
