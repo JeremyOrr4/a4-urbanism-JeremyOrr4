@@ -46,4 +46,15 @@ public class Extractor {
             return false;
         }
     }
+
+    public static boolean isRiver(Structs.Segment s){
+        List<Structs.Property> Props = s.getPropertiesList();
+        for (Structs.Property prop: Props){
+            if(prop.getKey().equals("IsRiver")){
+                return true;
+            }
+        }
+        return false;
+
+    }
 }

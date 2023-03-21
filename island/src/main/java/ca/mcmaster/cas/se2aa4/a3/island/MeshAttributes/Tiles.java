@@ -16,11 +16,17 @@ public class Tiles {
 
         BEACH("201,185,151", "Beach"),
 
-        TROPICALDESERT("205,87,52","Tropical Desert"),
+        TROPICALDESERT("174,146,87","Tropical Desert"),
 
         LAKE("24,112,188", "Lake"),
+        TAIGA("34,96,69","Taiga"),
+        SEASONALFOREST("138,162,50","Seasonal Forest"),
+        DECIDUOUS("66,146,118","Deciduous"),
+        SAVANNA("138,162,50","Savanna"),
 
-        TROPICAL("50,110,30","Tropical"),
+        GRASSLAND("215,196,41","Grassland Desert"),
+
+        TROPICAL("68,193,25","Tropical"),
         LAGOON("24,112,188", "Lagoon"); 
 
 

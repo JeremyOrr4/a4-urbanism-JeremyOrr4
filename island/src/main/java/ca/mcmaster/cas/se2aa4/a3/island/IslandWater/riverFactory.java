@@ -21,7 +21,7 @@ public class riverFactory {
                 for (int n: p.getSegmentIdxsList()){
                     Structs.Segment s = aMesh.getSegmentsList().get(n);
                     if (Extractor.getVertexElevation(aMesh.getVerticesList().get(s.getV1Idx()))>100 && riverNum>0 && bag.nextInt()>90 && !MarkedPolys.contains(aMesh.getPolygonsList().indexOf(p))){
-                        if (!isRiver(s)){
+                        if (!Extractor.isRiver(s)){
                             s = SetasRiver(s);
                             for (int k: p.getNeighborIdxsList()){
                                 MarkedPolys.add(k);
@@ -42,17 +42,6 @@ public class riverFactory {
         Structs.Property isRiver = Structs.Property.newBuilder().setKey("IsRiver").setValue("True").build();
         Structs.Property color = Structs.Property.newBuilder().setKey("rgb_color").setValue("0,0,255").build();
         return Structs.Segment.newBuilder(s).addProperties(isRiver).addProperties(color).build();
-    }
-
-    public boolean isRiver(Structs.Segment s){
-        List<Structs.Property> Props = s.getPropertiesList();
-        for (Structs.Property prop: Props){
-            if(prop.getKey().equals("IsRiver")){
-                return true;
-            }
-        }
-        return false;
-
     }
 
     public List<Structs.Segment> riverExpansion(Structs.Mesh aMesh,List<Structs.Segment> segs,Structs.Segment s){

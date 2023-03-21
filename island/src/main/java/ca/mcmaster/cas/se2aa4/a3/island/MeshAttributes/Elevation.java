@@ -12,7 +12,8 @@ public class Elevation{
 
     public String GenerateElevation() {
         Random random = new Random();
-        return ""+random.nextInt(300);
+        int str = random.nextInt(600);
+        return ""+str;
     }
 
     public Structs.Mesh addPolyElevation(Structs.Mesh aMesh){
