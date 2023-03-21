@@ -20,7 +20,7 @@ public class Tiles {
 
         LAKE("24,112,188", "Lake"),
 
-        TROPICAL("17,59,8","Tropical"),
+        TROPICAL("50,110,30","Tropical"),
         LAGOON("24,112,188", "Lagoon"); 
 
 

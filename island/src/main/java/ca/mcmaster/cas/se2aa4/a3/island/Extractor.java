@@ -38,4 +38,12 @@ public class Extractor {
         return 0;
 
     }
+
+    public static boolean CompareElev(Structs.Vertex v1, Structs.Vertex v2){
+        if (getVertexElevation(v1)>getVertexElevation(v2)){
+            return true;
+        }else{
+            return false;
+        }
+    }
 }
