@@ -13,6 +13,8 @@ public class Configuration {
     public static final String NB_POLYGONS = "p";
     public static final String SIZE_SQUARES = "s";
     public static final String FILENAME = "o";
+
+    public static final String INPUT = "i";
     public static final String RELAXATION = "r";
     public static final String DEMO = "d";
     public static final String HELP = "help";
@@ -71,6 +73,7 @@ public class Configuration {
         // Global help
         options.addOption(new Option(HELP, false, "print help message"));
         options.addOption(new Option(LAKES, true, "Specify number of lakes"));
+        options.addOption(new Option(INPUT, true, "File to be read"));
         return options;
     }
 

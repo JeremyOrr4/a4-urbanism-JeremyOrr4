@@ -2,6 +2,7 @@ package ca.mcmaster.cas.se2aa4.a3.island.MeshAttributes;
 import ca.mcmaster.cas.se2aa4.a2.io.Structs;
 import ca.mcmaster.cas.se2aa4.a3.island.Biomes.*;
 import ca.mcmaster.cas.se2aa4.a3.island.Extractor;
+import ca.mcmaster.cas.se2aa4.a3.island.IslandWater.riverFactory;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -17,7 +18,7 @@ public class Tiles {
 
         TROPICALDESERT("205,87,52","Tropical Desert"),
 
-        LAKE("255,112,188", "Lake"),
+        LAKE("24,112,188", "Lake"),
 
         TROPICAL("17,59,8","Tropical"),
         LAGOON("24,112,188", "Lagoon"); 
@@ -60,6 +61,9 @@ public class Tiles {
 
         Elevation Elev = new Elevation();
         aMesh = Elev.addPolyElevation(aMesh);
+
+        riverFactory rivers = new riverFactory();
+        aMesh = rivers.riverGenerator(aMesh,5);
 
         Humidity Humid = new Humidity();
         aMesh = Humid.MasterHumidity(aMesh);
