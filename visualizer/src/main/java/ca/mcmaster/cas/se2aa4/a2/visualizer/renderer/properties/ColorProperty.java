@@ -1,5 +1,6 @@
 package ca.mcmaster.cas.se2aa4.a2.visualizer.renderer.properties;
 
+import ca.mcmaster.cas.se2aa4.a2.io.Structs;
 import ca.mcmaster.cas.se2aa4.a2.io.Structs.Property;
 
 import java.awt.*;
@@ -17,5 +18,25 @@ public class ColorProperty implements PropertyAccess<Color> {
         int green = Integer.parseInt(raw[1]);
         int blue = Integer.parseInt(raw[2]);
         return Optional.of(new Color(red, green, blue));
+    }
+
+    public Color extractSegment(List<Property> props) {
+        String value = new Reader(props).get("rgb_color");
+        String[] raw = value.split(",");
+        int red = Integer.parseInt(raw[0]);
+        int green = Integer.parseInt(raw[1]);
+        int blue = Integer.parseInt(raw[2]);
+        return (new Color(red, green, blue));
+    }
+
+    public boolean CheckRiver(Structs.Segment s){
+        List<Structs.Property> Props = s.getPropertiesList();
+        for (Structs.Property prop: Props){
+            if(prop.getKey().equals("IsRiver")){
+                return true;
+            }
+        }
+        return false;
+
     }
 }

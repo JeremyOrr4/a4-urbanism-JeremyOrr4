@@ -8,22 +8,23 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class LakesFactory {
+    List<Structs.Polygon> polysNew = new ArrayList<>();
     public Structs.Mesh RandomLakes(int lakeNum, Structs.Mesh aMesh){
         List<Structs.Polygon> polys = aMesh.getPolygonsList();
-        List<Structs.Polygon> polysNew = new ArrayList<>();
         for (Structs.Polygon p: polys){
-            polysNew.add(p);
+            this.polysNew.add(p);
         }
         List<Integer> LakeCandidates = getLakeCandidates(polys);
         Random LakeChance = new Random();
 
         while (lakeNum>0){
             int LakeId = LakeChance.nextInt(LakeCandidates.size()-1);
-            polysNew.set((int)LakeCandidates.get(LakeId), Tiles.setType(polys.get(LakeCandidates.get(LakeId)), Tiles.TileType.LAKE));
-            LakeCandidates = getLakeCandidates(polysNew);
+            this.polysNew.set((int)LakeCandidates.get(LakeId), Tiles.setType(polys.get(LakeCandidates.get(LakeId)), Tiles.TileType.LAKE));
+            LakeExpansion(polysNew,polysNew.get((int)LakeCandidates.get(LakeId)));
+            LakeCandidates = getLakeCandidates(this.polysNew);
             lakeNum-=1;
         }
-        return Structs.Mesh.newBuilder().addAllVertices(aMesh.getVerticesList()).addAllSegments(aMesh.getSegmentsList()).addAllPolygons(polysNew).build();
+        return Structs.Mesh.newBuilder().addAllVertices(aMesh.getVerticesList()).addAllSegments(aMesh.getSegmentsList()).addAllPolygons(this.polysNew).build();
 
     }
 
@@ -44,5 +45,14 @@ public class LakesFactory {
             }
         }
         return LakeCandidates;
+    }
+
+    public void LakeExpansion(List<Structs.Polygon> polys,Structs.Polygon p){
+        Random random = new Random();
+        for (int n:p.getNeighborIdxsList()){
+            if (random.nextInt(100)>85){
+                this.polysNew.set(n,Tiles.setType(polys.get(n), Tiles.TileType.LAKE));
+            }
+        }
     }
 }

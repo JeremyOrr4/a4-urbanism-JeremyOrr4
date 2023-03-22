@@ -21,6 +21,19 @@ public class GraphicRenderer implements Renderer {
         Stroke stroke = new BasicStroke(0.2f);
         canvas.setStroke(stroke);
         drawPolygons(aMesh,canvas);
+        for (Structs.Segment s: aMesh.getSegmentsList()){
+            if (new ColorProperty().CheckRiver(s)){
+                canvas.setColor(new ColorProperty().extractSegment(s.getPropertiesList()));
+                canvas.setStroke(new BasicStroke(3));
+                double[] coords = new double[4];
+                coords[0] = aMesh.getVerticesList().get(s.getV1Idx()).getX();
+                coords[1] = aMesh.getVerticesList().get(s.getV1Idx()).getY();
+                coords[2] = aMesh.getVerticesList().get(s.getV2Idx()).getX();
+                coords[3] = aMesh.getVerticesList().get(s.getV2Idx()).getY();
+                canvas.drawLine((int)coords[0],(int)coords[1],(int)coords[2],(int)coords[3]);
+            }
+        }
+        canvas.setStroke(new BasicStroke(0.2f));
     }
 
     private void drawPolygons(Mesh aMesh, Graphics2D canvas) {

@@ -1,6 +1,9 @@
 package ca.mcmaster.cas.se2aa4.a3.island.MeshAttributes;
 import ca.mcmaster.cas.se2aa4.a2.io.Structs;
 import ca.mcmaster.cas.se2aa4.a3.island.Biomes.*;
+import ca.mcmaster.cas.se2aa4.a3.island.Extractor;
+import ca.mcmaster.cas.se2aa4.a3.island.IslandWater.riverFactory;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -13,11 +16,17 @@ public class Tiles {
 
         BEACH("201,185,151", "Beach"),
 
-        TROPICALDESERT("205,87,52","Tropical Desert"),
+        TROPICALDESERT("174,146,87","Tropical Desert"),
 
-        LAKE("255,112,188", "Lake"),
+        LAKE("24,112,188", "Lake"),
+        TAIGA("34,96,69","Taiga"),
+        SEASONALFOREST("138,162,50","Seasonal Forest"),
+        DECIDUOUS("66,146,118","Deciduous"),
+        SAVANNA("138,162,50","Savanna"),
 
-        TROPICAL("17,59,8","Tropical"),
+        GRASSLAND("215,196,41","Grassland Desert"),
+
+        TROPICAL("68,193,25","Tropical"),
         LAGOON("24,112,188", "Lagoon"); 
 
 
@@ -59,6 +68,9 @@ public class Tiles {
         Elevation Elev = new Elevation();
         aMesh = Elev.addPolyElevation(aMesh);
 
+        riverFactory rivers = new riverFactory();
+        aMesh = rivers.riverGenerator(aMesh,5);
+
         Humidity Humid = new Humidity();
         aMesh = Humid.MasterHumidity(aMesh);
 
@@ -71,8 +83,8 @@ public class Tiles {
     public static Structs.Polygon setBiome(Structs.Polygon p, TileType type){
         Elevation Elev = new Elevation();
         Humidity Humid = new Humidity();
-        String ElevVal = ""+Elev.getPolyElevation(p);
-        String HumidVal = ""+Humid.getPolyHumidity(p);
+        String ElevVal = ""+ Extractor.getPolyElevation(p);
+        String HumidVal = ""+Extractor.getPolyHumidity(p);
         Structs.Property color = Structs.Property.newBuilder().setKey("rgb_color").setValue(type.color).build();
         Structs.Property typeString = Structs.Property.newBuilder().setKey("TileType").setValue(type.name).build();
         Structs.Property Elevation = Structs.Property.newBuilder().setKey("Elevation").setValue(ElevVal).build();

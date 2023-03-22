@@ -95,5 +95,8 @@ F16 – Implement seeds – Week 3
   • CLI command option
   • Use given seed to determine properties of the island
 
-  F17 – Create JUnit testing
-  • Create the proper classes
+F17 – Create JUnit testing
+• Create the proper classes
+
+F18 - Do our A3 report
+• Finish all questions asked of us in the report
