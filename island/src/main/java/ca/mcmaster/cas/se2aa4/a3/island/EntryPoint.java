@@ -15,20 +15,14 @@ public class EntryPoint {
 
         System.out.println("test");
         Whittaker w = new Whittaker();
-        for (int i=-300;i<800;i+=50){
-            for (int j =-300;j<800;j+=50){
-                if (!(w.evaluateBiome(i,j)).equals("Invalid Biome")){
-                    System.out.println(w.evaluateBiome(i,j));
-                    System.out.println(i+", "+j);
-                }
-            }
-        }
-
 
         //this thing calculate the biome given a temp and humidity
         System.out.println(w.evaluateBiome(629, 204));
-        TileTest test = new TileTest();
-        test.testSuite();
+
+        TileTest Tiletest = new TileTest();
+        Tiletest.testSuite();
+        ExtractionTest ExtractTest = new ExtractionTest();
+        ExtractTest.testSuite();
 
         Mesh lagoonMesh = LagoonIslandGenerator.LagoonMesh(aMesh);
 
