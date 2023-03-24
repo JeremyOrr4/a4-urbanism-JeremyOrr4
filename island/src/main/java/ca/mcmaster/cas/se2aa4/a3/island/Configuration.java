@@ -9,6 +9,8 @@ public class Configuration {
     public static final String INPUT = "i";
 
     public static final String LAKES = "lakes";
+
+    public static final String RIVER = "rivers";
     private CommandLine cli;
 
     public Configuration(String[] args) {
@@ -43,6 +45,7 @@ public class Configuration {
         Options options = new Options();
         options.addOption(new Option(INPUT, true, "Input file (SVG)"));
         options.addOption(new Option(LAKES, true, "Number of Lakes"));
+        options.addOption(new Option(RIVER, true, "Number of rivers"));
         return options;
     }
 
