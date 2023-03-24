@@ -12,14 +12,14 @@ public abstract class ElevationProfile {
 
 
 
-    abstract double setVertexElevation(double x, double y, double center);
+    abstract double setVertexElevation(double x, double y, double centerX, double centerY);
 
 
     public Structs.Mesh GenerateIslandElevations(Structs.Mesh aMesh){
         List<Structs.Vertex> newVertices = new ArrayList<>();
         for (Structs.Vertex v: aMesh.getVerticesList()){
 
-            Structs.Property elevation = Structs.Property.newBuilder().setKey("Elevation").setValue(""+setVertexElevation(0, 0, 0)).build();
+            Structs.Property elevation = Structs.Property.newBuilder().setKey("Elevation").setValue(""+setVertexElevation(v.getX(), v.getY(),0 ,0 )).build();
             newVertices.add(Structs.Vertex.newBuilder(v).addProperties(elevation).build());
         }
         return Structs.Mesh.newBuilder().addAllVertices(newVertices).addAllSegments(aMesh.getSegmentsList()).addAllPolygons(aMesh.getPolygonsList()).build();

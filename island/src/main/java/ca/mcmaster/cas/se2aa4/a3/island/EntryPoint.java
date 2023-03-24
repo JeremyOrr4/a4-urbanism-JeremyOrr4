@@ -30,6 +30,9 @@ public class EntryPoint {
         lagoonMesh = lf.RandomLakes(lakes,lagoonMesh);
 
         lagoonMesh = Tiles.MasterPropertyFactory(lagoonMesh,river);
+
+        Mesh elevationView = ElevationVisualizer.elevationView(lagoonMesh); 
+
         return   lagoonMesh; 
     }
 

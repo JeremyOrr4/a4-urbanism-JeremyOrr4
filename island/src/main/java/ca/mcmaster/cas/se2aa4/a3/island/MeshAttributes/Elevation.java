@@ -9,11 +9,16 @@ import java.util.Random;
 
 public class Elevation{
 
-    public String GenerateElevation() {
-        Random random = new Random();
-        int str = random.nextInt(600);
-        return ""+str;
+    public static Structs.Mesh SetVertexElevation(Structs.Mesh aMesh, ElevationProfile profile){
+        List<Structs.Vertex> NewVertices = new ArrayList<>();
+        Elevation ElevSetter = new Elevation();
+        for (Structs.Vertex v: aMesh.getVerticesList()){
+            Structs.Property Elevation = Structs.Property.newBuilder().setKey("Elevation").setValue(""+profile.setVertexElevation(v.getX(), v.getY(), 1920/2,1080/2 )).build();
+            NewVertices.add(Structs.Vertex.newBuilder(v).addProperties(Elevation).build());
+        }
+        return Structs.Mesh.newBuilder().addAllVertices(NewVertices).addAllSegments(aMesh.getSegmentsList()).addAllPolygons(aMesh.getPolygonsList()).build();
     }
+
 
     public Structs.Mesh addPolyElevation(Structs.Mesh aMesh){
         List<Structs.Polygon> polys = aMesh.getPolygonsList();
