@@ -11,6 +11,9 @@ public class Configuration {
     public static final String LAKES = "lakes";
 
     public static final String RIVER = "rivers";
+
+    public static final String VISUAL = "v";
+
     private CommandLine cli;
 
     public Configuration(String[] args) {
@@ -46,6 +49,7 @@ public class Configuration {
         options.addOption(new Option(INPUT, true, "Input file (SVG)"));
         options.addOption(new Option(LAKES, true, "Number of Lakes"));
         options.addOption(new Option(RIVER, true, "Number of rivers"));
+        options.addOption(new Option(VISUAL, true, "Visualization type"));
         return options;
     }
 

@@ -40,7 +40,7 @@ public class Humidity {
                     }
                 }
                 if (HumidTrack>600) HumidTrack = 600;
-                if (HumidTrack<0) HumidTrack = 0;
+                if (HumidTrack<200) HumidTrack = 200;
                 polysNew.set(polys.indexOf(p),addHumidity(p,""+(int)(HumidTrack*0.5)));
                 HumidTrack=0;
             }

@@ -1,16 +1,13 @@
 package ca.mcmaster.cas.se2aa4.a3.island;
-import ca.mcmaster.cas.se2aa4.a2.io.Structs;
 import ca.mcmaster.cas.se2aa4.a2.io.Structs.Mesh;
 import ca.mcmaster.cas.se2aa4.a3.island.Biomes.Whittaker;
 import ca.mcmaster.cas.se2aa4.a3.island.IslandWater.LakesFactory;
-import ca.mcmaster.cas.se2aa4.a3.island.IslandWater.riverFactory;
 import ca.mcmaster.cas.se2aa4.a3.island.MeshAttributes.*;
-
-import java.util.ArrayList;
-import java.util.List;
+import ca.mcmaster.cas.se2aa4.a3.island.Visualization.HumidityView;
+import ca.mcmaster.cas.se2aa4.a3.island.Visualization.ElevationVisualizer;
 
 public class EntryPoint {
-    public static Mesh meshTest(Mesh aMesh,int lakes,int river){
+    public static Mesh meshTest(Mesh aMesh,int lakes,int river, String vis){
 
 
         System.out.println("test");
@@ -30,7 +27,13 @@ public class EntryPoint {
         lagoonMesh = lf.RandomLakes(lakes,lagoonMesh);
 
         lagoonMesh = Tiles.MasterPropertyFactory(lagoonMesh,river);
-        lagoonMesh = HumidityView.HumidityView(lagoonMesh);
+
+        if (vis.equals("Humidity")){
+            lagoonMesh = HumidityView.HumidityView(lagoonMesh);
+        }else if (vis.equals("Elevation")){
+            lagoonMesh = ElevationVisualizer.elevationView(lagoonMesh);
+        }
+
         return   lagoonMesh; 
     }
 

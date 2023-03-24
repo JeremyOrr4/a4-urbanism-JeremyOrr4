@@ -29,10 +29,14 @@ public class Main {
             rivers = Integer.parseInt(config.export(Configuration.RIVER));
         }
 
+        String vis = "Normal";
+        if (config.export().containsKey(Configuration.VISUAL)){
+            vis = (config.export(Configuration.VISUAL));
+        }
 
         Structs.Mesh exported = new MeshFactory().read(config.input());
 
-        exported = EntryPoint.meshTest(exported,lakes,rivers);
+        exported = EntryPoint.meshTest(exported,lakes,rivers,vis);
 
         new MeshFactory().write(exported, config.export(Configuration.INPUT));
     }
