@@ -61,15 +61,15 @@ public class Tiles {
 
     }
 
-    public static Structs.Mesh MasterPropertyFactory(Structs.Mesh aMesh){
+    public static Structs.Mesh MasterPropertyFactory(Structs.Mesh aMesh,int river){
         VertexProperties vert = new VertexProperties();
         aMesh = vert.SetVertexElevation(aMesh);
 
         Elevation Elev = new Elevation();
         aMesh = Elev.addPolyElevation(aMesh);
 
-        riverFactory rivers = new riverFactory();
-        aMesh = rivers.riverGenerator(aMesh,5);
+        riverFactory rf = new riverFactory();
+        aMesh = rf.riverGenerator(aMesh,river);
 
         Humidity Humid = new Humidity();
         aMesh = Humid.MasterHumidity(aMesh);

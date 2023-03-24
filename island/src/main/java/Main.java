@@ -23,9 +23,16 @@ public class Main {
         if (config.export().containsKey(Configuration.LAKES)){
             lakes = Integer.parseInt(config.export(Configuration.LAKES));
         }
+
+        int rivers = 1;
+        if (config.export().containsKey(Configuration.RIVER)){
+            rivers = Integer.parseInt(config.export(Configuration.RIVER));
+        }
+
+
         Structs.Mesh exported = new MeshFactory().read(config.input());
 
-        exported = EntryPoint.meshTest(exported,lakes);
+        exported = EntryPoint.meshTest(exported,lakes,rivers);
 
         new MeshFactory().write(exported, config.export(Configuration.INPUT));
     }
