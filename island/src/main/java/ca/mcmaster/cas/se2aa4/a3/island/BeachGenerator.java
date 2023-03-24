@@ -3,6 +3,7 @@ package ca.mcmaster.cas.se2aa4.a3.island;
 import java.util.ArrayList;
 import java.util.List;
 
+import ca.mcmaster.cas.se2aa4.a2.io.Structs;
 import ca.mcmaster.cas.se2aa4.a2.io.Structs.Mesh;
 import ca.mcmaster.cas.se2aa4.a2.io.Structs.Polygon;
 import ca.mcmaster.cas.se2aa4.a3.island.MeshAttributes.Tiles;
@@ -42,14 +43,14 @@ public  Mesh beachMesh(){
  * @param p A polygon who's beach status is to be tested
  * @return true if the polygon should be a beach (neigbors water)
  */
-public  boolean isBeachTile(Polygon p){
+public boolean isBeachTile(Polygon p){
 
     if(Tiles.getTileType(p).equals("Water")) return false; 
     if(Tiles.getTileType(p).equals("Lagoon")) return false; 
     for (int i: p.getNeighborIdxsList()){
 
         
-        String type = Tiles.getTileType(originalPolygons.get(i)); 
+        String type = Tiles.getTileType(originalPolygons.get(i));
 
     
         if (type.equals("Water")   || type.equals("Lagoon")){
