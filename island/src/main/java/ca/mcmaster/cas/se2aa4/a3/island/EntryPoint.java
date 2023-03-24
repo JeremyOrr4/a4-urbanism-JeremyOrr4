@@ -30,6 +30,7 @@ public class EntryPoint {
         lagoonMesh = lf.RandomLakes(lakes,lagoonMesh);
 
         lagoonMesh = Tiles.MasterPropertyFactory(lagoonMesh,river);
+        lagoonMesh = HumidityView.HumidityView(lagoonMesh);
         return   lagoonMesh; 
     }
 

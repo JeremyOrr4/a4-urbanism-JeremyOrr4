@@ -13,6 +13,7 @@ ca\mcmaster\cas\se2aa4\a3\island\Biomes\BiomeData.class
 ca\mcmaster\cas\se2aa4\a3\island\Biomes\BiomeFactory.class
 ca\mcmaster\cas\se2aa4\a3\island\Biomes\SVGParser.class
 ca\mcmaster\cas\se2aa4\a3\island\MeshAttributes\Humidity.class
+ca\mcmaster\cas\se2aa4\a3\island\HumidityView.class
 ca\mcmaster\cas\se2aa4\a3\island\EntryPoint.class
 ca\mcmaster\cas\se2aa4\a3\island\Shapes\Irregular.class
 ca\mcmaster\cas\se2aa4\a3\island\Biomes\Whittaker.class

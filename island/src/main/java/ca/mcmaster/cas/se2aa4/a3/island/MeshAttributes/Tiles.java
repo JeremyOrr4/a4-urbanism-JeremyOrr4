@@ -48,6 +48,12 @@ public class Tiles {
         return Structs.Polygon.newBuilder(p).clearProperties().addProperties(color).addProperties(typeString).build();
     }
 
+    public static Structs.Polygon setColor(Structs.Polygon p, String color){
+
+        Structs.Property colorProp = Structs.Property.newBuilder().setKey("rgb_color").setValue(color).build();
+        return Structs.Polygon.newBuilder(p).clearProperties().addProperties(colorProp).build();
+    }
+
     
 
     public static String getTileType(Structs.Polygon p){
@@ -72,10 +78,10 @@ public class Tiles {
         aMesh = rf.riverGenerator(aMesh,river);
 
         Humidity Humid = new Humidity();
-        aMesh = Humid.MasterHumidity(aMesh);
+        aMesh = Humid.GenerateHumidities(aMesh);
 
-        BiomeFactory biome = new BiomeFactory();
-        aMesh = biome.BiomeSetter(aMesh);
+        //BiomeFactory biome = new BiomeFactory();
+        //aMesh = biome.BiomeSetter(aMesh);
 
         return aMesh;
     }
