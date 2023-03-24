@@ -42,16 +42,18 @@ public class Tiles {
     }; 
 
     public static Structs.Polygon setType(Structs.Polygon p, TileType type){
+
+        
         
         Structs.Property color = Structs.Property.newBuilder().setKey("rgb_color").setValue(type.color).build(); 
         Structs.Property typeString = Structs.Property.newBuilder().setKey("TileType").setValue(type.name).build();
         return Structs.Polygon.newBuilder(p).clearProperties().addProperties(color).addProperties(typeString).build();
     }
 
-    public static Structs.Polygon setColor(Structs.Polygon p, String color){
 
-        Structs.Property colorProp = Structs.Property.newBuilder().setKey("rgb_color").setValue(color).build();
-        return Structs.Polygon.newBuilder(p).clearProperties().addProperties(colorProp).build();
+    public static Structs.Polygon setColor(Structs.Polygon p, String rgb){
+        Structs.Property color = Structs.Property.newBuilder().setKey("rgb_color").setValue(rgb).build(); 
+        return Structs.Polygon.newBuilder(p).clearProperties().addProperties(color).build();
     }
 
     
@@ -68,8 +70,8 @@ public class Tiles {
     }
 
     public static Structs.Mesh MasterPropertyFactory(Structs.Mesh aMesh,int river){
-        VertexProperties vert = new VertexProperties();
-        aMesh = vert.SetVertexElevation(aMesh);
+        
+        aMesh = Elevation.SetVertexElevation(aMesh, new ExampleElevationProfile());
 
         Elevation Elev = new Elevation();
         aMesh = Elev.addPolyElevation(aMesh);

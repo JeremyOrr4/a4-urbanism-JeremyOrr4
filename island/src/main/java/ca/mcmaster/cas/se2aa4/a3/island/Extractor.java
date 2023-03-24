@@ -6,22 +6,22 @@ import java.util.List;
 
 public class Extractor {
 
-    public static int getVertexElevation(Structs.Vertex v){
+    public static double getVertexElevation(Structs.Vertex v){
         List<Structs.Property> Props = v.getPropertiesList();
         for (Structs.Property prop: Props){
             if(prop.getKey().equals("Elevation")){
-                return Integer.parseInt(prop.getValue());
+                return Double.parseDouble(prop.getValue());
             }
         }
         return 0;
 
     }
 
-    public static int getPolyElevation(Structs.Polygon p){
+    public static double getPolyElevation(Structs.Polygon p){
         List<Structs.Property> Props = p.getPropertiesList();
         for (Structs.Property prop: Props){
             if(prop.getKey().equals("Elevation")){
-                return Integer.parseInt(prop.getValue());
+                return Double.parseDouble(prop.getValue());
             }
         }
         return 0;

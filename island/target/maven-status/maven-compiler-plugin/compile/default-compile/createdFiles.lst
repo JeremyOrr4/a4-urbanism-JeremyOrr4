@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 ca\mcmaster\cas\se2aa4\a3\island\Extractor.class
 ca\mcmaster\cas\se2aa4\a3\island\MeshAttributes\SoilAbsorption.class
 ca\mcmaster\cas\se2aa4\a3\island\MeshAttributes\Tiles.class
@@ -25,3 +26,5 @@ ca\mcmaster\cas\se2aa4\a3\island\BeachGenerator.class
 ca\mcmaster\cas\se2aa4\a3\island\IslandWater\riverFactory.class
 ca\mcmaster\cas\se2aa4\a3\island\MeshAttributes\Elevation.class
 ca\mcmaster\cas\se2aa4\a3\island\Shapes\Circle.class
+=======
+>>>>>>> 00e7458b6eb59d5e2ff5313607bc3e588f9501d7
