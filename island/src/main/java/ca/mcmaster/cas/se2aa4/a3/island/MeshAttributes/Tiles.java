@@ -1,8 +1,11 @@
 package ca.mcmaster.cas.se2aa4.a3.island.MeshAttributes;
 import ca.mcmaster.cas.se2aa4.a2.io.Structs;
 import ca.mcmaster.cas.se2aa4.a3.island.Biomes.*;
+import ca.mcmaster.cas.se2aa4.a3.island.Elevation.Elevation;
+import ca.mcmaster.cas.se2aa4.a3.island.Elevation.ExampleElevationProfile;
+import ca.mcmaster.cas.se2aa4.a3.island.Elevation.VolcanoProfile;
+import ca.mcmaster.cas.se2aa4.a3.island.Water.riverFactory;
 import ca.mcmaster.cas.se2aa4.a3.island.Extractor;
-import ca.mcmaster.cas.se2aa4.a3.island.IslandWater.riverFactory;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -70,7 +73,7 @@ public class Tiles {
     }
 
     public static Structs.Mesh MasterPropertyFactory(Structs.Mesh aMesh,int river,String Profile){
-        
+
         if (Profile.equals("Volcano")){
             aMesh = Elevation.SetVertexElevation(aMesh, new VolcanoProfile());
         }else{

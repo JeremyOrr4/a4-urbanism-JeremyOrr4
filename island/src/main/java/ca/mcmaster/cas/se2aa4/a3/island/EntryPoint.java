@@ -1,11 +1,14 @@
 package ca.mcmaster.cas.se2aa4.a3.island;
 import ca.mcmaster.cas.se2aa4.a2.io.Structs.Mesh;
 import ca.mcmaster.cas.se2aa4.a3.island.Biomes.Whittaker;
-import ca.mcmaster.cas.se2aa4.a3.island.IslandWater.LakesFactory;
 import ca.mcmaster.cas.se2aa4.a3.island.MeshAttributes.*;
-import ca.mcmaster.cas.se2aa4.a3.island.Visualization.HumidityView;
 import ca.mcmaster.cas.se2aa4.a3.island.Visualization.ElevationVisualizer;
+import ca.mcmaster.cas.se2aa4.a3.island.Visualization.HumidityView;
+import ca.mcmaster.cas.se2aa4.a3.island.Water.LakesFactory;
+import ca.mcmaster.cas.se2aa4.a3.island.Water.riverFactory;
 
+import java.util.ArrayList;
+import java.util.List;
 public class EntryPoint {
     public static Mesh meshTest(Mesh aMesh,int lakes,int river, String vis,boolean lagoon,String Profile){
 
@@ -34,7 +37,7 @@ public class EntryPoint {
             lagoonMesh = ElevationVisualizer.elevationView(lagoonMesh);
         }
 
-        return   lagoonMesh; 
+        return  lagoonMesh;
     }
 
 }

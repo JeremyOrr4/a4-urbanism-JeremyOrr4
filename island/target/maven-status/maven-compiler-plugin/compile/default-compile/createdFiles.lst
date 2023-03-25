@@ -1,12 +1,22 @@
 ca\mcmaster\cas\se2aa4\a3\island\Extractor.class
+<<<<<<< HEAD
 ca\mcmaster\cas\se2aa4\a3\island\MeshAttributes\Tiles.class
 ca\mcmaster\cas\se2aa4\a3\island\MeshAttributes\ExampleElevationProfile.class
 ca\mcmaster\cas\se2aa4\a3\island\Configuration.class
 ca\mcmaster\cas\se2aa4\a3\island\MeshAttributes\VolcanoProfile.class
+=======
+ca\mcmaster\cas\se2aa4\a3\island\MeshAttributes\SoilAbsorption.class
+ca\mcmaster\cas\se2aa4\a3\island\MeshAttributes\Tiles.class
+ca\mcmaster\cas\se2aa4\a3\island\Configuration.class
+>>>>>>> b4f3239fccbad8215a5fb7b48b6fb8d24ec46a6a
 ca\mcmaster\cas\se2aa4\a3\island\Biomes\Biome.class
 ca\mcmaster\cas\se2aa4\a3\island\Shapes\BoundedShape.class
 ca\mcmaster\cas\se2aa4\a3\island\IslandWater\LakesFactory.class
 ca\mcmaster\cas\se2aa4\a3\island\MeshAttributes\Tiles$TileType.class
+<<<<<<< HEAD
+=======
+ca\mcmaster\cas\se2aa4\a3\island\Elevation\VolcanoProfile.class
+>>>>>>> b4f3239fccbad8215a5fb7b48b6fb8d24ec46a6a
 Main.class
 ca\mcmaster\cas\se2aa4\a3\island\Shapes\Square.class
 ca\mcmaster\cas\se2aa4\a3\island\Biomes\BiomeData.class
@@ -14,17 +24,32 @@ ca\mcmaster\cas\se2aa4\a3\island\Biomes\BiomeFactory.class
 ca\mcmaster\cas\se2aa4\a3\island\Cell\Cell.class
 ca\mcmaster\cas\se2aa4\a3\island\Biomes\SVGParser.class
 ca\mcmaster\cas\se2aa4\a3\island\MeshAttributes\Humidity.class
+<<<<<<< HEAD
 ca\mcmaster\cas\se2aa4\a3\island\Visualization\HumidityView.class
 ca\mcmaster\cas\se2aa4\a3\island\Visualization\ElevationVisualizer.class
+=======
+ca\mcmaster\cas\se2aa4\a3\island\ElevationVisualizer.class
+>>>>>>> b4f3239fccbad8215a5fb7b48b6fb8d24ec46a6a
 ca\mcmaster\cas\se2aa4\a3\island\EntryPoint.class
 ca\mcmaster\cas\se2aa4\a3\island\Shapes\Irregular.class
 ca\mcmaster\cas\se2aa4\a3\island\Biomes\Whittaker.class
 ca\mcmaster\cas\se2aa4\a3\island\ExtractionTest.class
 ca\mcmaster\cas\se2aa4\a3\island\IslandShaper.class
+<<<<<<< HEAD
 ca\mcmaster\cas\se2aa4\a3\island\MeshAttributes\TileTest.class
 ca\mcmaster\cas\se2aa4\a3\island\LagoonIslandGenerator.class
 ca\mcmaster\cas\se2aa4\a3\island\MeshAttributes\ElevationProfile.class
 ca\mcmaster\cas\se2aa4\a3\island\BeachGenerator.class
 ca\mcmaster\cas\se2aa4\a3\island\IslandWater\riverFactory.class
 ca\mcmaster\cas\se2aa4\a3\island\MeshAttributes\Elevation.class
+=======
+ca\mcmaster\cas\se2aa4\a3\island\Cell\Type.class
+ca\mcmaster\cas\se2aa4\a3\island\Elevation\ElevationProfile.class
+ca\mcmaster\cas\se2aa4\a3\island\MeshAttributes\TileTest.class
+ca\mcmaster\cas\se2aa4\a3\island\LagoonIslandGenerator.class
+ca\mcmaster\cas\se2aa4\a3\island\BeachGenerator.class
+ca\mcmaster\cas\se2aa4\a3\island\Elevation\ExampleElevationProfile.class
+ca\mcmaster\cas\se2aa4\a3\island\IslandWater\riverFactory.class
+ca\mcmaster\cas\se2aa4\a3\island\Elevation\Elevation.class
+>>>>>>> b4f3239fccbad8215a5fb7b48b6fb8d24ec46a6a
 ca\mcmaster\cas\se2aa4\a3\island\Shapes\Circle.class

@@ -1,7 +1,7 @@
 package ca.mcmaster.cas.se2aa4.a3.island.Biomes;
 import ca.mcmaster.cas.se2aa4.a2.io.Structs;
 import ca.mcmaster.cas.se2aa4.a3.island.Extractor;
-import ca.mcmaster.cas.se2aa4.a3.island.MeshAttributes.Elevation;
+import ca.mcmaster.cas.se2aa4.a3.island.Elevation.Elevation;
 import ca.mcmaster.cas.se2aa4.a3.island.MeshAttributes.Humidity;
 import ca.mcmaster.cas.se2aa4.a3.island.MeshAttributes.Tiles;
 import java.util.ArrayList;
