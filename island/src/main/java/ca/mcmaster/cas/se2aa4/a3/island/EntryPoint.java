@@ -33,7 +33,7 @@ public class EntryPoint {
 
         Mesh elevationView = ElevationVisualizer.elevationView(lagoonMesh); 
 
-        return   lagoonMesh; 
+        return  elevationView; 
     }
 
 }
