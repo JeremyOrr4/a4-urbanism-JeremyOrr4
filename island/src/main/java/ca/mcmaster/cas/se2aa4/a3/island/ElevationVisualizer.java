@@ -17,7 +17,7 @@ public class ElevationVisualizer {
         
         for (Polygon p : aMesh.getPolygonsList()){
 
-            int elevation = (int)Extractor.getPolyElevation(p)/10; 
+            int elevation = (int)(Extractor.getPolyElevation(p)*255); 
 
             elevation = Math.min(255, elevation); 
 

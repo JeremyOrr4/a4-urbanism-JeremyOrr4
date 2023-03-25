@@ -9,10 +9,10 @@ public class VolcanoProfile extends ElevationProfile{
 
         Circle circle = new Circle(1920/2, 1080/2, 500); 
 
-        int d = (int) Circle.distance(x,y,centerX,centerY); 
+        int d = (int) Circle.distance(x,y,centerX,centerY)/1000; 
 
 
-        return Math.max(0, 1000-d ); 
+        return Math.max(0, 0.8); 
 
 
 

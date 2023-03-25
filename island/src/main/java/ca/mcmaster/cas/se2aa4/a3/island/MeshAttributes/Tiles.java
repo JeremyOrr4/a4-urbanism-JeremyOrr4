@@ -85,8 +85,8 @@ public class Tiles {
         Humidity Humid = new Humidity();
         aMesh = Humid.MasterHumidity(aMesh);
 
-        BiomeFactory biome = new BiomeFactory();
-        aMesh = biome.BiomeSetter(aMesh);
+        // BiomeFactory biome = new BiomeFactory();
+        // aMesh = biome.BiomeSetter(aMesh);
 
         return aMesh;
     }

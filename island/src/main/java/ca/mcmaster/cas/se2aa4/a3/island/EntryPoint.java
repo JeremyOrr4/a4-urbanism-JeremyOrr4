@@ -27,9 +27,9 @@ public class EntryPoint {
         Mesh lagoonMesh = LagoonIslandGenerator.LagoonMesh(aMesh);
 
         LakesFactory lf = new LakesFactory();
-        lagoonMesh = lf.RandomLakes(lakes,lagoonMesh);
+      //  lagoonMesh = lf.RandomLakes(lakes,lagoonMesh);
 
-        lagoonMesh = Tiles.MasterPropertyFactory(lagoonMesh,river);
+      lagoonMesh = Tiles.MasterPropertyFactory(lagoonMesh,river);
 
         Mesh elevationView = ElevationVisualizer.elevationView(lagoonMesh); 
 

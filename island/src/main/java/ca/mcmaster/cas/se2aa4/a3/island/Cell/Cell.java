@@ -1,5 +1,6 @@
 package ca.mcmaster.cas.se2aa4.a3.island.Cell;
 
+import ca.mcmaster.cas.se2aa4.a2.io.Structs;
 import ca.mcmaster.cas.se2aa4.a2.io.Structs.Mesh;
 import ca.mcmaster.cas.se2aa4.a2.io.Structs.Polygon;
 import ca.mcmaster.cas.se2aa4.a3.island.MeshAttributes.Tiles;
@@ -41,6 +42,15 @@ public class Cell {
         this.humidity = humidity; 
     }
 
+
+
+    public void setType(Type type){
+
+        this.type = type; 
+        Structs.Property color = Structs.Property.newBuilder().setKey("rgb_color").setValue(type.color).build(); 
+        this.polygon =  Structs.Polygon.newBuilder(this.polygon).clearProperties().addProperties(color).build();
+        
+    }
 
 
 

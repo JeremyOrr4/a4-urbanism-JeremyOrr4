@@ -4,7 +4,6 @@ ca\mcmaster\cas\se2aa4\a3\island\MeshAttributes\Tiles.class
 ca\mcmaster\cas\se2aa4\a3\island\Configuration.class
 ca\mcmaster\cas\se2aa4\a3\island\Biomes\Biome.class
 ca\mcmaster\cas\se2aa4\a3\island\Shapes\BoundedShape.class
-ca\mcmaster\cas\se2aa4\a3\island\IslandWater\LakesFactory.class
 ca\mcmaster\cas\se2aa4\a3\island\MeshAttributes\Tiles$TileType.class
 ca\mcmaster\cas\se2aa4\a3\island\Elevation\VolcanoProfile.class
 Main.class
@@ -25,7 +24,8 @@ ca\mcmaster\cas\se2aa4\a3\island\Elevation\ElevationProfile.class
 ca\mcmaster\cas\se2aa4\a3\island\MeshAttributes\TileTest.class
 ca\mcmaster\cas\se2aa4\a3\island\LagoonIslandGenerator.class
 ca\mcmaster\cas\se2aa4\a3\island\BeachGenerator.class
+ca\mcmaster\cas\se2aa4\a3\island\Water\LakesFactory.class
 ca\mcmaster\cas\se2aa4\a3\island\Elevation\ExampleElevationProfile.class
-ca\mcmaster\cas\se2aa4\a3\island\IslandWater\riverFactory.class
+ca\mcmaster\cas\se2aa4\a3\island\Water\riverFactory.class
 ca\mcmaster\cas\se2aa4\a3\island\Elevation\Elevation.class
 ca\mcmaster\cas\se2aa4\a3\island\Shapes\Circle.class
