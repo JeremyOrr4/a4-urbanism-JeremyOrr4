@@ -96,14 +96,14 @@ public class Tiles {
     }
 
     public static Structs.Polygon setBiome(Structs.Polygon p, TileType type){
-        Elevation Elev = new Elevation();
-        Humidity Humid = new Humidity();
-        String ElevVal = ""+ Extractor.getPolyElevation(p);
-        String HumidVal = ""+Extractor.getPolyHumidity(p);
+        Elevation elevation = new Elevation();
+        Humidity humidity = new Humidity();
+        String elevationValue = ""+ Extractor.getPolyElevation(p);
+        String humidityValue = ""+Extractor.getPolyHumidity(p);
         Structs.Property color = Structs.Property.newBuilder().setKey("rgb_color").setValue(type.color).build();
         Structs.Property typeString = Structs.Property.newBuilder().setKey("TileType").setValue(type.name).build();
-        Structs.Property Elevation = Structs.Property.newBuilder().setKey("Elevation").setValue(ElevVal).build();
-        Structs.Property Humidity = Structs.Property.newBuilder().setKey("Humidity").setValue(HumidVal).build();
+        Structs.Property Elevation = Structs.Property.newBuilder().setKey("Elevation").setValue(elevationValue).build();
+        Structs.Property Humidity = Structs.Property.newBuilder().setKey("Humidity").setValue(humidityValue).build();
         return Structs.Polygon.newBuilder(p).clearProperties().addProperties(color).addProperties(typeString).addProperties(Elevation).addProperties(Humidity).build();
     }
 }

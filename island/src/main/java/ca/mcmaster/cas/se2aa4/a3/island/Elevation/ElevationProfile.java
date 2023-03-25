@@ -42,15 +42,15 @@ public Structs.Mesh generatePolygonElevations(Structs.Mesh aMesh){
     for (Structs.Polygon p: oldPolygons){
         if (Tiles.getTileType(p).equals("Land")){
             int sum=0;
-            int vertCount=0;
+            int vertexCount=0;
             for (int n: p.getSegmentIdxsList()){
                 sum += Extractor.getVertexElevation(vertices.get(segments.get(n).getV1Idx()));
                 sum += Extractor.getVertexElevation(vertices.get(segments.get(n).getV2Idx()));
-                vertCount+=2;
+                vertexCount+=2;
             }
-            sum=sum/vertCount;
-            Structs.Property Elev = Structs.Property.newBuilder().setKey("Elevation").setValue(""+sum).build();
-            newPolygons.add(Structs.Polygon.newBuilder(p).addProperties(Elev).build());
+            sum=sum/vertexCount;
+            Structs.Property elevation = Structs.Property.newBuilder().setKey("Elevation").setValue(""+sum).build();
+            newPolygons.add(Structs.Polygon.newBuilder(p).addProperties(elevation).build());
         }else{
             newPolygons.add(p);
         }
