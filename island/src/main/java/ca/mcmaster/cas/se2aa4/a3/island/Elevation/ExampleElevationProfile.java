@@ -1,5 +1,7 @@
 package ca.mcmaster.cas.se2aa4.a3.island.Elevation;
 
+import ca.mcmaster.cas.se2aa4.a3.island.Cell.Point;
+
 public class ExampleElevationProfile extends ElevationProfile{
 
 
@@ -10,6 +12,13 @@ public class ExampleElevationProfile extends ElevationProfile{
 
 
 
+    }
+
+
+
+    @Override
+    double getElevation(Point point) {
+       return (point.x + point.y)/3; 
     }
    
     

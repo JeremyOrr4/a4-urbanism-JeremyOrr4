@@ -15,6 +15,9 @@ public class IslandMap {
 Mesh mesh; 
 List<Cell> cells = new ArrayList<Cell>(); 
 
+
+List<Double> vertexElevations; 
+
 boolean terrainGenerated=false;
 boolean elevationAssigned = false;  
 
@@ -23,10 +26,8 @@ boolean elevationAssigned = false;
 public IslandMap(Mesh mesh){
 
     this.mesh =mesh; 
-    for(Polygon p : mesh.getPolygonsList()){
-        
+    for(Polygon p : mesh.getPolygonsList()){       
         cells.add(new Cell(p, mesh));
-        
     }
 
 }
@@ -48,6 +49,8 @@ public void generateTerrain(BoundedShape shape){
 public void generateBeaches(){
     BeachGenerator.generateBeachCells(cells);
 }
+
+
 
 
 

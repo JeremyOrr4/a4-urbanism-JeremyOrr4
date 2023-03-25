@@ -1,5 +1,6 @@
 package ca.mcmaster.cas.se2aa4.a3.island.Cell;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import ca.mcmaster.cas.se2aa4.a2.io.Structs;
@@ -27,7 +28,8 @@ public class Cell {
 
     private boolean isTerrain=false; 
 
-    private List<Cell> neighborCells; 
+
+    List<Double> vertexElevations; 
 
 
     public Cell(Polygon p, Mesh mesh ){
@@ -99,6 +101,18 @@ public class Cell {
     }
 
 
+
+    public List<Point> getVertexPoints(){
+
+        List<Point> points = new ArrayList<Point>(); 
+
+        // for(Vertex v : polygon.get)
+
+
+    }
+
+
+
     public Polygon toPolygon(){
 
 
@@ -106,6 +120,9 @@ public class Cell {
         return Structs.Polygon.newBuilder(this.polygon).clearProperties().addProperties(color).build(); 
     }
 
+
+
+    
 
 
 

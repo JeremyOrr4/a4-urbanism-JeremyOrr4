@@ -1,5 +1,6 @@
 package ca.mcmaster.cas.se2aa4.a3.island.Elevation;
 
+import ca.mcmaster.cas.se2aa4.a3.island.Cell.Point;
 import ca.mcmaster.cas.se2aa4.a3.island.Shapes.Circle;
 
 public class VolcanoProfile extends ElevationProfile{
@@ -17,6 +18,12 @@ public class VolcanoProfile extends ElevationProfile{
 
 
     }
+    
+    double getElevation(Point point) {
+
+
+        return 0; 
+     }
 
 
 
