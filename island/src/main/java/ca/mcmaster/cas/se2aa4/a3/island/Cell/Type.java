@@ -19,7 +19,14 @@ public enum Type {
     GRASSLAND("215,196,41","Grassland Desert"),
 
     TROPICAL("68,193,25","Tropical"),
-    LAGOON("24,112,188", "Lagoon", true ); 
+    LAGOON("24,112,188", "Lagoon", true ),
+
+
+    DEBUG_TERRAIN("0,255,0", "DEGUG-TERRAIN", false), 
+    DEBUG_WATER("0,0,255", "DEGUG-TERRAIN", true), 
+    
+    NOP("255,255,255", "DEGUG-TERRAIN", true); 
+    
 
 
 

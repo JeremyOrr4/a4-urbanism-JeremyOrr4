@@ -6,6 +6,7 @@ ca\mcmaster\cas\se2aa4\a3\island\Shapes\BoundedShape.class
 ca\mcmaster\cas\se2aa4\a3\island\MeshAttributes\Tiles$TileType.class
 ca\mcmaster\cas\se2aa4\a3\island\Elevation\VolcanoProfile.class
 Main.class
+ca\mcmaster\cas\se2aa4\a3\island\Cell\Point.class
 ca\mcmaster\cas\se2aa4\a3\island\Shapes\Square.class
 ca\mcmaster\cas\se2aa4\a3\island\Biomes\BiomeData.class
 ca\mcmaster\cas\se2aa4\a3\island\Biomes\BiomeFactory.class
@@ -27,5 +28,6 @@ ca\mcmaster\cas\se2aa4\a3\island\BeachGenerator.class
 ca\mcmaster\cas\se2aa4\a3\island\Water\LakesFactory.class
 ca\mcmaster\cas\se2aa4\a3\island\Elevation\ExampleElevationProfile.class
 ca\mcmaster\cas\se2aa4\a3\island\Water\riverFactory.class
+ca\mcmaster\cas\se2aa4\a3\island\Cell\IslandMap.class
 ca\mcmaster\cas\se2aa4\a3\island\Elevation\Elevation.class
 ca\mcmaster\cas\se2aa4\a3\island\Shapes\Circle.class

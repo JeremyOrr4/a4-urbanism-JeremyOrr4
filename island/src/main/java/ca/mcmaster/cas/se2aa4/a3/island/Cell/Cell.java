@@ -1,8 +1,12 @@
 package ca.mcmaster.cas.se2aa4.a3.island.Cell;
 
+import java.util.List;
+
 import ca.mcmaster.cas.se2aa4.a2.io.Structs;
 import ca.mcmaster.cas.se2aa4.a2.io.Structs.Mesh;
 import ca.mcmaster.cas.se2aa4.a2.io.Structs.Polygon;
+import ca.mcmaster.cas.se2aa4.a2.io.Structs.Property;
+import ca.mcmaster.cas.se2aa4.a2.io.Structs.Vertex;
 import ca.mcmaster.cas.se2aa4.a3.island.MeshAttributes.Tiles;
 
 public class Cell {
@@ -11,7 +15,7 @@ public class Cell {
 
     double x; 
     double y; 
-    Type type; 
+    Type type = Type.NOP; 
 
     double humidity; 
 
@@ -21,11 +25,37 @@ public class Cell {
     private Mesh parentMesh; 
     private Polygon polygon; 
 
+    private boolean isTerrain=false; 
+
+    private List<Cell> neighborCells; 
+
 
     public Cell(Polygon p, Mesh mesh ){
 
         this.parentMesh = mesh;
         this.polygon = p;  
+
+        
+
+        
+
+
+    }
+
+
+    public List<Integer> getNeighborCells(){
+
+        return this.polygon.getNeighborIdxsList(); 
+
+    }
+
+    public Point getCentroidPosition(){
+
+        int index = polygon.getCentroidIdx(); 
+        Vertex v = parentMesh.getVerticesList().get(index); 
+        double x =v.getX(); 
+        double y = v.getY(); 
+        return new Point(x, y); 
     }
 
 
@@ -33,6 +63,10 @@ public class Cell {
         return this.type; 
     }
 
+
+    public boolean isTerrain(){
+        return this.isTerrain; 
+    }
 
     public void setElevation(double elevation){
         this.elevation = elevation; 
@@ -45,11 +79,31 @@ public class Cell {
 
 
     public void setType(Type type){
-
         this.type = type; 
+    }
+
+
+
+    public void setToTerrain(){
+
+        this.isTerrain = true; 
+
+        this.type = Type.DEBUG_TERRAIN; 
+
+    }
+
+
+    public void setToOcean(){
+        this.isTerrain = false; 
+        this.type = Type.DEBUG_WATER;
+    }
+
+
+    public Polygon toPolygon(){
+
+
         Structs.Property color = Structs.Property.newBuilder().setKey("rgb_color").setValue(type.color).build(); 
-        this.polygon =  Structs.Polygon.newBuilder(this.polygon).clearProperties().addProperties(color).build();
-        
+        return Structs.Polygon.newBuilder(this.polygon).clearProperties().addProperties(color).build(); 
     }
 
 

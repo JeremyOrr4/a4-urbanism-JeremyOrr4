@@ -26,6 +26,11 @@ public abstract class ElevationProfile {
         return Structs.Mesh.newBuilder().addAllVertices(newVertices).addAllSegments(aMesh.getSegmentsList()).addAllPolygons(aMesh.getPolygonsList()).build();
     }
 
+
+
+    public void generateMapElevation(List<Cell> cells){
+
+    }
    
 
 
