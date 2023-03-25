@@ -4,8 +4,8 @@ import ca.mcmaster.cas.se2aa4.a3.island.Biomes.*;
 import ca.mcmaster.cas.se2aa4.a3.island.Elevation.Elevation;
 import ca.mcmaster.cas.se2aa4.a3.island.Elevation.ExampleElevationProfile;
 import ca.mcmaster.cas.se2aa4.a3.island.Elevation.VolcanoProfile;
+import ca.mcmaster.cas.se2aa4.a3.island.Water.riverFactory;
 import ca.mcmaster.cas.se2aa4.a3.island.Extractor;
-import ca.mcmaster.cas.se2aa4.a3.island.IslandWater.riverFactory;
 
 import java.util.ArrayList;
 import java.util.List;

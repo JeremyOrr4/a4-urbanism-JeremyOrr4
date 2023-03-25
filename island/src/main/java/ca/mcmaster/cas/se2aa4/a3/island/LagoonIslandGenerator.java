@@ -2,10 +2,10 @@ package ca.mcmaster.cas.se2aa4.a3.island;
 
 import ca.mcmaster.cas.se2aa4.a2.io.Structs;
 import ca.mcmaster.cas.se2aa4.a2.io.Structs.Mesh;
-import ca.mcmaster.cas.se2aa4.a3.island.IslandWater.LakesFactory;
 import ca.mcmaster.cas.se2aa4.a3.island.MeshAttributes.Humidity;
 import ca.mcmaster.cas.se2aa4.a3.island.MeshAttributes.Tiles;
 import ca.mcmaster.cas.se2aa4.a3.island.Shapes.Irregular;
+import ca.mcmaster.cas.se2aa4.a3.island.Water.LakesFactory;
 import ca.mcmaster.cas.se2aa4.a3.island.MeshAttributes.Tiles.TileType;
 
 import java.util.ArrayList;
