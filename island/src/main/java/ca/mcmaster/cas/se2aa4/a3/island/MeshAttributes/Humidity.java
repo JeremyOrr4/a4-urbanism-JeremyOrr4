@@ -35,13 +35,19 @@ public class Humidity {
             int MaxHumidity = 600;
             if (!Tiles.getTileType(p).equals("Water") && !Tiles.getTileType(p).equals("Lake")){
                 for (int i=0; i<lakeCentersX.size();i++){
-                    if (Math.abs(lakeCentersX.get(i)-verts.get(p.getCentroidIdx()).getX())+Math.abs(lakeCentersY.get(i)-verts.get(p.getCentroidIdx()).getY())<300){
-                        HumidTrack+=300-(Math.abs(lakeCentersX.get(i)-verts.get(p.getCentroidIdx()).getX())+Math.abs(lakeCentersY.get(i)-verts.get(p.getCentroidIdx()).getY()));
+                    if (Math.abs(lakeCentersX.get(i)-verts.get(p.getCentroidIdx()).getX())+Math.abs(lakeCentersY.get(i)-verts.get(p.getCentroidIdx()).getY())<400){
+                        HumidTrack+=400-(Math.abs(lakeCentersX.get(i)-verts.get(p.getCentroidIdx()).getX())+Math.abs(lakeCentersY.get(i)-verts.get(p.getCentroidIdx()).getY()));
                     }
                 }
-                if (HumidTrack>600) HumidTrack = 600;
-                if (HumidTrack<200) HumidTrack = 200;
-                polysNew.set(polys.indexOf(p),addHumidity(p,""+(int)(HumidTrack*0.5)));
+                if (HumidTrack>1400) HumidTrack = 1400;
+                if (HumidTrack<600) HumidTrack = 600;
+                for (int i: p.getSegmentIdxsList()){
+                    if (Extractor.isRiver(segs.get(i))){
+                        HumidTrack+=100;
+                        break;
+                    }
+                }
+                polysNew.set(polys.indexOf(p),addHumidity(p,""+(int)(HumidTrack/2)));
                 HumidTrack=0;
             }
         }

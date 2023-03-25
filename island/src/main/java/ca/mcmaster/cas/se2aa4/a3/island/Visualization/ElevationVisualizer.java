@@ -20,13 +20,15 @@ public class ElevationVisualizer {
 
             int elevation = (int) Extractor.getPolyElevation(p)/10;
 
-            elevation = Math.min(255, elevation); 
+            elevation = Math.min(255, elevation);
 
 
-            Polygon colored = Tiles.setColor(p, String.format("%d,%d,%d", elevation,elevation,elevation)); 
-            
-            
-            newPolygons.add(colored); 
+            if (!Tiles.getTileType(p).equals("Water") && !Tiles.getTileType(p).equals("Lake")) {
+                Polygon colored = Tiles.setColor(p, String.format("%d,%d,%d", elevation,elevation,elevation));
+                newPolygons.add(colored);
+            }else{
+                newPolygons.add(p);
+            }
             
         
 

@@ -34,9 +34,14 @@ public class Main {
             vis = (config.export(Configuration.VISUAL));
         }
 
+        boolean lagoon = false;
+        if (config.export().containsKey(Configuration.LAGOON)){
+            lagoon = true;
+        }
+
         Structs.Mesh exported = new MeshFactory().read(config.input());
 
-        exported = EntryPoint.meshTest(exported,lakes,rivers,vis);
+        exported = EntryPoint.meshTest(exported,lakes,rivers,vis,lagoon);
 
         new MeshFactory().write(exported, config.export(Configuration.INPUT));
     }

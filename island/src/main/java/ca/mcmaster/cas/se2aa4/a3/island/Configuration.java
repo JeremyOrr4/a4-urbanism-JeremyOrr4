@@ -14,6 +14,8 @@ public class Configuration {
 
     public static final String VISUAL = "v";
 
+    public static final String LAGOON = "l";
+
     private CommandLine cli;
 
     public Configuration(String[] args) {
@@ -50,6 +52,7 @@ public class Configuration {
         options.addOption(new Option(LAKES, true, "Number of Lakes"));
         options.addOption(new Option(RIVER, true, "Number of rivers"));
         options.addOption(new Option(VISUAL, true, "Visualization type"));
+        options.addOption(new Option(LAGOON, false, "Lagoon option"));
         return options;
     }
 

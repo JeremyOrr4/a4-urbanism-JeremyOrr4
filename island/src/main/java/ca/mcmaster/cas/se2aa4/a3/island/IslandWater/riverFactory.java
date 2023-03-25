@@ -57,7 +57,7 @@ public class riverFactory {
         ArrayList<Structs.Segment> Marked = new ArrayList<>();
         int MarkedTrack =0;
         Marked.add(s);
-        int check = 40;
+        int check = 20;
         while (!ReachedWater && check >0){
             for (Structs.Polygon p: poly){
                 if (p.getSegmentIdxsList().contains(segNew.indexOf(currentSeg))){

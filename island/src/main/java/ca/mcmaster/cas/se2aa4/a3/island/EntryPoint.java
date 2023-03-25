@@ -7,7 +7,7 @@ import ca.mcmaster.cas.se2aa4.a3.island.Visualization.HumidityView;
 import ca.mcmaster.cas.se2aa4.a3.island.Visualization.ElevationVisualizer;
 
 public class EntryPoint {
-    public static Mesh meshTest(Mesh aMesh,int lakes,int river, String vis){
+    public static Mesh meshTest(Mesh aMesh,int lakes,int river, String vis,boolean lagoon){
 
 
         System.out.println("test");
@@ -21,7 +21,7 @@ public class EntryPoint {
         ExtractionTest ExtractTest = new ExtractionTest();
         ExtractTest.testSuite();
 
-        Mesh lagoonMesh = LagoonIslandGenerator.LagoonMesh(aMesh);
+        Mesh lagoonMesh = LagoonIslandGenerator.LagoonMesh(aMesh,lagoon);
 
         LakesFactory lf = new LakesFactory();
         lagoonMesh = lf.RandomLakes(lakes,lagoonMesh);
