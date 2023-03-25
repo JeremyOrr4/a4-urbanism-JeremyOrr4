@@ -39,9 +39,14 @@ public class Main {
             lagoon = true;
         }
 
+        String Profile = "Random";
+        if (config.export().containsKey(Configuration.PROFILE)){
+            Profile = (config.export(Configuration.PROFILE));
+        }
+
         Structs.Mesh exported = new MeshFactory().read(config.input());
 
-        exported = EntryPoint.meshTest(exported,lakes,rivers,vis,lagoon);
+        exported = EntryPoint.meshTest(exported,lakes,rivers,vis,lagoon,Profile);
 
         new MeshFactory().write(exported, config.export(Configuration.INPUT));
     }

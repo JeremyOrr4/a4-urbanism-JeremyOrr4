@@ -69,9 +69,13 @@ public class Tiles {
 
     }
 
-    public static Structs.Mesh MasterPropertyFactory(Structs.Mesh aMesh,int river){
+    public static Structs.Mesh MasterPropertyFactory(Structs.Mesh aMesh,int river,String Profile){
         
-        aMesh = Elevation.SetVertexElevation(aMesh, new VolcanoProfile());
+        if (Profile.equals("Volcano")){
+            aMesh = Elevation.SetVertexElevation(aMesh, new VolcanoProfile());
+        }else{
+            aMesh = Elevation.SetVertexElevation(aMesh, new ExampleElevationProfile());
+        }
 
         Elevation Elev = new Elevation();
         aMesh = Elev.addPolyElevation(aMesh);

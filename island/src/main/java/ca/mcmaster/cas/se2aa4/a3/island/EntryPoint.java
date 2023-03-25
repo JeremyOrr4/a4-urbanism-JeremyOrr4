@@ -7,7 +7,7 @@ import ca.mcmaster.cas.se2aa4.a3.island.Visualization.HumidityView;
 import ca.mcmaster.cas.se2aa4.a3.island.Visualization.ElevationVisualizer;
 
 public class EntryPoint {
-    public static Mesh meshTest(Mesh aMesh,int lakes,int river, String vis,boolean lagoon){
+    public static Mesh meshTest(Mesh aMesh,int lakes,int river, String vis,boolean lagoon,String Profile){
 
 
         System.out.println("test");
@@ -26,7 +26,7 @@ public class EntryPoint {
         LakesFactory lf = new LakesFactory();
         lagoonMesh = lf.RandomLakes(lakes,lagoonMesh);
 
-        lagoonMesh = Tiles.MasterPropertyFactory(lagoonMesh,river);
+        lagoonMesh = Tiles.MasterPropertyFactory(lagoonMesh,river,Profile);
 
         if (vis.equals("Humidity")){
             lagoonMesh = HumidityView.HumidityView(lagoonMesh);
