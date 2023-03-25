@@ -72,9 +72,13 @@ public class Tiles {
 
     }
 
-    public static Structs.Mesh MasterPropertyFactory(Structs.Mesh aMesh,int river){
-        
-        aMesh = Elevation.SetVertexElevation(aMesh, new VolcanoProfile());
+    public static Structs.Mesh MasterPropertyFactory(Structs.Mesh aMesh,int river,String Profile){
+
+        if (Profile.equals("Volcano")){
+            aMesh = Elevation.SetVertexElevation(aMesh, new VolcanoProfile());
+        }else{
+            aMesh = Elevation.SetVertexElevation(aMesh, new ExampleElevationProfile());
+        }
 
         Elevation Elev = new Elevation();
         aMesh = Elev.addPolyElevation(aMesh);
@@ -83,7 +87,7 @@ public class Tiles {
         aMesh = rf.riverGenerator(aMesh,river);
 
         Humidity Humid = new Humidity();
-        aMesh = Humid.MasterHumidity(aMesh);
+        aMesh = Humid.GenerateHumidities(aMesh);
 
         // BiomeFactory biome = new BiomeFactory();
         // aMesh = biome.BiomeSetter(aMesh);

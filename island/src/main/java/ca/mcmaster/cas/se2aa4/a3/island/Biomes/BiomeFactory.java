@@ -21,17 +21,17 @@ public class BiomeFactory {
             }
             if (Tiles.getTileType(p).equals("Land")){
                 if (biome.equals("tropical")){
-                    newTile = Tiles.setType(newTile, Tiles.TileType.TROPICAL);
+                    newTile = Tiles.setBiome(newTile, Tiles.TileType.TROPICAL);
                 }else if (biome.equals("subtropicalDesert")){
-                    newTile = Tiles.setType(newTile, Tiles.TileType.TROPICALDESERT);
+                    newTile = Tiles.setBiome(newTile, Tiles.TileType.TROPICALDESERT);
                 }else if (biome.equals("taiga")){
-                    newTile = Tiles.setType(newTile,Tiles.TileType.TAIGA);
+                    newTile = Tiles.setBiome(newTile,Tiles.TileType.TAIGA);
                 }else if (biome.equals("deciduous")){
-                    newTile=Tiles.setType(newTile,Tiles.TileType.DECIDUOUS);
+                    newTile=Tiles.setBiome(newTile,Tiles.TileType.DECIDUOUS);
                 }else if (biome.equals("savanna")){
-                    newTile=Tiles.setType(newTile, Tiles.TileType.SAVANNA);
+                    newTile=Tiles.setBiome(newTile, Tiles.TileType.SAVANNA);
                 }else if (biome.equals("seasonalForest")){
-                    newTile=Tiles.setType(newTile,Tiles.TileType.SEASONALFOREST);
+                    newTile=Tiles.setBiome(newTile,Tiles.TileType.SEASONALFOREST);
                 }
             }
             polysNew.add(newTile);

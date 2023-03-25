@@ -1,11 +1,13 @@
-# Mesh Generator (Assignment #2 Walkthrough)
+# A3 Island Generation Simulator
 
-  - Author: Sébastien Mosser
+  - Author: "" <>
+  - Author: "Jeremy Orr" <orrj4@mcmaster.ca>
+  - Author: "" <>
 
-## How to install?
+## How to Run the Program
 
 ```
-mosser@azrael A2 % mvn install
+Once the proper instalation of 'mvn instll' & 'mvn clean', a user can simply run the 'island.sh' script. If open the script, you see parameters with flags such as width and heights. Alter these paramerters to change the generation around. See Generating  a mesh below for help. This will result in a SVG file which can be open by your default internet browser. This image will be located in your img folder.
 ```
 
 It creates two jars:
@@ -36,6 +38,11 @@ mosser@azrael A2 % java -jar visualizer/visualizer.jar -i img/irregular.mesh -o 
 ```
 
 Note: PDF versions of the SVG files were created with `rsvg-convert`.
+
+| Id  | Feature  | Status  |  Started  | Delivered |
+|:-:  |---       | :-:     | :-:       | :-:       |
+| F01 | Roll a dice eight times and end turn | D | 01/01/23 | 01/14/23 |
+
 
 F1 - Generate different tiles to differentiate between land and water. - Week 1 -COMPLETED
   • Create methods for land and water tiles which pass in a tile and give it the proper attributes

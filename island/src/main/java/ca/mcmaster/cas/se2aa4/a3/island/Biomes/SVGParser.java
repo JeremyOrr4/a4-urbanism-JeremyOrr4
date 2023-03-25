@@ -33,8 +33,6 @@ public class SVGParser {
 
             scanner.close();
 
-            System.out.println(viewBox);
-
            
 
             scanner = new Scanner(file);

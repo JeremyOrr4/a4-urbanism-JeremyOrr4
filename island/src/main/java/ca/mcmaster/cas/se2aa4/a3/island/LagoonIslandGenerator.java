@@ -14,7 +14,7 @@ import java.util.List;
 public class LagoonIslandGenerator {
 
 
-    public static Mesh LagoonMesh(Mesh aMesh){
+    public static Mesh LagoonMesh(Mesh aMesh,boolean lagoon){
 
         //  Circle circle = new Circle(1920/2, 1080/2, 400); 
         Irregular irr = new Irregular(1920/2, 1080/2,1380,750); 
@@ -24,11 +24,9 @@ public class LagoonIslandGenerator {
         IslandShaper shaper = new IslandShaper(irr);
 
 
-        Mesh shapedIsland = shaper.generateShape(aMesh); 
-
-     //  shapedIsland = IslandShaper.fillRegion(shapedIsland, new Circle(1920/2,1080/2, 150), TileType.LAGOON); 
+        Mesh shapedIsland = shaper.generateShape(aMesh);
         
-    //   shapedIsland = IslandShaper.fillRegion(shapedIsland, irr.scale(0.4, 0.4), TileType.LAGOON);
+        if (lagoon) shapedIsland = IslandShaper.fillRegion(shapedIsland, irr.scale(0.4, 0.4), TileType.LAGOON);
 
         
 

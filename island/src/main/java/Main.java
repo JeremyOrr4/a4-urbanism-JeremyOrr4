@@ -29,10 +29,24 @@ public class Main {
             rivers = Integer.parseInt(config.export(Configuration.RIVER));
         }
 
+        String vis = "Normal";
+        if (config.export().containsKey(Configuration.VISUAL)){
+            vis = (config.export(Configuration.VISUAL));
+        }
+
+        boolean lagoon = false;
+        if (config.export().containsKey(Configuration.LAGOON)){
+            lagoon = true;
+        }
+
+        String Profile = "Random";
+        if (config.export().containsKey(Configuration.PROFILE)){
+            Profile = (config.export(Configuration.PROFILE));
+        }
 
         Structs.Mesh exported = new MeshFactory().read(config.input());
 
-        exported = EntryPoint.meshTest(exported,lakes,rivers);
+        exported = EntryPoint.meshTest(exported,lakes,rivers,vis,lagoon,Profile);
 
         new MeshFactory().write(exported, config.export(Configuration.INPUT));
     }
