@@ -24,6 +24,8 @@ public class Configuration {
 
     public static final String HELP = "help";
 
+    public static final String SEED = "seed"; 
+
     private CommandLine cli;
 
     public Configuration(String[] args) {
@@ -73,6 +75,8 @@ public class Configuration {
         options.addOption(new Option(PROFILE, true, "Elevation Profile"));
         options.addOption(new Option(SHAPE, true, "Island Shape"));
         options.addOption(new Option(HELP, false, "print help message"));
+        options.addOption(new Option(SEED, true, "specify island seed"));
+
         return options;
     }
 

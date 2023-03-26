@@ -20,7 +20,7 @@ import java.util.ArrayList;
 import java.util.List;
 /**Class which incrementally adds elements of a complete island**/
 public class EntryPoint {
-    public static Mesh meshTest(Mesh aMesh,int lakes,int river, String vis,boolean lagoon,String Profile,String Shape){
+    public static Mesh meshTest(Mesh aMesh,int lakes,int river, String vis,boolean lagoon,String Profile,String Shape, int seed){
 
 
        
@@ -37,10 +37,10 @@ public class EntryPoint {
         BiomeTest biomeTest = new BiomeTest();
         biomeTest.BiomeTest();
 
-        Mesh lagoonMesh = LagoonIslandGenerator.LagoonMesh(aMesh,lagoon,Shape);
+        Mesh lagoonMesh = LagoonIslandGenerator.LagoonMesh(aMesh,lagoon,Shape,seed);
 
         LakesFactory lf = new LakesFactory();
-        lagoonMesh = lf.RandomLakes(lakes,lagoonMesh);
+        lagoonMesh = lf.RandomLakes(lakes,lagoonMesh, seed);
 
         if (Profile.equals("Volcano")){
             lagoonMesh = Elevation.SetVertexElevation(lagoonMesh, new VolcanoProfile());
@@ -52,7 +52,7 @@ public class EntryPoint {
         lagoonMesh = Elev.addPolyElevation(lagoonMesh);
 
         riverFactory rf = new riverFactory();
-        lagoonMesh = rf.riverGenerator(lagoonMesh,river);
+        lagoonMesh = rf.riverGenerator(lagoonMesh,river, 1234);
 
         Humidity Humid = new Humidity();
         lagoonMesh = Humid.GenerateHumidities(lagoonMesh);

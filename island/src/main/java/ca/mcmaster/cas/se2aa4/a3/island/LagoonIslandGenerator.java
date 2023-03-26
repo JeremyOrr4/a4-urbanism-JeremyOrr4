@@ -13,11 +13,12 @@ import ca.mcmaster.cas.se2aa4.a3.island.MeshAttributes.Tiles.TileType;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 /**Produces island shape and size as well as lagoon (optional)**/
 public class LagoonIslandGenerator {
 
 
-    public static Mesh LagoonMesh(Mesh aMesh,boolean lagoon,String Shape){
+    public static Mesh LagoonMesh(Mesh aMesh,boolean lagoon,String Shape, int seed){
         Mesh shapedIsland;
         if (Shape.equals("Circle")){
             Circle shape = new Circle(1920/2, 1080/2, 400);
@@ -30,7 +31,9 @@ public class LagoonIslandGenerator {
             shapedIsland = shaper.generateShape(aMesh);
             if (lagoon) shapedIsland = IslandShaper.fillRegion(shapedIsland, shape.scale(0.3), TileType.LAGOON);
         }else {
-            Irregular shape = new Irregular(1920/2, 1080/2,1380,750);
+
+            Random r = new Random(seed); 
+            Irregular shape = new Irregular(1920/2, 1080/2 ,1380+(-200+r.nextInt(400)),750+(-100+r.nextInt(200)), seed);
             IslandShaper shaper = new IslandShaper(shape);
             shapedIsland = shaper.generateShape(aMesh);
             if (lagoon) shapedIsland = IslandShaper.fillRegion(shapedIsland, shape.scale(0.4, 0.4), TileType.LAGOON);
