@@ -6,9 +6,11 @@ C:\Users\aidan\Documents\School\2AA4\A2\a2---mesh-generator-team35\island\src\ma
 C:\Users\aidan\Documents\School\2AA4\A2\a2---mesh-generator-team35\island\src\main\java\Main.java
 C:\Users\aidan\Documents\School\2AA4\A2\a2---mesh-generator-team35\island\src\main\java\ca\mcmaster\cas\se2aa4\a3\island\MeshAttributes\Tiles.java
 C:\Users\aidan\Documents\School\2AA4\A2\a2---mesh-generator-team35\island\src\main\java\ca\mcmaster\cas\se2aa4\a3\island\Cell\Point.java
+C:\Users\aidan\Documents\School\2AA4\A2\a2---mesh-generator-team35\island\src\main\java\ca\mcmaster\cas\se2aa4\a3\island\Cell\Edge.java
 C:\Users\aidan\Documents\School\2AA4\A2\a2---mesh-generator-team35\island\src\main\java\ca\mcmaster\cas\se2aa4\a3\island\Elevation\ExampleElevationProfile.java
 C:\Users\aidan\Documents\School\2AA4\A2\a2---mesh-generator-team35\island\src\main\java\ca\mcmaster\cas\se2aa4\a3\island\BeachGenerator.java
 C:\Users\aidan\Documents\School\2AA4\A2\a2---mesh-generator-team35\island\src\main\java\ca\mcmaster\cas\se2aa4\a3\island\Biomes\Whittaker.java
+C:\Users\aidan\Documents\School\2AA4\A2\a2---mesh-generator-team35\island\src\main\java\ca\mcmaster\cas\se2aa4\a3\island\Elevation\PerlinProfile.java
 C:\Users\aidan\Documents\School\2AA4\A2\a2---mesh-generator-team35\island\src\main\java\ca\mcmaster\cas\se2aa4\a3\island\Shapes\Circle.java
 C:\Users\aidan\Documents\School\2AA4\A2\a2---mesh-generator-team35\island\src\main\java\ca\mcmaster\cas\se2aa4\a3\island\Cell\Cell.java
 C:\Users\aidan\Documents\School\2AA4\A2\a2---mesh-generator-team35\island\src\main\java\ca\mcmaster\cas\se2aa4\a3\island\MeshAttributes\Humidity.java
@@ -29,5 +31,6 @@ C:\Users\aidan\Documents\School\2AA4\A2\a2---mesh-generator-team35\island\src\ma
 C:\Users\aidan\Documents\School\2AA4\A2\a2---mesh-generator-team35\island\src\main\java\ca\mcmaster\cas\se2aa4\a3\island\Water\riverFactory.java
 C:\Users\aidan\Documents\School\2AA4\A2\a2---mesh-generator-team35\island\src\main\java\ca\mcmaster\cas\se2aa4\a3\island\Biomes\BiomeFactory.java
 C:\Users\aidan\Documents\School\2AA4\A2\a2---mesh-generator-team35\island\src\main\java\ca\mcmaster\cas\se2aa4\a3\island\Cell\MeshOperations.java
+C:\Users\aidan\Documents\School\2AA4\A2\a2---mesh-generator-team35\island\src\main\java\ca\mcmaster\cas\se2aa4\a3\island\Cell\River.java
 C:\Users\aidan\Documents\School\2AA4\A2\a2---mesh-generator-team35\island\src\main\java\ca\mcmaster\cas\se2aa4\a3\island\Elevation\VolcanoProfile.java
 C:\Users\aidan\Documents\School\2AA4\A2\a2---mesh-generator-team35\island\src\main\java\ca\mcmaster\cas\se2aa4\a3\island\Shapes\Irregular.java

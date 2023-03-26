@@ -32,7 +32,7 @@ public class LakesFactory {
     }
 
 
-    public static void lol(List<Cell> cells, int numLakes){
+    public static void createLakes(List<Cell> cells, int numLakes){
 
         List<Integer> lakeCandidates = getLakeCellCandidates(cells); 
         System.out.println("Z: " + lakeCandidates.size());
@@ -55,26 +55,7 @@ public class LakesFactory {
 
     }
 
-    public static void createLakes(List<Cell> cells, int numLakes ){
 
-        List<Integer> lakeCandidates = getLakeCellCandidates(cells); 
-
-        Random lakeChance = new Random(); 
-
-        while(numLakes>0 && lakeCandidates.size()>0){
-
-            System.out.println("CANDIDATES: " +lakeCandidates.size());
-            int lakeID = lakeChance.nextInt(lakeCandidates.size()-1); 
-            cells.get(lakeID).setType(Type.LAKE);
-            LakeExpansion(cells, cells.get(lakeID));
-            lakeCandidates = getLakeCellCandidates(cells); 
-            numLakes --; 
-
-        }
-
-
-
-    }
 
 
     public boolean CheckNeighbour(Structs.Polygon p,List<Structs.Polygon> polys){

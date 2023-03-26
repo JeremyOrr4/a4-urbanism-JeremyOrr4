@@ -15,6 +15,7 @@ public class Elevation{
 
   
 
+    //NEW ADT CODE 
     public static List<Double> setVertexElevation(List<Point> points, ElevationProfile profile){
 
         List<Double> elevations  = new ArrayList<Double>(); 
@@ -26,6 +27,12 @@ public class Elevation{
     }
 
 
+
+
+
+
+
+    //DEPRECATED 
   
 
     public static Structs.Mesh SetVertexElevation(Structs.Mesh aMesh, ElevationProfile profile){

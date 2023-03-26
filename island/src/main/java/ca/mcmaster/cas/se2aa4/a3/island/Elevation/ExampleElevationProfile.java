@@ -5,14 +5,7 @@ import ca.mcmaster.cas.se2aa4.a3.island.Cell.Point;
 public class ExampleElevationProfile extends ElevationProfile{
 
 
-    double setVertexElevation(double x, double y, double centerX, double centerY){
 
-    
-        return (x+y)/3;
-
-
-
-    }
 
 
 
@@ -23,6 +16,18 @@ public class ExampleElevationProfile extends ElevationProfile{
 
 
      return 255 - Math.pow(Point.distance(point, new Point(1920/2, 1080/2)),1)/3 + Math.random()*29; 
+    }
+
+
+
+    //DEPRECATED
+    double setVertexElevation(double x, double y, double centerX, double centerY){
+
+    
+        return (x+y)/3;
+
+
+
     }
    
     

@@ -2,6 +2,7 @@ package ca.mcmaster.cas.se2aa4.a3.island.Water;
 
 import ca.mcmaster.cas.se2aa4.a2.io.Structs;
 import ca.mcmaster.cas.se2aa4.a3.island.Extractor;
+import ca.mcmaster.cas.se2aa4.a3.island.Cell.Edge;
 import ca.mcmaster.cas.se2aa4.a3.island.MeshAttributes.Tiles;
 
 import java.util.ArrayList;
@@ -9,6 +10,15 @@ import java.util.List;
 import java.util.Random;
 
 public class riverFactory {
+
+
+
+    public static void generateRivers(List<Edge> edges, int num){
+
+
+    }
+
+    
     public Structs.Mesh riverGenerator(Structs.Mesh aMesh,int riverNum){
         List<Structs.Segment> segs = new ArrayList<>();
         List<Integer> MarkedPolys = new ArrayList<>();

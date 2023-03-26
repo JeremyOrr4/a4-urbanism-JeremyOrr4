@@ -4,6 +4,7 @@ ca\mcmaster\cas\se2aa4\a3\island\Configuration.class
 ca\mcmaster\cas\se2aa4\a3\island\Cell\MeshOperations.class
 ca\mcmaster\cas\se2aa4\a3\island\Biomes\Biome.class
 ca\mcmaster\cas\se2aa4\a3\island\Shapes\BoundedShape.class
+ca\mcmaster\cas\se2aa4\a3\island\Cell\River.class
 ca\mcmaster\cas\se2aa4\a3\island\MeshAttributes\Tiles$TileType.class
 ca\mcmaster\cas\se2aa4\a3\island\Elevation\VolcanoProfile.class
 Main.class
@@ -13,6 +14,8 @@ ca\mcmaster\cas\se2aa4\a3\island\Biomes\BiomeData.class
 ca\mcmaster\cas\se2aa4\a3\island\Biomes\BiomeFactory.class
 ca\mcmaster\cas\se2aa4\a3\island\Cell\Cell.class
 ca\mcmaster\cas\se2aa4\a3\island\Biomes\SVGParser.class
+ca\mcmaster\cas\se2aa4\a3\island\Cell\Edge.class
+ca\mcmaster\cas\se2aa4\a3\island\Elevation\PerlinProfile.class
 ca\mcmaster\cas\se2aa4\a3\island\MeshAttributes\Humidity.class
 ca\mcmaster\cas\se2aa4\a3\island\Visualization\HumidityView.class
 ca\mcmaster\cas\se2aa4\a3\island\Visualization\ElevationVisualizer.class
