@@ -9,6 +9,7 @@ ca\mcmaster\cas\se2aa4\a3\island\Cell\River.class
 ca\mcmaster\cas\se2aa4\a3\island\MeshAttributes\Tiles$TileType.class
 ca\mcmaster\cas\se2aa4\a3\island\Elevation\VolcanoProfile.class
 Main.class
+ca\mcmaster\cas\se2aa4\a3\island\Biomes\BiomeTest.class
 ca\mcmaster\cas\se2aa4\a3\island\Cell\Point.class
 ca\mcmaster\cas\se2aa4\a3\island\Shapes\Square.class
 ca\mcmaster\cas\se2aa4\a3\island\Biomes\BiomeData.class
