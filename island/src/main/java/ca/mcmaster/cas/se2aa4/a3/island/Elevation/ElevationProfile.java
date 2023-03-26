@@ -15,9 +15,17 @@ public abstract class ElevationProfile {
 
 
 
-    abstract double setVertexElevation(double x, double y, double centerX, double centerY);
+ 
 
     abstract double getElevation(Point point); 
+
+
+
+
+    //DEPRECATED
+
+    abstract double setVertexElevation(double x, double y, double centerX, double centerY);
+
 
 
     public Structs.Mesh GenerateIslandElevations(Structs.Mesh aMesh){
@@ -30,18 +38,7 @@ public abstract class ElevationProfile {
         return Structs.Mesh.newBuilder().addAllVertices(newVertices).addAllSegments(aMesh.getSegmentsList()).addAllPolygons(aMesh.getPolygonsList()).build();
     }
 
-
-
-    public void generateMapElevation(List<Cell> cells){
-
-    }
-   
-
-
-
-
     
-
 public Structs.Mesh generatePolygonElevations(Structs.Mesh aMesh){
     List<Structs.Polygon> oldPolygons = aMesh.getPolygonsList();
     List<Structs.Vertex> vertices = aMesh.getVerticesList();

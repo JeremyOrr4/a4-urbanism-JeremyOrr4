@@ -6,7 +6,7 @@ public enum Type {
     LAND("41,185,81", "Land"),
     WATER("0,0,151", "Water", true),
 
-    BEACH("201,185,151", "Beach"),
+    BEACH("201,185,151", "Beach", false),
 
     TROPICALDESERT("174,146,87","Tropical Desert"),
 
@@ -30,9 +30,9 @@ public enum Type {
 
 
 
-    String color; 
-    String name; 
-    boolean isWater; 
+    public String color; 
+    public String name; 
+    public boolean isWater; 
 
     Type(String color, String name){
         this.color = color; 
@@ -42,7 +42,7 @@ public enum Type {
 
     Type(String color, String name, boolean isWater){
        this(color, name); 
-       this.isWater = true; 
+       this.isWater = isWater; 
         
     }
 

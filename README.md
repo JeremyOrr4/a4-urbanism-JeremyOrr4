@@ -1,8 +1,8 @@
 # A3 Island Generation Simulator
 
-  - Author: "" <>
+  - Author: "" <EMAIL>
   - Author: "Jeremy Orr" <orrj4@mcmaster.ca>
-  - Author: "" <>
+  - Author: "" <EMAIL>
 
 ## How to Run the Program
 
@@ -39,71 +39,23 @@ mosser@azrael A2 % java -jar visualizer/visualizer.jar -i img/irregular.mesh -o 
 
 Note: PDF versions of the SVG files were created with `rsvg-convert`.
 
-| Id  | Feature  | Status  |  Started  | Delivered |
-|:-:  |---       | :-:     | :-:       | :-:       |
-| F01 | Roll a dice eight times and end turn | D | 01/01/23 | 01/14/23 |
-
-
-F1 - Generate different tiles to differentiate between land and water. - Week 1 -COMPLETED
-  • Create methods for land and water tiles which pass in a tile and give it the proper attributes
-  • Create classes for different tile types or just for general tile assignment?
-
-F2 – Create a circular island, integrating both types of tiles. - Week 1 -COMPLETED
-  • Produce an algorithm to choose the correct tiles to be made land tiles
-  • Create tile assignment class
-
-F3 – Create a third lagoon tile to represent water within the island. - Week 1 -COMPLETED
-  • Add new properties for water inside an island
-
-F4 – Identify land tiles touching water and give them a different colour (Beach) - Week 1 -COMPLETED
-  • Create new tile type with beach properties
-  • Create algorithm to recognize when land tiles touch water tiles
-
-F5 – Create abstract notion of shape to be extended into different realizations – Week 1 
-  • Create shape superclass with shape subclasses, circle is trivial case
-
-F6 – Implement altimetric profiles. -Week 1
-  • Add property of altitude (integer value), use this to adjust other properties
-  • Create algorithm for assigning altitudes (or randomly)
-
-F7- Implenting Elevation with Polygons
-  • Creating a class and variable to create elevation in the polygon 
-
-F8 – Command line option for number of lakes – Week 2
-  • CLI command line option
-  • Create water bodies within the land mass
-
-F9 – Command line option for number of rivers – Week 2
-  • CLI command option
-  • Give segments river properties
-
-F10 – Implement river behaviour – Week 2
-  • Create algorithm so rivers traverse to lower elevations
-
-F11 – Implement river combination – Week 2
-  • Change thickness based on river intersections
-
-F12 – Implement soil absorption – Week 2
-  • Compute soil absorption based on humidity and proximity to water
-  • Implement soil profile builder (how much is absorbs soil)
-  • Change properties based on absorption
-
-F13 – Implement aquifer and soil command line option – Week 3
-  • CLI command option
-  • Make specific tiles aquifers and adjust moisture levels of neighbours
-
-F14 – Implement biomes using humidity and temperature (elevation) - Week 3
-  • Use humidity and temperature properties of tiles to determine biome
-
-F15 – Implement whittaker diagram command line – Week 3
-  • CLI command line option
-
-F16 – Implement seeds – Week 3
-  • CLI command option
-  • Use given seed to determine properties of the island
-
-F17 – Create JUnit testing
-• Create the proper classes
-
-F18 - Do our A3 report
-• Finish all questions asked of us in the report
+| Id  | Feature  | Notes | Status  |  Started  | Delivered |
+|:---:| :-----:  | :---: | :----:  |  :-----:  | :-------: |
+| F1  | Generate different tiles to differentiate between land and water  | • Create methods for land and water tiles which pass in a tile and give it the proper attributes • Create classes for different tile types or just for general tile assignment? | D  |  Week 1  | Week 1 |
+| F2  | Create a circular island, integrating both types of tiles  | • Produce an algorithm to choose the correct tiles to be made land tiles • Create tile assignment class | D  |  Week 1  | Week 1 |
+| F3  | Create a third lagoon tile to represent water within the island  | • Add new properties for water inside an island | D  |  Week 1  | Week 1 |
+| F4  | Identify land tiles touching water and give them a different colour (Beach)  | • Create new tile type with beach properties • Create algorithm to recognize when land tiles touch water tiles | D  |  Week 1  | Week 1 |
+| F5  | Create abstract notion of shape to be extended into different realizations |   • Create shape superclass with shape subclasses, circle is trivial case | D  |  Week 1  | Almost Done |
+| F6  | Implement altimetric profiles  | • Add property of altitude (integer value), use this to adjust other properties • Create algorithm for assigning altitudes (or randomly) | D  |  Week 1  | Week 1 |
+| F7  | Implenting Elevation with Polygons  | • Add new properties for water inside an island | D  |  Week 1  | Week 1 |
+| F8  | Command line option for number of lakes  | • CLI command line option • Create water bodies within the land mass | D  |  Week 2  | Week 2 |
+| F9  | Command line option for number of rivers | • CLI command option • Give segments river properties | D  |  Week 2  | Week 2 |
+| F10  | Implement river behaviour  | • Create algorithm so rivers traverse to lower elevations | D  |  Week 2  | Week 2 |
+| F11  | Implement river combination  | • Change thickness based on river intersections | D  |  Week 2  | Week 2 |
+| F12  | Implement soil absorption  | • Compute soil absorption based on humidity and proximity to water• Implement soil profile builder (how much is absorbs soil) • Change properties based on absorption | D  |  Week 2  | Week 2 |
+| F13  | Implement aquifer and soil command line option  | • CLI command option • Make specific tiles aquifers and adjust moisture levels of neighbours | D  |  Week 3  | Week 3 |
+| F14  | Implement biomes using humidity and temperature (elevation) |  • Use humidity and temperature properties of tiles to determine biome  | D  |  Week 3  | Week 3 |
+| F15  |Implement whittaker diagram command line |  • CLI command line option  | D  |  Week 3  | Week 3 |
+| F16  |Implement seeds |    • CLI command option • Use given seed to determine properties of the island  | D  |  Week 3  | Week 3 |
+| F17  |Create JUnit testing |  • Create the proper classes  | D  |  Week 3  | Week 3 |
+| F18  | Do our A3 report and Update Read Me|  • Finish all questions asked of us in the report • Fix up ReadMe |  D  |  Week 3  | Week 3 |
