@@ -2,6 +2,7 @@ package ca.mcmaster.cas.se2aa4.a3.island.MeshAttributes;
 import ca.mcmaster.cas.se2aa4.a2.io.Structs;
 import org.testng.Assert;
 import org.testng.junit.*;
+/**Testing for correctness in setter and getter methods for tile types**/
 public class TileTest {
     Tiles.TileType TestTile;
 

@@ -8,7 +8,7 @@ import ca.mcmaster.cas.se2aa4.a3.island.MeshAttributes.Tiles;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
-
+/**Produce Rivers such that they approach the nearest body of water**/
 public class riverFactory {
 
 

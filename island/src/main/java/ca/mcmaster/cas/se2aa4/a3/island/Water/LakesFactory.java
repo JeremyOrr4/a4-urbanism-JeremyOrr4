@@ -8,7 +8,7 @@ import ca.mcmaster.cas.se2aa4.a3.island.MeshAttributes.Tiles;
 import java.util.Random;
 import java.util.ArrayList;
 import java.util.List;
-
+/**Produce Given Number of lakes of various sizes**/
 public class LakesFactory {
 
     List<Structs.Polygon> polysNew = new ArrayList<>();

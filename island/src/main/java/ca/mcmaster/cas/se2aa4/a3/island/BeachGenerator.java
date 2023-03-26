@@ -11,7 +11,7 @@ import ca.mcmaster.cas.se2aa4.a3.island.Cell.Type;
 import ca.mcmaster.cas.se2aa4.a3.island.MeshAttributes.Tiles;
 import ca.mcmaster.cas.se2aa4.a3.island.MeshAttributes.Tiles.TileType;
 
-
+/**Decorate already existing island with correct beach tiles by checking neighbour relations**/
 public class BeachGenerator {
 
 Mesh original; 

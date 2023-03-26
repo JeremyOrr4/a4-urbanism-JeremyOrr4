@@ -13,7 +13,7 @@ import ca.mcmaster.cas.se2aa4.a3.island.MeshAttributes.Tiles.TileType;
 
 import java.util.ArrayList;
 import java.util.List;
-
+/**Produces island shape and size as well as lagoon (optional)**/
 public class LagoonIslandGenerator {
 
 
