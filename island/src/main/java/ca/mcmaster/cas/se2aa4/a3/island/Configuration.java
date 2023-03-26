@@ -4,7 +4,7 @@ import org.apache.commons.cli.*;
 
 import java.util.HashMap;
 import java.util.Map;
-
+/**Provides command line options**/
 public class Configuration {
     public static final String INPUT = "i";
 

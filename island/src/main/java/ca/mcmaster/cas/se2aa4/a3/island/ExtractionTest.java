@@ -2,7 +2,7 @@ package ca.mcmaster.cas.se2aa4.a3.island;
 
 import ca.mcmaster.cas.se2aa4.a2.io.Structs;
 import org.testng.Assert;
-
+/**Tests accuracy of extraction methods**/
 public class ExtractionTest {
 
     Structs.Property Humidity = Structs.Property.newBuilder().setKey("Humidity").setValue("300").build();

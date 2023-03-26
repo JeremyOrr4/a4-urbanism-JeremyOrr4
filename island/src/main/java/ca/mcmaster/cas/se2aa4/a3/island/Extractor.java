@@ -3,7 +3,7 @@ package ca.mcmaster.cas.se2aa4.a3.island;
 import ca.mcmaster.cas.se2aa4.a2.io.Structs;
 
 import java.util.List;
-
+/**Utility class which provides access to tile attributes**/
 public class Extractor {
 
     public static double getVertexElevation(Structs.Vertex v){

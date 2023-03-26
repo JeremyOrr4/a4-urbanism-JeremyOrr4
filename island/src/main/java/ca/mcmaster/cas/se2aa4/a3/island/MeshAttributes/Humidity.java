@@ -6,7 +6,7 @@ import ca.mcmaster.cas.se2aa4.a3.island.Extractor;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
-
+/**Generates and adds humidities to tiles based on culminative distance from lakes and rivers**/
 public class Humidity {
 
     private Structs.Polygon addHumidity(Structs.Polygon p, String HumidityValue){
@@ -39,15 +39,15 @@ public class Humidity {
                         HumidTrack+=400-(Math.abs(lakeCentersX.get(i)-verts.get(p.getCentroidIdx()).getX())+Math.abs(lakeCentersY.get(i)-verts.get(p.getCentroidIdx()).getY()));
                     }
                 }
-                if (HumidTrack>1400) HumidTrack = 1400;
-                if (HumidTrack<600) HumidTrack = 600;
+                if (HumidTrack>1000) HumidTrack = 1000;
+                if (HumidTrack<200) HumidTrack = 200;
                 for (int i: p.getSegmentIdxsList()){
                     if (Extractor.isRiver(segs.get(i))){
                         HumidTrack+=100;
                         break;
                     }
                 }
-                polysNew.set(polys.indexOf(p),addHumidity(p,""+(int)(HumidTrack/2)));
+                polysNew.set(polys.indexOf(p),addHumidity(p,""+(int)(HumidTrack/2+200)));
                 HumidTrack=0;
             }
         }

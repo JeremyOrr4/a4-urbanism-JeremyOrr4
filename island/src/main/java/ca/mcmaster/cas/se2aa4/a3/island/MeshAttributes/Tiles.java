@@ -9,7 +9,7 @@ import ca.mcmaster.cas.se2aa4.a3.island.Extractor;
 
 import java.util.ArrayList;
 import java.util.List;
-
+/**Holds information for different tile types as well as methods for setting and getting types**/
 public class Tiles {
 
     public enum TileType{
@@ -45,9 +45,6 @@ public class Tiles {
     }; 
 
     public static Structs.Polygon setType(Structs.Polygon p, TileType type){
-
-        
-        
         Structs.Property color = Structs.Property.newBuilder().setKey("rgb_color").setValue(type.color).build(); 
         Structs.Property typeString = Structs.Property.newBuilder().setKey("TileType").setValue(type.name).build();
         return Structs.Polygon.newBuilder(p).clearProperties().addProperties(color).addProperties(typeString).build();
@@ -71,7 +68,7 @@ public class Tiles {
         return "Void Type";
 
     }
-
+    /**Allows you to create a biome without stripping tile of elevation and humidity properties**/
     public static Structs.Polygon setBiome(Structs.Polygon p, TileType type){
         Elevation elevation = new Elevation();
         Humidity humidity = new Humidity();

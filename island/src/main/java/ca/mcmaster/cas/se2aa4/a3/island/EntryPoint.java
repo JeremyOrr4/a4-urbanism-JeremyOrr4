@@ -18,6 +18,7 @@ import ca.mcmaster.cas.se2aa4.a3.island.Water.riverFactory;
 
 import java.util.ArrayList;
 import java.util.List;
+/**Class which incrementally adds elements of a complete island**/
 public class EntryPoint {
     public static Mesh meshTest(Mesh aMesh,int lakes,int river, String vis,boolean lagoon,String Profile,String Shape){
 
