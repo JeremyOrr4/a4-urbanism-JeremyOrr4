@@ -7,12 +7,8 @@ import ca.mcmaster.cas.se2aa4.a3.island.MeshAttributes.Tiles;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
-
+/** Creates elevations for vertices based on given profile and distributes elevations to polygons**/
 public class Elevation{
-
-
-  
-
   
 
     public static Structs.Mesh SetVertexElevation(Structs.Mesh aMesh, ElevationProfile profile){

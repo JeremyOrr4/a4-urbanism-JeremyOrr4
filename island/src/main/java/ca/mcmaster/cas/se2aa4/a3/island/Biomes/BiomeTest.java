@@ -1,7 +1,7 @@
 package ca.mcmaster.cas.se2aa4.a3.island.Biomes;
 
 import org.testng.Assert;
-
+/** Test correctness of parsing svg whittaker file**/
 public class BiomeTest {
     public String[] setUpBiomeTest(){
         Whittaker w = new Whittaker();

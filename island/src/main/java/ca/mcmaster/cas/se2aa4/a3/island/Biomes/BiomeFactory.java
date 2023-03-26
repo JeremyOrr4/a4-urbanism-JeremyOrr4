@@ -6,7 +6,7 @@ import ca.mcmaster.cas.se2aa4.a3.island.MeshAttributes.Humidity;
 import ca.mcmaster.cas.se2aa4.a3.island.MeshAttributes.Tiles;
 import java.util.ArrayList;
 import java.util.List;
-
+/**Produces a biome given already produced island mesh by using humidity and elevation as a coordinate value which is plotted on a whittaker svg**/
 public class BiomeFactory {
     public Structs.Mesh BiomeSetter(Structs.Mesh aMesh){
         Whittaker w = new Whittaker();

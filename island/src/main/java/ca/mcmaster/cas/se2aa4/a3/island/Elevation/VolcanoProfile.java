@@ -2,7 +2,7 @@ package ca.mcmaster.cas.se2aa4.a3.island.Elevation;
 
 
 import ca.mcmaster.cas.se2aa4.a3.island.Shapes.Circle;
-
+/**Elevation increases as you approach island middle**/
 public class VolcanoProfile extends ElevationProfile{
 
 

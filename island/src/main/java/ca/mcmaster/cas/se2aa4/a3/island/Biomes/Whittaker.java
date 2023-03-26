@@ -7,10 +7,8 @@ import org.apache.batik.parser.PathParser;
 
 
 
-
+/**Returns a biome value by using a given coordinate value to determine which region the point is contained within a whittaker svg**/
 public class Whittaker {
-    
-
 
     public String evaluateBiome(double humidity, double temperature){
 

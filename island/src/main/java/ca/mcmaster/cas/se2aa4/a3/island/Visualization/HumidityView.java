@@ -8,7 +8,7 @@ import ca.mcmaster.cas.se2aa4.a2.io.Structs.Mesh;
 import ca.mcmaster.cas.se2aa4.a2.io.Structs.Polygon;
 import ca.mcmaster.cas.se2aa4.a3.island.Extractor;
 import ca.mcmaster.cas.se2aa4.a3.island.MeshAttributes.Tiles;
-
+/**BONUS CLASS - produces island as a gradient which visualizes humidities**/
 public class HumidityView {
 
 

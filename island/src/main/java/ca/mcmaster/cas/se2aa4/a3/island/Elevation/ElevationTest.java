@@ -1,7 +1,7 @@
 package ca.mcmaster.cas.se2aa4.a3.island.Elevation;
 import org.testng.Assert;
 import org.testng.junit.*;
-
+/**Test invariants of elevation profiles**/
 public class ElevationTest {
     public int SetUpVolcano(){
         VolcanoProfile volcTest = new VolcanoProfile();
