@@ -15,8 +15,6 @@ public class Humidity {
     }
 
     public Structs.Mesh GenerateHumidities(Structs.Mesh aMesh){
-        Random bad = new Random();
-        int baseHumidity = 500;
         List<Double> lakeCentersX = new ArrayList<>();
         List<Double> lakeCentersY = new ArrayList<>();
         List<Structs.Polygon> polys = aMesh.getPolygonsList();
@@ -54,3 +52,4 @@ public class Humidity {
         return Structs.Mesh.newBuilder().addAllVertices(aMesh.getVerticesList()).addAllSegments(aMesh.getSegmentsList()).addAllPolygons(polysNew).build();
     }
 }
+

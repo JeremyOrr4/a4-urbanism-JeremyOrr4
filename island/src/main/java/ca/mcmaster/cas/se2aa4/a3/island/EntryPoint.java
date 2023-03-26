@@ -9,6 +9,7 @@ import ca.mcmaster.cas.se2aa4.a3.island.Elevation.ElevationTest;
 import ca.mcmaster.cas.se2aa4.a3.island.Elevation.ExampleElevationProfile;
 import ca.mcmaster.cas.se2aa4.a3.island.Elevation.VolcanoProfile;
 import ca.mcmaster.cas.se2aa4.a3.island.MeshAttributes.*;
+import ca.mcmaster.cas.se2aa4.a3.island.Shapes.BoundTest;
 import ca.mcmaster.cas.se2aa4.a3.island.Shapes.Circle;
 import ca.mcmaster.cas.se2aa4.a3.island.Shapes.Irregular;
 import ca.mcmaster.cas.se2aa4.a3.island.Visualization.ElevationVisualizer;
@@ -22,9 +23,6 @@ import java.util.List;
 public class EntryPoint {
     public static Mesh meshTest(Mesh aMesh,int lakes,int river, String vis,boolean lagoon,String Profile,String Shape){
 
-
-       
-
         TileTest Tiletest = new TileTest();
         Tiletest.testSuite();
 
@@ -36,6 +34,12 @@ public class EntryPoint {
 
         BiomeTest biomeTest = new BiomeTest();
         biomeTest.BiomeTest();
+
+        BoundTest boundTest = new BoundTest();
+        boundTest.TestSuite();
+
+        HumidityTest humidTest = new HumidityTest();
+        humidTest.TestSuite();
 
         Mesh lagoonMesh = LagoonIslandGenerator.LagoonMesh(aMesh,lagoon,Shape);
 

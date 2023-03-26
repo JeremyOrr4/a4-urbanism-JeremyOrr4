@@ -5,8 +5,10 @@ ca\mcmaster\cas\se2aa4\a3\island\Elevation\ElevationTest.class
 ca\mcmaster\cas\se2aa4\a3\island\Shapes\BoundedShape.class
 ca\mcmaster\cas\se2aa4\a3\island\MeshAttributes\Tiles$TileType.class
 ca\mcmaster\cas\se2aa4\a3\island\Elevation\VolcanoProfile.class
+ca\mcmaster\cas\se2aa4\a3\island\Shapes\BoundTest.class
 Main.class
 ca\mcmaster\cas\se2aa4\a3\island\Biomes\BiomeTest.class
+ca\mcmaster\cas\se2aa4\a3\island\MeshAttributes\HumidityTest.class
 ca\mcmaster\cas\se2aa4\a3\island\Shapes\Square.class
 ca\mcmaster\cas\se2aa4\a3\island\Biomes\BiomeData.class
 ca\mcmaster\cas\se2aa4\a3\island\Biomes\BiomeFactory.class
