@@ -45,9 +45,10 @@ java -jar island/island.jar -i <mesh to be read in> -o <mesh to be outputted and
 -p <arg> -> specify elevation profile (Volcano)
 -rivers <arg> -> specify number of rivers (int)
 -s <arg> -> shape of island (Circle, irregular(default), Square)
+-seed <arg> -> the seed controls the random patterns on the island. Any string seed is valid, default is random seed
 
 -----For the Bonus-----
--v <arg> -> Specify elevation or moisture visualization (Humidity, Elevation)
+-v <arg> -> Specify elevation or moisture heatmap visualization (Humidity, Elevation)
 
 Note: PDF versions of the SVG files were created with `rsvg-convert`.
 
