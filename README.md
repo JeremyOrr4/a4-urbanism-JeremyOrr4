@@ -23,8 +23,6 @@ It creates two jars:
 mosser@azrael A2 % java -jar generator/generator.jar -k grid -h 1080 -w 1920 -p 1000 -s 20 -o img/grid.mesh
 mosser@azrael A2 % java -jar generator/generator.jar -k grid -h 1080 -w 1920 -p 1000 -s 20 -o img/irregular.mesh
 ```
-TO RUN THROUGH ISLAND GENERATOR DO THIS
-java -jar Island/island.jar -k irregular -h 1080 -w 1920 -p 1000 -s 20 -o img/irregular.mesh
 
 One can run the generator with `-help` as option to see the different command line arguments that are available
 
@@ -36,6 +34,20 @@ mosser@azrael A2 % java -jar visualizer/visualizer.jar -i img/grid.mesh -o img/g
 mosser@azrael A2 % java -jar visualizer/visualizer.jar -i img/irregular.mesh -o img/irregular.svg   
 mosser@azrael A2 % java -jar visualizer/visualizer.jar -i img/irregular.mesh -o img/irregular_debug.svg -x
 ```
+### DECORATING AN EXISTING MESH ###
+(in main directory)
+java -jar island/island.jar -i <mesh to be read in> -o <mesh to be outputted and visualized>
+
+-----Other Args -----
+-help -> help message 
+-l -> activates lagoon option
+-lakes <arg> -> specify number of lakes (int)
+-p <arg> -> specify elevation profile (Volcano)
+-rivers <arg> -> specify number of rivers (int)
+-s <arg> -> shape of island (Circle, irregular(default), Square)
+
+-----For the Bonus-----
+-v <arg> -> Specify elevation or moisture visualization (Humidity, Elevation)
 
 Note: PDF versions of the SVG files were created with `rsvg-convert`.
 

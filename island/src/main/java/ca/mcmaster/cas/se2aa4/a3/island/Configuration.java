@@ -22,16 +22,20 @@ public class Configuration {
 
     public static final String SHAPE = "s";
 
+    public static final String HELP = "help";
+
     private CommandLine cli;
 
     public Configuration(String[] args) {
         try {
             this.cli = parser().parse(options(), args);
+            if (cli.hasOption(HELP)) {
+                help();
+            }
         } catch (ParseException pe) {
             throw new IllegalArgumentException(pe);
         }
     }
-
     public String input() {
         return this.cli.getOptionValue(INPUT);
     }
@@ -52,6 +56,12 @@ public class Configuration {
         return new DefaultParser();
     }
 
+    private void help() {
+        HelpFormatter formatter = new HelpFormatter();
+        formatter.printHelp("java -jar generator.jar", options());
+        System.exit(0);
+    }
+
     private Options options() {
         Options options = new Options();
         options.addOption(new Option(INPUT, true, "Input file"));
@@ -62,6 +72,7 @@ public class Configuration {
         options.addOption(new Option(LAGOON, false, "Lagoon option"));
         options.addOption(new Option(PROFILE, true, "Elevation Profile"));
         options.addOption(new Option(SHAPE, true, "Island Shape"));
+        options.addOption(new Option(HELP, false, "print help message"));
         return options;
     }
 

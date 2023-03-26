@@ -3,7 +3,6 @@ ca\mcmaster\cas\se2aa4\a3\island\MeshAttributes\Tiles.class
 ca\mcmaster\cas\se2aa4\a3\island\Configuration.class
 ca\mcmaster\cas\se2aa4\a3\island\Cell\MeshOperations.class
 ca\mcmaster\cas\se2aa4\a3\island\Elevation\ElevationTest.class
-ca\mcmaster\cas\se2aa4\a3\island\Biomes\Biome.class
 ca\mcmaster\cas\se2aa4\a3\island\Shapes\BoundedShape.class
 ca\mcmaster\cas\se2aa4\a3\island\Cell\River.class
 ca\mcmaster\cas\se2aa4\a3\island\MeshAttributes\Tiles$TileType.class
