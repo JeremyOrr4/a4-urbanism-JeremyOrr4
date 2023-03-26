@@ -40,7 +40,7 @@ mosser@azrael A2 % java -jar visualizer/visualizer.jar -i img/irregular.mesh -o 
 Note: PDF versions of the SVG files were created with `rsvg-convert`.
 
 | Id  | Feature  | Notes | Status  |  Started  | Delivered |
-|:-:  |---       |       |   :-:   | :-:       | :-:       |
+|:---:| :-----:  | :---: | :----:  |  :-----:  | :-------: |
 | F1  | Generate different tiles to differentiate between land and water  | • Create methods for land and water tiles which pass in a tile and give it the proper attributes
   • Create classes for different tile types or just for general tile assignment? | S  |  Week 1  | Week 1 |
 | F2  | Create a circular island, integrating both types of tiles  | • Produce an algorithm to choose the correct tiles to be made land tiles
