@@ -20,8 +20,12 @@ public class EntryPoint {
 
         islandMap.generateTerrain(new Irregular(1920/2, 1080/2, 1400, 650));
 
+     
+         islandMap.generateElevation();
+
         islandMap.generateBeaches();
 
+        islandMap.createLakes();
 
         System.out.println("test");
         Whittaker w = new Whittaker();

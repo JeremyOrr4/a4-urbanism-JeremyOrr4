@@ -2,6 +2,7 @@ package ca.mcmaster.cas.se2aa4.a3.island.Elevation;
 
 import ca.mcmaster.cas.se2aa4.a2.io.Structs;
 import ca.mcmaster.cas.se2aa4.a3.island.Extractor;
+import ca.mcmaster.cas.se2aa4.a3.island.Cell.Cell;
 import ca.mcmaster.cas.se2aa4.a3.island.Cell.Point;
 import ca.mcmaster.cas.se2aa4.a3.island.MeshAttributes.Tiles;
 
@@ -24,6 +25,8 @@ public class Elevation{
         return elevations; 
     }
 
+
+  
 
     public static Structs.Mesh SetVertexElevation(Structs.Mesh aMesh, ElevationProfile profile){
         List<Structs.Vertex> NewVertices = new ArrayList<>();

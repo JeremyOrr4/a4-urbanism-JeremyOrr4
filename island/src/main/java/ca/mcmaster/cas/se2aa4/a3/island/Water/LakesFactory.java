@@ -1,5 +1,7 @@
 package ca.mcmaster.cas.se2aa4.a3.island.Water;
 import ca.mcmaster.cas.se2aa4.a2.io.Structs;
+import ca.mcmaster.cas.se2aa4.a3.island.Cell.Cell;
+import ca.mcmaster.cas.se2aa4.a3.island.Cell.Type;
 import ca.mcmaster.cas.se2aa4.a3.island.MeshAttributes.Humidity;
 import ca.mcmaster.cas.se2aa4.a3.island.MeshAttributes.Tiles;
 
@@ -8,6 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class LakesFactory {
+
     List<Structs.Polygon> polysNew = new ArrayList<>();
     public Structs.Mesh RandomLakes(int lakeNum, Structs.Mesh aMesh){
         List<Structs.Polygon> polys = aMesh.getPolygonsList();
@@ -28,6 +31,52 @@ public class LakesFactory {
 
     }
 
+
+    public static void lol(List<Cell> cells, int numLakes){
+
+        List<Integer> lakeCandidates = getLakeCellCandidates(cells); 
+        System.out.println("Z: " + lakeCandidates.size());
+
+        Random lakeChance = new Random(); 
+        for(int i=0; i<numLakes; i++){
+
+
+
+            int lakeID =lakeChance.nextInt(lakeCandidates.size()-1);
+            Cell lakeCandidate = cells.get(lakeCandidates.get(lakeID)); 
+
+
+
+            if(lakeCandidate.isTerrain() && !bordersWater(lakeCandidate, cells)){
+               lakeCandidate.setType(Type.LAKE);
+                LakeExpansion(cells, lakeCandidate);
+            } 
+        }
+
+    }
+
+    public static void createLakes(List<Cell> cells, int numLakes ){
+
+        List<Integer> lakeCandidates = getLakeCellCandidates(cells); 
+
+        Random lakeChance = new Random(); 
+
+        while(numLakes>0 && lakeCandidates.size()>0){
+
+            System.out.println("CANDIDATES: " +lakeCandidates.size());
+            int lakeID = lakeChance.nextInt(lakeCandidates.size()-1); 
+            cells.get(lakeID).setType(Type.LAKE);
+            LakeExpansion(cells, cells.get(lakeID));
+            lakeCandidates = getLakeCellCandidates(cells); 
+            numLakes --; 
+
+        }
+
+
+
+    }
+
+
     public boolean CheckNeighbour(Structs.Polygon p,List<Structs.Polygon> polys){
         for (int i: p.getNeighborIdxsList()) {
             if (!Tiles.getTileType(polys.get(i)).equals("Land")) {
@@ -36,6 +85,33 @@ public class LakesFactory {
         }
         return true;
     }
+
+
+    //CELL EQUIVALENT 
+    public static boolean bordersWater(Cell cell, List<Cell> cells){
+
+
+        for(Integer i : cell.getNeighborCells()){
+            if(!cell.isTerrain()) return true; 
+            if(!cells.get(i).isTerrain() || cells.get(i).getType() == Type.BEACH ){
+                return true; 
+            }
+        }
+        return false; 
+
+
+        // for(int i : cell.getNeighborCells()){
+        //     if(cells.get(i).getType().isWater) return true ; 
+        // }
+        // return false; 
+
+
+
+
+
+
+    }
+
 
     public List<Integer> getLakeCandidates(List<Structs.Polygon> polys){
         List<Integer> LakeCandidates = new ArrayList<>();
@@ -46,6 +122,42 @@ public class LakesFactory {
         }
         return LakeCandidates;
     }
+
+
+    //CELL EQUIVALENT
+    public static List<Integer> getLakeCellCandidates(List<Cell> cells){
+
+        List<Integer> lakeCandidates = new ArrayList<>();
+        for(Cell cell : cells){
+
+           
+           if(!cell.getType().isWater && !bordersWater(cell, cells)){
+          
+          lakeCandidates.add(cells.indexOf(cell)); 
+           }
+        }
+        return lakeCandidates; 
+    }
+
+
+
+    //CELL EQUIVALENT
+    public static void LakeExpansion(List<Cell> cells, Cell cell){
+        Random random = new Random(); 
+
+        for(int i : cell.getNeighborCells()){
+
+            if (random.nextInt(100)>65){
+               if(!bordersWater(cells.get(i), cells)) cells.get(i).setType(Type.LAKE);
+            } 
+
+        }
+
+     
+
+
+    }
+
 
     public void LakeExpansion(List<Structs.Polygon> polys,Structs.Polygon p){
         Random random = new Random();

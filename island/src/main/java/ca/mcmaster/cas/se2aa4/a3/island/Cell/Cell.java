@@ -10,6 +10,8 @@ import ca.mcmaster.cas.se2aa4.a2.io.Structs.Property;
 import ca.mcmaster.cas.se2aa4.a2.io.Structs.Vertex;
 import ca.mcmaster.cas.se2aa4.a3.island.MeshAttributes.Tiles;
 
+
+
 public class Cell {
 
 
@@ -29,19 +31,13 @@ public class Cell {
     private boolean isTerrain=false; 
 
 
-    List<Double> vertexElevations; 
+   
 
 
     public Cell(Polygon p, Mesh mesh ){
 
         this.parentMesh = mesh;
         this.polygon = p;  
-
-        
-
-        
-
-
     }
 
 
@@ -82,6 +78,9 @@ public class Cell {
 
     public void setType(Type type){
         this.type = type; 
+        if(!this.type.isWater) this.isTerrain = true; 
+
+     
     }
 
 
@@ -89,7 +88,6 @@ public class Cell {
     public void setToTerrain(){
 
         this.isTerrain = true; 
-
         this.type = Type.DEBUG_TERRAIN; 
 
     }
@@ -102,12 +100,21 @@ public class Cell {
 
 
 
-    public List<Point> getVertexPoints(){
+    public void setCellElevation(List<Double> elevations){
 
-        List<Point> points = new ArrayList<Point>(); 
 
-        // for(Vertex v : polygon.get)
 
+        List<Integer> indices = MeshOperations.getVertexIdxs(polygon, parentMesh); 
+
+        int sum=0; 
+        for(Integer i : indices){
+            sum+= elevations.get(i); 
+        }
+       this.elevation = sum/indices.size(); 
+
+
+        //water has no elevation 
+        if(!this.isTerrain) this.elevation = 0; 
 
     }
 
@@ -116,7 +123,20 @@ public class Cell {
     public Polygon toPolygon(){
 
 
-        Structs.Property color = Structs.Property.newBuilder().setKey("rgb_color").setValue(type.color).build(); 
+       
+
+
+
+        int elevationColor = Math.max(0, Math.min((int)(elevation), 255)); 
+
+
+        String[]srbg = this.type.color.split(","); 
+        
+        int[]rgb = {Integer.parseInt(srbg[0]),Integer.parseInt(srbg[1]),Integer.parseInt(srbg[2]) }; 
+
+        String color2 = String.format("%d,%d,%d", elevationColor, rgb[1], rgb[2]); 
+
+        Structs.Property color = Structs.Property.newBuilder().setKey("rgb_color").setValue(color2).build(); 
         return Structs.Polygon.newBuilder(this.polygon).clearProperties().addProperties(color).build(); 
     }
 
