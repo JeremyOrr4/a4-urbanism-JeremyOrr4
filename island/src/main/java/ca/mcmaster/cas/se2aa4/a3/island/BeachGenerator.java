@@ -65,7 +65,7 @@ public  Mesh beachMesh(){
  * @param p A polygon who's beach status is to be tested
  * @return true if the polygon should be a beach (neigbors water)
  */
-public boolean isBeachTile(Polygon p){
+private boolean isBeachTile(Polygon p){
 
     if(Tiles.getTileType(p).equals("Water")) return false; 
     if(Tiles.getTileType(p).equals("Lagoon")) return false; 
@@ -92,7 +92,7 @@ public boolean isBeachTile(Polygon p){
  * @param p
  * @return
  */
-public boolean isIsolated(Polygon p){
+private boolean isIsolated(Polygon p){
 
     for(int id : p.getNeighborIdxsList()){
 

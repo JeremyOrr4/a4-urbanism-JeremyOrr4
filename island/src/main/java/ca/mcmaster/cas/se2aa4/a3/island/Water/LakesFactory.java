@@ -58,7 +58,7 @@ public class LakesFactory {
 
 
 
-    public boolean CheckNeighbour(Structs.Polygon p,List<Structs.Polygon> polys){
+    private boolean CheckNeighbour(Structs.Polygon p,List<Structs.Polygon> polys){
         for (int i: p.getNeighborIdxsList()) {
             if (!Tiles.getTileType(polys.get(i)).equals("Land")) {
                 return false;
@@ -94,7 +94,7 @@ public class LakesFactory {
     }
 
 
-    public List<Integer> getLakeCandidates(List<Structs.Polygon> polys){
+    private List<Integer> getLakeCandidates(List<Structs.Polygon> polys){
         List<Integer> LakeCandidates = new ArrayList<>();
         for (Structs.Polygon p: polys){
             if (Tiles.getTileType(p).equals("Land")){
@@ -140,7 +140,7 @@ public class LakesFactory {
     }
 
 
-    public void LakeExpansion(List<Structs.Polygon> polys,Structs.Polygon p){
+    private void LakeExpansion(List<Structs.Polygon> polys,Structs.Polygon p){
         Random random = new Random();
         for (int n:p.getNeighborIdxsList()){
             if (random.nextInt(100)>85){

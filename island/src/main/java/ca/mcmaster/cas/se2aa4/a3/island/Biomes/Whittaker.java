@@ -28,7 +28,7 @@ public class Whittaker {
     }
 
 
-    public static Path2D createPathFromSvgString(String svgPathString) {
+    private static Path2D createPathFromSvgString(String svgPathString) {
         PathParser pathParser = new PathParser();
         AWTPathProducer pathProducer = new AWTPathProducer();
         pathParser.setPathHandler(pathProducer);

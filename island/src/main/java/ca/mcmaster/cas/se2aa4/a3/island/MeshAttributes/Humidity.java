@@ -9,7 +9,7 @@ import java.util.Random;
 
 public class Humidity {
 
-    public Structs.Polygon addHumidity(Structs.Polygon p, String HumidityValue){
+    private Structs.Polygon addHumidity(Structs.Polygon p, String HumidityValue){
         Structs.Property Humidity = Structs.Property.newBuilder().setKey("Humidity").setValue(HumidityValue).build();
         return Structs.Polygon.newBuilder(p).addProperties(Humidity).build();
     }
