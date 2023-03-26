@@ -11,7 +11,12 @@ import org.apache.batik.parser.PathParser;
 public class Whittaker {
     
 
-
+    /**
+     * Extracts a biome name from an svg Whittaker diagram given a humidity and temperature value
+     * @param humidity the humidity of a given coordinate 
+     * @param temperature the temperature of a given coordinate 
+     * @return Biome name 
+     */
     public String evaluateBiome(double humidity, double temperature){
 
 
