@@ -6,8 +6,7 @@ import java.util.List;
 import ca.mcmaster.cas.se2aa4.a2.io.Structs;
 import ca.mcmaster.cas.se2aa4.a2.io.Structs.Mesh;
 import ca.mcmaster.cas.se2aa4.a2.io.Structs.Polygon;
-import ca.mcmaster.cas.se2aa4.a3.island.Cell.Cell;
-import ca.mcmaster.cas.se2aa4.a3.island.Cell.Type;
+
 import ca.mcmaster.cas.se2aa4.a3.island.MeshAttributes.Tiles;
 import ca.mcmaster.cas.se2aa4.a3.island.MeshAttributes.Tiles.TileType;
 
@@ -26,24 +25,6 @@ public BeachGenerator(Mesh aMesh){
 }
 
 
-public BeachGenerator(){
-
-}
-
-
-public static void generateBeachCells(List<Cell> cells){
-    for(Cell cell : cells){
-        for(Integer i : cell.getNeighborCells()){
-            if(!cell.isTerrain()) break; 
-            if(!cells.get(i).isTerrain()){
-                cell.setType(Type.BEACH);
-                break; 
-            }
-        }
-    }
-    
-
-}
 
 
 public  Mesh beachMesh(){

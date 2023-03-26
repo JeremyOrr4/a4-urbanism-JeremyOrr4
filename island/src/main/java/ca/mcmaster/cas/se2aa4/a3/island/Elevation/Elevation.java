@@ -2,8 +2,6 @@ package ca.mcmaster.cas.se2aa4.a3.island.Elevation;
 
 import ca.mcmaster.cas.se2aa4.a2.io.Structs;
 import ca.mcmaster.cas.se2aa4.a3.island.Extractor;
-import ca.mcmaster.cas.se2aa4.a3.island.Cell.Cell;
-import ca.mcmaster.cas.se2aa4.a3.island.Cell.Point;
 import ca.mcmaster.cas.se2aa4.a3.island.MeshAttributes.Tiles;
 
 import java.util.ArrayList;
@@ -15,24 +13,6 @@ public class Elevation{
 
   
 
-    //NEW ADT CODE 
-    public static List<Double> setVertexElevation(List<Point> points, ElevationProfile profile){
-
-        List<Double> elevations  = new ArrayList<Double>(); 
-
-        for(Point point : points){
-            elevations.add(profile.getElevation(point)); 
-        }
-        return elevations; 
-    }
-
-
-
-
-
-
-
-    //DEPRECATED 
   
 
     public static Structs.Mesh SetVertexElevation(Structs.Mesh aMesh, ElevationProfile profile){
