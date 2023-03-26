@@ -66,7 +66,7 @@ public class riverFactory {
         for (Structs.Segment k : segs) {
             segNew.add(k);
         }
-        int range = 200;
+        int range = 50;
         double finalX=0;
         double finalY=0;
         double distance=0;
@@ -80,9 +80,9 @@ public class riverFactory {
                     break;
                 }
             }
-            range+=50;
+            range+=10;
         }
-        for (int i=0;i<50;i++){
+        for (int i=0;i<10;i++){
             for (Structs.Segment x: segs){
                 if (x.getV1Idx()==current.getV1Idx() && distance(finalX,finalY,vert.get(x.getV2Idx()).getX(),vert.get(x.getV2Idx()).getY())<distance){
                     current = x;
