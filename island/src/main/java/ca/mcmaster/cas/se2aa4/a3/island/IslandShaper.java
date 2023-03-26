@@ -6,8 +6,7 @@ import ca.mcmaster.cas.se2aa4.a2.io.Structs.Segment;
 import ca.mcmaster.cas.se2aa4.a2.io.Structs.Vertex;
 import ca.mcmaster.cas.se2aa4.a3.island.Shapes.BoundedShape;
 import ca.mcmaster.cas.se2aa4.a3.island.MeshAttributes.Tiles.TileType;
-import ca.mcmaster.cas.se2aa4.a3.island.Cell.Cell;
-import ca.mcmaster.cas.se2aa4.a3.island.Cell.Point;
+
 import ca.mcmaster.cas.se2aa4.a3.island.MeshAttributes.Tiles;
 
 import java.util.ArrayList;
@@ -55,13 +54,6 @@ public class IslandShaper {
 
     }
 
-
-    public boolean isTerrain(Cell cell){
-
-        Point point = cell.getCentroidPosition();
-
-        return shape.contains(point.x, point.y); 
-    }
 
 
     

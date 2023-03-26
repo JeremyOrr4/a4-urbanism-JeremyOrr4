@@ -6,8 +6,7 @@ import java.util.List;
 import ca.mcmaster.cas.se2aa4.a2.io.Structs;
 import ca.mcmaster.cas.se2aa4.a2.io.Structs.Polygon;
 import ca.mcmaster.cas.se2aa4.a3.island.Extractor;
-import ca.mcmaster.cas.se2aa4.a3.island.Cell.Cell;
-import ca.mcmaster.cas.se2aa4.a3.island.Cell.Point;
+
 import ca.mcmaster.cas.se2aa4.a3.island.MeshAttributes.Tiles;
 
 public abstract class ElevationProfile {
@@ -17,12 +16,11 @@ public abstract class ElevationProfile {
 
  
 
-    abstract double getElevation(Point point); 
+ 
 
 
 
 
-    //DEPRECATED
 
     abstract double ProduceElevation(double x, double y, double centerX, double centerY);
 
