@@ -2,7 +2,7 @@
 
   - Author: "" <EMAIL>
   - Author: "Jeremy Orr" <orrj4@mcmaster.ca>
-  - Author: "" <EMAIL>
+  - Author: "Nathan Perry" <perryn1@mcmaster.ca>
 
 ## How to Run the Program
 

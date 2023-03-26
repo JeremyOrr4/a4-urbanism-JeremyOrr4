@@ -24,7 +24,7 @@ public abstract class ElevationProfile {
 
     //DEPRECATED
 
-    abstract double setVertexElevation(double x, double y, double centerX, double centerY);
+    abstract double ProduceElevation(double x, double y, double centerX, double centerY);
 
 
 
@@ -32,7 +32,7 @@ public abstract class ElevationProfile {
         List<Structs.Vertex> newVertices = new ArrayList<>();
         for (Structs.Vertex v: aMesh.getVerticesList()){
 
-            Structs.Property elevation = Structs.Property.newBuilder().setKey("Elevation").setValue(""+setVertexElevation(v.getX(), v.getY(),0 ,0 )).build();
+            Structs.Property elevation = Structs.Property.newBuilder().setKey("Elevation").setValue(""+ProduceElevation(v.getX(), v.getY(),0 ,0 )).build();
             newVertices.add(Structs.Vertex.newBuilder(v).addProperties(elevation).build());
         }
         return Structs.Mesh.newBuilder().addAllVertices(newVertices).addAllSegments(aMesh.getSegmentsList()).addAllPolygons(aMesh.getPolygonsList()).build();

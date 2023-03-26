@@ -8,6 +8,8 @@ import java.util.Map;
 public class Configuration {
     public static final String INPUT = "i";
 
+    public static final String OUTPUT = "o";
+
     public static final String LAKES = "lakes";
 
     public static final String RIVER = "rivers";
@@ -17,6 +19,8 @@ public class Configuration {
     public static final String LAGOON = "l";
 
     public static final String PROFILE = "p";
+
+    public static final String SHAPE = "s";
 
     private CommandLine cli;
 
@@ -50,12 +54,14 @@ public class Configuration {
 
     private Options options() {
         Options options = new Options();
-        options.addOption(new Option(INPUT, true, "Input file (SVG)"));
+        options.addOption(new Option(INPUT, true, "Input file"));
+        options.addOption(new Option(OUTPUT, true, "Output file"));
         options.addOption(new Option(LAKES, true, "Number of Lakes"));
         options.addOption(new Option(RIVER, true, "Number of rivers"));
         options.addOption(new Option(VISUAL, true, "Visualization type"));
         options.addOption(new Option(LAGOON, false, "Lagoon option"));
         options.addOption(new Option(PROFILE, true, "Elevation Profile"));
+        options.addOption(new Option(SHAPE, true, "Island Shape"));
         return options;
     }
 

@@ -6,7 +6,7 @@ import ca.mcmaster.cas.se2aa4.a3.island.Shapes.Circle;
 public class VolcanoProfile extends ElevationProfile{
 
 
-    double setVertexElevation(double x, double y, double centerX, double centerY){
+    double ProduceElevation(double x, double y, double centerX, double centerY){
 
         Circle circle = new Circle(1920/2, 1080/2, 500); 
 
@@ -24,8 +24,5 @@ public class VolcanoProfile extends ElevationProfile{
 
         return 0; 
      }
-
-
-
-    
 }
+

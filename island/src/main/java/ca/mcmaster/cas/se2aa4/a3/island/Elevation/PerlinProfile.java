@@ -13,7 +13,7 @@ public class PerlinProfile extends ElevationProfile{
     }
 
     @Override
-    double setVertexElevation(double x, double y, double centerX, double centerY) {
+    double ProduceElevation(double x, double y, double centerX, double centerY) {
        return 0; 
     }
 

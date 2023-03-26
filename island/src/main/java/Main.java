@@ -44,10 +44,15 @@ public class Main {
             Profile = (config.export(Configuration.PROFILE));
         }
 
+        String Shape = "irregular";
+        if (config.export().containsKey(Configuration.SHAPE)){
+            Shape = (config.export(Configuration.SHAPE));
+        }
+
         Structs.Mesh exported = new MeshFactory().read(config.input());
 
-        exported = EntryPoint.meshTest(exported,lakes,rivers,vis,lagoon,Profile);
+        exported = EntryPoint.meshTest(exported,lakes,rivers,vis,lagoon,Profile,Shape);
 
-        new MeshFactory().write(exported, config.export(Configuration.INPUT));
+        new MeshFactory().write(exported, config.export(Configuration.OUTPUT));
     }
 }
