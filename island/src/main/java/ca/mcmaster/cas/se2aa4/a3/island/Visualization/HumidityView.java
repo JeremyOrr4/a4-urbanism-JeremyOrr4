@@ -19,7 +19,7 @@ public class HumidityView {
 
         for (Polygon p : aMesh.getPolygonsList()){
 
-            int elevation = Extractor.getPolyHumidity(p)/5;
+            int elevation = Extractor.getPolyHumidity(p)/3;
 
 
             if (!Tiles.getTileType(p).equals("Water") && !Tiles.getTileType(p).equals("Lake")) {

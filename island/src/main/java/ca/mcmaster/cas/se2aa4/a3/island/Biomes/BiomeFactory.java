@@ -1,7 +1,7 @@
 package ca.mcmaster.cas.se2aa4.a3.island.Biomes;
 import ca.mcmaster.cas.se2aa4.a2.io.Structs;
 import ca.mcmaster.cas.se2aa4.a3.island.Extractor;
-import ca.mcmaster.cas.se2aa4.a3.island.MeshAttributes.Elevation;
+import ca.mcmaster.cas.se2aa4.a3.island.Elevation.Elevation;
 import ca.mcmaster.cas.se2aa4.a3.island.MeshAttributes.Humidity;
 import ca.mcmaster.cas.se2aa4.a3.island.MeshAttributes.Tiles;
 import java.util.ArrayList;
@@ -10,7 +10,7 @@ import java.util.List;
 public class BiomeFactory {
     public Structs.Mesh BiomeSetter(Structs.Mesh aMesh){
         Whittaker w = new Whittaker();
-        List<Structs.Polygon> polysNew = new ArrayList<>();
+        List<Structs.Polygon> newPolygons = new ArrayList<>();
         for (Structs.Polygon p: aMesh.getPolygonsList()){
             Structs.Polygon newTile = p;
             String biome;
@@ -34,9 +34,9 @@ public class BiomeFactory {
                     newTile=Tiles.setBiome(newTile,Tiles.TileType.SEASONALFOREST);
                 }
             }
-            polysNew.add(newTile);
+            newPolygons.add(newTile);
         }
-        return Structs.Mesh.newBuilder().addAllVertices(aMesh.getVerticesList()).addAllSegments(aMesh.getSegmentsList()).addAllPolygons(polysNew).build();
+        return Structs.Mesh.newBuilder().addAllVertices(aMesh.getVerticesList()).addAllSegments(aMesh.getSegmentsList()).addAllPolygons(newPolygons).build();
     }
 
     public  boolean isTropTile(Structs.Mesh aMesh,Structs.Polygon p){

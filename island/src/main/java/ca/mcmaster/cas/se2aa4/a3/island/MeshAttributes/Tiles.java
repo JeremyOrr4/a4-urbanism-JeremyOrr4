@@ -1,8 +1,11 @@
 package ca.mcmaster.cas.se2aa4.a3.island.MeshAttributes;
 import ca.mcmaster.cas.se2aa4.a2.io.Structs;
 import ca.mcmaster.cas.se2aa4.a3.island.Biomes.*;
+import ca.mcmaster.cas.se2aa4.a3.island.Elevation.Elevation;
+import ca.mcmaster.cas.se2aa4.a3.island.Elevation.ExampleElevationProfile;
+import ca.mcmaster.cas.se2aa4.a3.island.Elevation.VolcanoProfile;
+import ca.mcmaster.cas.se2aa4.a3.island.Water.riverFactory;
 import ca.mcmaster.cas.se2aa4.a3.island.Extractor;
-import ca.mcmaster.cas.se2aa4.a3.island.IslandWater.riverFactory;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -69,9 +72,13 @@ public class Tiles {
 
     }
 
-    public static Structs.Mesh MasterPropertyFactory(Structs.Mesh aMesh,int river){
-        
-        aMesh = Elevation.SetVertexElevation(aMesh, new VolcanoProfile());
+    public static Structs.Mesh MasterPropertyFactory(Structs.Mesh aMesh,int river,String Profile){
+
+        if (Profile.equals("Volcano")){
+            aMesh = Elevation.SetVertexElevation(aMesh, new VolcanoProfile());
+        }else{
+            aMesh = Elevation.SetVertexElevation(aMesh, new ExampleElevationProfile());
+        }
 
         Elevation Elev = new Elevation();
         aMesh = Elev.addPolyElevation(aMesh);
@@ -82,21 +89,21 @@ public class Tiles {
         Humidity Humid = new Humidity();
         aMesh = Humid.GenerateHumidities(aMesh);
 
-        BiomeFactory biome = new BiomeFactory();
-        aMesh = biome.BiomeSetter(aMesh);
+        // BiomeFactory biome = new BiomeFactory();
+        // aMesh = biome.BiomeSetter(aMesh);
 
         return aMesh;
     }
 
     public static Structs.Polygon setBiome(Structs.Polygon p, TileType type){
-        Elevation Elev = new Elevation();
-        Humidity Humid = new Humidity();
-        String ElevVal = ""+ Extractor.getPolyElevation(p);
-        String HumidVal = ""+Extractor.getPolyHumidity(p);
+        Elevation elevation = new Elevation();
+        Humidity humidity = new Humidity();
+        String elevationValue = ""+ Extractor.getPolyElevation(p);
+        String humidityValue = ""+Extractor.getPolyHumidity(p);
         Structs.Property color = Structs.Property.newBuilder().setKey("rgb_color").setValue(type.color).build();
         Structs.Property typeString = Structs.Property.newBuilder().setKey("TileType").setValue(type.name).build();
-        Structs.Property Elevation = Structs.Property.newBuilder().setKey("Elevation").setValue(ElevVal).build();
-        Structs.Property Humidity = Structs.Property.newBuilder().setKey("Humidity").setValue(HumidVal).build();
+        Structs.Property Elevation = Structs.Property.newBuilder().setKey("Elevation").setValue(elevationValue).build();
+        Structs.Property Humidity = Structs.Property.newBuilder().setKey("Humidity").setValue(humidityValue).build();
         return Structs.Polygon.newBuilder(p).clearProperties().addProperties(color).addProperties(typeString).addProperties(Elevation).addProperties(Humidity).build();
     }
 }

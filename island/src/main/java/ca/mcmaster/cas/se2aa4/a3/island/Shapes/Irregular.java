@@ -50,6 +50,8 @@ public class Irregular implements BoundedShape{
        //the constant denotes the scale of the noise patern. smaller constant = bigger zones
         double noiseValue = perlin.evaluateNoise(x*0.008+xOffset,y*0.008+yOffset); 
 
+     //   noiseValue+= perlin.evaluateNoise(x*0.08+xOffset*2,y*0.08+yOffset*2)/10; 
+
        noiseValue = (noiseValue + (1-dist))/2; 
        
 
