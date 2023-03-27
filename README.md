@@ -7,7 +7,37 @@
 ## How to Run the Program
 
 ```
-Once the proper instalation of 'mvn instll' & 'mvn clean', a user can simply run the 'island.sh' script. If open the script, you see parameters with flags such as width and heights. Alter these paramerters to change the generation around. See Generating  a mesh below for help. This will result in a SVG file which can be open by your default internet browser. This image will be located in your img folder.
+### DECORATING AN EXISTING MESH ###
+###################################
+###################################
+(in main directory)
+------(to install)------
+mvn clean
+mvn compile
+mvn package
+mvn install
+------------------------
+(in main directory)
+java -jar island/island.jar -i (mesh to be read in) -o (mesh to be outputted and visualized) -h (height of input mesh) -w (width of input mesh)
+
+-----Other Args -----
+-help -> help message 
+-l -> activates lagoon option 
+-lakes (arg) -> specify number of lakes (int)
+-p (arg) -> specify elevation profile (Volcano)
+-rivers (arg) -> specify number of rivers (int)
+-s (arg) -> shape of island (Circle, irregular(default), Square)
+-help -> prints help options
+Note: if you do not specify a width and height, it will asume the mesh size is 1920x1080.
+Another Note: 1920x1080 are also the dimensions which will produce the richest, most realistic island.
+
+-seed (arg) -> specify the seed controlling randomness (defaults to random seed)(All other arguments must be consistent for perfect reproducability) 
+
+-----For the Bonus-----
+-v (arg) -> Specify elevation or moisture visualization (Humidity, Elevation)
+-------------------------
+
+Island.sh will install program and generate a new mesh and an island. In order for seeds to work properly, the same mesh must be used so the built.sh script decorates and island but does not produce a new mesh.
 ```
 
 It creates two jars:
@@ -34,30 +64,6 @@ mosser@azrael A2 % java -jar visualizer/visualizer.jar -i img/grid.mesh -o img/g
 mosser@azrael A2 % java -jar visualizer/visualizer.jar -i img/irregular.mesh -o img/irregular.svg   
 mosser@azrael A2 % java -jar visualizer/visualizer.jar -i img/irregular.mesh -o img/irregular_debug.svg -x
 ```
-### DECORATING AN EXISTING MESH ###
-###################################
-###################################
-(in main directory)
-java -jar island/island.jar -i (mesh to be read in) -o (mesh to be outputted and visualized) -h (height of input mesh) -w (width of input mesh)
-
------Other Args -----
--help -> help message 
--l -> activates lagoon option 
--lakes (arg) -> specify number of lakes (int)
--p (arg) -> specify elevation profile (Volcano)
--rivers (arg) -> specify number of rivers (int)
--s (arg) -> shape of island (Circle, irregular(default), Square)
--help -> prints help options
-Note: if you do not specify a width and height, it will asume the mesh size is 1920x1080.
-Another Note: 1920x1080 are also the dimensions which will produce the richest, most realistic island.
-
--seed (arg) -> specify the seed controlling randomness (defaults to random seed)(All other arguments must be consistent for perfect reproducability) 
-
------For the Bonus-----
--v (arg) -> Specify elevation or moisture visualization (Humidity, Elevation)
--------------------------
-
-Island.sh will install program and generate a new mesh and an island. In order for seeds to work properly, the same mesh must be used so the built.sh script decorates and island but does not produce a new mesh.
 
 Note: PDF versions of the SVG files were created with `rsvg-convert`.
 
