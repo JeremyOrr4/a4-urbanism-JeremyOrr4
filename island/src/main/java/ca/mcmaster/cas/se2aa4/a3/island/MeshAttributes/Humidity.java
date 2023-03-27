@@ -5,7 +5,7 @@ import ca.mcmaster.cas.se2aa4.a3.island.Extractor;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Random;
+
 /**Generates and adds humidities to tiles based on culminative distance from lakes and rivers**/
 public class Humidity {
 

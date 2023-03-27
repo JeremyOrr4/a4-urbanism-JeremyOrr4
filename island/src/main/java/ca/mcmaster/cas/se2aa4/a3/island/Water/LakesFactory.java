@@ -11,18 +11,18 @@ import java.util.List;
 public class LakesFactory {
 
     List<Structs.Polygon> polysNew = new ArrayList<>();
-    public Structs.Mesh RandomLakes(int lakeNum, Structs.Mesh aMesh){
+    public Structs.Mesh RandomLakes(int lakeNum, Structs.Mesh aMesh, int seed){
         List<Structs.Polygon> polys = aMesh.getPolygonsList();
         for (Structs.Polygon p: polys){
             this.polysNew.add(p);
         }
         List<Integer> LakeCandidates = getLakeCandidates(polys);
-        Random LakeChance = new Random();
+        Random LakeChance = new Random(seed);
 
         while (lakeNum>0){
             int LakeId = LakeChance.nextInt(LakeCandidates.size()-1);
             this.polysNew.set((int)LakeCandidates.get(LakeId), Tiles.setType(polys.get(LakeCandidates.get(LakeId)), Tiles.TileType.LAKE));
-            LakeExpansion(polysNew,polysNew.get((int)LakeCandidates.get(LakeId)));
+            LakeExpansion(polysNew,polysNew.get((int)LakeCandidates.get(LakeId)), seed);
             LakeCandidates = getLakeCandidates(this.polysNew);
             lakeNum-=1;
         }
@@ -64,8 +64,8 @@ public class LakesFactory {
 
  
 
-    private void LakeExpansion(List<Structs.Polygon> polys,Structs.Polygon p){
-        Random random = new Random();
+    private void LakeExpansion(List<Structs.Polygon> polys,Structs.Polygon p, int seed){
+        Random random = new Random(seed);
         for (int n:p.getNeighborIdxsList()){
             if (random.nextInt(100)>85){
                 this.polysNew.set(n,Tiles.setType(polys.get(n), Tiles.TileType.LAKE));

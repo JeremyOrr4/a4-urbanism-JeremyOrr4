@@ -27,6 +27,9 @@ public class Configuration {
     public static final String HEIGHT = "h";
 
     public static final String WIDTH = "w";
+
+    public static final String SEED = "seed"; 
+
     private CommandLine cli;
 
     public Configuration(String[] args) {
@@ -79,6 +82,8 @@ public class Configuration {
 
         options.addOption(new Option(WIDTH, true, "Width of input mesh"));
         options.addOption(new Option(HEIGHT, true, "Height of input mesh"));
+
+        options.addOption(new Option(SEED, true, "Seed controlling randomness"));
         return options;
     }
 

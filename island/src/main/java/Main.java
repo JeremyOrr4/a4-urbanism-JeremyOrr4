@@ -59,9 +59,14 @@ public class Main {
             width = Integer.parseInt(config.export(Configuration.WIDTH));
         }
 
+        int seed = (int)(Math.random()*10000); 
+        if (config.export().containsKey(Configuration.SEED)){
+           seed = config.export(Configuration.HEIGHT).hashCode(); 
+        }
+
         Structs.Mesh exported = new MeshFactory().read(config.input());
 
-        exported = EntryPoint.meshTest(exported,lakes,rivers,vis,lagoon,Profile,Shape,height,width);
+        exported = EntryPoint.meshTest(exported,lakes,rivers,vis,lagoon,Profile, seed ,Shape,height,width);
 
         new MeshFactory().write(exported, config.export(Configuration.OUTPUT));
     }
