@@ -51,7 +51,7 @@ Note: if you do not specify a width and height, it will asume the mesh size is 1
 Another Note: 1920x1080 are also the dimensions which will produce the richest, most realistic island.
 
 -----For the Bonus-----
--v <arg> -> Specify elevation or moisture visualization (Humidity, Elevation)
+-v (arg) -> Specify elevation or moisture visualization (Humidity, Elevation)
 -------------------------
 Final Note: the island.sh bash script should automatically build an island but the generator has a bug which gives an index out of bounds error about 10-20% of the time and will work if it is just run an additional time
 

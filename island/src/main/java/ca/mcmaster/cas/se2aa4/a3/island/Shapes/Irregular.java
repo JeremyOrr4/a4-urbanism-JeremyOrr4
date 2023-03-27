@@ -18,12 +18,17 @@ public class Irregular implements BoundedShape{
     int seed;  
 
 
-    double xOffset = Math.random()*1000; 
-    double yOffset = Math.random()*1000; 
+   
+    double xOffset;
+    double yOffset;
 
-    public Irregular(double centerX, double centerY,  double width, double height){
+    public Irregular(double centerX, double centerY,  double width, double height, int seed){
+
+        Random r = new Random(seed); 
+        xOffset = r.nextDouble()*1000; 
+        yOffset = r.nextDouble()*1000; 
         
-        seed = ((int)Math.random()*10000); 
+
         this.centerX = centerX-width/2; 
         this.centerY = centerY-height/2; 
         this.width = width; 
@@ -67,14 +72,14 @@ public class Irregular implements BoundedShape{
     }
 
     public Irregular scale(double factor){
-        Irregular i = new Irregular(centerX+width/2, centerY+height/2, width*factor, height*factor); 
-        i.setSeed(seed);
+        Irregular i = new Irregular(centerX+width/2, centerY+height/2, width*factor, height*factor, seed); 
+      
         return i; 
     }
 
 
     public Irregular scale(double xScale, double yScale){
-        Irregular i = new Irregular(centerX+width/2, centerY+height/2, width*xScale, height*yScale); 
+        Irregular i = new Irregular(centerX+width/2, centerY+height/2, width*xScale, height*yScale, seed); 
         i.setSeed(seed);
         return i; 
     }
