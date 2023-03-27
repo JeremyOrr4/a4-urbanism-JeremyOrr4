@@ -6,7 +6,7 @@ import org.testng.junit.*;
 public class TileTest {
     Tiles.TileType TestTile;
 
-    String setUpTileType(){
+    private String setUpTileType(){
         this.TestTile = Tiles.TileType.LAND;
         Structs.Polygon p = Structs.Polygon.newBuilder().build();
         System.out.println("Testing tile type setter and getter");
@@ -14,13 +14,13 @@ public class TileTest {
 
     }
 
-    public void TestTypes(){
+    private void TestTypes(){
         String context = setUpTileType();
         Assert.assertEquals(TestTile.name,context);
         System.out.println("Test Passed! -> Found: "+TestTile.name+" Expected: "+context);
     }
 
-    String setUpTileColor(){
+    private String setUpTileColor(){
         this.TestTile = Tiles.TileType.WATER;
         Structs.Polygon p = Structs.Polygon.newBuilder().build();
         System.out.println("Testing tile color attribution");
@@ -28,7 +28,7 @@ public class TileTest {
 
     }
 
-    public void TestColor(){
+    private void TestColor(){
         String context = setUpTileColor();
         Assert.assertEquals(TestTile.color,context);
         System.out.println("Test Passed! -> Found: "+TestTile.color+" Expected: "+context);

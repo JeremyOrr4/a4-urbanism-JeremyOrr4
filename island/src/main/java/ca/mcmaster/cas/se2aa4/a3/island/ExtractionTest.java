@@ -17,7 +17,7 @@ public class ExtractionTest {
         return Extractor.CompareElev(v1,v2);
     }
 
-    public void TestCompare(){
+    private void TestCompare(){
         boolean context = SetUpCompareElev();
         Assert.assertEquals(false,context);
         System.out.println("Test Passed! -> Found: "+"false"+" Expected: "+context);
@@ -30,7 +30,7 @@ public class ExtractionTest {
         return Extractor.isRiver(s);
     }
 
-    public void TestRiver(){
+    private void TestRiver(){
         boolean context = SetUpRiverTest();
         Assert.assertEquals(true,context);
         System.out.println("Test Passed! -> Found: "+"true"+" Expected: "+context);
@@ -42,7 +42,7 @@ public class ExtractionTest {
         return Extractor.getPolyHumidity(Humid);
     }
 
-    public void TestHumidity(){
+    private void TestHumidity(){
         int context = SetUpHumidityTest();
         int expected = Integer.parseInt(Humidity.getValue());
         Assert.assertEquals(context,expected);

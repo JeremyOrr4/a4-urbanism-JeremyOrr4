@@ -3,7 +3,7 @@ import org.testng.Assert;
 import org.testng.junit.*;
 /**Test invariants of elevation profiles**/
 public class ElevationTest {
-    public int SetUpVolcano(){
+    private int SetUpVolcano(){
         VolcanoProfile volcTest = new VolcanoProfile();
         int centerX = 500;
         int centerY = 500;
@@ -12,21 +12,21 @@ public class ElevationTest {
         return (int) (Elev1-Elev2);
     }
 
-    public void TestVolcano(){
+    private void TestVolcano(){
         int context = SetUpVolcano();
         System.out.println("Testing volcano profile invariant");
         Assert.assertTrue(context>0);
         System.out.println("Test Passed! -> Invariant Satisfied");
     }
 
-    public int SetUpExample(){
+    private int SetUpExample(){
         ExampleElevationProfile examTest = new ExampleElevationProfile();
         double Elev1 = examTest.ProduceElevation(300,400,0,0);
         double Elev2 = examTest.ProduceElevation(600,600,0,0);
         return (int)(Elev1-Elev2);
     }
 
-    public void TestExample(){
+    private void TestExample(){
         int context = SetUpExample();
         System.out.println("Testing example (sweeping) profile invariant");
         Assert.assertTrue(context<0);
