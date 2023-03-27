@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 <testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="ca.mcmaster.cas.se2aa4.a2.io.MeshFactoryTest" time="0.137" tests="2" errors="0" skipped="0" failures="0">
 =======
 <testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="ca.mcmaster.cas.se2aa4.a2.io.MeshFactoryTest" time="0.346" tests="2" errors="0" skipped="0" failures="0">
@@ -8,6 +9,9 @@
 =======
 <testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="ca.mcmaster.cas.se2aa4.a2.io.MeshFactoryTest" time="0.346" tests="2" errors="0" skipped="0" failures="0">
 >>>>>>> c2f817d01cff06cb0abee4b4ab5acdfacb39743a
+=======
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="ca.mcmaster.cas.se2aa4.a2.io.MeshFactoryTest" time="0.305" tests="2" errors="0" skipped="0" failures="0">
+>>>>>>> d7fe933c5c63ec70873ea2561436cf2e20b73d2b
   <properties>
     <property name="java.specification.version" value="19"/>
     <property name="sun.cpu.isalist" value="amd64"/>
@@ -27,11 +31,15 @@
     <property name="sun.java.command" value="C:\Users\aidan\AppData\Local\Temp\surefire4760922271805575456\surefirebooter6680102505373118538.jar C:\Users\aidan\AppData\Local\Temp\surefire4760922271805575456 2023-03-26T19-17-13_194-jvmRun1 surefire6028285868065194832tmp surefire_02809526528569600193tmp"/>
 =======
     <property name="sun.boot.library.path" value="C:\Program Files\Java\jdk-17.0.5\bin"/>
+<<<<<<< HEAD
     <property name="sun.java.command" value="C:\Users\perry\AppData\Local\Temp\surefire18385336663264798036\surefirebooter11599266635506668790.jar C:\Users\perry\AppData\Local\Temp\surefire18385336663264798036 2023-03-26T19-14-22_154-jvmRun1 surefire7446666398748322769tmp surefire_017408637344472586227tmp"/>
 <<<<<<< HEAD
 >>>>>>> c2f817d01cff06cb0abee4b4ab5acdfacb39743a
 =======
 >>>>>>> c2f817d01cff06cb0abee4b4ab5acdfacb39743a
+=======
+    <property name="sun.java.command" value="C:\Users\perry\AppData\Local\Temp\surefire16300640114616377240\surefirebooter11344545879549306485.jar C:\Users\perry\AppData\Local\Temp\surefire16300640114616377240 2023-03-26T20-02-30_420-jvmRun1 surefire12193109721641966117tmp surefire_05880336748913130070tmp"/>
+>>>>>>> d7fe933c5c63ec70873ea2561436cf2e20b73d2b
     <property name="jdk.debug" value="release"/>
     <property name="surefire.test.class.path" value="C:\Users\aidan\Documents\School\2AA4\A3Final\a2---mesh-generator-team35\io\target\test-classes;C:\Users\aidan\Documents\School\2AA4\A3Final\a2---mesh-generator-team35\io\target\classes;C:\Users\aidan\.m2\repository\com\google\protobuf\protobuf-java\3.21.12\protobuf-java-3.21.12.jar;C:\Users\aidan\.m2\repository\org\junit\jupiter\junit-jupiter\5.9.2\junit-jupiter-5.9.2.jar;C:\Users\aidan\.m2\repository\org\junit\jupiter\junit-jupiter-api\5.9.2\junit-jupiter-api-5.9.2.jar;C:\Users\aidan\.m2\repository\org\opentest4j\opentest4j\1.2.0\opentest4j-1.2.0.jar;C:\Users\aidan\.m2\repository\org\junit\platform\junit-platform-commons\1.9.2\junit-platform-commons-1.9.2.jar;C:\Users\aidan\.m2\repository\org\apiguardian\apiguardian-api\1.1.2\apiguardian-api-1.1.2.jar;C:\Users\aidan\.m2\repository\org\junit\jupiter\junit-jupiter-params\5.9.2\junit-jupiter-params-5.9.2.jar;C:\Users\aidan\.m2\repository\org\junit\jupiter\junit-jupiter-engine\5.9.2\junit-jupiter-engine-5.9.2.jar;C:\Users\aidan\.m2\repository\org\junit\platform\junit-platform-engine\1.9.2\junit-platform-engine-1.9.2.jar;"/>
     <property name="sun.cpu.endian" value="little"/>
@@ -48,6 +56,7 @@
     <property name="java.specification.name" value="Java Platform API Specification"/>
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     <property name="surefire.real.class.path" value="C:\Users\aidan\AppData\Local\Temp\surefire4760922271805575456\surefirebooter6680102505373118538.jar"/>
 =======
     <property name="surefire.real.class.path" value="C:\Users\perry\AppData\Local\Temp\surefire18385336663264798036\surefirebooter11599266635506668790.jar"/>
@@ -55,6 +64,9 @@
 =======
     <property name="surefire.real.class.path" value="C:\Users\perry\AppData\Local\Temp\surefire18385336663264798036\surefirebooter11599266635506668790.jar"/>
 >>>>>>> c2f817d01cff06cb0abee4b4ab5acdfacb39743a
+=======
+    <property name="surefire.real.class.path" value="C:\Users\perry\AppData\Local\Temp\surefire16300640114616377240\surefirebooter11344545879549306485.jar"/>
+>>>>>>> d7fe933c5c63ec70873ea2561436cf2e20b73d2b
     <property name="user.script" value=""/>
     <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
     <property name="java.runtime.version" value="19.0.2+7-44"/>
@@ -84,6 +96,7 @@
   </properties>
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
   <testcase name="writeMeshToFile" classname="ca.mcmaster.cas.se2aa4.a2.io.MeshFactoryTest" time="0.108"/>
   <testcase name="writeAndRead" classname="ca.mcmaster.cas.se2aa4.a2.io.MeshFactoryTest" time="0.01"/>
 =======
@@ -94,4 +107,8 @@
   <testcase name="writeMeshToFile" classname="ca.mcmaster.cas.se2aa4.a2.io.MeshFactoryTest" time="0.296"/>
   <testcase name="writeAndRead" classname="ca.mcmaster.cas.se2aa4.a2.io.MeshFactoryTest" time="0.011"/>
 >>>>>>> c2f817d01cff06cb0abee4b4ab5acdfacb39743a
+=======
+  <testcase name="writeMeshToFile" classname="ca.mcmaster.cas.se2aa4.a2.io.MeshFactoryTest" time="0.264"/>
+  <testcase name="writeAndRead" classname="ca.mcmaster.cas.se2aa4.a2.io.MeshFactoryTest" time="0.007"/>
+>>>>>>> d7fe933c5c63ec70873ea2561436cf2e20b73d2b
 </testsuite>

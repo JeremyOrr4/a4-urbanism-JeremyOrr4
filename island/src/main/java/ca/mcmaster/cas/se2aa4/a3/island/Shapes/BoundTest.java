@@ -13,7 +13,7 @@ public class BoundTest {
         boolean context = SetUpCircleBound();
         System.out.println("Testing validity of circle bounds");
         Assert.assertTrue(!context);
-        System.out.println("Test Passed -> Found: "+!context+" Expected: false");
+        System.out.println("Test Passed -> Found: "+context+" Expected: false");
     }
 
     private boolean SetUpIrregularBound(){
@@ -25,7 +25,7 @@ public class BoundTest {
         boolean context = SetUpIrregularBound();
         System.out.println("Testing validity irregular bounds");
         Assert.assertTrue(!context);
-        System.out.println("Test Passed -> Found: "+!context+" Expected: false");
+        System.out.println("Test Passed -> Found: "+context+" Expected: false");
     }
 
     public void TestSuite(){

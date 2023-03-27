@@ -7,7 +7,7 @@ import ca.mcmaster.cas.se2aa4.a3.island.MeshAttributes.Tiles;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
-/** Creates elevations for vertices based on given profile and distributes elevations to polygons**/
+
 public class Elevation{
   
 
@@ -15,7 +15,7 @@ public class Elevation{
         List<Structs.Vertex> NewVertices = new ArrayList<>();
         Elevation ElevSetter = new Elevation();
         for (Structs.Vertex v: aMesh.getVerticesList()){
-            Structs.Property Elevation = Structs.Property.newBuilder().setKey("Elevation").setValue(""+profile.ProduceElevation(v.getX(), v.getY(), 1920/2,1080/2 )).build();
+            Structs.Property Elevation = Structs.Property.newBuilder().setKey("Elevation").setValue(""+profile.ProduceElevation(v.getX(), v.getY(), Extractor.MeshWidth/2,Extractor.MeshHeight/2)).build();
             NewVertices.add(Structs.Vertex.newBuilder(v).addProperties(Elevation).build());
         }
         return Structs.Mesh.newBuilder().addAllVertices(NewVertices).addAllSegments(aMesh.getSegmentsList()).addAllPolygons(aMesh.getPolygonsList()).build();
