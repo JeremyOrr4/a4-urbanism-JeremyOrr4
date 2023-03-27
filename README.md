@@ -38,15 +38,15 @@ mosser@azrael A2 % java -jar visualizer/visualizer.jar -i img/irregular.mesh -o 
 ###################################
 ###################################
 (in main directory)
-java -jar island/island.jar -i <mesh to be read in> -o <mesh to be outputted and visualized> -h <height of input mesh> -w <width of input mesh>
+java -jar island/island.jar -i (mesh to be read in) -o (mesh to be outputted and visualized) -h (height of input mesh) -w (width of input mesh)
 
 -----Other Args -----
 -help -> help message 
--l -> activates lagoon option
--lakes <arg> -> specify number of lakes (int)
--p <arg> -> specify elevation profile (Volcano)
--rivers <arg> -> specify number of rivers (int)
--s <arg> -> shape of island (Circle, irregular(default), Square)
+-l -> activates lagoon option 
+-lakes (arg) -> specify number of lakes (int)
+-p (arg) -> specify elevation profile (Volcano)
+-rivers (arg) -> specify number of rivers (int)
+-s (arg) -> shape of island (Circle, irregular(default), Square)
 Note: if you do not specify a width and height, it will asume the mesh size is 1920x1080.
 Another Note: 1920x1080 are also the dimensions which will produce the richest, most realistic island.
 
