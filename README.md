@@ -47,15 +47,17 @@ java -jar island/island.jar -i (mesh to be read in) -o (mesh to be outputted and
 -p (arg) -> specify elevation profile (Volcano)
 -rivers (arg) -> specify number of rivers (int)
 -s (arg) -> shape of island (Circle, irregular(default), Square)
+-help -> prints help options
 Note: if you do not specify a width and height, it will asume the mesh size is 1920x1080.
 Another Note: 1920x1080 are also the dimensions which will produce the richest, most realistic island.
 
--seed (arg) -> specify the seed controlling randomness (defaults to random seed)
+-seed (arg) -> specify the seed controlling randomness (defaults to random seed)(All other arguments must be consistent for perfect reproducability) 
 
 -----For the Bonus-----
 -v (arg) -> Specify elevation or moisture visualization (Humidity, Elevation)
 -------------------------
 
+Island.sh will install program and generate a new mesh and an island. In order for seeds to work properly, the same mesh must be used so the built.sh script decorates and island but does not produce a new mesh.
 
 Note: PDF versions of the SVG files were created with `rsvg-convert`.
 

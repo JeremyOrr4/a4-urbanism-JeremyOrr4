@@ -61,7 +61,7 @@ public class Main {
 
         int seed = (int)(Math.random()*10000); 
         if (config.export().containsKey(Configuration.SEED)){
-           seed = config.export(Configuration.HEIGHT).hashCode(); 
+           seed = config.export(Configuration.SEED).hashCode();
         }
 
         Structs.Mesh exported = new MeshFactory().read(config.input());
