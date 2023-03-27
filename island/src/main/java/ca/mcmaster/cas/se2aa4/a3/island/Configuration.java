@@ -24,14 +24,9 @@ public class Configuration {
 
     public static final String HELP = "help";
 
-<<<<<<< HEAD
-    public static final String SEED = "seed"; 
-
-=======
     public static final String HEIGHT = "h";
 
     public static final String WIDTH = "w";
->>>>>>> d7fe933c5c63ec70873ea2561436cf2e20b73d2b
     private CommandLine cli;
 
     public Configuration(String[] args) {
@@ -81,13 +76,9 @@ public class Configuration {
         options.addOption(new Option(PROFILE, true, "Elevation Profile"));
         options.addOption(new Option(SHAPE, true, "Island Shape"));
         options.addOption(new Option(HELP, false, "print help message"));
-<<<<<<< HEAD
-        options.addOption(new Option(SEED, true, "specify island seed"));
 
-=======
         options.addOption(new Option(WIDTH, true, "Width of input mesh"));
         options.addOption(new Option(HEIGHT, true, "Height of input mesh"));
->>>>>>> d7fe933c5c63ec70873ea2561436cf2e20b73d2b
         return options;
     }
 

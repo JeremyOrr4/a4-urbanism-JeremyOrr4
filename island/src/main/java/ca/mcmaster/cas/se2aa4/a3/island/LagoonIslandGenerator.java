@@ -18,7 +18,7 @@ import java.util.Random;
 public class LagoonIslandGenerator {
 
 
-    public static Mesh LagoonMesh(Mesh aMesh,boolean lagoon,String Shape, int seed){
+    public static Mesh LagoonMesh(Mesh aMesh,boolean lagoon,String Shape){
         Mesh shapedIsland;
         if (Shape.equals("Circle")){
             Circle shape = new Circle(Extractor.MeshWidth/2, Extractor.MeshHeight/2, (int)Extractor.MinDimension*0.4);
@@ -31,13 +31,8 @@ public class LagoonIslandGenerator {
             shapedIsland = shaper.generateShape(aMesh);
             if (lagoon) shapedIsland = IslandShaper.fillRegion(shapedIsland, shape.scale(0.3), TileType.LAGOON);
         }else {
-<<<<<<< HEAD
 
-            Random r = new Random(seed); 
-            Irregular shape = new Irregular(1920/2, 1080/2 ,1380+(-200+r.nextInt(400)),750+(-100+r.nextInt(200)), seed);
-=======
             Irregular shape = new Irregular(Extractor.MeshWidth/2, Extractor.MeshHeight/2,0.75*Extractor.MeshWidth,0.75*Extractor.MeshHeight);
->>>>>>> d7fe933c5c63ec70873ea2561436cf2e20b73d2b
             IslandShaper shaper = new IslandShaper(shape);
             shapedIsland = shaper.generateShape(aMesh);
             if (lagoon) shapedIsland = IslandShaper.fillRegion(shapedIsland, shape.scale(0.4, 0.4), TileType.LAGOON);

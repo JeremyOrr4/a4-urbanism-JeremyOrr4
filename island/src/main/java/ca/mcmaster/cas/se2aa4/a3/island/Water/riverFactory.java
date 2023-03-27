@@ -15,10 +15,10 @@ public class riverFactory {
 
 
     
-    public Structs.Mesh riverGenerator(Structs.Mesh aMesh,int riverNum, int seed){
+    public Structs.Mesh riverGenerator(Structs.Mesh aMesh,int riverNum){
         List<Structs.Segment> segs = new ArrayList<>();
         List<Integer> MarkedPolys = new ArrayList<>();
-        Random bag = new Random(seed);
+        Random bag = new Random();
         for (Structs.Segment s: aMesh.getSegmentsList()){
             segs.add(s);
         }

@@ -1,38 +1,3 @@
-<<<<<<< HEAD
-<<<<<<< HEAD
-C:\Users\aidan\Documents\School\2AA4\A3Final\a2---mesh-generator-team35\island\src\main\java\ca\mcmaster\cas\se2aa4\a3\island\Shapes\Square.java
-C:\Users\aidan\Documents\School\2AA4\A3Final\a2---mesh-generator-team35\island\src\main\java\ca\mcmaster\cas\se2aa4\a3\island\Biomes\BiomeTest.java
-C:\Users\aidan\Documents\School\2AA4\A3Final\a2---mesh-generator-team35\island\src\main\java\ca\mcmaster\cas\se2aa4\a3\island\Elevation\VolcanoProfile.java
-C:\Users\aidan\Documents\School\2AA4\A3Final\a2---mesh-generator-team35\island\src\main\java\ca\mcmaster\cas\se2aa4\a3\island\Water\LakesFactory.java
-C:\Users\aidan\Documents\School\2AA4\A3Final\a2---mesh-generator-team35\island\src\main\java\ca\mcmaster\cas\se2aa4\a3\island\Elevation\PerlinProfile.java
-C:\Users\aidan\Documents\School\2AA4\A3Final\a2---mesh-generator-team35\island\src\main\java\ca\mcmaster\cas\se2aa4\a3\island\MeshAttributes\TileTest.java
-C:\Users\aidan\Documents\School\2AA4\A3Final\a2---mesh-generator-team35\island\src\main\java\ca\mcmaster\cas\se2aa4\a3\island\Elevation\ExampleElevationProfile.java
-C:\Users\aidan\Documents\School\2AA4\A3Final\a2---mesh-generator-team35\island\src\main\java\ca\mcmaster\cas\se2aa4\a3\island\Biomes\Whittaker.java
-C:\Users\aidan\Documents\School\2AA4\A3Final\a2---mesh-generator-team35\island\src\main\java\ca\mcmaster\cas\se2aa4\a3\island\MeshAttributes\Tiles.java
-C:\Users\aidan\Documents\School\2AA4\A3Final\a2---mesh-generator-team35\island\src\main\java\ca\mcmaster\cas\se2aa4\a3\island\Configuration.java
-C:\Users\aidan\Documents\School\2AA4\A3Final\a2---mesh-generator-team35\island\src\main\java\ca\mcmaster\cas\se2aa4\a3\island\Extractor.java
-C:\Users\aidan\Documents\School\2AA4\A3Final\a2---mesh-generator-team35\island\src\main\java\ca\mcmaster\cas\se2aa4\a3\island\Biomes\BiomeFactory.java
-C:\Users\aidan\Documents\School\2AA4\A3Final\a2---mesh-generator-team35\island\src\main\java\ca\mcmaster\cas\se2aa4\a3\island\Elevation\ElevationProfile.java
-C:\Users\aidan\Documents\School\2AA4\A3Final\a2---mesh-generator-team35\island\src\main\java\ca\mcmaster\cas\se2aa4\a3\island\BeachGenerator.java
-C:\Users\aidan\Documents\School\2AA4\A3Final\a2---mesh-generator-team35\island\src\main\java\ca\mcmaster\cas\se2aa4\a3\island\Visualization\ElevationVisualizer.java
-C:\Users\aidan\Documents\School\2AA4\A3Final\a2---mesh-generator-team35\island\src\main\java\ca\mcmaster\cas\se2aa4\a3\island\Biomes\BiomeData.java
-C:\Users\aidan\Documents\School\2AA4\A3Final\a2---mesh-generator-team35\island\src\main\java\ca\mcmaster\cas\se2aa4\a3\island\Elevation\Elevation.java
-C:\Users\aidan\Documents\School\2AA4\A3Final\a2---mesh-generator-team35\island\src\main\java\ca\mcmaster\cas\se2aa4\a3\island\LagoonIslandGenerator.java
-C:\Users\aidan\Documents\School\2AA4\A3Final\a2---mesh-generator-team35\island\src\main\java\ca\mcmaster\cas\se2aa4\a3\island\Visualization\HumidityView.java
-C:\Users\aidan\Documents\School\2AA4\A3Final\a2---mesh-generator-team35\island\src\main\java\ca\mcmaster\cas\se2aa4\a3\island\Biomes\SVGParser.java
-C:\Users\aidan\Documents\School\2AA4\A3Final\a2---mesh-generator-team35\island\src\main\java\ca\mcmaster\cas\se2aa4\a3\island\Elevation\ElevationTest.java
-C:\Users\aidan\Documents\School\2AA4\A3Final\a2---mesh-generator-team35\island\src\main\java\Main.java
-C:\Users\aidan\Documents\School\2AA4\A3Final\a2---mesh-generator-team35\island\src\main\java\ca\mcmaster\cas\se2aa4\a3\island\Shapes\BoundedShape.java
-C:\Users\aidan\Documents\School\2AA4\A3Final\a2---mesh-generator-team35\island\src\main\java\ca\mcmaster\cas\se2aa4\a3\island\EntryPoint.java
-C:\Users\aidan\Documents\School\2AA4\A3Final\a2---mesh-generator-team35\island\src\main\java\ca\mcmaster\cas\se2aa4\a3\island\IslandShaper.java
-C:\Users\aidan\Documents\School\2AA4\A3Final\a2---mesh-generator-team35\island\src\main\java\ca\mcmaster\cas\se2aa4\a3\island\Shapes\Irregular.java
-C:\Users\aidan\Documents\School\2AA4\A3Final\a2---mesh-generator-team35\island\src\main\java\ca\mcmaster\cas\se2aa4\a3\island\ExtractionTest.java
-C:\Users\aidan\Documents\School\2AA4\A3Final\a2---mesh-generator-team35\island\src\main\java\ca\mcmaster\cas\se2aa4\a3\island\Shapes\Circle.java
-C:\Users\aidan\Documents\School\2AA4\A3Final\a2---mesh-generator-team35\island\src\main\java\ca\mcmaster\cas\se2aa4\a3\island\MeshAttributes\Humidity.java
-C:\Users\aidan\Documents\School\2AA4\A3Final\a2---mesh-generator-team35\island\src\main\java\ca\mcmaster\cas\se2aa4\a3\island\Water\riverFactory.java
-=======
-=======
->>>>>>> c2f817d01cff06cb0abee4b4ab5acdfacb39743a
 C:\Users\perry\OneDrive - McMaster University\Desktop\Year 2 Sem 2\Software Design I (2AA4)\Assignment 3\a2---mesh-generator-team35\island\src\main\java\ca\mcmaster\cas\se2aa4\a3\island\Shapes\BoundTest.java
 C:\Users\perry\OneDrive - McMaster University\Desktop\Year 2 Sem 2\Software Design I (2AA4)\Assignment 3\a2---mesh-generator-team35\island\src\main\java\ca\mcmaster\cas\se2aa4\a3\island\Shapes\Circle.java
 C:\Users\perry\OneDrive - McMaster University\Desktop\Year 2 Sem 2\Software Design I (2AA4)\Assignment 3\a2---mesh-generator-team35\island\src\main\java\ca\mcmaster\cas\se2aa4\a3\island\Water\LakesFactory.java
@@ -65,4 +30,3 @@ C:\Users\perry\OneDrive - McMaster University\Desktop\Year 2 Sem 2\Software Desi
 C:\Users\perry\OneDrive - McMaster University\Desktop\Year 2 Sem 2\Software Design I (2AA4)\Assignment 3\a2---mesh-generator-team35\island\src\main\java\ca\mcmaster\cas\se2aa4\a3\island\IslandShaper.java
 C:\Users\perry\OneDrive - McMaster University\Desktop\Year 2 Sem 2\Software Design I (2AA4)\Assignment 3\a2---mesh-generator-team35\island\src\main\java\ca\mcmaster\cas\se2aa4\a3\island\EntryPoint.java
 C:\Users\perry\OneDrive - McMaster University\Desktop\Year 2 Sem 2\Software Design I (2AA4)\Assignment 3\a2---mesh-generator-team35\island\src\main\java\ca\mcmaster\cas\se2aa4\a3\island\Elevation\ElevationTest.java
->>>>>>> c2f817d01cff06cb0abee4b4ab5acdfacb39743a

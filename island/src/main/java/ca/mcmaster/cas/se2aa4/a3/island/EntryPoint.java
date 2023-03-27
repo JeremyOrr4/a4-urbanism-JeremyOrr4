@@ -21,11 +21,8 @@ import java.util.ArrayList;
 import java.util.List;
 /**Class which incrementally adds elements of a complete island**/
 public class EntryPoint {
-<<<<<<< HEAD
-    public static Mesh meshTest(Mesh aMesh,int lakes,int river, String vis,boolean lagoon,String Profile,String Shape, int seed){
-=======
+
     public static Mesh meshTest(Mesh aMesh,int lakes,int river, String vis,boolean lagoon,String Profile,String Shape,int height,int width){
->>>>>>> d7fe933c5c63ec70873ea2561436cf2e20b73d2b
 
         TileTest Tiletest = new TileTest();
         Tiletest.testSuite();
@@ -45,11 +42,6 @@ public class EntryPoint {
         HumidityTest humidTest = new HumidityTest();
         humidTest.TestSuite();
 
-<<<<<<< HEAD
-   
-        
-        Mesh lagoonMesh = LagoonIslandGenerator.LagoonMesh(aMesh,lagoon,Shape,seed);
-=======
         Extractor.MeshHeight=height;
         Extractor.MeshWidth=width;
         if (height>width){
@@ -59,10 +51,9 @@ public class EntryPoint {
         }
 
         Mesh lagoonMesh = LagoonIslandGenerator.LagoonMesh(aMesh,lagoon,Shape);
->>>>>>> d7fe933c5c63ec70873ea2561436cf2e20b73d2b
 
         LakesFactory lf = new LakesFactory();
-        lagoonMesh = lf.RandomLakes(lakes,lagoonMesh, seed);
+        lagoonMesh = lf.RandomLakes(lakes,lagoonMesh);
 
         if (Profile.equals("Volcano")){
             lagoonMesh = Elevation.SetVertexElevation(lagoonMesh, new VolcanoProfile());
@@ -74,7 +65,7 @@ public class EntryPoint {
         lagoonMesh = Elev.addPolyElevation(lagoonMesh);
 
         riverFactory rf = new riverFactory();
-        lagoonMesh = rf.riverGenerator(lagoonMesh,river, 1234);
+        lagoonMesh = rf.riverGenerator(lagoonMesh,river);
 
         Humidity Humid = new Humidity();
         lagoonMesh = Humid.GenerateHumidities(lagoonMesh);

@@ -17,7 +17,7 @@ public class BoundTest {
     }
 
     private boolean SetUpIrregularBound(){
-        Irregular irr = new Irregular(400,400,50,50, 1111);
+        Irregular irr = new Irregular(400,400,50,50);
         return irr.contains(300,300);
     }
 
