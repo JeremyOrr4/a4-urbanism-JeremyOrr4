@@ -21,7 +21,7 @@ import java.util.ArrayList;
 import java.util.List;
 /**Class which incrementally adds elements of a complete island**/
 public class EntryPoint {
-    public static Mesh meshTest(Mesh aMesh,int lakes,int river, String vis,boolean lagoon,String Profile,String Shape){
+    public static Mesh meshTest(Mesh aMesh,int lakes,int river, String vis,boolean lagoon,String Profile,String Shape,int height,int width){
 
         TileTest Tiletest = new TileTest();
         Tiletest.testSuite();
@@ -40,6 +40,14 @@ public class EntryPoint {
 
         HumidityTest humidTest = new HumidityTest();
         humidTest.TestSuite();
+
+        Extractor.MeshHeight=height;
+        Extractor.MeshWidth=width;
+        if (height>width){
+            Extractor.MinDimension=width;
+        }else{
+            Extractor.MinDimension=height;
+        }
 
         Mesh lagoonMesh = LagoonIslandGenerator.LagoonMesh(aMesh,lagoon,Shape);
 

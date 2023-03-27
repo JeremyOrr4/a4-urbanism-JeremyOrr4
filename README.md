@@ -1,6 +1,6 @@
 # A3 Island Generation Simulator
 
-  - Author: "Aidan Goodyer" <goodyera@mcmaster.ca>
+  - Author: "" <EMAIL>
   - Author: "Jeremy Orr" <orrj4@mcmaster.ca>
   - Author: "Nathan Perry" <perryn1@mcmaster.ca>
 
@@ -35,8 +35,10 @@ mosser@azrael A2 % java -jar visualizer/visualizer.jar -i img/irregular.mesh -o 
 mosser@azrael A2 % java -jar visualizer/visualizer.jar -i img/irregular.mesh -o img/irregular_debug.svg -x
 ```
 ### DECORATING AN EXISTING MESH ###
+###################################
+###################################
 (in main directory)
-java -jar island/island.jar -i <mesh to be read in> -o <mesh to be outputted and visualized>
+java -jar island/island.jar -i <mesh to be read in> -o <mesh to be outputted and visualized> -h <height of input mesh> -w <width of input mesh>
 
 -----Other Args -----
 -help -> help message 
@@ -45,9 +47,17 @@ java -jar island/island.jar -i <mesh to be read in> -o <mesh to be outputted and
 -p <arg> -> specify elevation profile (Volcano)
 -rivers <arg> -> specify number of rivers (int)
 -s <arg> -> shape of island (Circle, irregular(default), Square)
+Note: if you do not specify a width and height, it will asume the mesh size is 1920x1080.
+Another Note: 1920x1080 are also the dimensions which will produce the richest, most realistic island.
 
 -----For the Bonus-----
 -v <arg> -> Specify elevation or moisture visualization (Humidity, Elevation)
+-------------------------
+Final Note: the island.sh bash script should automatically build an island but the generator has a bug which gives an index out of bounds error about 10-20% of the time and will work if it is just run an additional time
+
+####################################################################
+##################################################################
+##################################################################
 
 Note: PDF versions of the SVG files were created with `rsvg-convert`.
 
@@ -57,7 +67,7 @@ Note: PDF versions of the SVG files were created with `rsvg-convert`.
 | F2  | Create a circular island, integrating both types of tiles  | • Produce an algorithm to choose the correct tiles to be made land tiles • Create tile assignment class | D  |  Week 1  | Week 1 |
 | F3  | Create a third lagoon tile to represent water within the island  | • Add new properties for water inside an island | D  |  Week 1  | Week 1 |
 | F4  | Identify land tiles touching water and give them a different colour (Beach)  | • Create new tile type with beach properties • Create algorithm to recognize when land tiles touch water tiles | D  |  Week 1  | Week 1 |
-| F5  | Create abstract notion of shape to be extended into different realizations |   • Create shape superclass with shape subclasses, circle is trivial case | D  |  Week 1  | Almost Done |
+| F5  | Create abstract notion of shape to be extended into different realizations |   • Create shape superclass with shape subclasses, circle is trivial case | D  |  Week 1  | Week 3 |
 | F6  | Implement altimetric profiles  | • Add property of altitude (integer value), use this to adjust other properties • Create algorithm for assigning altitudes (or randomly) | D  |  Week 1  | Week 1 |
 | F7  | Implenting Elevation with Polygons  | • Add new properties for water inside an island | D  |  Week 1  | Week 1 |
 | F8  | Command line option for number of lakes  | • CLI command line option • Create water bodies within the land mass | D  |  Week 2  | Week 2 |

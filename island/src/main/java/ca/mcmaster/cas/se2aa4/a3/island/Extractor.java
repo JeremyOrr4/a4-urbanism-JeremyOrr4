@@ -5,7 +5,10 @@ import ca.mcmaster.cas.se2aa4.a2.io.Structs;
 import java.util.List;
 /**Utility class which provides access to tile attributes**/
 public class Extractor {
+    public static int MeshHeight;
+    public static int MeshWidth;
 
+    public static int MinDimension;
     public static double getVertexElevation(Structs.Vertex v){
         List<Structs.Property> Props = v.getPropertiesList();
         for (Structs.Property prop: Props){

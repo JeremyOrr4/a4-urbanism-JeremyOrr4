@@ -49,9 +49,19 @@ public class Main {
             Shape = (config.export(Configuration.SHAPE));
         }
 
+        int height = 1080;
+        if (config.export().containsKey(Configuration.HEIGHT)){
+            height = Integer.parseInt(config.export(Configuration.HEIGHT));
+        }
+
+        int width = 1920;
+        if (config.export().containsKey(Configuration.WIDTH)){
+            width = Integer.parseInt(config.export(Configuration.WIDTH));
+        }
+
         Structs.Mesh exported = new MeshFactory().read(config.input());
 
-        exported = EntryPoint.meshTest(exported,lakes,rivers,vis,lagoon,Profile,Shape);
+        exported = EntryPoint.meshTest(exported,lakes,rivers,vis,lagoon,Profile,Shape,height,width);
 
         new MeshFactory().write(exported, config.export(Configuration.OUTPUT));
     }

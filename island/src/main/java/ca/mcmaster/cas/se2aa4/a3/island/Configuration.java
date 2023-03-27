@@ -24,6 +24,9 @@ public class Configuration {
 
     public static final String HELP = "help";
 
+    public static final String HEIGHT = "h";
+
+    public static final String WIDTH = "w";
     private CommandLine cli;
 
     public Configuration(String[] args) {
@@ -73,6 +76,8 @@ public class Configuration {
         options.addOption(new Option(PROFILE, true, "Elevation Profile"));
         options.addOption(new Option(SHAPE, true, "Island Shape"));
         options.addOption(new Option(HELP, false, "print help message"));
+        options.addOption(new Option(WIDTH, true, "Width of input mesh"));
+        options.addOption(new Option(HEIGHT, true, "Height of input mesh"));
         return options;
     }
 

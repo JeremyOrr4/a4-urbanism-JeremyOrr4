@@ -1,4 +1,5 @@
 package ca.mcmaster.cas.se2aa4.a3.island.Elevation;
+import ca.mcmaster.cas.se2aa4.a3.island.Extractor;
 import org.testng.Assert;
 import org.testng.junit.*;
 /**Test invariants of elevation profiles**/
