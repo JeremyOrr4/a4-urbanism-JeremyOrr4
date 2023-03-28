@@ -1,7 +1,7 @@
 # A3 Island Generation Simulator
 
-  - Author: "" <EMAIL>
   - Author: "Jeremy Orr" <orrj4@mcmaster.ca>
+  - Author: "Aidan Goodyer" <goodyera@mcmaster.ca>
   - Author: "Nathan Perry" <perryn1@mcmaster.ca>
 
 ## How to Run the Program
