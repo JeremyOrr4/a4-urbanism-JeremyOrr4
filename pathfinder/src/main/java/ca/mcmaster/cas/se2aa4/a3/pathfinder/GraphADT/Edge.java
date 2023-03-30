@@ -4,18 +4,16 @@ public class Edge {
     Node StartNode;
     Node EndNode;
     int EdgeID;
+    int Weight;
 
-    
-
-    public Edge (Node StartNode, Node EndNode, int EdgeID){
+    public Edge(Node StartNode, Node EndNode) {
         this.StartNode = StartNode;
         this.EndNode = EndNode;
-        this.EdgeID = EdgeID;
+        // this.EdgeID = EdgeID;
     }
 
-    public String PrintEdge(){
-       return "Start Node: " + StartNode + " End Node: " + EndNode;
-
+    public void PrintEdge() {
+        System.out.println("Edges: Start Node: " + StartNode.GetNodeID() + " End Node: " + EndNode.GetNodeID());
     }
 
 }
