@@ -7,62 +7,79 @@ package ca.mcmaster.cas.se2aa4.a3.pathfinder.GraphADT;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
+import java.util.Set;
 
 
 public class GraphADT {
 
     Node Node;
     Edge Edge;
-    ArrayList<Edge> PathList;
-    HashMap<Node, ArrayList<Edge>> AdjacencyList;
+    HashMap<Node, Set<Node>> AdjacencyList;
 
-    public GraphADT() {
-        this.Node = new Node(0);
-        this.Edge = new Edge(this.Node, 0);
-        this.PathList = new ArrayList<Edge>();
-        this.AdjacencyList = new HashMap<Node, ArrayList<Edge>>();
+    public GraphADT (Node Node, Edge Edge, HashMap<Node, Set<Node>> AdjacencyList) {
+        this.Node = Node;
+        this.Edge = Edge;
+        this.AdjacencyList = 
     }
 
-    public void AddEdge(Node StartNode, Edge EndNode) {
-        ArrayList<Edge> NodePathList = this.AdjacencyList.get(StartNode);
-
-        if (AdjacencyList.containsKey(StartNode)) {
-            for (Edge CurrentEdge: NodePathList){
-                if (Edge.GetNodeIDFromEdge(CurrentEdge) == Edge.GetNodeIDFromEdge(EndNode)){
-                    return;
-                }
-            }
+//     public void AddEdge(Node StartNode, Edge EndNode) {
+//         if (AdjacencyList.containsKey(StartNode)) {
+//             ArrayList<Edge> NodePathList = this.AdjacencyList.get(StartNode);
+//             // for (Edge CurrentEdge: NodePathList){ // Removes duplicate edges
+//             //     // int Edge1 = Edge.GetNodeIDFromEdge(CurrentEdge);
+//             //     // int Edge2 = Edge.GetNodeIDFromEdge(EndNode);
+//             //     if (Edge.GetNodeIDFromEdge(CurrentEdge) == Edge.GetNodeIDFromEdge(EndNode)){
+                   
+//             //         return;
+//             //     }
+//             // }
             
-            this.PathList = this.AdjacencyList.get(StartNode);
-            PathList.add(EndNode);
-            this.AdjacencyList.put(StartNode, PathList);
-        }
+//             NodePathList.add(EndNode);
+//         }
 
-        else {
-            this.AdjacencyList.put(StartNode, this.PathList);
-            this.PathList.add(EndNode);
-            this.AdjacencyList.put(StartNode, PathList);
-            System.out.println(Arrays.asList(PathList));
-        }
-    }
+//         else {
+//             this.AdjacencyList.put(StartNode, new ArrayList<Edge>());
+//             this.AdjacencyList.get(StartNode).add(EndNode);
+//         }
+//     }
 
-    public void PrintPathOfNode(Node Node) {
-        if (AdjacencyList.containsKey(Node)) {
-            System.out.println("*******************");
-            System.out.println("Node Start: " + Node.GetNodeValue(Node));
-            this.PathList = AdjacencyList.get(Node);
+//     public void PrintPathOfNode(Node PrintedNode) {
+        
+//         ArrayList<Edge> NewPathList = new ArrayList<Edge>();
 
-            for (int i = 0; i < PathList.size(); i++) {
-                Edge PrintedEdge = PathList.get(i);
+//         System.out.println(this.AdjacencyList.keySet().size());
 
-                Edge.PrintEdge(PrintedEdge);
-            }
-            System.out.println("*******************");
-        }
+//         for(Node KeyNode : this.AdjacencyList.keySet() ){
+//             System.out.println(KeyNode.PrintNode());
 
-        else {
-            System.out.println("Node is Not in Graph.");
-        }
-    }
+//             for (Edge ValueEdge:this.AdjacencyList.get(PrintedNode)){
+//                 System.out.println(ValueEdge.PrintEdge());
+//             }
+                
+//         }
 
-}
+//         if (this.AdjacencyList.containsKey(PrintedNode)) { // WOrks
+//             System.out.println("*******************");
+//             System.out.println("Node Start: " + Node.GetNodeIDValue(PrintedNode));
+            
+//             NewPathList = this.AdjacencyList.get(PrintedNode);
+
+//             for (int i = 0; i < NewPathList.size(); i++) {
+//                 Edge PrintedEdge = NewPathList.get(i);
+
+//                 PrintedEdge.PrintEdge();
+//             }
+//             System.out.println("*******************");
+//         }
+
+//         else {
+//             System.out.println("This node is not in graph.");
+//         }
+//     }
+
+//     public void PrintAdjacencyList(){
+//         for (Node TempNode: this.AdjacencyList.keySet())
+//         System.out.println("Keys: " + Node.GetNodeIDValue(TempNode));
+//     }
+
+// }

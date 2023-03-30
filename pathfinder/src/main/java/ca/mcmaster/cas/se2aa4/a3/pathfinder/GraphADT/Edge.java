@@ -1,28 +1,21 @@
 package ca.mcmaster.cas.se2aa4.a3.pathfinder.GraphADT;
 
 public class Edge {
-    Node NextNode;
-    int Weight;
+    Node StartNode;
+    Node EndNode;
+    int EdgeID;
+
     
 
-    public Edge (Node NextNode, int Weight){
-        this.Weight = Weight;
-        this.NextNode = NextNode;
+    public Edge (Node StartNode, Node EndNode, int EdgeID){
+        this.StartNode = StartNode;
+        this.EndNode = EndNode;
+        this.EdgeID = EdgeID;
     }
 
-    public void PrintEdge(Edge Edge){
-        System.out.println("Next Node ID:" + Edge.NextNode.NodeID + " Weight: " + Edge.Weight);
-
-    }
-
-    public int GetNodeIDFromEdge(Edge Edge){
-        Node EdgesOwenedNode = Edge.NextNode;
-
-        return GetNodeValue(EdgesOwenedNode);
+    public String PrintEdge(){
+       return "Start Node: " + StartNode + " End Node: " + EndNode;
 
     }
 
-    public int GetNodeValue(Node Node) {
-        return this.NextNode.NodeID;
-    }
 }

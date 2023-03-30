@@ -11,17 +11,8 @@ public class Main {
         Structs.Mesh Mesh = new MeshFactory().read(mesh);
         
         GraphADT Graph = new GraphADT();
-        Node Node = new Node(1);
-        Node EndNode = new Node(3);
-        Edge Edge = new Edge(EndNode,1);
 
-        Graph.AddEdge(Node, Edge);
-        Graph.AddEdge(Node, Edge);
-
-        // Edge.PrintEdge(Edge);
-        // Node.PrintNode(EndNode);
-
-        Graph.PrintPathOfNode(Node);
+       
 
     }
 }

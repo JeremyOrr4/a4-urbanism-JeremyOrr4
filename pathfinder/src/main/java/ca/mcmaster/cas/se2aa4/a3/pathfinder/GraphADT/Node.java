@@ -2,16 +2,21 @@ package ca.mcmaster.cas.se2aa4.a3.pathfinder.GraphADT;
 
 public class Node {
     int NodeID;
+    int XCoordinate;
+    int YCoordinate;
 
-    public Node (int NodeID){
+    public Node (int NodeID, int XCoordinate, int YCoordinate){
         this.NodeID = NodeID;
+        this.XCoordinate = XCoordinate;
+        this.YCoordinate = YCoordinate;
     }
 
-    public int GetNodeValue(Node Node){
-        return this.NodeID;
+    public String GetNodeInfo(){
+        return "ID:" + NodeID + " XCoord:" + XCoordinate + " YCoord:" + YCoordinate; 
     }
 
-    public void PrintNode(Node Node) {
-        System.out.println("Node ID: " + Node.NodeID);
+    
+    public String PrintNode() {
+        return "Node ID: " + this.NodeID;
     }
 }
