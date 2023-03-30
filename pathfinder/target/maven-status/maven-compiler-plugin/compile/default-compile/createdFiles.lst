@@ -1,3 +1,4 @@
-ca\mcmaster\cas\se2aa4\a3\pathfinder\GraphADT\GraphADT.class
 Main.class
-ca\mcmaster\cas\se2aa4\a3\pathfinder\GraphADT\Point.class
+ca\mcmaster\cas\se2aa4\a3\pathfinder\GraphADT\Edge.class
+ca\mcmaster\cas\se2aa4\a3\pathfinder\GraphADT\GraphADT.class
+ca\mcmaster\cas\se2aa4\a3\pathfinder\GraphADT\Node.class
