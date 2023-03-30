@@ -20,7 +20,7 @@
   <dependencies>
     <dependency>
       <groupId>io.github.ace-design</groupId>
-      <artifactId>2aa4.mesh.io</artifactId>
+      <artifactId>2aa4.mesh.island</artifactId>
       <version>1.0</version>
     </dependency>
     <dependency>

@@ -6,9 +6,8 @@ public class Point {
     
     String Point;
 
-
-    Point(Structs.Vertex Vertex){
-        this.Point = Vertex.getX() + "" + Vertex.getY();
+    Point(Structs.Segment Segment){
+        this.Point = Segment.getV1Idx() + "" + Segment.getV1Idx();
     }
     
 }
