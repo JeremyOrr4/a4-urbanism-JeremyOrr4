@@ -1,8 +1,6 @@
-# A3 Island Generation Simulator
+# A4 Island Generation Simulator
 
   - Author: "Jeremy Orr" <orrj4@mcmaster.ca>
-  - Author: "Aidan Goodyer" <goodyera@mcmaster.ca>
-  - Author: "Nathan Perry" <perryn1@mcmaster.ca>
 
 ## How to Run the Program
 
@@ -69,21 +67,15 @@ Note: PDF versions of the SVG files were created with `rsvg-convert`.
 
 | Id  | Feature  | Notes | Status  |  Started  | Delivered |
 |:---:| :-----:  | :---: | :----:  |  :-----:  | :-------: |
-| F1  | Generate different tiles to differentiate between land and water  | • Create methods for land and water tiles which pass in a tile and give it the proper attributes • Create classes for different tile types or just for general tile assignment? | D  |  Week 1  | Week 1 |
-| F2  | Create a circular island, integrating both types of tiles  | • Produce an algorithm to choose the correct tiles to be made land tiles • Create tile assignment class | D  |  Week 1  | Week 1 |
-| F3  | Create a third lagoon tile to represent water within the island  | • Add new properties for water inside an island | D  |  Week 1  | Week 1 |
-| F4  | Identify land tiles touching water and give them a different colour (Beach)  | • Create new tile type with beach properties • Create algorithm to recognize when land tiles touch water tiles | D  |  Week 1  | Week 1 |
-| F5  | Create abstract notion of shape to be extended into different realizations |   • Create shape superclass with shape subclasses, circle is trivial case | D  |  Week 1  | Week 3 |
-| F6  | Implement altimetric profiles  | • Add property of altitude (integer value), use this to adjust other properties • Create algorithm for assigning altitudes (or randomly) | D  |  Week 1  | Week 1 |
-| F7  | Implenting Elevation with Polygons  | • Add new properties for water inside an island | D  |  Week 1  | Week 1 |
-| F8  | Command line option for number of lakes  | • CLI command line option • Create water bodies within the land mass | D  |  Week 2  | Week 2 |
-| F9  | Command line option for number of rivers | • CLI command option • Give segments river properties | D  |  Week 2  | Week 2 |
-| F10  | Implement river behaviour  | • Create algorithm so rivers traverse to lower elevations | D  |  Week 2  | Week 2 |
-| F11  | Implement river combination  | • Change thickness based on river intersections | D  |  Week 2  | Week 2 |
-| F12  | Implement soil absorption  | • Compute soil absorption based on humidity and proximity to water• Implement soil profile builder (how much is absorbs soil) • Change properties based on absorption | D  |  Week 2  | Week 2 |
-| F13  | Implement aquifer and soil command line option  | • CLI command option • Make specific tiles aquifers and adjust moisture levels of neighbours | D  |  Week 3  | Week 3 |
-| F14  | Implement biomes using humidity and temperature (elevation) |  • Use humidity and temperature properties of tiles to determine biome  | D  |  Week 3  | Week 3 |
-| F15  |Implement whittaker diagram command line |  • CLI command line option  | D  |  Week 3  | Week 3 |
-| F16  |Implement seeds |    • CLI command option • Use given seed to determine properties of the island  | D  |  Week 3  | Week 3 |
-| F17  |Create JUnit testing |  • Create the proper classes  | D  |  Week 3  | Week 3 |
-| F18  | Do our A3 report and Update Read Me|  • Finish all questions asked of us in the report • Fix up ReadMe |  D  |  Week 3  | Week 3 |
+| F1  | Create GraphADT  | • Implement Nodes and Edges • Create a graph and have the needed testing for it | D  |  Week 1  | Week 1 |
+| F2  | Create interface for finding path in nodes  | • Create an interface with methods to find the shortest path | D  |  Week 1  | Week 1 |
+| F3  | Create a shortest path algorithm  | • Use Dijkstra's algorithm to find the shorest path • Use Inteface | S  |  Week 1  | Week 1 |
+| F4  | Testing Coverage for ADT  | • Create a testing suite for our ADT • Use proper methods and Junit | S  |  Week 1  | Week 1 |
+| F5  | Update the ReadMe  | • Document	your project author, rationale, and explanations for extending the	library	by implementing a new algorithm | S |  Week 1  | Week 1 |
+| F6 | Add pathfinder as a dependency  | • Add Pathfinder folder to maven depencies using POM.xml file | D |  Week 1  | Week 1 |
+| F7 | Add cities at vertexs  | • Randomly pick a vertex that will be the base city | S |  Week 2  | Week 2 |
+| F8 | Make a path for the base city to other cities  | • Randomly pick a vertex that will be the base city for the star network| S |  Week 2  | Week 2 |
+| F9 | Add amount of cities to Command Line | • Length of Star network and amount of cities to be add | S |  Week 2  | Week 2 |
+| F10 | Do questions in doc | • Answer all questions for report| S |  Week 2  | Week 2 |
+
+
