@@ -15,6 +15,13 @@ public class Edge {
 
     }
 
+    public int GetNodeIDFromEdge(Edge Edge){
+        Node EdgesOwenedNode = Edge.NextNode;
+
+        return GetNodeValue(EdgesOwenedNode);
+
+    }
+
     public int GetNodeValue(Node Node) {
         return this.NextNode.NodeID;
     }

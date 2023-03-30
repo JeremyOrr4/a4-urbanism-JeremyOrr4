@@ -12,9 +12,10 @@ public class Main {
         
         GraphADT Graph = new GraphADT();
         Node Node = new Node(1);
-        Node EndNode = new Node(2);
+        Node EndNode = new Node(3);
         Edge Edge = new Edge(EndNode,1);
 
+        Graph.AddEdge(Node, Edge);
         Graph.AddEdge(Node, Edge);
 
         // Edge.PrintEdge(Edge);

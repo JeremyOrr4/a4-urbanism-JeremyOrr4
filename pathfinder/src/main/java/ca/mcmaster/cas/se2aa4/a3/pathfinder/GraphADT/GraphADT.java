@@ -24,7 +24,15 @@ public class GraphADT {
     }
 
     public void AddEdge(Node StartNode, Edge EndNode) {
+        ArrayList<Edge> NodePathList = this.AdjacencyList.get(StartNode);
+
         if (AdjacencyList.containsKey(StartNode)) {
+            for (Edge CurrentEdge: NodePathList){
+                if (Edge.GetNodeIDFromEdge(CurrentEdge) == Edge.GetNodeIDFromEdge(EndNode)){
+                    return;
+                }
+            }
+            
             this.PathList = this.AdjacencyList.get(StartNode);
             PathList.add(EndNode);
             this.AdjacencyList.put(StartNode, PathList);
