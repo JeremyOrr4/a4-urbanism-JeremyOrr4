@@ -2,8 +2,9 @@ package ca.mcmaster.cas.se2aa4.a3.pathfinder.GraphADT;
 
 
 import java.util.Map;
+import java.util.Set;
 
 public interface PathAlgorithms {
 
-    public Map<Node, Integer> findPath(GraphADT graph, Node startNode);
+    public Set<Node> findPathBetweenNode(GraphADT graph, Node startNode, Node EndNode);
 }

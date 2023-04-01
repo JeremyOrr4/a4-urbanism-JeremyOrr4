@@ -1,5 +1,6 @@
 import java.io.IOException;
 import java.util.Map;
+import java.util.Set;
 
 import org.apache.batik.parser.PathArrayProducer;
 
@@ -51,9 +52,9 @@ public class Main {
 
         ShortestPath Path = new ShortestPath();
 
-        Map<Node, Integer> shortestDistances = Path.findPath(Graph, node1);
-        for (Node node : shortestDistances.keySet()) {
-            System.out.println("Distance from node " + node.GetNodeID() + " to node 1: " + shortestDistances.get(node));
+        Set<Node> shortestDistances = Path.findPathBetweenNode(Graph, node1, node4);
+        for (Node node : shortestDistances) {
+            System.out.println(node.GetNodeID());
         }
 
 

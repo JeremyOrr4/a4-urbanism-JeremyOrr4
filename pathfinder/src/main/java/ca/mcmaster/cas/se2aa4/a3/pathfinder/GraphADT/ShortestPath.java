@@ -18,10 +18,11 @@ import java.util.Set;
 
 public class ShortestPath implements PathAlgorithms {
 
-    public Map<Node, Integer> findPath(GraphADT graph, Node startNode) {
+    public Set<Node> findPathBetweenNode(GraphADT graph, Node startNode, Node EndNode) {
         
         Map<Node, Integer> distance = new HashMap<>();
-        
+        // Set<Node> path = new HashSet<>();
+
         for (Node node : graph.AdjacencyList.keySet()) {
             distance.put(node, Integer.MAX_VALUE);
         }
@@ -38,8 +39,10 @@ public class ShortestPath implements PathAlgorithms {
 
         pq.add(startNode);
 
-        while (!pq.isEmpty()) {
-            Node node = pq.poll();
+        Node node = new Node(-1);
+
+        while (!pq.isEmpty() && node.GetNodeID() != EndNode.GetNodeID()) {
+            node = pq.poll();
             visited.add(node);
 
             for (Node adjacentNode : graph.AdjacencyList.get(node)) {
@@ -54,7 +57,7 @@ public class ShortestPath implements PathAlgorithms {
             }
         }
 
-        return distance;
+        return visited;
     }
 
 
