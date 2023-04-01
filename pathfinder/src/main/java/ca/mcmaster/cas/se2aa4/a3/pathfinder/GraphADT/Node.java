@@ -18,6 +18,7 @@ public class Node {
         return NodeID;
     }
 
+
     public int GetXCoordinate() {
         return XCoordinate;
     }

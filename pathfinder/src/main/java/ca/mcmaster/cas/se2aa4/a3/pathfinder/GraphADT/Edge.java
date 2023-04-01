@@ -6,9 +6,10 @@ public class Edge {
     int EdgeID;
     int Weight;
 
-    public Edge(Node StartNode, Node EndNode) {
+    public Edge(Node StartNode, Node EndNode, int Weight) {
         this.StartNode = StartNode;
         this.EndNode = EndNode;
+        this.Weight = Weight;
         // this.EdgeID = EdgeID;
     }
 
@@ -16,4 +17,29 @@ public class Edge {
         System.out.println("Edges: Start Node: " + StartNode.GetNodeID() + " End Node: " + EndNode.GetNodeID());
     }
 
+    //Getters and setters
+    public void SetStartNode(Node StartNode){
+        this.StartNode = StartNode;
+    }
+
+    public void SetEndNode(Node EndNode){
+        this.EndNode = EndNode;
+    }
+
+    public void SetEdgeWeight(Node EndNode, int Weight){
+        this.Weight = Weight;
+        this.EndNode = EndNode;
+    }
+
+    public Node GetStartNode (){
+        return StartNode;
+    }
+
+    public Node GetEndNode (){
+        return EndNode;
+    }
+
+    public int GetWeight(){
+        return Weight;
+    }
 }

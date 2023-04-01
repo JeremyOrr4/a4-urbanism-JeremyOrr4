@@ -1,9 +1,9 @@
 package ca.mcmaster.cas.se2aa4.a3.pathfinder.GraphADT;
 
-import java.util.List;
+
+import java.util.Map;
 
 public interface PathAlgorithms {
-    
-    
-    public List<Node> findPath(Node startNode, Node endNode);
+
+    public Map<Node, Integer> findPath(GraphADT graph, Node startNode);
 }

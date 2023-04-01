@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 public class GraphADT {
@@ -57,6 +58,25 @@ public class GraphADT {
         }
         
         Set<Node> EmptyNodeSet = new HashSet<Node>();
+        return EmptyNodeSet;
+    }
+
+    public Set<Edge> GetNodesConnectedSetAsEdge(Node NodeOfPathWanted) {
+        if (AdjacencyList.containsKey(NodeOfPathWanted)) {
+            Set<Edge> EdgeList = new HashSet<Edge>();
+            Node StartNode = NodeOfPathWanted;
+
+            for (Node TempNode : AdjacencyList.get(NodeOfPathWanted)){
+                Edge Edge = new Edge(StartNode, TempNode,1);
+                EdgeList.add(Edge);
+                StartNode = TempNode;
+            }
+        } 
+        else {
+            System.out.println("Node is Not in Graph.");
+        }
+        
+        Set<Edge> EmptyNodeSet = new HashSet<Edge>();
         return EmptyNodeSet;
     }
 
