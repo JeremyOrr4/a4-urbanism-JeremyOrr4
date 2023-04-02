@@ -2,6 +2,7 @@ package ca.mcmaster.cas.se2aa4.a3.pathfinder.GraphADT;
 
 import java.time.chrono.MinguoChronology;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
@@ -18,10 +19,9 @@ import java.util.Set;
 
 public class ShortestPath implements PathAlgorithms {
 
-    public Set<Node> findPathBetweenNode(GraphADT graph, Node startNode, Node EndNode) {
-        
+    public List<Node> findPathBetweenNode(GraphADT graph, Node startNode, Node endNode) {
         Map<Node, Integer> distance = new HashMap<>();
-        // Set<Node> path = new HashSet<>();
+        Map<Node, Node> parentNodes = new HashMap<>();
 
         for (Node node : graph.AdjacencyList.keySet()) {
             distance.put(node, Integer.MAX_VALUE);
@@ -39,17 +39,21 @@ public class ShortestPath implements PathAlgorithms {
 
         pq.add(startNode);
 
-        Node node = new Node(-1);
-
-        while (!pq.isEmpty() && node.GetNodeID() != EndNode.GetNodeID()) {
-            node = pq.poll();
+        while (!pq.isEmpty()) {
+            Node node = pq.poll();
             visited.add(node);
+
+            if (node.equals(endNode)) {
+                break;
+            }
 
             for (Node adjacentNode : graph.AdjacencyList.get(node)) {
                 if (!visited.contains(adjacentNode)) {
-                    int newDistance = distance.get(node) + 1;
+                    int newDistance = distance.get(node) + Math.abs(node.GetXCoordinate() - adjacentNode.GetXCoordinate()) 
+                                                    + Math.abs(node.GetYCoordinate() - adjacentNode.GetYCoordinate());
                     if (newDistance < distance.get(adjacentNode)) {
                         distance.put(adjacentNode, newDistance);
+                        parentNodes.put(adjacentNode, node);
                         pq.remove(adjacentNode);
                         pq.add(adjacentNode);
                     }
@@ -57,6 +61,15 @@ public class ShortestPath implements PathAlgorithms {
             }
         }
 
-        return visited;
+        List<Node> shortestPath = new ArrayList<>();
+        Node currentNode = endNode;
+        while (parentNodes.containsKey(currentNode)) {
+            shortestPath.add(currentNode);
+            currentNode = parentNodes.get(currentNode);
+        }
+        shortestPath.add(startNode);
+        Collections.reverse(shortestPath);
+
+        return shortestPath;
     }
 }

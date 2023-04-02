@@ -4,12 +4,11 @@ public class Node {
     private int NodeID;
     private int XCoordinate;
     private int YCoordinate;
-
+    
     public Node(int NodeID) {
         this.NodeID = NodeID;
-        // , int XCoordinate, int YCoordinate
-        // this.XCoordinate = XCoordinate;
-        // this.YCoordinate = YCoordinate;
+        this.XCoordinate = XCoordinate;
+        this.YCoordinate = YCoordinate;
     }
 
     //Getters and setters

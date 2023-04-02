@@ -71,6 +71,8 @@ public class GraphADT {
                 EdgeList.add(Edge);
                 StartNode = TempNode;
             }
+
+            return EdgeList;
         } 
         else {
             System.out.println("Node is Not in Graph.");

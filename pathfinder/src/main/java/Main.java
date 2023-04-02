@@ -1,4 +1,5 @@
 import java.io.IOException;
+import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
@@ -43,16 +44,18 @@ public class Main {
         Node node4 = new Node(4);
         Node node5 = new Node(5);
 
-        Edge Edge1 = CreateEdge(Graph, node1, node2);
-        Edge Edge2 = CreateEdge(Graph, node2, node3);
-        Edge Edge3 = CreateEdge(Graph, node3, node4);
+        Edge Edge3 = CreateEdge(Graph, node1, node2);
+        Edge Edge1 = CreateEdge(Graph, node4, node3);
+        Edge Edge2 = CreateEdge(Graph, node3, node1);
+
+        
 
         
     
 
         ShortestPath Path = new ShortestPath();
 
-        Set<Node> shortestDistances = Path.findPathBetweenNode(Graph, node1, node4);
+        List<Node> shortestDistances = Path.findPathBetweenNode(Graph, node1, node4);
         for (Node node : shortestDistances) {
             System.out.println(node.GetNodeID());
         }
