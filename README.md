@@ -69,9 +69,9 @@ Note: PDF versions of the SVG files were created with `rsvg-convert`.
 |:---:| :-----:  | :---: | :----:  |  :-----:  | :-------: |
 | F1  | Create GraphADT  | • Implement Nodes and Edges • Create a graph and have the needed testing for it | D  |  Week 1  | Week 1 |
 | F2  | Create interface for finding path in nodes  | • Create an interface with methods to find the shortest path | D  |  Week 1  | Week 1 |
-| F3  | Create a shortest path algorithm  | • Use Dijkstra's algorithm to find the shorest path • Use Inteface | S  |  Week 1  | Week 1 |
+| F3  | Create a shortest path algorithm  | • Use Dijkstra's algorithm to find the shorest path • Use Inteface | D  |  Week 1  | Week 1 |
 | F4  | Testing Coverage for ADT  | • Create a testing suite for our ADT • Use proper methods and Junit | S  |  Week 1  | Week 1 |
-| F5  | Update the ReadMe  | • Document	your project author, rationale, and explanations for extending the	library	by implementing a new algorithm | S |  Week 1  | Week 1 |
+| F5  | Update the ReadMe  | • Document	your project author, rationale, and explanations for extending the	library	by implementing a new algorithm | D |  Week 1  | Week 1 |
 | F6 | Add pathfinder as a dependency  | • Add Pathfinder folder to maven depencies using POM.xml file | D |  Week 1  | Week 1 |
 | F7 | Add cities at vertexs  | • Randomly pick a vertex that will be the base city | S |  Week 2  | Week 2 |
 | F8 | Make a path for the base city to other cities  | • Randomly pick a vertex that will be the base city for the star network| S |  Week 2  | Week 2 |
