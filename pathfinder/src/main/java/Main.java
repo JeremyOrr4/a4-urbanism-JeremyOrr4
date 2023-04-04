@@ -25,8 +25,8 @@ public class Main {
 
         GraphADT Graph = new GraphADT();
 
-        ArrayList<Node> NodeSet = new ArrayList<Node>();
-        ArrayList<Edge> EdgeSet= new ArrayList<Edge>();
+        HashSet<Node> NodeSet = new HashSet<Node>();
+        HashSet<Edge> EdgeSet= new HashSet<Edge>();
 
 
         int Vertex1;
@@ -72,21 +72,23 @@ public class Main {
 
         }
 
-        for (Node n : NodeSet){
-            System.out.println(n.GetNodeID());
-        }
+        List<Node> NodeList = new ArrayList<>(NodeSet);
 
-        for (Edge e : EdgeSet){
-            System.out.println(e.GetWeight());
-        }
+        // for (Node n : NodeList){
+        //     System.out.println(n.GetNodeID());
+        // }
+
+        // for (Edge e : EdgeSet){
+        //     System.out.println(e.GetWeight());
+        // }
 
         ShortestPath Path = new ShortestPath();
 
-        List<Node> shortestDistances = Path.findPathBetweenNode(Graph, NodeSet.get(2), NodeSet.get(4));
+        List<Node> shortestDistances = Path.findPathBetweenNode(Graph, NodeList.get(2), NodeList.get(4));
         for (Node node : shortestDistances) {
-            System.out.println(node.GetNodeID());
+            System.out.println("Hello" + node.GetNodeID());
         }
 
-
+        //THE ADAJCENY LIST IS ADDING ITSELF TO THE LIST MEANING PATH IS ALL WEIRD IDK WHY
     }
 }

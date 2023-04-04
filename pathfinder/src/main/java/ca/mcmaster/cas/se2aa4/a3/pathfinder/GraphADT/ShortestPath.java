@@ -61,6 +61,16 @@ public class ShortestPath implements PathAlgorithms {
             }
         }
 
+        for(Node n : parentNodes.keySet()){
+            System.out.println(n.GetNodeID());
+
+        }
+
+        for(Node n : parentNodes.values()){
+            System.out.println(n.GetNodeID());
+        }
+
+
         List<Node> shortestPath = new ArrayList<>();
         Node currentNode = endNode;
         while (parentNodes.containsKey(currentNode)) {
