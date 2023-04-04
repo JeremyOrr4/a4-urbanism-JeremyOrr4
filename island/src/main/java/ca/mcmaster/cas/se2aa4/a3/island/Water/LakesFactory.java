@@ -1,4 +1,5 @@
 package ca.mcmaster.cas.se2aa4.a3.island.Water;
+
 import ca.mcmaster.cas.se2aa4.a2.io.Structs;
 
 import ca.mcmaster.cas.se2aa4.a3.island.MeshAttributes.Humidity;
@@ -7,36 +8,35 @@ import ca.mcmaster.cas.se2aa4.a3.island.MeshAttributes.Tiles;
 import java.util.Random;
 import java.util.ArrayList;
 import java.util.List;
-/**Produce Given Number of lakes of various sizes**/
+
+/** Produce Given Number of lakes of various sizes **/
 public class LakesFactory {
 
     List<Structs.Polygon> polysNew = new ArrayList<>();
-    public Structs.Mesh RandomLakes(int lakeNum, Structs.Mesh aMesh, int seed){
+
+    public Structs.Mesh RandomLakes(int lakeNum, Structs.Mesh aMesh, int seed) {
         List<Structs.Polygon> polys = aMesh.getPolygonsList();
-        for (Structs.Polygon p: polys){
+        for (Structs.Polygon p : polys) {
             this.polysNew.add(p);
         }
         List<Integer> LakeCandidates = getLakeCandidates(polys);
         Random LakeChance = new Random(seed);
 
-        while (lakeNum>0){
-            int LakeId = LakeChance.nextInt(LakeCandidates.size()-1);
-            this.polysNew.set((int)LakeCandidates.get(LakeId), Tiles.setType(polys.get(LakeCandidates.get(LakeId)), Tiles.TileType.LAKE));
-            LakeExpansion(polysNew,polysNew.get((int)LakeCandidates.get(LakeId)), seed);
+        while (lakeNum > 0) {
+            int LakeId = LakeChance.nextInt(LakeCandidates.size() - 1);
+            this.polysNew.set((int) LakeCandidates.get(LakeId),
+                    Tiles.setType(polys.get(LakeCandidates.get(LakeId)), Tiles.TileType.LAKE));
+            LakeExpansion(polysNew, polysNew.get((int) LakeCandidates.get(LakeId)), seed);
             LakeCandidates = getLakeCandidates(this.polysNew);
-            lakeNum-=1;
+            lakeNum -= 1;
         }
-        return Structs.Mesh.newBuilder().addAllVertices(aMesh.getVerticesList()).addAllSegments(aMesh.getSegmentsList()).addAllPolygons(this.polysNew).build();
+        return Structs.Mesh.newBuilder().addAllVertices(aMesh.getVerticesList()).addAllSegments(aMesh.getSegmentsList())
+                .addAllPolygons(this.polysNew).build();
 
     }
 
-
-   
-
-
-
-    private boolean CheckNeighbour(Structs.Polygon p,List<Structs.Polygon> polys){
-        for (int i: p.getNeighborIdxsList()) {
+    private boolean CheckNeighbour(Structs.Polygon p, List<Structs.Polygon> polys) {
+        for (int i : p.getNeighborIdxsList()) {
             if (!Tiles.getTileType(polys.get(i)).equals("Land")) {
                 return false;
             }
@@ -44,31 +44,22 @@ public class LakesFactory {
         return true;
     }
 
-
-  
-
-
-    private List<Integer> getLakeCandidates(List<Structs.Polygon> polys){
+    private List<Integer> getLakeCandidates(List<Structs.Polygon> polys) {
         List<Integer> LakeCandidates = new ArrayList<>();
-        for (Structs.Polygon p: polys){
-            if (Tiles.getTileType(p).equals("Land")){
-                if (CheckNeighbour(p,polys)) LakeCandidates.add(polys.indexOf(p));
+        for (Structs.Polygon p : polys) {
+            if (Tiles.getTileType(p).equals("Land")) {
+                if (CheckNeighbour(p, polys))
+                    LakeCandidates.add(polys.indexOf(p));
             }
         }
         return LakeCandidates;
     }
 
-
-
-
-
- 
-
-    private void LakeExpansion(List<Structs.Polygon> polys,Structs.Polygon p, int seed){
+    private void LakeExpansion(List<Structs.Polygon> polys, Structs.Polygon p, int seed) {
         Random random = new Random(seed);
-        for (int n:p.getNeighborIdxsList()){
-            if (random.nextInt(100)>85){
-                this.polysNew.set(n,Tiles.setType(polys.get(n), Tiles.TileType.LAKE));
+        for (int n : p.getNeighborIdxsList()) {
+            if (random.nextInt(100) > 85) {
+                this.polysNew.set(n, Tiles.setType(polys.get(n), Tiles.TileType.LAKE));
             }
         }
     }

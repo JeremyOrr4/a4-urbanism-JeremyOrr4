@@ -4,9 +4,9 @@ public class Edge {
     Node StartNode;
     Node EndNode;
     int EdgeID;
-    int Weight;
+    double Weight;
 
-    public Edge(Node StartNode, Node EndNode, int Weight) {
+    public Edge(Node StartNode, Node EndNode, double Weight) {
         this.StartNode = StartNode;
         this.EndNode = EndNode;
         this.Weight = Weight;
@@ -39,7 +39,7 @@ public class Edge {
         return EndNode;
     }
 
-    public int GetWeight(){
+    public double GetWeight(){
         return Weight;
     }
 }

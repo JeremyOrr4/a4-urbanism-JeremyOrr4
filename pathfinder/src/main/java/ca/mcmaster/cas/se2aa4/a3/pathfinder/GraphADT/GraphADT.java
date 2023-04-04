@@ -20,12 +20,15 @@ public class GraphADT {
     public void AddEdge(Node StartNode, Node EndNode) {
         if (AdjacencyList.containsKey(StartNode)) {
             AdjacencyList.get(StartNode).add(EndNode);
+            AdjacencyList.get(EndNode).add(StartNode);
         }
 
         else {
             Set<Node> EmptySet = new HashSet<Node>();
             AdjacencyList.put(StartNode, EmptySet);
-            AddEdge(StartNode, EndNode);
+            AdjacencyList.put(EndNode, EmptySet);
+            AdjacencyList.get(StartNode).add(EndNode);
+            AdjacencyList.get(EndNode).add(StartNode);
         }
     }
 

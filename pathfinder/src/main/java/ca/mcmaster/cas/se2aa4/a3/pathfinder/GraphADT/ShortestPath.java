@@ -20,20 +20,20 @@ import java.util.Set;
 public class ShortestPath implements PathAlgorithms {
 
     public List<Node> findPathBetweenNode(GraphADT graph, Node startNode, Node endNode) {
-        Map<Node, Integer> distance = new HashMap<>();
+        Map<Node, Double> distance = new HashMap<>();
         Map<Node, Node> parentNodes = new HashMap<>();
 
         for (Node node : graph.AdjacencyList.keySet()) {
-            distance.put(node, Integer.MAX_VALUE);
+            distance.put(node, Double.MAX_VALUE);
         }
-        distance.put(startNode, 0);
+        distance.put(startNode, 0.0);
 
         Set<Node> visited = new HashSet<>();
 
         PriorityQueue<Node> pq = new PriorityQueue<>(new Comparator<Node>() {
             @Override
             public int compare(Node node1, Node node2) {
-                return distance.get(node1) - distance.get(node2);
+                return (int) (distance.get(node1) - distance.get(node2));
             }
         });
 
@@ -49,7 +49,7 @@ public class ShortestPath implements PathAlgorithms {
 
             for (Node adjacentNode : graph.AdjacencyList.get(node)) {
                 if (!visited.contains(adjacentNode)) {
-                    int newDistance = distance.get(node) + Math.abs(node.GetXCoordinate() - adjacentNode.GetXCoordinate()) 
+                    double newDistance = distance.get(node) + Math.abs(node.GetXCoordinate() - adjacentNode.GetXCoordinate()) 
                                                     + Math.abs(node.GetYCoordinate() - adjacentNode.GetYCoordinate());
                     if (newDistance < distance.get(adjacentNode)) {
                         distance.put(adjacentNode, newDistance);

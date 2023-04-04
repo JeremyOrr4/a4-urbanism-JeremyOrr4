@@ -30,7 +30,10 @@ public class Tiles {
         GRASSLAND("215,196,41","Grassland Desert"),
 
         TROPICAL("68,193,25","Tropical"),
-        LAGOON("24,112,188", "Lagoon"); 
+        LAGOON("24,112,188", "Lagoon"),
+        
+        CITYROAD("69,69,69","City"); 
+
 
 
 

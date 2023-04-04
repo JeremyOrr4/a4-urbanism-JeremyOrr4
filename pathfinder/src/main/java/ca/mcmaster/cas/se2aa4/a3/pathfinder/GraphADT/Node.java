@@ -2,10 +2,10 @@ package ca.mcmaster.cas.se2aa4.a3.pathfinder.GraphADT;
 
 public class Node {
     private int NodeID;
-    private int XCoordinate;
-    private int YCoordinate;
+    private double XCoordinate;
+    private double YCoordinate;
     
-    public Node(int NodeID) {
+    public Node(int NodeID, double XCoordinate, double YCoordinate ) {
         this.NodeID = NodeID;
         this.XCoordinate = XCoordinate;
         this.YCoordinate = YCoordinate;
@@ -18,11 +18,11 @@ public class Node {
     }
 
 
-    public int GetXCoordinate() {
+    public double GetXCoordinate() {
         return XCoordinate;
     }
 
-    public int GetYCoordinate() {
+    public double GetYCoordinate() {
         return YCoordinate;
     }
 
