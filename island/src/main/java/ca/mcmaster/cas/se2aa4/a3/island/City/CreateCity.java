@@ -87,14 +87,14 @@ public class CreateCity {
                         Vertex2 = IndidualSegments.getV2Idx();
 
                         if (Vertex1 == NodeList.get(i).GetNodeID() && Vertex2 == NodeList.get(i+1).GetNodeID()){
-                            Structs.Property color = Structs.Property.newBuilder().setKey("rgb_color").setValue("255,0,0").build(); 
+                            Structs.Property color = Structs.Property.newBuilder().setKey("rgb_color").setValue("0,0,0").build(); 
                             IndidualSegments = Structs.Segment.newBuilder(IndidualSegments).addProperties(color).build();
                             SegmentList.set(IndidualSegmentsID,IndidualSegments);
                             
                         }
 
                         else if(Vertex2 == NodeList.get(i).GetNodeID() && Vertex1 == NodeList.get(i+1).GetNodeID()) {
-                            Structs.Property color = Structs.Property.newBuilder().setKey("rgb_color").setValue("255,0,0").build(); 
+                            Structs.Property color = Structs.Property.newBuilder().setKey("rgb_color").setValue("0,0,0").build(); 
                             IndidualSegments = Structs.Segment.newBuilder(IndidualSegments).addProperties(color).build();
                             SegmentList.set(IndidualSegmentsID,IndidualSegments);
                         }

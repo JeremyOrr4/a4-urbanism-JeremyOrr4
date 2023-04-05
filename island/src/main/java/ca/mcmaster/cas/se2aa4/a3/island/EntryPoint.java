@@ -80,9 +80,10 @@ public class EntryPoint {
         }else if (vis.equals("Elevation")){
             lagoonMesh = ElevationVisualizer.elevationView(lagoonMesh);
         }
-
-        PathFinderEntry PathFinder = new PathFinderEntry();
-        lagoonMesh = PathFinder.CreateCity(lagoonMesh);
+        for(int i = 0; i < 3; i++){ // 3 = paths
+            PathFinderEntry PathFinder = new PathFinderEntry();
+            lagoonMesh = PathFinder.CreateCity(lagoonMesh);
+        }
 
         return  lagoonMesh;
     }
