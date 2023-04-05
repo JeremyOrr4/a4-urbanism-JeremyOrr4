@@ -22,7 +22,7 @@ public class PathFinderEntry {
         List<Node> NodeList = new ArrayList<Node>();
         NodeList = CityGraphCreator.CreateCityGraph(Mesh,Graph);
 
-        Node CentreNode = NodeList.get(2);
+        Node CentreNode = NodeList.get(532);
 
         ShortestPath Path = new ShortestPath();
         List<Node> shortestDistance = Path.findPathBetweenNode(Graph, CentreNode, NodeList.get(random.nextInt(NodeList.size())));
