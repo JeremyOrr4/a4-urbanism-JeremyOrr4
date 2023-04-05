@@ -17,6 +17,8 @@ import ca.mcmaster.cas.se2aa4.a3.island.Visualization.HumidityView;
 import ca.mcmaster.cas.se2aa4.a3.island.Water.LakesFactory;
 import ca.mcmaster.cas.se2aa4.a3.island.Water.riverFactory;
 
+// import ca.mcmaster.cas.se2aa4.a3.pathfinder.*;
+
 import java.util.ArrayList;
 import java.util.List;
 /**Class which incrementally adds elements of a complete island**/
@@ -78,6 +80,9 @@ public class EntryPoint {
         }else if (vis.equals("Elevation")){
             lagoonMesh = ElevationVisualizer.elevationView(lagoonMesh);
         }
+
+        // PathFinderEntry PathFinder = new PathFinderEntry();
+        // lagoonMesh = PathFinder.CreateCity(lagoonMesh);
 
         return  lagoonMesh;
     }

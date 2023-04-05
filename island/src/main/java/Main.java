@@ -66,8 +66,11 @@ public class Main {
 
         Structs.Mesh exported = new MeshFactory().read(config.input());
 
+        
+
         exported = EntryPoint.meshTest(exported,lakes,rivers,vis,lagoon,Profile, seed ,Shape,height,width);
 
         new MeshFactory().write(exported, config.export(Configuration.OUTPUT));
     }
+
 }
