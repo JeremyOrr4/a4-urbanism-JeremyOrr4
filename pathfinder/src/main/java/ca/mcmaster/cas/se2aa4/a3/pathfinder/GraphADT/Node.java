@@ -17,7 +17,6 @@ public class Node {
         return NodeID;
     }
 
-
     public double GetXCoordinate() {
         return XCoordinate;
     }
@@ -36,6 +35,19 @@ public class Node {
 
     public void SetNodeID(int NodeIDValue) {
         NodeID = NodeIDValue;
+    }
+
+    @Override
+    public int hashCode() {
+        return NodeID;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (o == this) return true;
+        if (!(o instanceof Node)) return false;
+        Node n = (Node) o;
+        return n.hashCode() == this.hashCode();
     }
 
     //Printing

@@ -18,18 +18,19 @@ public class GraphADT {
     }
 
     public void AddEdge(Node StartNode, Node EndNode) {
-        if (AdjacencyList.containsKey(StartNode)) {
-            AdjacencyList.get(StartNode).add(EndNode);
-            AdjacencyList.get(EndNode).add(StartNode);
-        }
-
-        else {
+        if (!AdjacencyList.containsKey(StartNode)){
             Set<Node> EmptySet = new HashSet<Node>();
             AdjacencyList.put(StartNode, EmptySet);
-            AdjacencyList.put(EndNode, EmptySet);
-            AdjacencyList.get(StartNode).add(EndNode);
-            AdjacencyList.get(EndNode).add(StartNode);
         }
+        
+        if (!AdjacencyList.containsKey(EndNode)) {
+            Set<Node> EmptySet = new HashSet<Node>();
+            AdjacencyList.put(EndNode, EmptySet);
+        }
+
+        AdjacencyList.get(StartNode).add(EndNode);
+        AdjacencyList.get(EndNode).add(StartNode);
+
     }
 
     public void PrintPathOfNode(Node NodeToPrint) {
@@ -46,10 +47,6 @@ public class GraphADT {
         else {
             System.out.println("Node is Not in Graph.");
         }
-    }
-
-    public void PrintAdjacencyList() {
-
     }
 
     public Set<Node> GetNodesConnectedSet(Node NodeOfPathWanted) {
@@ -88,6 +85,18 @@ public class GraphADT {
     public void PrintNodesConectedSet(Node NodeOfPathWanted){
         for (Node node : GetNodesConnectedSet(NodeOfPathWanted)){
             System.out.println(node.GetNodeID());
+        }
+    }
+
+    public void PrintAdjacencyList(){
+        for (Node Node : AdjacencyList.keySet()) {
+            System.out.print(Node.GetNodeID() + ": ");
+
+            for (Node n : AdjacencyList.get(Node)){
+                System.out.print(n.GetNodeID() + "," );
+            }
+
+            System.out.println(" ");
         }
     }
 

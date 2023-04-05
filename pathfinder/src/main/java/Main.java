@@ -84,11 +84,15 @@ public class Main {
 
         ShortestPath Path = new ShortestPath();
 
+
+        System.out.println(NodeList.get(2).GetNodeID());
+        System.out.println(NodeList.get(4).GetNodeID());
+
+
         List<Node> shortestDistances = Path.findPathBetweenNode(Graph, NodeList.get(2), NodeList.get(4));
         for (Node node : shortestDistances) {
-            System.out.println("Hello" + node.GetNodeID());
+            System.out.println(node.GetNodeID());
         }
 
-        //THE ADAJCENY LIST IS ADDING ITSELF TO THE LIST MEANING PATH IS ALL WEIRD IDK WHY
     }
 }
