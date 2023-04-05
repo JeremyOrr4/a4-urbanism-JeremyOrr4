@@ -21,10 +21,11 @@ import ca.mcmaster.cas.se2aa4.a3.island.Water.riverFactory;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 /**Class which incrementally adds elements of a complete island**/
 public class EntryPoint {
 
-    public static Mesh meshTest(Mesh aMesh,int lakes,int river, String vis,boolean lagoon,String Profile, int seed, String Shape,int height,int width){
+    public static Mesh meshTest(Mesh aMesh,int lakes,int river, String vis,boolean lagoon,String Profile, int seed, String Shape,int height,int width,int cities){
 
         TileTest Tiletest = new TileTest();
         Tiletest.testSuite();
@@ -81,11 +82,16 @@ public class EntryPoint {
             lagoonMesh = ElevationVisualizer.elevationView(lagoonMesh);
         }
         
-        for(int i = 0; i < 3; i++){ // 3 = paths
-            PathFinderEntry PathFinder = new PathFinderEntry();
-            lagoonMesh = PathFinder.CreateCity(lagoonMesh);
-        }
 
+        for(int j = 0; j < cities; j++){
+            Random random = new Random();
+            int StartNodeID = random.nextInt(1000);
+
+            for(int i = 0; i < 3; i++){ // 3 = paths
+                PathFinderEntry PathFinder = new PathFinderEntry();
+                lagoonMesh = PathFinder.CreateCity(lagoonMesh,StartNodeID);
+            }
+        }
 
         return  lagoonMesh;
     }

@@ -64,11 +64,16 @@ public class Main {
            seed = config.export(Configuration.SEED).hashCode();
         }
 
+        int cities = 1; 
+        if (config.export().containsKey(Configuration.CITIES)){
+            cities = Integer.parseInt(config.export(Configuration.CITIES));
+        }
+
         Structs.Mesh exported = new MeshFactory().read(config.input());
 
         
 
-        exported = EntryPoint.meshTest(exported,lakes,rivers,vis,lagoon,Profile, seed ,Shape,height,width);
+        exported = EntryPoint.meshTest(exported,lakes,rivers,vis,lagoon,Profile, seed ,Shape,height,width,cities);
 
         new MeshFactory().write(exported, config.export(Configuration.OUTPUT));
     }

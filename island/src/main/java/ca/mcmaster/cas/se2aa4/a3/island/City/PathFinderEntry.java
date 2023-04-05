@@ -13,7 +13,7 @@ import ca.mcmaster.cas.se2aa4.a3.pathfinder.GraphADT.Node;
 import ca.mcmaster.cas.se2aa4.a3.pathfinder.GraphADT.ShortestPath;
 
 public class PathFinderEntry {
-    public Structs.Mesh CreateCity(Structs.Mesh Mesh){
+    public Structs.Mesh CreateCity(Structs.Mesh Mesh, int StartNodeID){
         GraphADT Graph = new GraphADT();
 
         Random random = new Random();
@@ -22,7 +22,7 @@ public class PathFinderEntry {
         List<Node> NodeList = new ArrayList<Node>();
         NodeList = CityGraphCreator.CreateCityGraph(Mesh,Graph);
 
-        Node CentreNode = NodeList.get(532);
+        Node CentreNode = NodeList.get(StartNodeID);
 
         ShortestPath Path = new ShortestPath();
         List<Node> shortestDistance = Path.findPathBetweenNode(Graph, CentreNode, NodeList.get(random.nextInt(NodeList.size())));
