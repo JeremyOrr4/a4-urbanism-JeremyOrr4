@@ -2,6 +2,7 @@ Main.class
 ca\mcmaster\cas\se2aa4\a3\pathfinder\Tests\GraphADT_Tests.class
 ca\mcmaster\cas\se2aa4\a3\pathfinder\GraphADT\GraphADT.class
 ca\mcmaster\cas\se2aa4\a3\pathfinder\GraphADT\Node.class
+ca\mcmaster\cas\se2aa4\a3\pathfinder\City\CreateCity.class
 ca\mcmaster\cas\se2aa4\a3\pathfinder\GraphADT\Edge.class
 ca\mcmaster\cas\se2aa4\a3\pathfinder\GraphADT\ShortestPath$1.class
 ca\mcmaster\cas\se2aa4\a3\pathfinder\GraphADT\ShortestPath.class
