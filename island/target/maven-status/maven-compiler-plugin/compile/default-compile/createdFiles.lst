@@ -19,6 +19,7 @@ ca\mcmaster\cas\se2aa4\a3\island\Visualization\HumidityView.class
 ca\mcmaster\cas\se2aa4\a3\island\Visualization\ElevationVisualizer.class
 ca\mcmaster\cas\se2aa4\a3\island\EntryPoint.class
 ca\mcmaster\cas\se2aa4\a3\island\Shapes\Irregular.class
+ca\mcmaster\cas\se2aa4\a3\island\City\CreateCity.class
 ca\mcmaster\cas\se2aa4\a3\island\Biomes\Whittaker.class
 ca\mcmaster\cas\se2aa4\a3\island\ExtractionTest.class
 ca\mcmaster\cas\se2aa4\a3\island\IslandShaper.class
@@ -30,4 +31,5 @@ ca\mcmaster\cas\se2aa4\a3\island\Water\LakesFactory.class
 ca\mcmaster\cas\se2aa4\a3\island\Elevation\ExampleElevationProfile.class
 ca\mcmaster\cas\se2aa4\a3\island\Water\riverFactory.class
 ca\mcmaster\cas\se2aa4\a3\island\Elevation\Elevation.class
+ca\mcmaster\cas\se2aa4\a3\island\City\PathFinderEntry.class
 ca\mcmaster\cas\se2aa4\a3\island\Shapes\Circle.class

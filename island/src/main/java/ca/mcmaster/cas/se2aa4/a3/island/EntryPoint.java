@@ -3,7 +3,7 @@ import ca.mcmaster.cas.se2aa4.a2.io.Structs.Mesh;
 import ca.mcmaster.cas.se2aa4.a3.island.Biomes.BiomeFactory;
 import ca.mcmaster.cas.se2aa4.a3.island.Biomes.BiomeTest;
 import ca.mcmaster.cas.se2aa4.a3.island.Biomes.Whittaker;
-
+import ca.mcmaster.cas.se2aa4.a3.island.City.PathFinderEntry;
 import ca.mcmaster.cas.se2aa4.a3.island.Elevation.Elevation;
 import ca.mcmaster.cas.se2aa4.a3.island.Elevation.ElevationTest;
 import ca.mcmaster.cas.se2aa4.a3.island.Elevation.ExampleElevationProfile;
@@ -17,7 +17,7 @@ import ca.mcmaster.cas.se2aa4.a3.island.Visualization.HumidityView;
 import ca.mcmaster.cas.se2aa4.a3.island.Water.LakesFactory;
 import ca.mcmaster.cas.se2aa4.a3.island.Water.riverFactory;
 
-// import ca.mcmaster.cas.se2aa4.a3.pathfinder.*;
+
 
 import java.util.ArrayList;
 import java.util.List;
@@ -81,8 +81,8 @@ public class EntryPoint {
             lagoonMesh = ElevationVisualizer.elevationView(lagoonMesh);
         }
 
-        // PathFinderEntry PathFinder = new PathFinderEntry();
-        // lagoonMesh = PathFinder.CreateCity(lagoonMesh);
+        PathFinderEntry PathFinder = new PathFinderEntry();
+        lagoonMesh = PathFinder.CreateCity(lagoonMesh);
 
         return  lagoonMesh;
     }

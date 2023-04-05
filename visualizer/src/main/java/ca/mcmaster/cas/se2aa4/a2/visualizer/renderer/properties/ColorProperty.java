@@ -32,7 +32,7 @@ public class ColorProperty implements PropertyAccess<Color> {
     public boolean CheckRiver(Structs.Segment s){
         List<Structs.Property> Props = s.getPropertiesList();
         for (Structs.Property prop: Props){
-            if(prop.getKey().equals("IsRiver")){
+            if(prop.getKey().equals("rgb_color")){
                 return true;
             }
         }
