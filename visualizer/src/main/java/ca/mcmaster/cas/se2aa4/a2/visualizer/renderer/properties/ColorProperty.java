@@ -39,4 +39,15 @@ public class ColorProperty implements PropertyAccess<Color> {
         return false;
 
     }
+
+    public boolean CheckVertex(Structs.Vertex v){
+        List<Structs.Property> Props = v.getPropertiesList();
+        for (Structs.Property prop: Props){
+            if(prop.getKey().equals("rgb_color")){
+                return true;
+            }
+        }
+        return false;
+
+    }
 }

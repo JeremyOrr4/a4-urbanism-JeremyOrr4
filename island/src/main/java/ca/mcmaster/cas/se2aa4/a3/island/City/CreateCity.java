@@ -9,6 +9,7 @@ import org.w3c.dom.NodeList;
 
 import ca.mcmaster.cas.se2aa4.a2.io.Structs;
 import ca.mcmaster.cas.se2aa4.a2.io.Structs.Segment;
+import ca.mcmaster.cas.se2aa4.a2.io.Structs.Vertex;
 import ca.mcmaster.cas.se2aa4.a3.pathfinder.GraphADT.GraphADT;
 import ca.mcmaster.cas.se2aa4.a3.pathfinder.GraphADT.Node;
 import ca.mcmaster.cas.se2aa4.a3.island.MeshAttributes.Tiles;
@@ -106,6 +107,26 @@ public class CreateCity {
         }
 
         return SegmentList;
+    }
+
+
+    public List<Vertex> AddColorToVertex(Structs.Mesh Mesh, Node BaseNode){
+        List<Vertex> NewVertexList = new ArrayList<Vertex>();
+
+        for (Vertex vertex :Mesh.getVerticesList() ){
+            if(Mesh.getVerticesList().indexOf(vertex) == BaseNode.GetNodeID()){
+                Structs.Property color = Structs.Property.newBuilder().setKey("rgb_color").setValue("255,0,0").build(); 
+                vertex = Structs.Vertex.newBuilder(vertex).addProperties(color).build();
+                NewVertexList.add(vertex);
+            }
+            else{
+                NewVertexList.add(vertex);
+            }
+        }
+
+
+
+        return NewVertexList;
     }
 
 }

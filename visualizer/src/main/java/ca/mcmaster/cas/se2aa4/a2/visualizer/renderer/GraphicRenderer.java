@@ -34,6 +34,13 @@ public class GraphicRenderer implements Renderer {
             }
         }
         canvas.setStroke(new BasicStroke(0.2f));
+        for (Structs.Vertex v: aMesh.getVerticesList()){
+            if (new ColorProperty().CheckVertex(v)){
+                canvas.setColor(new ColorProperty().extractSegment(v.getPropertiesList()));
+                Ellipse2D point = new Ellipse2D.Double(v.getX()-2.5,v.getY()-2.5,5,5);
+                canvas.fill(point);
+            }
+        }
     }
 
     private void drawPolygons(Mesh aMesh, Graphics2D canvas) {

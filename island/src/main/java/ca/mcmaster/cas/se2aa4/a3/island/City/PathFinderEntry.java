@@ -8,6 +8,7 @@ import java.util.List;
 import java.util.Random;
 
 import ca.mcmaster.cas.se2aa4.a2.io.Structs.Segment;
+import ca.mcmaster.cas.se2aa4.a2.io.Structs.Vertex;
 import ca.mcmaster.cas.se2aa4.a3.pathfinder.GraphADT.Node;
 import ca.mcmaster.cas.se2aa4.a3.pathfinder.GraphADT.ShortestPath;
 
@@ -32,9 +33,10 @@ public class PathFinderEntry {
         }
         SegmentListOfPath = CityGraphCreator.GetSegmentPathList(shortestDistance, SegmentListOfPath,Mesh, Graph);
 
-        
+        List<Vertex> ListOfVertices = new ArrayList<Vertex>();
+        ListOfVertices = CityGraphCreator.AddColorToVertex(Mesh,CentreNode);
 
-        return Structs.Mesh.newBuilder().addAllVertices(Mesh.getVerticesList()).addAllSegments(SegmentListOfPath)
+        return Structs.Mesh.newBuilder().addAllVertices(ListOfVertices).addAllSegments(SegmentListOfPath)
                 .addAllPolygons(Mesh.getPolygonsList()).build();  
 
     }
