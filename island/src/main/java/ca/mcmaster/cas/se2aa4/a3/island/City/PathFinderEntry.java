@@ -10,6 +10,7 @@ import java.util.Random;
 import ca.mcmaster.cas.se2aa4.a2.io.Structs.Segment;
 import ca.mcmaster.cas.se2aa4.a2.io.Structs.Vertex;
 import ca.mcmaster.cas.se2aa4.a3.pathfinder.GraphADT.Node;
+import ca.mcmaster.cas.se2aa4.a3.pathfinder.GraphADT.PathAlgorithms;
 import ca.mcmaster.cas.se2aa4.a3.pathfinder.GraphADT.ShortestPath;
 
 public class PathFinderEntry {
@@ -26,7 +27,7 @@ public class PathFinderEntry {
 
         int EndNodeID = random.nextInt(NodeList.size());
        
-        ShortestPath Path = new ShortestPath();
+        PathAlgorithms Path = new ShortestPath();
         List<Node> shortestDistance = Path.findPathBetweenNode(Graph, CentreNode, NodeList.get(EndNodeID));
 
         List<Node> newShortestDistnace = new ArrayList<Node>();
