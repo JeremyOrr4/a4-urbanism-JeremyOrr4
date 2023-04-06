@@ -9,6 +9,7 @@ ca\mcmaster\cas\se2aa4\a3\island\Shapes\BoundTest.class
 Main.class
 ca\mcmaster\cas\se2aa4\a3\island\Biomes\BiomeTest.class
 ca\mcmaster\cas\se2aa4\a3\island\MeshAttributes\HumidityTest.class
+ca\mcmaster\cas\se2aa4\a3\island\City\CityTest.class
 ca\mcmaster\cas\se2aa4\a3\island\Shapes\Square.class
 ca\mcmaster\cas\se2aa4\a3\island\Biomes\BiomeData.class
 ca\mcmaster\cas\se2aa4\a3\island\Biomes\BiomeFactory.class

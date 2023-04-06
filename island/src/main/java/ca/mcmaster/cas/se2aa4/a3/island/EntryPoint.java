@@ -3,6 +3,7 @@ import ca.mcmaster.cas.se2aa4.a2.io.Structs.Mesh;
 import ca.mcmaster.cas.se2aa4.a3.island.Biomes.BiomeFactory;
 import ca.mcmaster.cas.se2aa4.a3.island.Biomes.BiomeTest;
 import ca.mcmaster.cas.se2aa4.a3.island.Biomes.Whittaker;
+import ca.mcmaster.cas.se2aa4.a3.island.City.CityTest;
 import ca.mcmaster.cas.se2aa4.a3.island.City.PathFinderEntry;
 import ca.mcmaster.cas.se2aa4.a3.island.Elevation.Elevation;
 import ca.mcmaster.cas.se2aa4.a3.island.Elevation.ElevationTest;
@@ -44,6 +45,9 @@ public class EntryPoint {
 
         HumidityTest humidTest = new HumidityTest();
         humidTest.TestSuite();
+
+        CityTest CityTest = new CityTest();
+        CityTest.TestSuite();
 
         Extractor.MeshHeight=height;
         Extractor.MeshWidth=width;

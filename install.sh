@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# mvn clean 
-# mvn compile
-# mvn install 
-# mvn package
+mvn clean 
+mvn compile
+mvn install 
+mvn package
