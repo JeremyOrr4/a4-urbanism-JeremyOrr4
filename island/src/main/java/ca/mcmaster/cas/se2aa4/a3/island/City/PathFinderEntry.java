@@ -13,7 +13,7 @@ import ca.mcmaster.cas.se2aa4.a3.pathfinder.GraphADT.Node;
 import ca.mcmaster.cas.se2aa4.a3.pathfinder.GraphADT.ShortestPath;
 
 public class PathFinderEntry {
-    public Structs.Mesh CreateCity(Structs.Mesh Mesh, int StartNodeID){
+    public Structs.Mesh CreateCity(Structs.Mesh Mesh, int StartNodeID, String citysize){
         GraphADT Graph = new GraphADT();
 
         Random random = new Random();
@@ -24,14 +24,32 @@ public class PathFinderEntry {
 
         Node CentreNode = NodeList.get(StartNodeID);
 
+        int EndNodeID = random.nextInt(NodeList.size());
+       
         ShortestPath Path = new ShortestPath();
-        List<Node> shortestDistance = Path.findPathBetweenNode(Graph, CentreNode, NodeList.get(random.nextInt(NodeList.size())));
-        
+        List<Node> shortestDistance = Path.findPathBetweenNode(Graph, CentreNode, NodeList.get(EndNodeID));
+
+        List<Node> newShortestDistnace = new ArrayList<Node>();
+        if (citysize.equalsIgnoreCase("small")){ 
+            int NewLengthSegmentLength = (int) (shortestDistance.size()/5.0);
+
+            for (int i = 0; i < NewLengthSegmentLength; i++){
+                newShortestDistnace.add(shortestDistance.get(i));
+            }
+        }
+
         List<Segment> SegmentListOfPath = new ArrayList<>();
         for (Segment s: Mesh.getSegmentsList()){
             SegmentListOfPath.add(s);
         }
-        SegmentListOfPath = CityGraphCreator.GetSegmentPathList(shortestDistance, SegmentListOfPath,Mesh, Graph);
+
+        if (citysize.equalsIgnoreCase("small")) {
+        SegmentListOfPath = CityGraphCreator.GetSegmentPathList(newShortestDistnace, SegmentListOfPath,Mesh, Graph);
+        }
+
+        else{
+            SegmentListOfPath = CityGraphCreator.GetSegmentPathList(shortestDistance, SegmentListOfPath,Mesh, Graph);
+        }
 
         List<Vertex> ListOfVertices = new ArrayList<Vertex>();
         ListOfVertices = CityGraphCreator.AddColorToVertex(Mesh,CentreNode);

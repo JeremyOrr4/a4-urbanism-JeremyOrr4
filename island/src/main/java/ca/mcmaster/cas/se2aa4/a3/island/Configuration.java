@@ -32,6 +32,9 @@ public class Configuration {
 
     public static final String CITIES = "cities"; 
 
+    public static final String CITYSIZE = "citysize"; 
+
+
 
     private CommandLine cli;
 
@@ -89,6 +92,8 @@ public class Configuration {
         options.addOption(new Option(SEED, true, "Seed controlling randomness (Enter any String)"));
 
         options.addOption(new Option(CITIES, true, "Add Number of Cities (int)"));
+        options.addOption(new Option(CITYSIZE, true, "Change city size (Big or Small)"));
+
 
         return options;
     }

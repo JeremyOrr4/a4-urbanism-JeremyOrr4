@@ -78,7 +78,7 @@ public class CityTest {
         Set<Node> context2 = NewGraph.GetNodesConnectedSet(node1);
         System.out.println("Testing Path Creation");
         Assert.assertEquals(context2, SetUpPath(NewGraph, node1));
-        System.out.println("Test Passed! -> Correct Created");
+        System.out.println("Test Passed! -> Correct Path Created");
 
     }
 

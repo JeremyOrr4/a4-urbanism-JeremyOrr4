@@ -26,7 +26,7 @@ import java.util.Random;
 /**Class which incrementally adds elements of a complete island**/
 public class EntryPoint {
 
-    public static Mesh meshTest(Mesh aMesh,int lakes,int river, String vis,boolean lagoon,String Profile, int seed, String Shape,int height,int width,int cities){
+    public static Mesh meshTest(Mesh aMesh,int lakes,int river, String vis,boolean lagoon,String Profile, int seed, String Shape,int height,int width,int cities, String citysize){
 
         TileTest Tiletest = new TileTest();
         Tiletest.testSuite();
@@ -93,7 +93,7 @@ public class EntryPoint {
 
             for(int i = 0; i < 3; i++){ // 3 = paths
                 PathFinderEntry PathFinder = new PathFinderEntry();
-                lagoonMesh = PathFinder.CreateCity(lagoonMesh,StartNodeID);
+                lagoonMesh = PathFinder.CreateCity(lagoonMesh,StartNodeID,citysize);
             }
         }
 

@@ -69,10 +69,16 @@ public class Main {
             cities = Integer.parseInt(config.export(Configuration.CITIES));
         }
 
+        String citysize = "big";
+        if (config.export().containsKey(Configuration.CITYSIZE)){
+            citysize = (config.export(Configuration.CITYSIZE));
+        }
+
+
         Structs.Mesh exported = new MeshFactory().read(config.input());
 
         
-        exported = EntryPoint.meshTest(exported,lakes,rivers,vis,lagoon,Profile, seed ,Shape,height,width,cities);
+        exported = EntryPoint.meshTest(exported,lakes,rivers,vis,lagoon,Profile, seed ,Shape,height,width,cities,citysize);
 
         new MeshFactory().write(exported, config.export(Configuration.OUTPUT));
     }
