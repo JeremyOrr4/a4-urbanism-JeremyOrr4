@@ -73,22 +73,22 @@ public class Configuration {
 
     private Options options() {
         Options options = new Options();
-        options.addOption(new Option(INPUT, true, "Input file"));
-        options.addOption(new Option(OUTPUT, true, "Output file"));
-        options.addOption(new Option(LAKES, true, "Number of Lakes"));
-        options.addOption(new Option(RIVER, true, "Number of rivers"));
-        options.addOption(new Option(VISUAL, true, "Visualization type"));
+        options.addOption(new Option(INPUT, true, "Input file (File Name)"));
+        options.addOption(new Option(OUTPUT, true, "Output file (File Name)"));
+        options.addOption(new Option(LAKES, true, "Number of Lakes (int)"));
+        options.addOption(new Option(RIVER, true, "Number of rivers (int)"));
+        options.addOption(new Option(VISUAL, true, "Visualization type (Humidity, Elevation) Shows either in black or white"));
         options.addOption(new Option(LAGOON, false, "Lagoon option"));
-        options.addOption(new Option(PROFILE, true, "Elevation Profile"));
-        options.addOption(new Option(SHAPE, true, "Island Shape"));
+        options.addOption(new Option(PROFILE, true, "Elevation Profile (Volcano)"));
+        options.addOption(new Option(SHAPE, true, "Island Shape (Circle, irregular(default), Square)"));
         options.addOption(new Option(HELP, false, "print help message"));
 
-        options.addOption(new Option(WIDTH, true, "Width of input mesh"));
-        options.addOption(new Option(HEIGHT, true, "Height of input mesh"));
+        options.addOption(new Option(WIDTH, true, "Width of input mesh (int)"));
+        options.addOption(new Option(HEIGHT, true, "Height of input mesh (int)"));
 
-        options.addOption(new Option(SEED, true, "Seed controlling randomness"));
+        options.addOption(new Option(SEED, true, "Seed controlling randomness (Enter any String)"));
 
-        options.addOption(new Option(CITIES, true, "Add Number of Cities"));
+        options.addOption(new Option(CITIES, true, "Add Number of Cities (int)"));
 
         return options;
     }

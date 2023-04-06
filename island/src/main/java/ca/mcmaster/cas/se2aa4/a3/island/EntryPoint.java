@@ -85,7 +85,7 @@ public class EntryPoint {
 
         for(int j = 0; j < cities; j++){
             Random random = new Random();
-            int StartNodeID = random.nextInt(1000);
+            int StartNodeID = random.nextInt(700);
 
             for(int i = 0; i < 3; i++){ // 3 = paths
                 PathFinderEntry PathFinder = new PathFinderEntry();

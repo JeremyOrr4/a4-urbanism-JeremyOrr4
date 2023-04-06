@@ -78,4 +78,5 @@ Note: PDF versions of the SVG files were created with `rsvg-convert`.
 | F9 | Add amount of cities to Command Line | • Length of Star network and amount of cities to be add | S |  Week 2  | Week 2 |
 | F10 | Do questions in doc | • Answer all questions for report| S |  Week 2  | Week 2 |
 
+Backlog:Maybe fix the length to be the length of a segment.
 
