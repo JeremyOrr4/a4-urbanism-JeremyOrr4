@@ -49,8 +49,8 @@ public class ShortestPath implements PathAlgorithms {
 
             for (Node adjacentNode : graph.AdjacencyList.get(node)) {
                 if (!visited.contains(adjacentNode)) {
-                    double newDistance = distance.get(node) + Math.abs(node.GetXCoordinate() - adjacentNode.GetXCoordinate()) 
-                                                    + Math.abs(node.GetYCoordinate() - adjacentNode.GetYCoordinate());
+                    double newDistance = distance.get(node) + Math.sqrt(Math.pow(node.GetXCoordinate() - adjacentNode.GetXCoordinate(),2) 
+                                                    + Math.pow(node.GetYCoordinate() - adjacentNode.GetYCoordinate(),2));
                     if (newDistance < distance.get(adjacentNode)) {
                         distance.put(adjacentNode, newDistance);
                         parentNodes.put(adjacentNode, node);
