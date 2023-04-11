@@ -86,12 +86,13 @@ public class EntryPoint {
             lagoonMesh = ElevationVisualizer.elevationView(lagoonMesh);
         }
         
+        int paths = 3;
 
         for(int j = 0; j < cities; j++){
             Random random = new Random();
             int StartNodeID = random.nextInt(700);
 
-            for(int i = 0; i < 3; i++){ // 3 = paths
+            for(int i = 0; i < paths; i++){
                 PathFinderEntry PathFinder = new PathFinderEntry();
                 lagoonMesh = PathFinder.CreateCity(lagoonMesh,StartNodeID,citysize);
             }

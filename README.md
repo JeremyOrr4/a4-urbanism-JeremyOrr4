@@ -18,6 +18,7 @@ mvn install
 (in main directory)
 java -jar island/island.jar -i (mesh to be read in) -o (mesh to be outputted and visualized) -h (height of input mesh) -w (width of input mesh)
 
+If you do not see the tests run in the terminal try to do the command 'mvn clean install'
 -----Other Args -----
 -help -> help message 
 -l -> activates lagoon option 
@@ -25,9 +26,11 @@ java -jar island/island.jar -i (mesh to be read in) -o (mesh to be outputted and
 -p (arg) -> specify elevation profile (Volcano)
 -rivers (arg) -> specify number of rivers (int)
 -s (arg) -> shape of island (Circle, irregular(default), Square)
+-help -> prints help options
+
+Extended:
 -cities (arg) -> speficy the amount of main cities you want
 -citysize (arg) -> speficiy big or small city (big/small)
--help -> prints help options
 Note: if you do not specify a width and height, it will asume the mesh size is 1920x1080.
 Another Note: 1920x1080 are also the dimensions which will produce the richest, most realistic island.
 
@@ -45,7 +48,8 @@ It creates two jars:
   1. `generator/generator.jar` to generate meshes
   2. `visualizer/visualizer.jar` to visualize such meshes as SVG files
 
-## Examples of execution
+## Extending the Library (City)
+I have added my own created Graph Abstract data type. This comes with the implentation of a shorest path algorithm and city system added to the mesh that you create. The args can be seen in the Decorating existing mesh section. You create one hub city where multiple roads lead into it. This means you can have multiple hub cities to enrich your mesh.
 
 ### Generating a mesh, grid or irregular
 

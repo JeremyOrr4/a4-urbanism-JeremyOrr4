@@ -3,10 +3,6 @@ package ca.mcmaster.cas.se2aa4.a3.island.City;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
-import java.util.Random;
-
-import org.w3c.dom.NodeList;
-
 import ca.mcmaster.cas.se2aa4.a2.io.Structs;
 import ca.mcmaster.cas.se2aa4.a2.io.Structs.Segment;
 import ca.mcmaster.cas.se2aa4.a2.io.Structs.Vertex;
@@ -14,8 +10,6 @@ import ca.mcmaster.cas.se2aa4.a3.pathfinder.GraphADT.GraphADT;
 import ca.mcmaster.cas.se2aa4.a3.pathfinder.GraphADT.Node;
 import ca.mcmaster.cas.se2aa4.a3.island.MeshAttributes.Tiles;
 import ca.mcmaster.cas.se2aa4.a3.pathfinder.GraphADT.Edge;
-
-import ca.mcmaster.cas.se2aa4.a3.pathfinder.GraphADT.ShortestPath;
 
 public class CreateCity {
     
