@@ -25,6 +25,8 @@ java -jar island/island.jar -i (mesh to be read in) -o (mesh to be outputted and
 -p (arg) -> specify elevation profile (Volcano)
 -rivers (arg) -> specify number of rivers (int)
 -s (arg) -> shape of island (Circle, irregular(default), Square)
+-cities (arg) -> speficy the amount of main cities you want
+-citysize (arg) -> speficiy big or small city (big/small)
 -help -> prints help options
 Note: if you do not specify a width and height, it will asume the mesh size is 1920x1080.
 Another Note: 1920x1080 are also the dimensions which will produce the richest, most realistic island.
