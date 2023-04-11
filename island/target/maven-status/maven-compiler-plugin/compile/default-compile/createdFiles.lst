@@ -13,6 +13,7 @@ ca\mcmaster\cas\se2aa4\a3\island\City\CityTest.class
 ca\mcmaster\cas\se2aa4\a3\island\Shapes\Square.class
 ca\mcmaster\cas\se2aa4\a3\island\Biomes\BiomeData.class
 ca\mcmaster\cas\se2aa4\a3\island\Biomes\BiomeFactory.class
+ca\mcmaster\cas\se2aa4\a3\island\City\STATUS.class
 ca\mcmaster\cas\se2aa4\a3\island\Biomes\SVGParser.class
 ca\mcmaster\cas\se2aa4\a3\island\Elevation\PerlinProfile.class
 ca\mcmaster\cas\se2aa4\a3\island\MeshAttributes\Humidity.class

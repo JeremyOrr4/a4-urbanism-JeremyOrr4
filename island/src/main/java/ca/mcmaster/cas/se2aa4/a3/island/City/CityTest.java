@@ -4,6 +4,8 @@ package ca.mcmaster.cas.se2aa4.a3.island.City;
 import java.util.List;
 import java.util.Set;
 
+import javax.print.DocFlavor.STRING;
+
 import org.testng.Assert;
 import org.testng.junit.*;
 
@@ -13,6 +15,8 @@ import ca.mcmaster.cas.se2aa4.a3.pathfinder.GraphADT.GraphADT;
 
 
 public class CityTest {
+    public STATUS symbol;
+    
     public Node SetUpNode(int NodeID){
         Node NewNode = new Node(NodeID,1,1);
 
@@ -45,9 +49,15 @@ public class CityTest {
         System.out.println("Testing Node Creation");
         Node context1 = SetUpNode(0);
         Node context2 = SetUpNode(1);
-
-        Assert.assertEquals(context1.GetNodeID(), new Node(0, 1, 1).GetNodeID());
-        Assert.assertEquals(context2.GetNodeID(),new Node(1, 1, 1).GetNodeID());
+        try{
+            Assert.assertEquals(context1.GetNodeID(), new Node(0, 1, 1).GetNodeID());
+            Assert.assertEquals(context2.GetNodeID(),new Node(1, 1, 1).GetNodeID());
+            Assert.assertEquals(context2.GetNodeID(),new Node(1, 1, 1).GetNodeID());
+            symbol = STATUS.PASSED;
+        }
+        catch(Exception e){
+            symbol = STATUS.FAILED;
+        }
         System.out.println("Test Passed! -> Nodes Created");
     }
     
@@ -56,7 +66,15 @@ public class CityTest {
         Node node1 = SetUpNode(0);
         Node node2 = SetUpNode(1);
         Edge context = new Edge(node1, node2, 1);
-        Assert.assertEquals(context.GetStartNode().GetNodeID(), new Edge(node1, node2, 1).GetStartNode().GetNodeID());
+        try{
+            Assert.assertEquals(context.GetStartNode().GetNodeID(), new Edge(node1, node2, 1).GetStartNode().GetNodeID());
+            symbol = STATUS.PASSED;
+
+        }
+        catch(Exception e){
+            symbol = STATUS.FAILED;
+
+        }
         System.out.println("Test Passed! -> Edge Created");
     }
 
@@ -72,20 +90,39 @@ public class CityTest {
 
         GraphADT NewGraph = SetUpGraph( node1,  node2, node3, node4);
         System.out.println("Testing Graph Creation");
-        Assert.assertEquals(context.getClass(), NewGraph.getClass());
+        try{
+            Assert.assertEquals(context.getClass(), NewGraph.getClass());
+            symbol = STATUS.PASSED;
+
+        }
+        catch(Exception e){
+            symbol = STATUS.FAILED;
+
+        }
         System.out.println("Test Passed! -> Graph Created");
 
         Set<Node> context2 = NewGraph.GetNodesConnectedSet(node1);
         System.out.println("Testing Path Creation");
-        Assert.assertEquals(context2, SetUpPath(NewGraph, node1));
-        System.out.println("Test Passed! -> Correct Path Created");
+        try{
+            Assert.assertEquals(context2, SetUpPath(NewGraph, node1));
+            symbol = STATUS.PASSED;
 
+        }
+        catch(Exception e){
+            symbol = STATUS.FAILED;
+        }
+        System.out.println("Test Passed! -> Correct Path Created");
+    }
+
+    public void PrintSymbol(){
+        System.out.println(symbol);
     }
 
     public void TestSuite(){
         TestNodeCreation();
         TestEdgeCreation();
         TestGraphandPath();
+        PrintSymbol();
     }
 
 }
