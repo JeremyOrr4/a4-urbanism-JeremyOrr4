@@ -22,20 +22,20 @@ import java.util.Set;
 public class ShortestPath implements PathAlgorithms {
 
     public List<Node> findPathBetweenNode(GraphADT graph, Node startNode, Node endNode) {
-        Map<Node, Double> distance = new HashMap<>();
-        Map<Node, Node> parentNodes = new HashMap<>();
+        Map<Node, Double> Distance = new HashMap<>();
+        Map<Node, Node> ParentNodes = new HashMap<>();
 
         for (Node node : graph.AdjacencyList.keySet()) {
-            distance.put(node, Double.MAX_VALUE);
+            Distance.put(node, Double.MAX_VALUE);
         }
-        distance.put(startNode, 0.0);
+        Distance.put(startNode, 0.0);
 
         Set<Node> visited = new HashSet<>();
 
         PriorityQueue<Node> pq = new PriorityQueue<>(new Comparator<Node>() {
             @Override
             public int compare(Node node1, Node node2) {
-                return (int) (distance.get(node1) - distance.get(node2));
+                return (int) (Distance.get(node1) - Distance.get(node2));
             }
         });
 
@@ -51,11 +51,12 @@ public class ShortestPath implements PathAlgorithms {
 
             for (Node adjacentNode : graph.AdjacencyList.get(node)) {
                 if (!visited.contains(adjacentNode)) {
-                    double newDistance = distance.get(node) + Math.sqrt(Math.pow(node.GetXCoordinate() - adjacentNode.GetXCoordinate(),2) 
+                    double newDistance = Distance.get(node) + Math.sqrt(Math.pow(node.GetXCoordinate() - adjacentNode.GetXCoordinate(),2) 
                                                     + Math.pow(node.GetYCoordinate() - adjacentNode.GetYCoordinate(),2));
-                    if (newDistance < distance.get(adjacentNode)) {
-                        distance.put(adjacentNode, newDistance);
-                        parentNodes.put(adjacentNode, node);
+                                                    
+                    if (newDistance < Distance.get(adjacentNode)) {
+                        Distance.put(adjacentNode, newDistance);
+                        ParentNodes.put(adjacentNode, node);
                         pq.remove(adjacentNode);
                         pq.add(adjacentNode);
                     }
@@ -65,9 +66,9 @@ public class ShortestPath implements PathAlgorithms {
 
         List<Node> shortestPath = new ArrayList<>();
         Node currentNode = endNode;
-        while (parentNodes.containsKey(currentNode)) {
+        while (ParentNodes.containsKey(currentNode)) {
             shortestPath.add(currentNode);
-            currentNode = parentNodes.get(currentNode);
+            currentNode = ParentNodes.get(currentNode);
         }
         shortestPath.add(startNode);
         Collections.reverse(shortestPath);

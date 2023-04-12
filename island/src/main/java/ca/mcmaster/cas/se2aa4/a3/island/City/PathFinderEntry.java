@@ -32,6 +32,7 @@ public class PathFinderEntry {
         List<Node> shortestDistance = Path.findPathBetweenNode(Graph, CentreNode, NodeList.get(EndNodeID));
 
         List<Node> newShortestDistnace = new ArrayList<Node>();
+
         if (citysize.equalsIgnoreCase("small")){ 
             int NewLengthSegmentLength = (int) (shortestDistance.size()/5.0);
 
@@ -45,7 +46,7 @@ public class PathFinderEntry {
             SegmentListOfPath.add(s);
         }
 
-        if (citysize.equalsIgnoreCase("small")) {
+        if (citysize.equalsIgnoreCase("small")) { //Gets the shorest path as a list of segmetns to put back into mesh
         SegmentListOfPath = CityGraphCreator.GetSegmentPathList(newShortestDistnace, SegmentListOfPath,Mesh, Graph);
         }
 
@@ -56,8 +57,8 @@ public class PathFinderEntry {
         List<Vertex> ListOfVertices = new ArrayList<Vertex>();
         ListOfVertices = CityGraphCreator.AddColorToVertex(Mesh,CentreNode);
 
-        return Structs.Mesh.newBuilder().addAllVertices(ListOfVertices).addAllSegments(SegmentListOfPath)
-                .addAllPolygons(Mesh.getPolygonsList()).build();  
+        return Structs.Mesh.newBuilder().addAllVertices(ListOfVertices).addAllSegments(SegmentListOfPath) 
+                .addAllPolygons(Mesh.getPolygonsList()).build();  //Adding back all new segmetns and vertcies into existing mesh
 
     }
 }

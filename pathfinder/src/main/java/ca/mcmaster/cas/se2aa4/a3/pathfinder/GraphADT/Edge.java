@@ -5,14 +5,12 @@ package ca.mcmaster.cas.se2aa4.a3.pathfinder.GraphADT;
 public class Edge {
     Node StartNode;
     Node EndNode;
-    int EdgeID;
     double Weight;
 
     public Edge(Node StartNode, Node EndNode, double Weight) {
         this.StartNode = StartNode;
         this.EndNode = EndNode;
         this.Weight = Weight;
-        // this.EdgeID = EdgeID;
     }
 
     public void PrintEdge() {
