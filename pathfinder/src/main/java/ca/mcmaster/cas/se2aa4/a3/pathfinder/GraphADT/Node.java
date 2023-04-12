@@ -1,5 +1,7 @@
 package ca.mcmaster.cas.se2aa4.a3.pathfinder.GraphADT;
 
+
+//Node class for our GraphADT
 public class Node {
     private int NodeID;
     private double XCoordinate;

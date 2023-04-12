@@ -13,6 +13,7 @@ import ca.mcmaster.cas.se2aa4.a3.pathfinder.GraphADT.Node;
 import ca.mcmaster.cas.se2aa4.a3.pathfinder.GraphADT.PathAlgorithms;
 import ca.mcmaster.cas.se2aa4.a3.pathfinder.GraphADT.ShortestPath;
 
+//Class to create our path finder
 public class PathFinderEntry {
     public Structs.Mesh CreateCity(Structs.Mesh Mesh, int StartNodeID, String citysize){
         GraphADT Graph = new GraphADT();

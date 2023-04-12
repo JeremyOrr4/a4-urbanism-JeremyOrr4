@@ -1,5 +1,7 @@
 package ca.mcmaster.cas.se2aa4.a3.pathfinder.GraphADT;
 
+
+// The Edge object for my GRaphADT. Has the functions of an Edge
 public class Edge {
     Node StartNode;
     Node EndNode;

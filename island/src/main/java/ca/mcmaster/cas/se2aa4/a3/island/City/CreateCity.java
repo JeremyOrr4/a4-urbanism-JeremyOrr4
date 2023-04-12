@@ -11,6 +11,7 @@ import ca.mcmaster.cas.se2aa4.a3.pathfinder.GraphADT.Node;
 import ca.mcmaster.cas.se2aa4.a3.island.MeshAttributes.Tiles;
 import ca.mcmaster.cas.se2aa4.a3.pathfinder.GraphADT.Edge;
 
+//Class to create the graph that will be implented by the city
 public class CreateCity {
     
     public List<Node> CreateCityGraph(Structs.Mesh Mesh, GraphADT Graph){

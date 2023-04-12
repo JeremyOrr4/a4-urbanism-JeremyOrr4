@@ -4,6 +4,7 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Set;
 
+// GraphADT of my graph. This uses the Node and Edge class to create our adjaceny list which is the heart of our code
 public class GraphADT {
 
     Node Node;

@@ -8,7 +8,7 @@ import ca.mcmaster.cas.se2aa4.a3.pathfinder.GraphADT.Node;
 import ca.mcmaster.cas.se2aa4.a3.pathfinder.GraphADT.Edge;
 import ca.mcmaster.cas.se2aa4.a3.pathfinder.GraphADT.GraphADT;
 
-
+// Test class for our City implenetation. Testing our Edge, Nodes, Graph, Adjacney list.
 public class CityTest {
     public STATUS symbol;
     

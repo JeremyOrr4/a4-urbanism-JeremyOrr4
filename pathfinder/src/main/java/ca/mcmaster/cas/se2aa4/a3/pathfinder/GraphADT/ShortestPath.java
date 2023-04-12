@@ -17,6 +17,8 @@ import java.util.Map;
 import java.util.PriorityQueue;
 import java.util.Set;
 
+
+//Shorest path algorithm for our GraphADT
 public class ShortestPath implements PathAlgorithms {
 
     public List<Node> findPathBetweenNode(GraphADT graph, Node startNode, Node endNode) {
