@@ -21,16 +21,16 @@ import java.util.Set;
 //Shorest path algorithm for our GraphADT
 public class ShortestPath implements PathAlgorithms {
 
-    public List<Node> findPathBetweenNode(GraphADT graph, Node startNode, Node endNode) {
+    public List<Node> findPathBetweenNode(GraphADT Graph, Node StartNode, Node EndNode) {
         Map<Node, Double> Distance = new HashMap<>();
         Map<Node, Node> ParentNodes = new HashMap<>();
 
-        for (Node node : graph.AdjacencyList.keySet()) {
+        for (Node node : Graph.AdjacencyList.keySet()) {
             Distance.put(node, Double.MAX_VALUE);
         }
-        Distance.put(startNode, 0.0);
+        Distance.put(StartNode, 0.0);
 
-        Set<Node> visited = new HashSet<>();
+        Set<Node> Visited = new HashSet<>();
 
         PriorityQueue<Node> pq = new PriorityQueue<>(new Comparator<Node>() {
             @Override
@@ -39,40 +39,40 @@ public class ShortestPath implements PathAlgorithms {
             }
         });
 
-        pq.add(startNode);
+        pq.add(StartNode);
 
         while (!pq.isEmpty()) {
             Node node = pq.poll();
-            visited.add(node);
+            Visited.add(node);
 
-            if (node.equals(endNode)) {
+            if (node.equals(EndNode)) {
                 break;
             }
 
-            for (Node adjacentNode : graph.AdjacencyList.get(node)) {
-                if (!visited.contains(adjacentNode)) {
-                    double newDistance = Distance.get(node) + Math.sqrt(Math.pow(node.GetXCoordinate() - adjacentNode.GetXCoordinate(),2) 
-                                                    + Math.pow(node.GetYCoordinate() - adjacentNode.GetYCoordinate(),2));
+            for (Node AdjacentNode : Graph.AdjacencyList.get(node)) {
+                if (!Visited.contains(AdjacentNode)) {
+                    double newDistance = Distance.get(node) + Math.sqrt(Math.pow(node.GetXCoordinate() - AdjacentNode.GetXCoordinate(),2) 
+                                                    + Math.pow(node.GetYCoordinate() - AdjacentNode.GetYCoordinate(),2));
                                                     
-                    if (newDistance < Distance.get(adjacentNode)) {
-                        Distance.put(adjacentNode, newDistance);
-                        ParentNodes.put(adjacentNode, node);
-                        pq.remove(adjacentNode);
-                        pq.add(adjacentNode);
+                    if (newDistance < Distance.get(AdjacentNode)) {
+                        Distance.put(AdjacentNode, newDistance);
+                        ParentNodes.put(AdjacentNode, node);
+                        pq.remove(AdjacentNode);
+                        pq.add(AdjacentNode);
                     }
                 }
             }
         }
 
-        List<Node> shortestPath = new ArrayList<>();
-        Node currentNode = endNode;
-        while (ParentNodes.containsKey(currentNode)) {
-            shortestPath.add(currentNode);
-            currentNode = ParentNodes.get(currentNode);
+        List<Node> ShortestPath = new ArrayList<>();
+        Node CurrentNode = EndNode;
+        while (ParentNodes.containsKey(CurrentNode)) {
+            ShortestPath.add(CurrentNode);
+            CurrentNode = ParentNodes.get(CurrentNode);
         }
-        shortestPath.add(startNode);
-        Collections.reverse(shortestPath);
+        ShortestPath.add(StartNode);
+        Collections.reverse(ShortestPath);
 
-        return shortestPath;
+        return ShortestPath;
     }
 }

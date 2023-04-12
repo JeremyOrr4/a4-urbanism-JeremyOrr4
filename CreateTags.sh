@@ -11,13 +11,13 @@
 # git tag -a F6-A4 c83165f -m "For F6"
 # git tag -a F7-A4 98188c6 -m "For F7"
 
-git push origin F3-A4
-git push origin F9-A4
-git push origin F8-A4
-git push origin F10-A4
-git push origin F4-A4
-git push origin F1-A4
-git push origin F2-A4
-git push origin F5-A4
-git push origin F6-A4
-git push origin F7-A4
+# git push origin F3-A4
+# git push origin F9-A4
+# git push origin F8-A4
+# git push origin F10-A4
+# git push origin F4-A4
+# git push origin F1-A4
+# git push origin F2-A4
+# git push origin F5-A4
+# git push origin F6-A4
+# git push origin F7-A4

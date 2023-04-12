@@ -12,6 +12,8 @@ import ca.mcmaster.cas.se2aa4.a3.pathfinder.GraphADT.GraphADT;
 public class CityTest {
     public STATUS symbol;
     
+    //Setting up oracles
+
     public Node SetUpNode(int NodeID){
         Node NewNode = new Node(NodeID,1,1);
 
@@ -39,7 +41,7 @@ public class CityTest {
 
     }
 
-
+    //Testing each object
     public void TestNodeCreation(){
         System.out.println("Testing Node Creation");
         Node context1 = SetUpNode(0);
