@@ -4,10 +4,10 @@
   - Author: "Nathan Perry" <perryn1@mcmaster.ca>
   - Author: "Aidan Goodyer" <goodyera@mcmaster.ca>
   
-## CREDIT AND WORKLOAD
+## Credit AND workload
 
 | Id  | Feature  | Notes | Credited To | 
-| :---: | | :---: |  | :---: | | :---: |
+|:--: | :-----:  | :---: | :---------: |
 | F1  | Generate different tiles to differentiate between land and water  | • Create methods for land and water tiles which pass in a tile and give it the proper attributes • Create classes for different tile types or just for general tile assignment? |Nathan Perry|
 | F2  | Create a circular island, integrating both types of tiles  | • Produce an algorithm to choose the correct tiles to be made land tiles • Create tile assignment class  |Nathan Perry|
 | F3  | Create a third lagoon tile to represent water within the island  | • Add new properties for water inside an island  |Jeremy Orr and Nathan Perry|
@@ -21,7 +21,7 @@
 | F11  | Implement river combination  | • Change thickness based on river intersections  |Nathan Perry|
 | F12  | Implement soil absorption  | • Compute soil absorption based on humidity and proximity to water• Implement soil profile builder (how much is absorbs soil) • Change properties based on absorption  |Jeremy Orr|
 | F13  | Implement aquifer and soil command line option  | • CLI command option • Make specific tiles aquifers and adjust moisture levels of neighbours  |Jeremy Orr|
-| F14  | Implement biomes using humidity and temperature (elevation) |  • Use humidity and temperature properties of tiles to determine biome   |XXXXX|
+| F14  | Implement biomes using humidity and temperature (elevation) |  • Use humidity and temperature properties of tiles to determine biome   |All Members|
 | F15  |Implement whittaker diagram command line |  • CLI command line option   |Aidan Goodyer|
 | F16  |Implement seeds |    • CLI command option • Use given seed to determine properties of the island   |Aidan Goodyer|
 | F17  |Create JUnit testing |  • Create the proper classes   |Jeremy Orr and Nathan Perry|
