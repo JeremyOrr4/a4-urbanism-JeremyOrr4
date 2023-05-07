@@ -1,6 +1,10 @@
 # A4 Island Generation Simulator
 
   - Author: "Jeremy Orr" <orrj4@mcmaster.ca>
+  - Author: "Nathan Perry" <perryn1@mcmaster.ca>
+  - Author: "Aidan Goodyer" <goodyera@mcmaster.ca>
+  
+ ## CREDIT AND WORKLOAD:
 
 ## How to Run the Program
 
