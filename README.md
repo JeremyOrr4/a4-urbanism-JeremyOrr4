@@ -3,8 +3,12 @@
   - Author: "Jeremy Orr" <orrj4@mcmaster.ca>
   - Author: "Nathan Perry" <perryn1@mcmaster.ca>
   - Author: "Aidan Goodyer" <goodyera@mcmaster.ca>
+
+## Created Islands Using the Software
+  ![island1](island1.html)
+  ![island2](island2.html)
   
-## Credit AND workload
+## Credit and workload
 
 | Id  | Feature  | Notes | Credited To | 
 |:--: | :-----:  | :---: | :---------: |
