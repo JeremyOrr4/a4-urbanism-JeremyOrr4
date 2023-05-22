@@ -6,7 +6,7 @@
 
 ## Created Islands Using the Software
   ![island1](island1.svg)
-  ![island2](island2.svg)
+  ![island2](island.svg)
   
 ## Credit and workload
 
